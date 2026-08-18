@@ -1,0 +1,1029 @@
+{
+  "sections": [
+    {
+      "id": "conference",
+      "heading": "Conference",
+      "prefix": "C",
+      "entries": [
+        {
+          "bibkey": "semiexplicitdae2026",
+          "number": 20,
+          "title": "Safe Control of Semi-Explicit Differential-Algebraic Systems: Control Barrier Functions with SOS Verification",
+          "authors": [
+            "Mohamad H. Kazma",
+            "Hongchao Zhang",
+            "Abdallah A. Albustami",
+            "Ben Wooding",
+            "Meiyi Ma",
+            "Taylor T. Johnson",
+            "Ahmad F. Taha"
+          ],
+          "venue": "IEEE Conference on Decision and Control (CDC)",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": "<strong><em>(to appear)</em></strong>",
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "safetakeover2026",
+          "number": 19,
+          "title": "Safe Autonomous Takeover for Unknown Descriptor Systems",
+          "authors": [
+            "Ben Wooding",
+            "Mohamad H. Kazma",
+            "Hongchao Zhang",
+            "Ahmad F. Taha",
+            "Meiyi Ma",
+            "Taylor T. Johnson"
+          ],
+          "venue": "IEEE Conference on Decision and Control (CDC)",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": "<strong><em>(to appear)</em></strong>",
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "daecbf2026",
+          "number": 18,
+          "title": "Control Barrier Function Synthesis for Differential-Algebraic Systems",
+          "authors": [
+            "Hongchao Zhang",
+            "Mohamad H. Kazma",
+            "Ben Wooding",
+            "Meiyi Ma",
+            "Taylor T. Johnson",
+            "Ahmad F. Taha"
+          ],
+          "venue": "IEEE Conference on Decision and Control (CDC)",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": "<strong><em>(to appear)</em></strong>",
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "nnv3_2026",
+          "number": 17,
+          "title": "NNV3: Expanding Neural Network Verification to New Architectures and Domains",
+          "authors": [
+            "Anne Marie Tumlin",
+            "Samuel Sasaki",
+            "Ben Wooding",
+            "Diego Manzanas Lopez",
+            "Muhammad Usama Zubair",
+            "Navid Hashemi",
+            "Hongchao Zhang",
+            "Waseem Abbas",
+            "Ipek Oguz",
+            "Meiyi Ma",
+            "Taylor T. Johnson"
+          ],
+          "venue": "International Symposium on Automated Technology for Verification and Analysis (ATVA)",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": "<strong><em>(to appear; <sup>*</sup>co-first authors)</em></strong>",
+          "equal_contrib": [
+            1,
+            2
+          ]
+        },
+        {
+          "bibkey": "archcomp26_nonlinear",
+          "number": 16,
+          "title": "ARCH-COMP26 Category Report: Continuous and Hybrid Systems with Nonlinear Dynamics",
+          "authors": [
+            "Luca Geretti",
+            "Julien Alexandre dit Sandretto",
+            "Matthias Althoff",
+            "Luis Benet",
+            "Pieter Collins",
+            "Marcelo Forets",
+            "Stefan Mitsch",
+            "Mark Perschl",
+            "Christian Schilling",
+            "Jorge Tillet",
+            "Ben Wooding"
+          ],
+          "venue": "13th International Workshop on Applied Verification of Continuous and Hybrid Systems (ARCH)",
+          "year": 2026,
+          "doi": null,
+          "url": "https://easychair.org/publications/paper/2Zsc",
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": "<strong><em>(authors alphabetical)</em></strong>",
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "archcomp26_ainncs",
+          "number": 15,
+          "title": "ARCH-COMP26 Category Report: Artificial Intelligence and Neural Network Control Systems (AINNCS) for Continuous and Hybrid Systems Plants",
+          "authors": [
+            "Samuel Sasaki",
+            "Ben Wooding",
+            "Matthias Althoff",
+            "Luis Benet",
+            "Samuel Coogan",
+            "Marcelo Forets",
+            "Akash Harapanahalli",
+            "Lukas Koller",
+            "Tobias Ladner",
+            "Christian Schilling",
+            "Taylor T. Johnson",
+            "Hongchao Zhang",
+            "Xiangru Zhong"
+          ],
+          "venue": "13th International Workshop on Applied Verification of Continuous and Hybrid Systems (ARCH)",
+          "year": 2026,
+          "doi": null,
+          "url": "https://easychair.org/publications/paper/GsKW",
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": "<strong><em>(<sup>*</sup>category co-leads)</em></strong>",
+          "equal_contrib": [
+            1,
+            2
+          ]
+        },
+        {
+          "bibkey": "kinductiveneural2026",
+          "number": 14,
+          "title": "k-Inductive Neural Barrier Certificates for Unknown Nonlinear Dynamics",
+          "authors": [
+            "Ben Wooding",
+            "Hongchao Zhang",
+            "Taylor T. Johnson",
+            "Abolfazl Lavaei"
+          ],
+          "venue": "3rd International Conference on Neuro-Symbolic Systems (NeuS)",
+          "year": 2026,
+          "doi": null,
+          "url": "https://arxiv.org/abs/2605.20108",
+          "arxiv": "2605.20108",
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": "<strong><em>(selected as oral presentation &mdash; 28% of submissions)</em></strong>",
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "metamoe2026",
+          "number": 13,
+          "title": "MetaMoE: Formal Verification of Compositional Robustness and Scalability of Mixture-of-Experts Architecture",
+          "authors": [
+            "Quang Pham",
+            "Ben Wooding",
+            "Luke Nam",
+            "Samuel Sasaki",
+            "Taylor T. Johnson"
+          ],
+          "venue": "9th International Symposium on AI Verification (SAIV)",
+          "year": 2026,
+          "doi": "10.1007/978-3-032-32357-6_8",
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": true,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "gnnverif2026",
+          "number": 12,
+          "title": "Reachability-Based Formal Verification of Graph Neural Networks with Node and Edge Features",
+          "authors": [
+            "Anne Marie Tumlin",
+            "Ben Wooding",
+            "Zhenxuan Shao",
+            "Diego Manzanas Lopez",
+            "Tyler Derr",
+            "Taylor T. Johnson"
+          ],
+          "venue": "9th International Symposium on AI Verification (SAIV)",
+          "year": 2026,
+          "doi": "10.1007/978-3-032-32357-6_13",
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "selfcorrecting2026",
+          "number": 11,
+          "title": "A Self-Correcting Neuro-Symbolic AI Reasoning Framework",
+          "authors": [
+            "Ben Wooding",
+            "Kiersten Brennan",
+            "Anne Marie Tumlin",
+            "Hongchao Zhang",
+            "Taylor T. Johnson"
+          ],
+          "venue": "9th International Symposium on AI Verification (SAIV)",
+          "year": 2026,
+          "doi": "10.1007/978-3-032-32357-6_9",
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": true,
+          "addendum_html": "<strong><em>(<sup>*</sup>contributed equally)</em></strong>",
+          "equal_contrib": [
+            1,
+            2
+          ]
+        },
+        {
+          "bibkey": "archcomp25_stochastic",
+          "number": 10,
+          "title": "ARCH-COMP25 Category Report: Stochastic Models",
+          "authors": [
+            "Alessandro Abate",
+            "Omid Akbarzadeh",
+            "Henk A. P. Blom",
+            "Sofie Haesaert",
+            "Sina Hassani",
+            "Abolfazl Lavaei",
+            "Frederik Baymler Mathiesen",
+            "Rahul Misra",
+            "Amy Nejati",
+            "Mathis Niehage",
+            "Fie Ørum",
+            "Anne Remke",
+            "Behrad Samari",
+            "Ruohan Wang",
+            "Rafael Wisniewski",
+            "Ben Wooding",
+            "Mahdieh Zaker"
+          ],
+          "venue": "12th International Workshop on Applied Verification of Continuous and Hybrid Systems (ARCH25)",
+          "year": 2025,
+          "doi": "10.29007/mfm4",
+          "url": "https://arxiv.org/abs/2506.17602",
+          "arxiv": "2506.17602",
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": "<strong><em>(authors alphabetical)</em></strong>",
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "cando3isabelle2025",
+          "number": 9,
+          "title": "Proving the Correctness of CANDO3 Optrode Command Interface VDM model in Isabelle/HOL",
+          "authors": [
+            "Leo Freitas",
+            "Ben Wooding",
+            "Bill Scott",
+            "Andrew Pollitt",
+            "Patrick Degenaar"
+          ],
+          "venue": "23rd Overture Workshop and 3rd INTO-CPS Association Brainstorm",
+          "year": 2025,
+          "doi": null,
+          "url": "https://www.overturetool.org/workshops/23rd-overture-workshop.html",
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "trust2025",
+          "number": 8,
+          "title": "TRUST: Stability and Safety Controller Synthesis for Unknown Dynamical Models Using a Single Trajectory",
+          "authors": [
+            "Jamie Gardner",
+            "Ben Wooding",
+            "Amy Nejati",
+            "Abolfazl Lavaei"
+          ],
+          "venue": "Hybrid Systems: Computation and Control (HSCC)",
+          "year": 2025,
+          "doi": "10.1145/3716863.3718036",
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": true,
+          "addendum_html": "<strong><em>(<sup>*</sup>contributed equally)</em></strong>",
+          "equal_contrib": [
+            1,
+            2
+          ]
+        },
+        {
+          "bibkey": "protect2025",
+          "number": 7,
+          "title": "PRoTECT: Parallelized Construction of Safety Barrier Certificates for Nonlinear Polynomial Systems",
+          "authors": [
+            "Ben Wooding",
+            "Viacheslav Horbanov",
+            "Abolfazl Lavaei"
+          ],
+          "venue": "International Colloquium on Theoretical Aspects of Computing (ICTAC)",
+          "year": 2025,
+          "doi": "10.1007/978-3-032-11176-0_26",
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": "<span class=\"accent\"><strong>[2<sup>nd</sup> place &mdash; ARCH 2025 Best Result Award]</strong></span>",
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "bintreegp2024",
+          "number": 6,
+          "title": "Data-Driven Abstractions via Binary-Tree Gaussian Processes for Formal Verification",
+          "authors": [
+            "Oliver Schön",
+            "Shammakh Naseer",
+            "Ben Wooding",
+            "Sadegh Soudjani"
+          ],
+          "venue": "Analysis and Design of Hybrid Systems (ADHS)",
+          "year": 2024,
+          "doi": "10.1016/j.ifacol.2024.07.434",
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": true,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "impact2024",
+          "number": 5,
+          "title": "IMPaCT: Interval MDP Parallel Construction for Controller Synthesis of Large-Scale Stochastic Systems",
+          "authors": [
+            "Ben Wooding",
+            "Abolfazl Lavaei"
+          ],
+          "venue": "Quantitative Evaluation of Systems and Formal Modeling and Analysis of Timed Systems (QEST+FORMATS)",
+          "year": 2024,
+          "doi": "10.1007/978-3-031-68416-6_15",
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "robustsimfunc2023",
+          "number": 4,
+          "title": "Robust Simulation Functions with Disturbance Refinement",
+          "authors": [
+            "Ben Wooding",
+            "Abolfazl Lavaei",
+            "Vahid Vahidinasab",
+            "Sadegh Soudjani"
+          ],
+          "venue": "European Control Conference (ECC)",
+          "year": 2023,
+          "doi": "10.23919/ECC57647.2023.10178241",
+          "url": "https://ieeexplore.ieee.org/document/10178241",
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "robotti2021",
+          "number": 3,
+          "title": "Tuning Robotti: the machine-assisted exploration of parameter spaces in multi-models of a cyber-physical system",
+          "authors": [
+            "Sergiy Bogomolov",
+            "John Fitzgerald",
+            "Frederik F. Foldager",
+            "Carl Gamble",
+            "Peter Gorm Larsen",
+            "Kenneth Pierce",
+            "Paulius Stankaitis",
+            "Ben Wooding"
+          ],
+          "venue": "18th International Overture Workshop",
+          "year": 2021,
+          "doi": null,
+          "url": "https://www.overturetool.org/workshops/18th-overture-workshop.html",
+          "arxiv": "2101.07261",
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": "<strong><em>(authors alphabetical)</em></strong>",
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "archcomp20_stochastic",
+          "number": 2,
+          "title": "ARCH-COMP20 Category Report: Stochastic Models",
+          "authors": [
+            "Alessandro Abate",
+            "Henk Blom",
+            "Nathalie Cauchi",
+            "Joanna Delicaris",
+            "Arnd Hartmanns",
+            "Mahmoud Khaled",
+            "Abolfazl Lavaei",
+            "Carina Pilch",
+            "Anne Remke",
+            "Stefan Schupp",
+            "Fedor Shmarov",
+            "Sadegh Soudjani",
+            "Abraham Vinod",
+            "Ben Wooding",
+            "Majid Zamani",
+            "Paolo Zuliani"
+          ],
+          "venue": "7th International Workshop on Applied Verification of Continuous and Hybrid Systems (ARCH20)",
+          "year": 2020,
+          "doi": "10.29007/mqzc",
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": "<strong><em>(authors alphabetical)</em></strong>",
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "evfreq2020",
+          "number": 1,
+          "title": "Formal Controller Synthesis for Frequency Regulation Utilising Electric Vehicles",
+          "authors": [
+            "Ben Wooding",
+            "Vahid Vahidinasab",
+            "Sadegh Soudjani"
+          ],
+          "venue": "Smart Energy Systems and Technologies (SEST)",
+          "year": 2020,
+          "doi": "10.1109/SEST48500.2020.9203234",
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        }
+      ]
+    },
+    {
+      "id": "journal",
+      "heading": "Journal",
+      "prefix": "J",
+      "entries": [
+        {
+          "bibkey": "wrrf2025",
+          "number": 2,
+          "title": "A logic-based resilience metric for water resource recovery facilities",
+          "authors": [
+            "Anna S. Laino",
+            "Ben Wooding",
+            "Sadegh Soudjani",
+            "Russell J. Davenport"
+          ],
+          "venue": "Environmental Science: Water Research & Technology",
+          "year": 2025,
+          "doi": "10.1039/D4EW00649F",
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": true,
+          "addendum_html": "<span class=\"accent\"><strong>[1 of 20 papers (8.5% of eligible papers) chosen for the themed collection &mdash; Highlights from Environmental Science: Water Research &amp; Technology in 2024]</strong></span>",
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "ddacs2024",
+          "number": 1,
+          "title": "Data-Driven Abstraction-Based Control Synthesis",
+          "authors": [
+            "Milad Kazemi",
+            "Rupak Majumdar",
+            "Mahmoud Salamati",
+            "Sadegh Soudjani",
+            "Ben Wooding"
+          ],
+          "venue": "Nonlinear Analysis: Hybrid Systems (NAHS)",
+          "year": 2024,
+          "doi": "10.1016/j.nahs.2024.101467",
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": "<strong><em>(<sup>*</sup>contributed equally)</em></strong>",
+          "equal_contrib": [
+            1,
+            3,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "id": "book-chapters",
+      "heading": "Book Chapters",
+      "prefix": "B",
+      "entries": [
+        {
+          "bibkey": "smarthomes2025",
+          "number": 3,
+          "title": "Cyber-Physical Smart Homes/Buildings",
+          "authors": [
+            "Ben Wooding",
+            "Vahid Vahidinasab",
+            "Milad Kazemi",
+            "Sadegh Soudjani"
+          ],
+          "venue": "Cyber-Physical Structures of Power Applications",
+          "year": 2025,
+          "doi": null,
+          "url": "https://salford-repository.worktribe.com/output/3778004",
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "activebuildingmgmt2021",
+          "number": 2,
+          "title": "Control and management of active buildings",
+          "authors": [
+            "Ben Wooding",
+            "Vahid Vahidinasab",
+            "Milad Kazemi",
+            "Sadegh Soudjani"
+          ],
+          "venue": "Active Building Energy Systems: Operation and Control",
+          "year": 2021,
+          "doi": "10.1007/978-3-030-79742-3_7",
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "activebuildingnetwork2021",
+          "number": 1,
+          "title": "Operation and control of a population of active buildings at network level",
+          "authors": [
+            "Ben Wooding",
+            "Vahid Vahidinasab",
+            "Sadegh Soudjani"
+          ],
+          "venue": "Active Building Energy Systems: Operation and Control",
+          "year": 2021,
+          "doi": "10.1007/978-3-030-79742-3_8",
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        }
+      ]
+    },
+    {
+      "id": "posters-competition",
+      "heading": "Posters & Competition Contributions",
+      "prefix": "M",
+      "entries": [
+        {
+          "bibkey": "n2v2026",
+          "number": 3,
+          "title": "n2v: Neural Network Verification in Python (Competition Contribution)",
+          "authors": [
+            "Samuel Sasaki",
+            "Ben Wooding",
+            "Hanchen D. Wang",
+            "Anne Marie Tumlin",
+            "Meiyi Ma",
+            "Taylor T. Johnson"
+          ],
+          "venue": "9th International Symposium on AI Verification (SAIV)",
+          "year": 2026,
+          "doi": "10.1007/978-3-032-32357-6_21",
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": true,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "protectposter2025",
+          "number": 2,
+          "title": "Poster Abstract: PRoTECT: Parallel Construction of Barrier Certificates for Safety Verification of Polynomial Systems",
+          "authors": [
+            "Ben Wooding",
+            "Viacheslav Horbanov",
+            "Abolfazl Lavaei"
+          ],
+          "venue": "International Conference on Cyber-Physical Systems (ICCPS)",
+          "year": 2025,
+          "doi": "10.1145/3716550.3725152",
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": "<span class=\"accent\"><strong>[2<sup>nd</sup> place &mdash; ARCH 2025 Best Result Award]</strong></span>",
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "impactposter2024",
+          "number": 1,
+          "title": "Poster Abstract: IMPaCT: A Parallelized Software Tool for IMDP Construction and Controller Synthesis with Convergence Guarantees",
+          "authors": [
+            "Ben Wooding",
+            "Abolfazl Lavaei"
+          ],
+          "venue": "Hybrid Systems: Computation and Control (HSCC)",
+          "year": 2024,
+          "doi": "10.1145/3641513.3652532",
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        }
+      ]
+    },
+    {
+      "id": "theses",
+      "heading": "Theses",
+      "prefix": "T",
+      "entries": [
+        {
+          "bibkey": "phdthesis2023",
+          "number": 2,
+          "title": "Model-Based and Data-Driven Formal Synthesis of Power Systems",
+          "authors": [
+            "Ben Wooding"
+          ],
+          "venue": "PhD thesis, School of Computing, Newcastle University",
+          "year": 2023,
+          "doi": null,
+          "url": "https://theses.ncl.ac.uk/jspui/handle/10443/6183",
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "mcompthesis2019",
+          "number": 1,
+          "title": "Using Formal Methods and Proof to Verify a CANDO Epilepsy Medical Device",
+          "authors": [
+            "Ben Wooding"
+          ],
+          "venue": "MComp dissertation, Newcastle University",
+          "year": 2019,
+          "doi": null,
+          "url": "/papers/mcompthesis2019.pdf",
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        }
+      ]
+    },
+    {
+      "id": "preprints",
+      "heading": "Preprints (under review / not yet published)",
+      "prefix": "P",
+      "entries": [
+        {
+          "bibkey": "surgicalrobots2026",
+          "number": 11,
+          "title": "Benchmark: Formal Verification for Surgical Robots",
+          "authors": [
+            "Jamie Fong",
+            "Ben Wooding",
+            "Taylor T. Johnson"
+          ],
+          "venue": "submitted to Formal Methods for Autonomous Systems (FMAS)",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "preprint",
+          "mentee_coauthored": true,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "multiagentbt2026",
+          "number": 10,
+          "title": "Composing Multi-Agent Behavior Trees",
+          "authors": [
+            "Jamie Fong",
+            "Ben Wooding",
+            "Taylor T. Johnson"
+          ],
+          "venue": "submitted to Formal Methods for Autonomous Systems (FMAS)",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "preprint",
+          "mentee_coauthored": true,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "changedetection2026",
+          "number": 9,
+          "title": "From Estimation to Detection: Sequential Change Detection for Alignment Monitoring",
+          "authors": [
+            "Samuel Sasaki",
+            "Ben Wooding",
+            "Anthony J. Clark",
+            "Taylor T. Johnson"
+          ],
+          "venue": "submitted to Formal Methods for Autonomous Systems (FMAS)",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "preprint",
+          "mentee_coauthored": true,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "reachsetgeometry2026",
+          "number": 8,
+          "title": "Learning Reach-Set Geometry for Tighter Probabilistic Neural Network Verification",
+          "authors": [
+            "Samuel Sasaki",
+            "Ben Wooding",
+            "Taylor T. Johnson"
+          ],
+          "venue": "submitted to Neural Information Processing Systems (NeurIPS)",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "preprint",
+          "mentee_coauthored": true,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "behaverify2026",
+          "number": 7,
+          "title": "BehaVerify: A Formal Verification Tool for Behavior Trees",
+          "authors": [
+            "Serena S. Serbinowska",
+            "Ben Wooding",
+            "Diego Manzanas Lopez",
+            "Luke Nam",
+            "Anne Marie Tumlin",
+            "Nicholas K. Potteiger",
+            "Hongchao Zhang",
+            "Taylor T. Johnson"
+          ],
+          "venue": "submitted to Formal Methods for Autonomous Systems (FMAS)",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "preprint",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "roger2026",
+          "number": 6,
+          "title": "Roger? Probabilistic Certificates for Safety-Critical ATC Speech Recognition",
+          "authors": [
+            "Ben Wooding",
+            "Taylor T. Johnson"
+          ],
+          "venue": "submitted to Transactions on Machine Learning Research (TMLR)",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "preprint",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "daecbcunknown2026",
+          "number": 5,
+          "title": "Control Barrier Certificates for Unknown Linear Differential-Algebraic Equation Systems",
+          "authors": [
+            "Ben Wooding",
+            "Mohamad H. Kazma",
+            "Hongchao Zhang",
+            "Meiyi Ma",
+            "Ahmad F. Taha",
+            "Taylor T. Johnson"
+          ],
+          "venue": "submitted to IEEE Transactions on Control Systems Technology (TCST)",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "preprint",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "robustsiminterconnected2026",
+          "number": 4,
+          "title": "Robust Simulation Functions for Interconnected Systems under Large Disturbances",
+          "authors": [
+            "Ben Wooding",
+            "Sadegh Soudjani"
+          ],
+          "venue": "submitted to IEEE Access",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "preprint",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "inputagnostic2026",
+          "number": 3,
+          "title": "Input-Agnostic Probabilistic Neural Network Verification for Vision, Speech and Depth",
+          "authors": [
+            "Ben Wooding",
+            "Anne Marie Tumlin",
+            "Samuel Sasaki",
+            "Hongchao Zhang",
+            "Taylor T. Johnson"
+          ],
+          "venue": "submitted to AAAI Conference on Artificial Intelligence (AAAI)",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "preprint",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "learnkinductive2024",
+          "number": 2,
+          "title": "Learning k-Inductive Control Barrier Certificates for Unknown Nonlinear Dynamics Beyond Polynomials",
+          "authors": [
+            "Ben Wooding",
+            "Abolfazl Lavaei"
+          ],
+          "venue": "arXiv preprint, under submission",
+          "year": 2024,
+          "doi": null,
+          "url": "https://arxiv.org/abs/2412.07232",
+          "arxiv": "2412.07232",
+          "status": "preprint",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "nets39bus2023",
+          "number": 1,
+          "title": "Formal Control of New England 39-Bus Test System: An Assume-Guarantee Approach",
+          "authors": [
+            "Ben Wooding",
+            "Abolfazl Lavaei",
+            "Sadegh Soudjani"
+          ],
+          "venue": "arXiv preprint",
+          "year": 2023,
+          "doi": null,
+          "url": "https://arxiv.org/abs/2307.03467",
+          "arxiv": "2307.03467",
+          "status": "preprint",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "wrrfinfluent2026",
+          "number": null,
+          "title": "How Do Changing Influent Distributions Affect System Resilience in Water Resource Recovery Facilities? A Model-Based Investigation",
+          "authors": [
+            "Anna S. Laino",
+            "Omar Wani",
+            "Ben Wooding",
+            "Sadegh Soudjani",
+            "Russell J. Davenport"
+          ],
+          "venue": "in preparation",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "preprint",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "partialconsistency2026",
+          "number": null,
+          "title": "Partial Consistency for Scenario-Based Decision Making",
+          "authors": [
+            "Ben Wooding",
+            "Simone Garatti",
+            "Marco C. Campi"
+          ],
+          "venue": "in preparation",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "preprint",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "scenopt2026",
+          "number": null,
+          "title": "Scen-Opt: A Scenario Optimization Toolbox for Data-Driven Convex Programming",
+          "authors": [
+            "Ben Wooding",
+            "Simone Garatti",
+            "Marco C. Campi",
+            "Abolfazl Lavaei"
+          ],
+          "venue": "in preparation",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "preprint",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "qstar2026",
+          "number": null,
+          "title": "QStar: Star-Set Reachability for Open Quantum Systems",
+          "authors": [
+            "Ben Wooding",
+            "Jonte R. Hance",
+            "Taylor T. Johnson"
+          ],
+          "venue": "in preparation",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "preprint",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "intervalbt2026",
+          "number": null,
+          "title": "Interval Behavior Trees and their Verification",
+          "authors": [
+            "Ben Wooding",
+            "Taylor T. Johnson"
+          ],
+          "venue": "in preparation",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "preprint",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        }
+      ]
+    }
+  ]
+}

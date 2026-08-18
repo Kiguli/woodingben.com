@@ -1,0 +1,190 @@
+:root{
+  --bg:#0e1117; --panel:#161b25; --panel2:#1d2430; --ink:#e6edf3; --muted:#8b97a7;
+  --res:#3b82f6; --spy:#ef4444; --good:#22c55e; --warn:#f59e0b;
+  --line:#2a3340; --accent:#a78bfa;
+  --radius:16px; --shadow:0 6px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 800px at 70% -10%,#16203a 0,var(--bg) 55%);
+  color:var(--ink);font:15px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1{font-size:20px;margin:0;letter-spacing:.3px}
+.sub{color:var(--muted);font-size:12.5px}
+.wrap{max-width:1180px;margin:0 auto;padding:22px}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:14px}
+
+/* tabs (one per game; add more as games are built) */
+.tabs{display:flex;gap:8px;border-bottom:1px solid var(--line);margin-bottom:18px;flex-wrap:wrap}
+.tab{padding:9px 16px;border:1px solid var(--line);border-bottom:none;border-radius:12px 12px 0 0;
+  background:var(--panel2);color:var(--muted);cursor:pointer;transition:.15s;font-weight:600;font-size:13.5px}
+.tab:hover{color:var(--ink)}
+.tab.active{background:var(--panel);color:var(--ink);border-color:var(--accent);border-bottom:1px solid var(--panel);margin-bottom:-1px}
+.tab.soon{opacity:.5;cursor:default;font-weight:500}
+.gamepanel{display:none}
+.gamepanel.active{display:block}
+
+.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+select,button{font:inherit;color:var(--ink);background:var(--panel2);border:1px solid var(--line);
+  border-radius:10px;padding:8px 12px;cursor:pointer;transition:.15s}
+button:hover{border-color:var(--accent);transform:translateY(-1px)}
+button.primary{background:linear-gradient(180deg,#6d5bd0,#5a48c0);border-color:#6d5bd0}
+button:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.grid{display:grid;grid-template-columns:1fr 340px;gap:22px}
+@media(max-width:920px){.grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.gamehead{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:16px;flex-wrap:wrap}
+.pill{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--panel2);border:1px solid var(--line);font-size:11px;margin-left:6px}
+
+/* board */
+.boardcard{padding:18px;position:relative;overflow:hidden}
+.board{position:relative;width:600px;height:600px;max-width:100%;margin:6px auto 0}
+.seat{position:absolute;width:118px;margin-left:-59px;margin-top:-52px;text-align:center;transition:.45s cubic-bezier(.22,1,.36,1)}
+.avatar{width:58px;height:58px;border-radius:50%;margin:0 auto;display:grid;place-items:center;
+  font-weight:700;font-size:18px;background:var(--panel2);border:2px solid var(--line);transition:.3s;position:relative}
+.seat.onteam .avatar{border-color:var(--accent);box-shadow:0 0 0 4px rgba(167,139,250,.18)}
+.seat.leader .avatar{border-color:var(--warn);box-shadow:0 0 0 4px rgba(245,158,11,.20)}
+.seat.spy .avatar{background:#3a1820}
+.seat.res .avatar{background:#13233f}
+.name{font-size:12.5px;margin-top:6px;font-weight:600}
+.role{font-size:10.5px;color:var(--muted);height:13px;letter-spacing:.4px}
+.crown{position:absolute;top:-14px;left:50%;transform:translateX(-50%);font-size:15px}
+.badges{display:flex;gap:4px;justify-content:center;margin-top:5px;min-height:18px}
+.chip{font-size:10px;padding:1px 6px;border-radius:999px;border:1px solid var(--line);background:var(--panel2)}
+.chip.yes{color:var(--good);border-color:rgba(34,197,94,.5)}
+.chip.no{color:var(--spy);border-color:rgba(239,68,68,.5)}
+.susp{height:6px;border-radius:4px;margin:6px 8px 0;background:#222a36;overflow:hidden}
+.susp > i{display:block;height:100%;background:linear-gradient(90deg,var(--good),var(--warn),var(--spy));transition:.4s}
+.suspnum{font-size:10px;color:var(--muted);margin-top:2px}
+
+/* center hub */
+.hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:250px;text-align:center}
+.phase{font-size:12px;color:var(--accent);letter-spacing:1px;text-transform:uppercase}
+.missiontrack{display:flex;gap:8px;justify-content:center;margin:12px 0 8px}
+.mpuck{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;font-weight:700;
+  background:var(--panel2);border:1px solid var(--line);font-size:13px;position:relative}
+.mpuck.pass{background:rgba(34,197,94,.18);border-color:var(--good);color:#bdf3cf}
+.mpuck.fail{background:rgba(239,68,68,.18);border-color:var(--spy);color:#ffd0d0}
+.mpuck.cur{outline:2px solid var(--accent);outline-offset:2px}
+.mpuck small{position:absolute;bottom:-15px;left:0;right:0;font-size:9px;color:var(--muted)}
+.votetrack{display:flex;gap:6px;justify-content:center;margin-top:16px}
+.vdot{width:13px;height:13px;border-radius:50%;background:var(--panel2);border:1px solid var(--line)}
+.vdot.used{background:var(--spy);border-color:var(--spy)}
+.score{font-size:12px;color:var(--muted);margin-top:6px}
+
+/* odds */
+.odds{margin:0 0 14px}
+.oddsbar{height:30px;border-radius:9px;overflow:hidden;display:flex;border:1px solid var(--line)}
+.oddsbar .r{background:linear-gradient(180deg,#4f93ff,#2f6fd6);display:grid;place-items:center;font-weight:700;font-size:12.5px;transition:.5s}
+.oddsbar .s{background:linear-gradient(180deg,#ff6b6b,#d63b3b);display:grid;place-items:center;font-weight:700;font-size:12.5px;transition:.5s}
+
+.panel{padding:16px}
+.panel h2{font-size:13px;margin:0 0 10px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+.susplist{display:flex;flex-direction:column;gap:8px}
+.srow{display:flex;align-items:center;gap:10px;font-size:13px}
+.srow .dot{width:10px;height:10px;border-radius:50%}
+.srow .bar{flex:1;height:8px;border-radius:5px;background:#222a36;overflow:hidden}
+.srow .bar > i{display:block;height:100%}
+.srow .pct{width:42px;text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+.tag{font-size:10px;padding:1px 6px;border-radius:6px;margin-left:4px}
+.tag.spy{background:rgba(239,68,68,.2);color:#ffb3b3}
+.tag.clean{background:rgba(34,197,94,.2);color:#b3f3c6}
+.note{font-size:12.5px;color:var(--muted);margin-top:12px;border-top:1px solid var(--line);padding-top:12px}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.log{margin-top:14px;max-height:150px;overflow:auto;font-size:12px;color:var(--muted)}
+.log div{padding:2px 0;border-bottom:1px solid #1c2330}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin-top:10px}
+.sw{width:12px;height:12px;border-radius:3px;display:inline-block}
+.prompt{background:var(--panel2);border:1px dashed var(--accent);border-radius:12px;padding:12px;margin-top:14px;font-size:13px}
+.placeholder{padding:60px 20px;text-align:center;color:var(--muted)}
+
+/* educational explainer (under the interactive board) */
+.explainer{margin-top:22px;padding:26px}
+.explainer .lead{color:#c9d3df;font-size:14px;max-width:80ch}
+.explainer h3{font-size:16px;margin:30px 0 8px;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:7px}
+.explainer h4{font-size:13.5px;margin:18px 0 4px;color:var(--accent);letter-spacing:.2px}
+.explainer p{color:#c4cedb;font-size:13.5px;max-width:82ch}
+.explainer ul{color:#c4cedb;font-size:13.5px;max-width:82ch;padding-left:20px}
+.explainer li{margin:4px 0}
+.explainer code{background:var(--panel2);padding:1px 6px;border-radius:6px;font-size:12.5px}
+.explainer .formula{background:#10151e;border:1px solid var(--line);border-radius:10px;padding:12px 14px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;color:#cfe0ff;white-space:pre-wrap;margin:12px 0}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.toc a{font-size:12px;color:var(--muted);text-decoration:none;border:1px solid var(--line);
+  background:var(--panel2);border-radius:999px;padding:4px 10px}
+.toc a:hover{color:var(--ink);border-color:var(--accent)}
+.lvls{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+@media(max-width:820px){.lvls{grid-template-columns:1fr}}
+.lvl{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:14px}
+.lvl h4{margin-top:0}
+.lvl .val{font-size:22px;font-weight:800;margin-top:10px}
+.lvl .val.res{color:#7fb0ff}.lvl .val.spy{color:#ff8f8f}.lvl .val.mix{color:var(--accent)}
+.lvl small{color:var(--muted)}
+table.mini{width:100%;border-collapse:collapse;font-size:12.5px;margin:12px 0}
+table.mini th,table.mini td{border:1px solid var(--line);padding:6px 9px;text-align:left}
+table.mini th{background:var(--panel2);color:var(--muted)}
+.callout{background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.35);border-radius:10px;padding:12px 14px;margin:12px 0;font-size:13px;color:#d8d2f5}
+
+.oddsbar .d{background:linear-gradient(180deg,#9aa6b6,#5d6878);display:grid;place-items:center;font-weight:700;font-size:12.5px;transition:.5s}
+.rps-moves{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 4px}
+.rps-move{flex:1;min-width:96px;font-size:15px;font-weight:700;padding:16px 10px;display:flex;flex-direction:column;gap:4px;align-items:center}
+.rps-move .em{font-size:30px;line-height:1}
+.rps-move:hover{border-color:var(--accent);transform:translateY(-2px)}
+.rps-batch{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.rps-last{display:flex;align-items:center;gap:12px;flex-wrap:wrap;min-height:46px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:6px 0 12px}
+.rps-pick{display:flex;align-items:center;gap:6px;font-size:20px;font-weight:700}
+.rps-pick small{font-size:11px;color:var(--muted);font-weight:500}
+.rps-vs{color:var(--muted);font-size:12px}
+.rps-streak{display:flex;gap:4px;flex-wrap:wrap;margin-top:10px}
+.rps-chip{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font-size:11px;font-weight:800;background:var(--panel2);border:1px solid var(--line)}
+.rps-chip.win{color:#7fb0ff;border-color:rgba(79,147,255,.5)}
+.rps-chip.loss{color:#ff8f8f;border-color:rgba(239,68,68,.5)}
+.rps-chip.draw{color:var(--muted)}
+.rps-headline{font-size:14px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.35);border-radius:10px;padding:12px 14px;margin:4px 0 14px;color:#cdeccd}
+
+/* per-game "Rules" strip shown at the top of every game panel */
+.rules{background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:10px;padding:10px 14px;margin:2px 0 16px;font-size:12.5px;color:var(--muted);line-height:1.55}
+.rules b{color:var(--ink)}
+.rules .goal{color:var(--good)}
+
+/* back-link to the static site (unobtrusive, matches .sub) */
+.backlink{color:var(--muted);font-size:12.5px;text-decoration:none;border:1px solid var(--line);
+  border-radius:999px;padding:6px 12px;background:var(--panel2);transition:.15s;white-space:nowrap}
+.backlink:hover{color:var(--ink);border-color:var(--accent)}
+
+/* Embed mode (?game=<slug>&embed=1): just the one game panel, no page chrome.
+   The shell adds .embed to <body> and appends the .embed-fullapp link. */
+body.embed{background:var(--bg)}
+body.embed .wrap{max-width:none;padding:10px 12px}
+body.embed .brand,body.embed .tabs{display:none}
+.embed-fullapp{margin-top:14px;text-align:right}
+.embed-fullapp a{color:var(--muted);font-size:12.5px;text-decoration:none;border:1px solid var(--line);
+  border-radius:999px;padding:6px 12px;background:var(--panel2);transition:.15s;white-space:nowrap}
+.embed-fullapp a:hover{color:var(--ink);border-color:var(--accent)}
+
+/* Embed mode (site game pages): show purely the interactive game — the page
+   itself carries the title, rules and write-up, so the app's own title,
+   subtitle and explainer cards are hidden. Controls stay. */
+body.embed .gamehead h1,
+body.embed .gamehead h1 + .sub { display: none; }
+body.embed .card.explainer { display: none; }
+/* Non-interactive info boxes (rules, headlines, certified-result cards) carry
+   .embed-extra in the markup — hidden in embeds, untouched standalone. */
+body.embed .embed-extra { display: none !important; } /* beats ID-scoped panel display rules */
+/* Panels whose whole analysis card is an .embed-extra collapse to one column. */
+body.embed #panel-tic-tac-toe .grid { grid-template-columns: 1fr; }
+/* Narrow embeds: long verdict text (e.g. tic-tac-toe's "Perfect play → DRAW …")
+   wraps to two lines; let the odds bar grow instead of clipping at 30px. */
+body.embed .oddsbar { height: auto; min-height: 30px; }
+body.embed .oddsbar .r,
+body.embed .oddsbar .s,
+body.embed .oddsbar .d { min-height: 30px; box-sizing: border-box; padding: 3px 8px; text-align: center; }
+
+.han-sides {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin: 2px 0 4px;
+}

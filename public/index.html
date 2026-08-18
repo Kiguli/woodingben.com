@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <!-- Head order is fixed: charset, viewport, title, description, canonical,
+       OG/Twitter, theme-color, stylesheet, JSON-LD. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ben Wooding - Formal Methods &amp; AI Verification, Vanderbilt</title>
+  <meta name="description" content="Ben Wooding is a Postdoctoral Scholar at Vanderbilt University researching safe AI, verifiable machine learning, and cyber-physical systems.">
+  <link rel="canonical" href="https://woodingben.com/">
+  <link rel="alternate" type="application/rss+xml" title="Ben Wooding" href="https://woodingben.com/feed.xml">
+
+  <!-- Robots: mirror the live Yoast directive on every indexable page -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <!-- Open Graph / Twitter. og_site_name and locale are constant site-wide. -->
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ben Wooding - Formal Methods &amp; AI Verification, Vanderbilt">
+  <meta property="og:description" content="I am a Postdoctoral Scholar at the Institute for Software Integrated Systems, Vanderbilt University, researching safe AI and verifiable machine learning.">
+  <meta property="og:url" content="https://woodingben.com/">
+  <meta property="og:site_name" content="Ben Wooding">
+  <meta property="og:image" content="https://woodingben.com/wp-content/uploads/2023/03/021222-NUHeadshots-33-scaled.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:description" content="I am a Postdoctoral Scholar at the Institute for Software Integrated Systems, Vanderbilt University, researching safe AI and verifiable machine learning.">
+  <meta name="twitter:image" content="https://woodingben.com/wp-content/uploads/2023/03/021222-NUHeadshots-33-scaled.jpeg">
+
+  <!-- Address-bar tint; matches --bg tokens in style.css -->
+  <meta name="theme-color" content="#f7fafa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1b1c" media="(prefers-color-scheme: dark)">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- The ONLY stylesheet. Root-relative so it works at any URL depth. -->
+  <link rel="stylesheet" href="/assets/style.css?v=4f595879b2">
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://woodingben.com/#person","name":"Ben Wooding","givenName":"Ben","familyName":"Wooding","jobTitle":"Postdoctoral Scholar","description":"Postdoctoral Scholar at the Institute for Software Integrated Systems, Vanderbilt University, working on formal methods, verifiable machine learning and cyber-physical systems.","url":"https://woodingben.com/","image":"https://woodingben.com/wp-content/uploads/2023/03/021222-NUHeadshots-33-scaled.jpeg","email":"woodingben@gmail.com","worksFor":{"@type":"ResearchOrganization","name":"Institute for Software Integrated Systems","alternateName":"ISIS","url":"https://www.isis.vanderbilt.edu/","parentOrganization":{"@type":"CollegeOrUniversity","name":"Vanderbilt University","url":"https://www.vanderbilt.edu/"}},"affiliation":{"@type":"CollegeOrUniversity","name":"Vanderbilt University","url":"https://www.vanderbilt.edu/"},"workLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Nashville","addressRegion":"TN","addressCountry":"US"}},"alumniOf":{"@type":"CollegeOrUniversity","name":"Newcastle University","url":"https://www.ncl.ac.uk/"},"knowsAbout":["Formal methods","Neural network verification","Verifiable machine learning","Cyber-physical systems","Control barrier certificates","Stochastic systems","Controller synthesis","Reachability analysis","Data-driven control","Safe autonomy"],"identifier":{"@type":"PropertyValue","propertyID":"ORCID","value":"https://orcid.org/0000-0003-1713-717X"},"sameAs":["https://scholar.google.com/citations?user=YhOmz1kAAAAJ","https://orcid.org/0000-0003-1713-717X","https://github.com/Kiguli","https://dblp.org/pid/264/9847","https://arxiv.org/a/wooding_b_1","https://www.semanticscholar.org/author/1686502607","https://www.linkedin.com/in/ben-wooding/","https://woodingben.substack.com/","https://www.youtube.com/@The_Real_Kiguli"]},{"@type":"WebSite","@id":"https://woodingben.com/#website","name":"Ben Wooding","url":"https://woodingben.com/","publisher":{"@id":"https://woodingben.com/#person"}}]}</script>
+</head>
+<body>
+  <!-- Skip link: first focusable element on every page. Target is <main id="main">. -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <!-- Site title links home. Plain text, no logo image. -->
+      <a class="site-title" href="/">Ben Wooding</a>
+
+      <nav class="site-nav" aria-label="Site">
+        <ul>
+          <li><a href="/" aria-current="page">Home</a></li>
+          <li class="has-dropdown">
+            <a href="/software-tools/">Software Tools</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-tools" aria-label="Software Tools submenu"></button>
+            <ul class="dropdown" id="nav-sub-tools">
+              <li><a href="/software-tools/">Overview</a></li>
+              <li><a href="/software-tools/trust-software-tool/">TRUST</a></li>
+              <li><a href="/software-tools/protect-software-tool/">PRoTECT</a></li>
+              <li><a href="/software-tools/impact-software-tool/">IMPaCT</a></li>
+              <li><a href="/software-tools/nnv-software-tool/">NNV</a></li>
+              <li><a href="/software-tools/n2v-software-tool/">n2v</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/publications/">Publications</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-publications" aria-label="Publications submenu"></button>
+            <ul class="dropdown" id="nav-sub-publications">
+              <li><a href="/publications/">Full list</a></li>
+              <li><a href="/publications/#conference">Conference</a></li>
+              <li><a href="/publications/#journal">Journal</a></li>
+              <li><a href="/publications/#book-chapters">Book Chapters</a></li>
+              <li><a href="/publications/#posters-competition">Posters &amp; Competitions</a></li>
+              <li><a href="/publications/#theses">Theses</a></li>
+              <li><a href="/publications/#preprints">Preprints</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/posts/">Posts</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-posts" aria-label="Posts submenu"></button>
+            <ul class="dropdown" id="nav-sub-posts">
+              <li><a href="/posts/">All posts</a></li>
+              <li><a href="https://woodingben.substack.com/p/a-475-million-typo" target="_blank" rel="noopener">A $475 Million Typo<span class="ext-mark" aria-hidden="true"> &#x2197;</span></a></li>
+              <li><a href="/scraping-google-scholar/">Scraping Google Scholar</a></li>
+              <li><a href="https://woodingben.substack.com/p/google-scholar-orderer-a-research">Google Scholar Orderer</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/games/">Games</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-games" aria-label="Games submenu"></button>
+            <ul class="dropdown" id="nav-sub-games">
+              <li><a href="/games/">All games</a></li>
+              <li><a href="/games/tic-tac-toe/">Tic-Tac-Toe</a></li>
+              <li><a href="/games/nim/">Nim</a></li>
+              <li><a href="/games/pig/">Pig</a></li>
+            </ul>
+          </li>
+          <li><a href="/cv/Ben-Wooding-CV.pdf">CV</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <!-- Hero: headshot + name + role + verbatim intro copy -->
+    <section class="hero">
+      <figure class="hero-figure">
+        <img src="/wp-content/uploads/2024/12/BenWoodingHeadshot2024-800w.jpeg"
+             srcset="/wp-content/uploads/2024/12/BenWoodingHeadshot2024-480w.jpeg 480w,
+                     /wp-content/uploads/2024/12/BenWoodingHeadshot2024-800w.jpeg 800w,
+                     /wp-content/uploads/2024/12/BenWoodingHeadshot2024-1200w.jpeg 1200w"
+             sizes="(min-width: 48rem) 340px, 100vw" alt="Ben Wooding"
+             width="800" height="533" fetchpriority="high">
+      </figure>
+      <div class="hero-body prose">
+        <h1>Ben Wooding</h1>
+        <p class="lede">Postdoctoral Scholar (Research) &#8211; Vanderbilt University</p>
+        <p>I am a Postdoc at the <a href="https://www.isis.vanderbilt.edu/">Institute for Software Integrated Systems</a>, <a href="https://www.vanderbilt.edu/">Vanderbilt University</a>, working in <a href="https://www.taylortjohnson.com/">Taylor T. Johnson</a>&#8217;s group. My research sits at the intersection of formal methods, machine learning and cyber-physical systems, with the goal of providing provable guarantees for how systems and models behave. These include, but are not limited to: robustness to perturbations, stability, safety, resilience, reachability, invariance, and fairness; both worst-case and probabilistic guarantees, and for systems with known or (aleatoric/epistemic) uncertain models.</p>
+        <p>I am a lead author of the open-source tools <a href="/software-tools/impact-software-tool/">IMPaCT</a>, <a href="/software-tools/protect-software-tool/">PRoTECT</a>, and <a href="/software-tools/trust-software-tool/">TRUST</a>, a contributor to <a href="https://github.com/verivital/nnv">NNV3</a> and <a href="https://github.com/Kiguli/n2v">n2v</a>, and co-lead of the <a href="/papers/archcomp26_ainncs.pdf">AINNCS</a> category of the ARCH-COMP verification competition. I completed my PhD in formal methods for cyber-physical systems at <a href="https://www.ncl.ac.uk/">Newcastle University</a> in 2023, supervised by <a href="https://hycodev.com/ssoudjani">Sadegh Soudjani</a>, and went on to hold an <a href="https://www.ukri.org/what-we-do/developing-people-and-skills/epsrc/studentships/flexibility-for-funders/epsrc-doctoral-prize/">EPSRC Doctoral Prize Research Fellowship</a> on reliable AI-enabled design of cyber-physical systems. During the fellowship, I was invited to present my research at several international universities.</p>
+      </div>
+    </section>
+
+    <!-- Community, thesis, teaching and education (verbatim bio copy) -->
+    <section class="section prose">
+      <p>I have contributed to the international academic community with published works, conference presentations, program committee memberships, and paper reviews. I am publicity chair for <a href="https://vnn-comp.github.io/">VNN-COMP 2026</a>, a Program Committee member for <a href="https://fmasworkshop.github.io/FMAS2026/">FMAS 2026</a>, and I contributed to a <a href="https://vnn-comp.github.io/#aaai2026">AAAI tutorial</a>. Published works of particular note are conference works at <a href="https://www.colorado.edu/conference/adhs2024/conference-program">ADHS</a>, <a href="https://link.springer.com/conference/atva">ATVA</a>, <a href="https://cdc2026.ieeecss.org/">CDC</a>, <a href="https://euca-ecc.org/ecc/">ECC</a>, <a href="https://hscc.acm.org/2024/accepted-posters/">HSCC</a>, <a href="https://iccps.acm.org/2025/accepted-posters-and-demos/index.html">ICCPS</a>, <a href="https://link.springer.com/conference/ictac">ICTAC</a>, <a href="https://www.neusconference.org/">NeuS</a>, <a href="https://www.qest-formats.org/">QEST+FORMATS</a>, <a href="https://www.aiverification.org/">SAIV</a>, and the <a href="https://cps-vo.org/group/ARCH">ARCH Competition</a>, and journal works in <a href="https://www.sciencedirect.com/journal/nonlinear-analysis-hybrid-systems">NAHS</a> and <a href="https://www.rsc.org/journals-books-databases/about-journals/environmental-science-water-research-technology/">ES:WR&amp;T</a>. I contributed two chapters to the book <a href="https://link.springer.com/book/10.1007/978-3-030-79742-3">Active Building Energy Systems: Operation and Control</a>.</p>
+      <p>At <a href="https://www.vanderbilt.edu/">Vanderbilt University</a>, I have given a couple lectures for the Advanced Graduate Course: <em>Automated Verification</em> (CS6315). I attended the <a href="https://medschool.vanderbilt.edu/career-development/2025/12/05/vus-advanced-ed-hosting-academy-of-college-teaching-workshop/">Academy of College Teaching (ACT 2026S)</a> workshop series to prepare for college level teaching, and the Postdoctoral Mentoring Skills Workshop at Vanderbilt University. I have worked on the <a href="https://news.vanderbilt.edu/2024/05/30/tennessee-institutions-partner-to-develop-dependable-ai-for-national-security-applications/">DAINS (Dependable AI for National Security)</a> project, collaborating with the Air Force Research Laboratory and Oak Ridge National Laboratory.</p>
+      <p>At <a href="https://www.ncl.ac.uk/">Newcastle University</a>, I was the chair of <a href="https://www.ncl.ac.uk/computing/research/amber/">AMBER</a> (involved coordinating regular seminars), gave multiple internal research presentations, and assisted widely by teaching as a demonstrator and with marking. I have experience with supervising PhD, MSc and BSc student projects. Alongside these, I previously led the team for research communication and dissemination for the <a href="https://hycodev.com/">HyCoDeV Lab</a>.</p>
+      <p>I completed an integrated Masters degree in Computer Science (Security and Resilience) with 1st Class Honours (2019) also at <a href="https://www.ncl.ac.uk/">Newcastle University</a>. For the project and dissertation, I received 92%.</p>
+    </section>
+
+    <!-- Scholar stats: everything between the SCHOLAR-STATS markers is
+         regenerated daily by scripts/scholar_scrape.py from data/scholar.json.
+         Do not edit the generated block by hand. -->
+    <!-- SCHOLAR-STATS:START -->
+    <section class="section">
+      <div class="section-heading">
+        <h2>Google Scholar</h2>
+      </div>
+      <div class="stat-row">
+        <span class="stat-chip">Citations: 239</span>
+        <span class="stat-chip">h-index: 9</span>
+        <span class="stat-chip">i10-index: 7</span>
+      </div>
+    </section>
+    <!-- SCHOLAR-STATS:END -->
+
+    <!-- Funding & Awards (source: Master_CV_Ben.tex, Achievements + Grants) -->
+    <section class="section">
+      <div class="section-heading">
+        <h2>Funding &amp; Awards</h2>
+      </div>
+      <ul>
+        <li><strong>EPSRC Doctoral Prize Research Fellowship</strong>, &pound;93,000 <span class="accent"><strong>[7% acceptance]</strong></span> (Nov 2023 &#8211; Nov 2025)</li>
+        <li><a href="/publications/#wrrf2025"><em>A logic-based resilience metric for water resource recovery facilities</em></a> chosen for the themed collection <a href="https://pubs.rsc.org/ew/collection/963/Highlights-from-Environmental-Science-Water" rel="noopener"><em>Highlights from Environmental Science: Water Research &amp; Technology in 2024</em></a> <span class="accent"><strong>[1 of 20 papers &#8212; 8.5% of eligible papers]</strong></span></li>
+        <li><strong>EPSRC PhD Studentship</strong>, &pound;68,362 (2019&#8211;2023) &#8211; funding secured by <a href="https://hycodev.com/ssoudjani">Sadegh Soudjani</a></li>
+        <li><strong>Newcastle University Sports Scholarship</strong> (2015&#8211;2020)</li>
+      </ul>
+    </section>
+
+    <!-- Workshop and Tutorial Organization -->
+    <section class="section">
+      <div class="section-heading">
+        <h2>Workshop, Tutorial &amp; Competition Organization</h2>
+      </div>
+      <ul>
+        <li><strong>ARCH-COMP </strong>2026 &#8211; Category Co-Lead: <a href="/papers/archcomp26_ainncs.pdf">Artificial Intelligence and Neural Network Control Systems (AINNCS)</a> category of the ARCH friendly competition</li>
+        <li><strong>VNN-COMP </strong>2026 &#8211; Publicity Chair: <a href="https://vnn-comp.github.io/cfp26.html">The Verification of Neural Networks Competition (VNN-COMP)</a> &#8211; co-located with SAIV</li>
+        <li><strong>AAAI </strong>2026 &#8211; Workshop Contributor: <a href="https://vnn-comp.github.io/#aaai2026">The Verification of Neural Networks Competition (VNN-COMP): A Lab for Benchmark Proposers, Verification Tool Participants, and the Broader AI Community</a> &#8211; LH03</li>
+        <li><strong>CPS-IoT Week </strong>2021 -Website Chair: <a href="https://cps-iot-week2021.isis.vanderbilt.edu/events.html">Verification of Autonomous &amp; Robotic Systems (VARS) Workshop</a></li>
+      </ul>
+    </section>
+
+    <!-- In-Person Invited Talks -->
+    <section class="section">
+      <div class="section-heading">
+        <h2>In-Person Invited Talks</h2>
+      </div>
+      <ul>
+        <li><strong>Max Planck Institute, Germany&nbsp;</strong>&#8211; <a href="https://www.mpi-sws.org/">Institute for Software Systems (SWS)</a> &#8211; August 2025</li>
+        <li><strong>UC Louvain, Belgium&nbsp;</strong>&#8211; <a href="https://perso.uclouvain.be/raphael.jungers/content/home">Cyber-Physical Systems lab</a> &#8211; June 2025</li>
+        <li><strong>Newcastle University, UK </strong>&#8211; <a href="https://www.ncl.ac.uk/library/academics-and-researchers/lrs/open-research/conference/">Open Research Conference</a> &#8211; June 2025</li>
+        <li><strong>Vanderbilt University, USA </strong>&#8211; <a href="https://www.isis.vanderbilt.edu/">Institute for Software Integrated Systems</a> (ISIS) &#8211; May 2025</li>
+        <li><strong>TU Eindhoven, The Netherlands </strong>&#8211; <a href="https://www.tue.nl/en/research/research-groups/control-systems-technology">Control Systems Technology Group</a> (CST) &#8211; Feb 2025</li>
+        <li><strong>Lancaster University, UK </strong>&#8211; <a href="https://www.lancaster.ac.uk/scc/">School of Computing and Communications</a> &#8211; Dec 2024</li>
+        <li><strong>Kings College London, UK &#8211;</strong> <a href="https://www.kcl.ac.uk/research/ssy">Software Systems Group</a> (SSY) &#8211; Nov 2024</li>
+        <li><strong>Edinburgh University, UK</strong> &#8211; <a href="https://informatics.ed.ac.uk/ipab">Institute of Perception, Action and Behaviour</a> (IPAB)&nbsp; &#8211; Nov 2024</li>
+        <li><strong>Durham University, UK </strong>&#8211;<a href="https://scicomp.webspace.durham.ac.uk/events/seminar_series/">&nbsp;Scientific Computing Group</a> (SciComp) &#8211; Nov 2024</li>
+        <li><strong>Newcastle University, UK </strong>&#8211; <a href="https://www.ncl.ac.uk/partners/">PARTNERS24</a>&nbsp;<em>&#8216;Ask the Experts&#8217;</em> event &#8211; July 2024</li>
+      </ul>
+    </section>
+
+
+    <!-- Reviewing Activities -->
+    <section class="section">
+      <div class="section-heading">
+        <h2>Reviewing Activities</h2>
+      </div>
+      <div class="chip-group">
+        <h3 class="chip-cat">Formal Methods</h3>
+        <div class="chip-row">
+          <span class="chip-label">Conferences:</span>
+          <a class="chip" href="https://link.springer.com/conference/atva" rel="noopener" title="International Symposium on Automated Technology for Verification and Analysis">ATVA<span class="visually-hidden"> &#8212; International Symposium on Automated Technology for Verification and Analysis</span></a>
+          <a class="chip" href="https://i-cav.org/" rel="noopener" title="International Conference on Computer Aided Verification">CAV<span class="visually-hidden"> &#8212; International Conference on Computer Aided Verification</span></a>
+          <a class="chip" href="https://hscc.acm.org/" rel="noopener" title="ACM Hybrid Systems: Computation and Control">HSCC<span class="visually-hidden"> &#8212; ACM Hybrid Systems: Computation and Control</span></a>
+          <a class="chip" href="https://isola-conference.org/" rel="noopener" title="International Symposium on Leveraging Applications of Formal Methods, Verification and Validation">ISoLA<span class="visually-hidden"> &#8212; International Symposium on Leveraging Applications of Formal Methods, Verification and Validation</span></a>
+          <a class="chip" href="https://www.qest-formats.org/" rel="noopener" title="International Conference on Quantitative Evaluation of Systems and International Conference on Formal Modeling and Analysis of Timed Systems">QEST+FORMATS<span class="visually-hidden"> &#8212; International Conference on Quantitative Evaluation of Systems and International Conference on Formal Modeling and Analysis of Timed Systems</span></a>
+          <a class="chip" href="https://runtime-verification.org/" rel="noopener" title="International Conference on Runtime Verification">RV<span class="visually-hidden"> &#8212; International Conference on Runtime Verification</span></a>
+          <a class="chip" href="https://aiverification.org/" rel="noopener" title="Symposium on Artificial Intelligence Verification">SAIV<span class="visually-hidden"> &#8212; Symposium on Artificial Intelligence Verification</span></a>
+        </div>
+      </div>
+      <div class="chip-group">
+        <h3 class="chip-cat">Control</h3>
+        <div class="chip-row">
+          <span class="chip-label">Conferences:</span>
+          <a class="chip" href="https://a2c2.org/" rel="noopener" title="IFAC American Control Conference">ACC<span class="visually-hidden"> &#8212; IFAC American Control Conference</span></a>
+          <a class="chip" href="https://tc.ifac-control.org/1/3/adhs-series" rel="noopener" title="IFAC Conference on Analysis and Design of Hybrid Systems">ADHS<span class="visually-hidden"> &#8212; IFAC Conference on Analysis and Design of Hybrid Systems</span></a>
+          <a class="chip" href="https://ccta2026.ieeecss.org/" rel="noopener" title="IEEE Conference on Control Technology and Applications">CCTA<span class="visually-hidden"> &#8212; IEEE Conference on Control Technology and Applications</span></a>
+          <a class="chip" href="https://cdc2026.ieeecss.org/" rel="noopener" title="IEEE Conference on Decision and Control">CDC<span class="visually-hidden"> &#8212; IEEE Conference on Decision and Control</span></a>
+          <a class="chip" href="https://euca-ecc.org/ecc/" rel="noopener" title="IEEE European Control Conference">ECC<span class="visually-hidden"> &#8212; IEEE European Control Conference</span></a>
+          <a class="chip" href="https://l4dc.org/" rel="noopener" title="Learning for Decision and Control">L4DC<span class="visually-hidden"> &#8212; Learning for Decision and Control</span></a>
+          <a class="chip" href="https://ifac2026.org/" rel="noopener" title="IFAC World Congress">IFAC WC<span class="visually-hidden"> &#8212; IFAC World Congress</span></a>
+        </div>
+        <div class="chip-row">
+          <span class="chip-label">Journals:</span>
+          <a class="chip" href="https://www.sciencedirect.com/journal/automatica" rel="noopener" title="IFAC Automatica">Automatica</a>
+          <a class="chip" href="https://www.sciencedirect.com/journal/european-journal-of-control" rel="noopener" title="Elsevier European Journal of Control">EJCON<span class="visually-hidden"> &#8212; Elsevier European Journal of Control</span></a>
+          <a class="chip" href="https://www.ieeecss.org/publication/ieee-control-systems-letters" rel="noopener" title="IEEE Control Systems Letters">L-CSS<span class="visually-hidden"> &#8212; IEEE Control Systems Letters</span></a>
+          <a class="chip" href="https://www.sciencedirect.com/journal/nonlinear-analysis-hybrid-systems" rel="noopener" title="Elsevier Nonlinear Analysis: Hybrid Systems">NAHS<span class="visually-hidden"> &#8212; Elsevier Nonlinear Analysis: Hybrid Systems</span></a>
+          <a class="chip" href="https://www.ieeecss.org/publication/transactions-automatic-control" rel="noopener" title="IEEE Transactions on Automatic Control">TAC<span class="visually-hidden"> &#8212; IEEE Transactions on Automatic Control</span></a>
+          <a class="chip" href="https://www.ieeecss.org/publication/transactions-control-systems-technology" rel="noopener" title="IEEE Transactions on Control Systems Technology">TCST<span class="visually-hidden"> &#8212; IEEE Transactions on Control Systems Technology</span></a>
+        </div>
+      </div>
+      <div class="chip-group">
+        <h3 class="chip-cat">Machine Learning &amp; AI</h3>
+        <div class="chip-row">
+          <span class="chip-label">Conferences:</span>
+          <a class="chip" href="https://www.aclweb.org/portal/" rel="noopener" title="Annual Meeting of the Association for Computational Linguistics">ACL<span class="visually-hidden"> &#8212; Annual Meeting of the Association for Computational Linguistics</span></a>
+          <a class="chip" href="https://eccv.ecva.net/" rel="noopener" title="European Conference on Computer Vision">ECCV<span class="visually-hidden"> &#8212; European Conference on Computer Vision</span></a>
+          <a class="chip" href="https://neurips.cc/" rel="noopener" title="Conference on Neural Information Processing Systems">NeurIPS<span class="visually-hidden"> &#8212; Conference on Neural Information Processing Systems</span></a>
+          <a class="chip" href="https://www.neusconference.org/" rel="noopener" title="Neuro-Symbolic Systems">NeuS<span class="visually-hidden"> &#8212; Neuro-Symbolic Systems</span></a>
+        </div>
+        <div class="chip-row">
+          <span class="chip-label">Journals:</span>
+          <a class="chip" href="https://link.springer.com/journal/10472" rel="noopener" title="Springer Annals of Mathematics and Artificial Intelligence">AMAI<span class="visually-hidden"> &#8212; Springer Annals of Mathematics and Artificial Intelligence</span></a>
+        </div>
+      </div>
+      <div class="chip-group">
+        <h3 class="chip-cat">Autonomous Vehicles &amp; Cyber-Physical Systems</h3>
+        <div class="chip-row">
+          <span class="chip-label">Conferences:</span>
+          <a class="chip" href="https://www.hyconsys.com/CAADCPS2023/" rel="noopener" title="Computation-Aware Algorithmic Design for Cyber-Physical Systems">CAADCPS<span class="visually-hidden"> &#8212; Computation-Aware Algorithmic Design for Cyber-Physical Systems</span></a>
+          <a class="chip" href="https://esweek.org/emsoft/" rel="noopener" title="IEEE/ACM International Conference on Embedded Software">EMSOFT<span class="visually-hidden"> &#8212; IEEE/ACM International Conference on Embedded Software</span></a>
+          <a class="chip" href="https://2026.ieee-eras.org/" rel="noopener" title="IEEE Engineering Reliably Autonomous Systems">ERAS<span class="visually-hidden"> &#8212; IEEE Engineering Reliably Autonomous Systems</span></a>
+          <a class="chip" href="https://iccps.acm.org/" rel="noopener" title="ACM/IEEE International Conference on Cyber-Physical Systems">ICCPS<span class="visually-hidden"> &#8212; ACM/IEEE International Conference on Cyber-Physical Systems</span></a>
+          <a class="chip" href="https://ieee-itsc.org/" rel="noopener" title="IEEE Intelligent Transportation Systems Conference">ITSC<span class="visually-hidden"> &#8212; IEEE Intelligent Transportation Systems Conference</span></a>
+          <a class="chip" href="https://ieee-iv.org/" rel="noopener" title="IEEE Intelligent Vehicle Symposium">IV<span class="visually-hidden"> &#8212; IEEE Intelligent Vehicle Symposium</span></a>
+          <a class="chip" href="https://www.rtss.org/" rel="noopener" title="IEEE Real-Time Systems Symposium">RTSS<span class="visually-hidden"> &#8212; IEEE Real-Time Systems Symposium</span></a>
+        </div>
+        <div class="chip-row">
+          <span class="chip-label">Journals:</span>
+          <a class="chip" href="https://www.cambridge.org/core/journals/research-directions-cyber-physical-systems" rel="noopener" title="Cambridge University Press Research Directions: Cyber-Physical Systems">Research Directions: CPS<span class="visually-hidden"> &#8212; Cambridge University Press Research Directions: Cyber-Physical Systems</span></a>
+        </div>
+      </div>
+      <div class="chip-group">
+        <h3 class="chip-cat">Environment &amp; Energy</h3>
+        <div class="chip-row">
+          <span class="chip-label">Journals:</span>
+          <a class="chip" href="https://www.rsc.org/publishing/journals/environmental-science-processes-and-impacts" rel="noopener" title="Royal Society of Chemistry Environmental Science: Processes &amp; Impacts">ES: Processes &amp; Impacts<span class="visually-hidden"> &#8212; Royal Society of Chemistry Environmental Science: Processes &amp; Impacts</span></a>
+        </div>
+        <div class="chip-row">
+          <span class="chip-label">Book chapters:</span>
+          <a class="chip" href="https://link.springer.com/book/10.1007/978-3-030-79742-3" rel="noopener" title="Active Building Energy Systems: Operation and Control">Active Building Energy Systems<span class="visually-hidden">: Operation and Control</span></a>
+        </div>
+      </div>
+      <div class="chip-group">
+        <h3 class="chip-cat">Miscellaneous</h3>
+        <div class="chip-row">
+          <span class="chip-label">Journals:</span>
+          <a class="chip" href="https://ieeeaccess.ieee.org/" rel="noopener" title="IEEE Access">IEEE Access</a>
+          <a class="chip" href="https://www.sciencedirect.com/journal/performance-evaluation" rel="noopener" title="Elsevier Performance Evaluation">PEVA<span class="visually-hidden"> &#8212; Elsevier Performance Evaluation</span></a>
+          <a class="chip" href="https://royalsocietypublishing.org/journal/rsta" rel="noopener" title="Philosophical Transactions of the Royal Society A">Phil. Trans. A<span class="visually-hidden"> &#8212; Philosophical Transactions of the Royal Society A</span></a>
+        </div>
+      </div>
+      <div class="btn-row">
+      </div>
+    </section>
+
+    <!-- Recent publications: everything between the SCHOLAR-LIST markers is
+         regenerated daily by scripts/scholar_scrape.py from data/scholar.json.
+         Do not edit the generated block by hand. -->
+    <!-- SCHOLAR-LIST:START -->
+    <section class="section">
+      <div class="section-heading">
+        <h2>Publications (Google Scholar)</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Cited&nbsp;by</th>
+              <th>Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                ARCH-COMP26 Category Report: Continuous and Hybrid Systems with Nonlinear Dynamics
+                <p class="cell-sub">L Geretti, JAD Sandretto, M Althoff, L Benet, P Collins, M Forets, S Mitsch, ...</p>
+                <p class="cell-sub">Proceedings of the 13th International Workshop on Applied Verification for …, 2026</p>
+              </td>
+              <td>2</td>
+              <td>2026</td>
+            </tr>
+            <tr>
+              <td>
+                A Self-correcting Neuro-symbolic AI Reasoning Framework
+                <p class="cell-sub"><strong>B Wooding</strong>*, K Brennan*, AM Tumlin, H Zhang, TT Johnson</p>
+                <p class="cell-sub">International Symposium on AI Verification, 191-211, 2026</p>
+              </td>
+              <td></td>
+              <td>2026</td>
+            </tr>
+            <tr>
+              <td>
+                ARCH-COMP26 Category Report: Artificial Intelligence and Neural Network Control Systems (AINNCS) for Continuous and Hybrid Systems Plants
+                <p class="cell-sub">S Sasaki, <strong>B Wooding</strong>, TT Johnson, M Althoff, L Benet, S Coogan, M Forets, ...</p>
+                <p class="cell-sub">13th International Workshop on Applied Verification for Continuous and …, 2026</p>
+              </td>
+              <td></td>
+              <td>2026</td>
+            </tr>
+            <tr>
+              <td>
+                k-Inductive Neural Barrier Certificates for Unknown Nonlinear Dynamics
+                <p class="cell-sub"><strong>B Wooding</strong>, H Zhang, TT Johnson, A Lavaei</p>
+                <p class="cell-sub">3rd International Conference on Neuro-Symbolic Systems (NeuS), 2026</p>
+              </td>
+              <td></td>
+              <td>2026</td>
+            </tr>
+            <tr>
+              <td>
+                MetaMoE: Formal Verification of Compositional Robustness and Scalability of Mixture-of-Experts Architecture
+                <p class="cell-sub">Q Pham, <strong>B Wooding</strong>, L Nam, S Sasaki, TT Johnson</p>
+                <p class="cell-sub">International Symposium on AI Verification, 167-190, 2026</p>
+              </td>
+              <td></td>
+              <td>2026</td>
+            </tr>
+            <tr>
+              <td>
+                n2v: Neural Network Verification in Python (Competition Contribution)
+                <p class="cell-sub">S Sasaki, <strong>B Wooding</strong>, HD Wang, AM Tumlin, M Ma, TT Johnson</p>
+                <p class="cell-sub">International Symposium on AI Verification, 394-400, 2026</p>
+              </td>
+              <td></td>
+              <td>2026</td>
+            </tr>
+            <tr>
+              <td>
+                Reachability-Based Formal Verification of Graph Neural Networks with Node and Edge Features
+                <p class="cell-sub">AM Tumlin, <strong>B Wooding</strong>, Z Shao, DM Lopez, T Derr, TT Johnson</p>
+                <p class="cell-sub">International Symposium on AI Verification, 271-298, 2026</p>
+              </td>
+              <td></td>
+              <td>2026</td>
+            </tr>
+            <tr>
+              <td>
+                ARCH-COMP25 Category Report: Stochastic Models
+                <p class="cell-sub">A Abate, O Akbarzadeh, HAP Blom, S Haesaert, S Hassani, A Lavaei, ...</p>
+                <p class="cell-sub">12th International Workshop on Applied Verification for Continuous and …, 2025</p>
+              </td>
+              <td>20</td>
+              <td>2025</td>
+            </tr>
+            <tr>
+              <td>
+                PRoTECT: Parallelized ConstRuction of SafeTy BarriEr Certificates for Nonlinear Polynomial SysTems
+                <p class="cell-sub"><strong>B Wooding</strong>, V Horbanov, A Lavaei</p>
+                <p class="cell-sub">International Colloquium on Theoretical Aspects of Computing, 448-458, 2025</p>
+              </td>
+              <td>20</td>
+              <td>2025</td>
+            </tr>
+            <tr>
+              <td>
+                A logic-based resilience metric for water resource recovery facilities
+                <p class="cell-sub">AS Laino, <strong>B Wooding</strong>, S Soudjani, RJ Davenport</p>
+                <p class="cell-sub">Environmental Science: Water Research &amp; Technology 11 (2), 377-392, 2025</p>
+              </td>
+              <td>10</td>
+              <td>2025</td>
+            </tr>
+            <tr>
+              <td>
+                PRoTECT: Parallel construction of barrier certificates for safety verification of polynomial systems
+                <p class="cell-sub"><strong>B Wooding</strong>, V Horbanov, A Lavaei</p>
+                <p class="cell-sub">Proceedings of the ACM/IEEE 16th International Conference on Cyber-Physical …, 2025</p>
+              </td>
+              <td>6</td>
+              <td>2025</td>
+            </tr>
+            <tr>
+              <td>
+                TRUST: StabiliTy and Safety ContRoller Synthesis for Unknown Dynamical Models Using a Single Trajectory
+                <p class="cell-sub">J Gardner*, <strong>B Wooding</strong>*, A Nejati, A Lavaei</p>
+                <p class="cell-sub">Proceedings of the 28th ACM International Conference on Hybrid Systems …, 2025</p>
+              </td>
+              <td>4</td>
+              <td>2025</td>
+            </tr>
+            <tr>
+              <td>
+                Proving the Correctness of CANDO3 Optrode Command Interface VDM model in Isabelle/HOL
+                <p class="cell-sub">L Freitas, <strong>B Wooding</strong>, B Scott, A Pollitt, P Degenaar</p>
+                <p class="cell-sub">Proceedings of the 23rd International Overture Workshop, 2025</p>
+              </td>
+              <td></td>
+              <td>2025</td>
+            </tr>
+            <tr>
+              <td>
+                Data-driven abstraction-based control synthesis
+                <p class="cell-sub">M Kazemi*, R Majumdar, M Salamati*, S Soudjani, <strong>B Wooding</strong>*</p>
+                <p class="cell-sub">Nonlinear Analysis: Hybrid Systems 52, 2024</p>
+              </td>
+              <td>52</td>
+              <td>2024</td>
+            </tr>
+            <tr>
+              <td>
+                IMPaCT: Interval MDP Parallel Construction for Controller Synthesis of Large-Scale STochastic Systems
+                <p class="cell-sub"><strong>B Wooding</strong>, A Lavaei</p>
+                <p class="cell-sub">International Conference on Quantitative Evaluation of Systems and Formal …, 2024</p>
+              </td>
+              <td>13</td>
+              <td>2024</td>
+            </tr>
+            <tr>
+              <td>
+                Data-driven abstractions via binary-tree Gaussian processes for formal verification
+                <p class="cell-sub">O Schön, S Naseer, <strong>B Wooding</strong>, S Soudjani</p>
+                <p class="cell-sub">8th IFAC Conference on Analysis and Design of Hybrid Systems (ADHS) 58 (11 …, 2024</p>
+              </td>
+              <td>9</td>
+              <td>2024</td>
+            </tr>
+            <tr>
+              <td>
+                Learning k-inductive control barrier certificates for unknown nonlinear dynamics beyond polynomials
+                <p class="cell-sub"><strong>B Wooding</strong>, A Lavaei</p>
+                <p class="cell-sub">arXiv preprint arXiv:2412.07232, 2024</p>
+              </td>
+              <td>9</td>
+              <td>2024</td>
+            </tr>
+            <tr>
+              <td>
+                IMPaCT: A parallelized software tool for IMDP construction and controller synthesis with convergence guarantees
+                <p class="cell-sub"><strong>B Wooding</strong>, A Lavaei</p>
+                <p class="cell-sub">Proceedings of the 27th ACM International Conference on Hybrid Systems …, 2024</p>
+              </td>
+              <td>5</td>
+              <td>2024</td>
+            </tr>
+            <tr>
+              <td>
+                Formal control of new England 39-bus test system: an assume-guarantee approach
+                <p class="cell-sub"><strong>B Wooding</strong>, A Lavaei, S Soudjani</p>
+                <p class="cell-sub">arXiv preprint arXiv:2307.03467, 2023</p>
+              </td>
+              <td>9</td>
+              <td>2023</td>
+            </tr>
+            <tr>
+              <td>
+                Robust simulation functions with disturbance refinement
+                <p class="cell-sub"><strong>B Wooding</strong>, A Lavaei, V Vahidinasab, S Soudjani</p>
+                <p class="cell-sub">2023 European Control Conference (ECC), 1-6, 2023</p>
+              </td>
+              <td>9</td>
+              <td>2023</td>
+            </tr>
+            <tr>
+              <td>
+                Model-based and data-driven formal synthesis of power systems
+                <p class="cell-sub">BJ Wooding</p>
+                <p class="cell-sub">Newcastle University, 2023</p>
+              </td>
+              <td>1</td>
+              <td>2023</td>
+            </tr>
+            <tr>
+              <td>
+                Arch-comp21 category report: Stochastic models
+                <p class="cell-sub">A Abate, H Blom, M Bouissou, N Cauchi, H Chraibi, J Delicaris, ...</p>
+                <p class="cell-sub">8th International Workshop on Applied Verification of Continuous and Hybrid …, 2021</p>
+              </td>
+              <td>39</td>
+              <td>2021</td>
+            </tr>
+            <tr>
+              <td>
+                Tuning Robotti: the machine-assisted exploration of parameter spaces in multi-models of a cyber-physical system
+                <p class="cell-sub">S Bogomolov, J Fitzgerald, FF Foldager, C Gamble, PG Larsen, K Pierce, ...</p>
+                <p class="cell-sub">Proceedings of the 18th International Overture Workshop, 50-64, 2021</p>
+              </td>
+              <td>6</td>
+              <td>2021</td>
+            </tr>
+            <tr>
+              <td>
+                Operation and control of a population of active buildings at network level
+                <p class="cell-sub"><strong>B Wooding</strong>, V Vahidinasab, S Soudjani</p>
+                <p class="cell-sub">Active Building Energy Systems: Operation and Control, 193-218, 2021</p>
+              </td>
+              <td>3</td>
+              <td>2021</td>
+            </tr>
+            <tr>
+              <td>
+                Control and management of active buildings
+                <p class="cell-sub"><strong>B Wooding</strong>, V Vahidinasab, M Kazemi, S Soudjani</p>
+                <p class="cell-sub">Active Building Energy Systems: Operation and Control, 161-192, 2021</p>
+              </td>
+              <td>2</td>
+              <td>2021</td>
+            </tr>
+            <tr>
+              <td>
+                Cyber-Physical Smart Homes/Buildings
+                <p class="cell-sub"><strong>B Wooding</strong>, V Vahidinasab, S Soudjani</p>
+                <p class="cell-sub">Springer, 2021</p>
+              </td>
+              <td></td>
+              <td>2021</td>
+            </tr>
+            <tr>
+              <td>
+                Formal controller synthesis for frequency regulation utilising electric vehicles
+                <p class="cell-sub"><strong>B Wooding</strong>, V Vahidinasab, S Soudjani</p>
+                <p class="cell-sub">2020 International Conference on Smart Energy Systems and Technologies (SEST …, 2020</p>
+              </td>
+              <td>13</td>
+              <td>2020</td>
+            </tr>
+            <tr>
+              <td>
+                Using formal methods and proof to verify a cando epilepsy medical device
+                <p class="cell-sub"><strong>B Wooding</strong></p>
+                <p class="cell-sub">Master&#x27;s thesis, School of Computing, Newcastle University, UK (June 2019), 2019</p>
+              </td>
+              <td>7</td>
+              <td>2019</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted center">Updated daily from <a href="https://scholar.google.com/citations?user=YhOmz1kAAAAJ&amp;hl=en">Google Scholar</a>. See <a href="/publications/">Publications</a> for the full list.</p>
+    </section>
+    <!-- SCHOLAR-LIST:END -->
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="profile-links">
+        <li><a href="https://github.com/Kiguli" rel="me">GitHub</a></li>
+        <li><a href="https://scholar.google.com/citations?user=YhOmz1kAAAAJ" rel="me">Google Scholar</a></li>
+        <li><a href="https://orcid.org/0000-0003-1713-717X" rel="me">ORCID</a></li>
+        <li><a href="https://www.linkedin.com/in/ben-wooding/" rel="me">LinkedIn</a></li>
+        <li><a href="https://woodingben.substack.com/" rel="me">Substack</a></li>
+        <li><a href="https://www.youtube.com/@The_Real_Kiguli" rel="me">YouTube</a></li>
+        <li><a href="mailto:woodingben@gmail.com">Email</a></li>
+      </ul>
+      <p class="copyright">&copy; 2026 Ben Wooding</p>
+    </div>
+    <script src="/assets/nav.js?v=95b38a628a" defer></script>
+  </footer>
+</body>
+</html>

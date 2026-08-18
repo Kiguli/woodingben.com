@@ -1,0 +1,49 @@
+name: Update Google Scholar data
+
+on:
+  schedule:
+    # 04:37 UTC daily -- off-peak, odd minute to avoid the top-of-hour crowd.
+    - cron: "37 4 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scholar-update
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4
+
+      - name: Scrape Google Scholar
+        # The script exits 0 even when Scholar blocks (429/CAPTCHA), leaving
+        # the existing data files untouched -- stale data beats broken data.
+        # On success it rewrites data/scholar.json and regenerates the block
+        # between the SCHOLAR:START/END markers in public/index.html.
+        run: python scripts/scholar_scrape.py
+
+      - name: Commit and push if changed
+        run: |
+          python3 scripts/activate_pending_dois.py
+          git add data/scholar.json public/index.html data/publications.json data/pending-dois.json public/publications/index.html
+          if git diff --quiet --cached; then
+            echo "No changes to Scholar data; nothing to commit."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "chore: daily refresh (Scholar data; pending-DOI activation when registered)"
+            git push
+          fi

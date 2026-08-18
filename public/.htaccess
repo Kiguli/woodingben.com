@@ -1,0 +1,288 @@
+# ---------------------------------------------------------------------------
+# woodingben.com - static site (WordPress migration)
+# Apache / LiteSpeed (Hostinger shared hosting)
+# ---------------------------------------------------------------------------
+
+# ----- 404 -----------------------------------------------------------------
+ErrorDocument 404 /404.html
+
+# ----- Security headers ----------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ----- Caching -------------------------------------------------------------
+# Long-lived immutable cache for static media under /wp-content/uploads/ and
+# site assets under /assets/ (matched by extension); shorter cache for HTML
+# and for the sitemap/robots/feed files.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(jpe?g|png|gif|webp|avif|svg|ico|css|js|mjs|woff2?|ttf|otf|eot|pdf|mp4|webm)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+  <FilesMatch "\.(xml|txt)$">
+    Header set Cache-Control "public, max-age=86400"
+  </FilesMatch>
+</IfModule>
+
+# ----- Compression ---------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml application/xml application/xhtml+xml application/rss+xml application/javascript application/json image/svg+xml
+</IfModule>
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/xml application/xml application/xhtml+xml application/rss+xml application/javascript application/json image/svg+xml
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# 301 redirects (exact-match, anchored). SEO continuity with the old
+# WordPress/Yoast URLs. Static files under /wp-content/uploads/ are served
+# directly and are NOT touched by any rule below.
+# ---------------------------------------------------------------------------
+
+# ----- Yoast sitemap URLs -> new static sitemap ----------------------------
+RedirectMatch 301 ^/sitemap_index\.xml$ https://woodingben.com/sitemap.xml
+RedirectMatch 301 ^/post\-sitemap\.xml$ https://woodingben.com/sitemap.xml
+RedirectMatch 301 ^/page\-sitemap\.xml$ https://woodingben.com/sitemap.xml
+RedirectMatch 301 ^/category\-sitemap\.xml$ https://woodingben.com/sitemap.xml
+RedirectMatch 301 ^/post_tag\-sitemap\.xml$ https://woodingben.com/sitemap.xml
+RedirectMatch 301 ^/author\-sitemap\.xml$ https://woodingben.com/sitemap.xml
+
+# ----- Archive URLs (category / tags / author) -----------------------------
+RedirectMatch 301 ^/category/php/$ https://woodingben.com/posts/
+RedirectMatch 301 ^/tag/api/$ https://woodingben.com/posts/
+RedirectMatch 301 ^/tag/google\-scholar/$ https://woodingben.com/posts/
+RedirectMatch 301 ^/author/woodingben/$ https://woodingben.com/
+
+# ----- Legacy tool short URLs (live 301s today; mirror them) ----------------
+RedirectMatch 301 ^/impact/$ https://woodingben.com/software-tools/impact-software-tool/
+RedirectMatch 301 ^/protect/$ https://woodingben.com/software-tools/protect-software-tool/
+RedirectMatch 301 ^/software\-tools/protect/$ https://woodingben.com/software-tools/protect-software-tool/
+
+# ----- Feeds ---------------------------------------------------------------
+RedirectMatch 301 ^/feed/$ https://woodingben.com/feed.xml
+RedirectMatch 301 ^/comments/feed/$ https://woodingben.com/feed.xml
+RedirectMatch 301 ^/scraping\-google\-scholar/feed/$ https://woodingben.com/scraping-google-scholar/
+RedirectMatch 301 ^/plug\-in\-google\-scholar\-orderer/feed/$ https://woodingben.com/plug-in-google-scholar-orderer/
+
+# ----- WordPress attachment pages -> underlying media file -----------------
+# Replicates the live Yoast attachment-URL redirects (seo.md Appendix A).
+RedirectMatch 301 ^/1\-1w/$ https://woodingben.com/wp-content/uploads/2021/02/1-1w.png
+RedirectMatch 301 ^/2\-2w/$ https://woodingben.com/wp-content/uploads/2021/02/2-2w.png
+RedirectMatch 301 ^/4\-4w/$ https://woodingben.com/wp-content/uploads/2021/02/4-4w.png
+RedirectMatch 301 ^/a1\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/a1.jpg
+RedirectMatch 301 ^/ads\-png/$ https://woodingben.com/wp-content/uploads/2022/03/ads.png
+RedirectMatch 301 ^/ads/$ https://woodingben.com/wp-content/uploads/2021/02/ads.png
+RedirectMatch 301 ^/alex\-dukhanov\-800154\-unsplash\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/alex-dukhanov-800154-unsplash.jpg
+RedirectMatch 301 ^/amazon\-3\-png/$ https://woodingben.com/wp-content/uploads/2022/03/amazon-3.png
+RedirectMatch 301 ^/autumn\-studio\-394136\-unsplash\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/autumn-studio-394136-unsplash.jpg
+RedirectMatch 301 ^/back/$ https://woodingben.com/wp-content/uploads/2022/03/back-e1647364623438.jpeg
+RedirectMatch 301 ^/beach_vol/$ https://woodingben.com/wp-content/uploads/2022/03/beach_vol.jpeg
+RedirectMatch 301 ^/beach_vol2\-1\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/beach_vol2-1-1.jpeg
+RedirectMatch 301 ^/beach_vol2\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/beach_vol2-1.jpeg
+RedirectMatch 301 ^/beach_vol2/$ https://woodingben.com/wp-content/uploads/2022/03/beach_vol2.jpeg
+RedirectMatch 301 ^/beach_vol3\-1\-1\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/beach_vol3-1-1-1.jpeg
+RedirectMatch 301 ^/beach_vol3\-1\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/beach_vol3-1-1.jpeg
+RedirectMatch 301 ^/beach_vol3\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/beach_vol3-1.jpeg
+RedirectMatch 301 ^/beach_vol3/$ https://woodingben.com/wp-content/uploads/2022/03/beach_vol3.jpeg
+RedirectMatch 301 ^/beach_vol4\-1\-e1647087624464\-1\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/beach_vol4-1-e1647087624464-1-1.jpeg
+RedirectMatch 301 ^/beach_vol4\-1\-e1647087624464\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/beach_vol4-1-e1647087624464-1.jpeg
+RedirectMatch 301 ^/beach_vol4\-1\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/beach_vol4-1-1.jpeg
+RedirectMatch 301 ^/beach_vol4\-e1647019982784\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/beach_vol4-e1647019982784-1.jpeg
+RedirectMatch 301 ^/beach_vol4\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/beach_vol4-1-e1647087624464.jpeg
+RedirectMatch 301 ^/beach_vol4/$ https://woodingben.com/wp-content/uploads/2022/03/beach_vol4-e1647019982784.jpeg
+RedirectMatch 301 ^/beach_vol5\-1\-1\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/beach_vol5-1-1-1.jpeg
+RedirectMatch 301 ^/beach_vol5\-1\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/beach_vol5-1-1.jpeg
+RedirectMatch 301 ^/beach_vol5\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/beach_vol5-1.jpeg
+RedirectMatch 301 ^/beach_vol5/$ https://woodingben.com/wp-content/uploads/2022/03/beach_vol5.jpeg
+RedirectMatch 301 ^/blue\-ocean\-water\-5412\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/blue-ocean-water-5412.jpg
+RedirectMatch 301 ^/chuttersnap\-510131\-unsplash\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/chuttersnap-510131-unsplash.jpg
+RedirectMatch 301 ^/computer\-png/$ https://woodingben.com/wp-content/uploads/2022/03/computer.png
+RedirectMatch 301 ^/computer/$ https://woodingben.com/wp-content/uploads/2021/02/computer.png
+RedirectMatch 301 ^/dsc_0655/$ https://woodingben.com/wp-content/uploads/2022/08/DSC_0655-scaled.jpg
+RedirectMatch 301 ^/ellyot\-623921\-unsplash\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/ellyot-623921-unsplash.jpg
+RedirectMatch 301 ^/female\-3\-1\-1\-1\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/female-3-1-1-1-1.jpg
+RedirectMatch 301 ^/female\-3\-1\-1\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/female-3-1-1-1.jpg
+RedirectMatch 301 ^/female\-3\-1\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/female-3-1-1.jpg
+RedirectMatch 301 ^/female\-3\-jpg\-2/$ https://woodingben.com/wp-content/uploads/2022/03/female-3-1.jpg
+RedirectMatch 301 ^/female\-3\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/female-3.jpg
+RedirectMatch 301 ^/female\-3/$ https://woodingben.com/wp-content/uploads/2021/02/female-3.jpg
+RedirectMatch 301 ^/female\-4\-1\-1\-1\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/female-4-1-1-1-1.jpg
+RedirectMatch 301 ^/female\-4\-1\-1\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/female-4-1-1-1.jpg
+RedirectMatch 301 ^/female\-4\-1\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/female-4-1-1.jpg
+RedirectMatch 301 ^/female\-4\-jpg\-2/$ https://woodingben.com/wp-content/uploads/2022/03/female-4-1.jpg
+RedirectMatch 301 ^/female\-4\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/female-4.jpg
+RedirectMatch 301 ^/female\-4/$ https://woodingben.com/wp-content/uploads/2021/02/female-4.jpg
+RedirectMatch 301 ^/grad_photo\-e1647023624355\-1\-1\-1\-jpg/$ https://woodingben.com/wp-content/uploads/2023/01/grad_photo-e1647023624355-1-1-1.jpg
+RedirectMatch 301 ^/grad_photo\-e1647023624355\-1\-1\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/grad_photo-e1647023624355-1-1-1.jpg
+RedirectMatch 301 ^/grad_photo\-e1647023624355\-1\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/grad_photo-e1647023624355-1-1.jpg
+RedirectMatch 301 ^/grad_photo\-e1647023624355\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/grad_photo-e1647023624355-1.jpg
+RedirectMatch 301 ^/grad_photo/$ https://woodingben.com/wp-content/uploads/2022/03/grad_photo-e1647023624355.jpg
+RedirectMatch 301 ^/h1_hero\-bg\-2\-2/$ https://woodingben.com/wp-content/uploads/2021/02/h1_hero-bg-2-2.png
+RedirectMatch 301 ^/h1_hero\-bg\-2/$ https://woodingben.com/wp-content/uploads/2021/02/h1_hero-bg-2.png
+RedirectMatch 301 ^/h1_hero\-bg/$ https://woodingben.com/wp-content/uploads/2022/02/h1_hero-bg.png
+RedirectMatch 301 ^/hero2\-bg\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/hero2-bg.jpg
+RedirectMatch 301 ^/homepagephoto\-2/$ https://woodingben.com/wp-content/uploads/2022/08/HomePagePhoto-1-scaled.jpeg
+RedirectMatch 301 ^/homepagephoto\-hd\-e1659998423848\-png/$ https://woodingben.com/wp-content/uploads/2023/01/HomePagePhoto-HD-e1659998423848.png
+RedirectMatch 301 ^/homepagephoto\-hd/$ https://woodingben.com/wp-content/uploads/2022/08/HomePagePhoto-HD-e1659998423848.png
+RedirectMatch 301 ^/iccps25_protect_poster/$ https://woodingben.com/wp-content/uploads/2025/03/ICCPS25_PRoTECT_Poster.pdf
+RedirectMatch 301 ^/imagebox4\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/imagebox4.jpg
+RedirectMatch 301 ^/lee\-miller\-47629\-unsplash\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/lee-miller-47629-unsplash.jpg
+RedirectMatch 301 ^/logo\-1/$ https://woodingben.com/wp-content/uploads/2021/02/logo-1.png
+RedirectMatch 301 ^/logo\-footer/$ https://woodingben.com/wp-content/uploads/2021/02/logo-footer.png
+RedirectMatch 301 ^/male\-1\-1\-1\-1\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/male-1-1-1-1-1.jpg
+RedirectMatch 301 ^/male\-1\-1\-1\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/male-1-1-1-1.jpg
+RedirectMatch 301 ^/male\-1\-1\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/male-1-1-1.jpg
+RedirectMatch 301 ^/male\-1\-jpg\-2/$ https://woodingben.com/wp-content/uploads/2022/03/male-1-1.jpg
+RedirectMatch 301 ^/male\-1\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/male-1.jpg
+RedirectMatch 301 ^/male\-1/$ https://woodingben.com/wp-content/uploads/2021/02/male-1.jpg
+RedirectMatch 301 ^/male\-3\-1\-1\-1\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/male-3-1-1-1-1.jpg
+RedirectMatch 301 ^/male\-3\-1\-1\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/male-3-1-1-1.jpg
+RedirectMatch 301 ^/male\-3\-1\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/male-3-1-1.jpg
+RedirectMatch 301 ^/male\-3\-jpg\-2/$ https://woodingben.com/wp-content/uploads/2022/03/male-3-1.jpg
+RedirectMatch 301 ^/male\-3\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/male-3.jpg
+RedirectMatch 301 ^/male\-3/$ https://woodingben.com/wp-content/uploads/2021/02/male-3.jpg
+RedirectMatch 301 ^/markus\-spiske\-1083420\-unsplash\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/markus-spiske-1083420-unsplash.jpg
+RedirectMatch 301 ^/model\-based\-and\-data\-driven\-formal\-synthesis\-of\-power\-systems/$ https://woodingben.com/wp-content/uploads/2025/02/MODEL-BASED-AND-DATA-DRIVEN-FORMAL-SYNTHESIS-OF-POWER-SYSTEMS.pdf
+RedirectMatch 301 ^/mong\-bui\-515633\-unsplash\-1\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/mong-bui-515633-unsplash-1.jpg
+RedirectMatch 301 ^/nasa\-45066\-unsplash\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/nasa-45066-unsplash.jpg
+RedirectMatch 301 ^/pexels\-photo\-1292998\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/pexels-photo-1292998.jpeg
+RedirectMatch 301 ^/pexels\-photo\-579216\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/pexels-photo-579216.jpeg
+RedirectMatch 301 ^/photo\-about\-me\-1\-1\-1\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/photo-about-me-1-1-1-1.jpg
+RedirectMatch 301 ^/photo\-about\-me\-1\-1\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/photo-about-me-1-1-1.jpg
+RedirectMatch 301 ^/photo\-about\-me\-1\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/photo-about-me-1-1.jpg
+RedirectMatch 301 ^/photo\-about\-me\-jpg\-2/$ https://woodingben.com/wp-content/uploads/2022/03/photo-about-me-1.jpg
+RedirectMatch 301 ^/photo\-about\-me\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/photo-about-me.jpg
+RedirectMatch 301 ^/photo\-about\-me/$ https://woodingben.com/wp-content/uploads/2021/02/photo-about-me.jpg
+RedirectMatch 301 ^/placeholder\-1\-1\-1\-png/$ https://woodingben.com/wp-content/uploads/2022/03/placeholder-1-1-1-1.png
+RedirectMatch 301 ^/placeholder\-1\-1\-png/$ https://woodingben.com/wp-content/uploads/2022/03/placeholder-1-1-1.png
+RedirectMatch 301 ^/placeholder\-1\-png/$ https://woodingben.com/wp-content/uploads/2022/03/placeholder-1-1.png
+RedirectMatch 301 ^/placeholder\-png\-2/$ https://woodingben.com/wp-content/uploads/2022/03/placeholder-1.png
+RedirectMatch 301 ^/placeholder\-png\-3/$ https://woodingben.com/wp-content/uploads/2022/03/placeholder-2.png
+RedirectMatch 301 ^/placeholder\-png\-4/$ https://woodingben.com/wp-content/uploads/2023/03/placeholder.png
+RedirectMatch 301 ^/placeholder\-png\-5/$ https://woodingben.com/wp-content/uploads/2023/03/placeholder-1.png
+RedirectMatch 301 ^/placeholder\-png/$ https://woodingben.com/wp-content/uploads/2022/03/placeholder.png
+RedirectMatch 301 ^/plug\-in\-google\-scholar\-orderer/screenshot\-2026\-01\-20\-at\-10\-42\-36\-2/$ https://woodingben.com/wp-content/uploads/2026/01/Screenshot-2026-01-20-at-10.42.36-1.png
+RedirectMatch 301 ^/plug\-in\-google\-scholar\-orderer/screenshot\-2026\-01\-20\-at\-10\-42\-53\-2/$ https://woodingben.com/wp-content/uploads/2026/01/Screenshot-2026-01-20-at-10.42.53-1.png
+RedirectMatch 301 ^/portfolio\-2/$ https://woodingben.com/wp-content/uploads/2021/02/portfolio-2.png
+RedirectMatch 301 ^/portfolio\-3/$ https://woodingben.com/wp-content/uploads/2021/02/portfolio-3.png
+RedirectMatch 301 ^/portfolio\-4/$ https://woodingben.com/wp-content/uploads/2021/02/portfolio-4.png
+RedirectMatch 301 ^/portfolio\-6\-2/$ https://woodingben.com/wp-content/uploads/2021/02/portfolio-6-1-1.png
+RedirectMatch 301 ^/portfolio\-7\-2/$ https://woodingben.com/wp-content/uploads/2021/02/portfolio-7-1.png
+RedirectMatch 301 ^/portfolio/021222\-nuheadshots\-125\-min/$ https://woodingben.com/wp-content/uploads/2023/03/021222-NUHeadshots-125-min-scaled.jpeg
+RedirectMatch 301 ^/portfolio/021222\-nuheadshots\-125/$ https://woodingben.com/wp-content/uploads/2023/03/021222-NUHeadshots-125-scaled.jpeg
+RedirectMatch 301 ^/portfolio/021222\-nuheadshots\-126/$ https://woodingben.com/wp-content/uploads/2023/03/021222-NUHeadshots-126-scaled.jpeg
+RedirectMatch 301 ^/portfolio/021222\-nuheadshots\-33/$ https://woodingben.com/wp-content/uploads/2023/03/021222-NUHeadshots-33-scaled.jpeg
+RedirectMatch 301 ^/portfolio/021222\-nuheadshots\-34/$ https://woodingben.com/wp-content/uploads/2023/03/021222-NUHeadshots-34-scaled.jpeg
+RedirectMatch 301 ^/portfolio/021222\-nuheadshots\-35/$ https://woodingben.com/wp-content/uploads/2023/03/021222-NUHeadshots-35-scaled.jpeg
+RedirectMatch 301 ^/portfolio/021222\-nuheadshots\-36/$ https://woodingben.com/wp-content/uploads/2023/03/021222-NUHeadshots-36-scaled.jpeg
+RedirectMatch 301 ^/portfolio/021222\-nuheadshots\-37/$ https://woodingben.com/wp-content/uploads/2023/03/021222-NUHeadshots-37-scaled.jpeg
+RedirectMatch 301 ^/portfolio/021222\-nuheadshots\-38/$ https://woodingben.com/wp-content/uploads/2023/03/021222-NUHeadshots-38-scaled.jpeg
+RedirectMatch 301 ^/portfolio/6\-6w/$ https://woodingben.com/wp-content/uploads/2021/02/6-6w.png
+RedirectMatch 301 ^/portfolio/8\-8w/$ https://woodingben.com/wp-content/uploads/2021/02/8-8w.png
+RedirectMatch 301 ^/portfolio/benwoodingheadshot2024\-2/$ https://woodingben.com/wp-content/uploads/2025/03/BenWoodingHeadshot2024.png
+RedirectMatch 301 ^/portfolio/benwoodingheadshot2024/$ https://woodingben.com/wp-content/uploads/2024/12/BenWoodingHeadshot2024.png
+RedirectMatch 301 ^/portfolio/cropped_group/$ https://woodingben.com/wp-content/uploads/2023/03/cropped_group-scaled.jpeg
+RedirectMatch 301 ^/portfolio/cropped_higher/$ https://woodingben.com/wp-content/uploads/2023/03/cropped_higher-scaled.jpeg
+RedirectMatch 301 ^/portfolio/hero2\-bg\-2/$ https://woodingben.com/wp-content/uploads/2021/02/hero2-bg-2.png
+RedirectMatch 301 ^/portfolio/hero2\-bg/$ https://woodingben.com/wp-content/uploads/2021/02/hero2-bg.jpg
+RedirectMatch 301 ^/portfolio/portfolio\-10/$ https://woodingben.com/wp-content/uploads/2021/02/portfolio-10.jpg
+RedirectMatch 301 ^/portfolio/portfolio\-11/$ https://woodingben.com/wp-content/uploads/2021/02/portfolio-11.jpg
+RedirectMatch 301 ^/portfolio/portfolio\-115/$ https://woodingben.com/wp-content/uploads/2021/02/portfolio-115.jpg
+RedirectMatch 301 ^/portfolio/portfolio\-15/$ https://woodingben.com/wp-content/uploads/2021/02/portfolio-15.jpg
+RedirectMatch 301 ^/portfolio/portfolio\-9\-min/$ https://woodingben.com/wp-content/uploads/2021/02/portfolio-9-min.jpg
+RedirectMatch 301 ^/portfolio/portoflio\-151/$ https://woodingben.com/wp-content/uploads/2021/02/portoflio-151.jpg
+RedirectMatch 301 ^/portoflio\-1/$ https://woodingben.com/wp-content/uploads/2021/02/portoflio-1.png
+RedirectMatch 301 ^/poster_iccps25_protect\-1/$ https://woodingben.com/wp-content/uploads/2025/04/Poster_ICCPS25_PRoTECT-1.pdf
+RedirectMatch 301 ^/protect_ictac/$ https://woodingben.com/wp-content/uploads/2025/12/PROTECT_ICTAC.pdf
+RedirectMatch 301 ^/protect_v2/$ https://woodingben.com/wp-content/uploads/2025/06/PRoTECT_v2.pdf
+RedirectMatch 301 ^/rafaela\-biazi\-470405\-unsplash\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/rafaela-biazi-470405-unsplash.jpg
+RedirectMatch 301 ^/real\-estate\-social\-img/$ https://woodingben.com/wp-content/uploads/2022/02/real-estate-social-img.jpg
+RedirectMatch 301 ^/robin\-spielmann\-591331\-unsplash\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/robin-spielmann-591331-unsplash.jpg
+RedirectMatch 301 ^/sam_vol\-1\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/Sam_vol-1-1.jpeg
+RedirectMatch 301 ^/sam_vol\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/Sam_vol-1.jpeg
+RedirectMatch 301 ^/sam_vol/$ https://woodingben.com/wp-content/uploads/2022/03/Sam_vol.jpeg
+RedirectMatch 301 ^/scot_1\-e1647257405462\-1\-png/$ https://woodingben.com/wp-content/uploads/2022/03/scot_1-e1647257405462-1-1.png
+RedirectMatch 301 ^/scot_1\-e1647257405462\-png/$ https://woodingben.com/wp-content/uploads/2022/03/scot_1-e1647257405462-1.png
+RedirectMatch 301 ^/scot_1/$ https://woodingben.com/wp-content/uploads/2022/03/scot_1-e1647257405462.png
+RedirectMatch 301 ^/scot_2\-e1647257505541\-1\-png\-2/$ https://woodingben.com/wp-content/uploads/2022/03/scot_2-e1647257505541-1-2.png
+RedirectMatch 301 ^/scot_2\-e1647257505541\-1\-png/$ https://woodingben.com/wp-content/uploads/2022/03/scot_2-e1647257505541-1-1.png
+RedirectMatch 301 ^/scot_2\-e1647257505541\-png/$ https://woodingben.com/wp-content/uploads/2022/03/scot_2-e1647257505541-1.png
+RedirectMatch 301 ^/scot_2/$ https://woodingben.com/wp-content/uploads/2022/03/scot_2-e1647257505541.png
+RedirectMatch 301 ^/scot_3/$ https://woodingben.com/wp-content/uploads/2022/03/scot_3.png
+RedirectMatch 301 ^/scot_4\-e1647257458572\-2\-png/$ https://woodingben.com/wp-content/uploads/2022/03/scot_4-e1647257458572-2-1.png
+RedirectMatch 301 ^/scot_4\-e1647257458572\-png\-2/$ https://woodingben.com/wp-content/uploads/2022/03/scot_4-e1647257458572-2.png
+RedirectMatch 301 ^/scot_4\-e1647257458572\-png/$ https://woodingben.com/wp-content/uploads/2022/03/scot_4-e1647257458572-1.png
+RedirectMatch 301 ^/scot_4/$ https://woodingben.com/wp-content/uploads/2022/03/scot_4-e1647257458572.png
+RedirectMatch 301 ^/scot_5/$ https://woodingben.com/wp-content/uploads/2022/03/scot_5.png
+RedirectMatch 301 ^/scraping\-google\-scholar/google_scholar/$ https://woodingben.com/wp-content/uploads/2022/08/google_scholar.png
+RedirectMatch 301 ^/screenshot\-2026\-01\-20\-at\-10\-41\-59/$ https://woodingben.com/wp-content/uploads/2026/01/Screenshot-2026-01-20-at-10.41.59-e1768927571111.png
+RedirectMatch 301 ^/screenshot\-2026\-01\-20\-at\-10\-42\-36/$ https://woodingben.com/wp-content/uploads/2026/01/Screenshot-2026-01-20-at-10.42.36.png
+RedirectMatch 301 ^/screenshot\-2026\-01\-20\-at\-10\-42\-53/$ https://woodingben.com/wp-content/uploads/2026/01/Screenshot-2026-01-20-at-10.42.53.png
+RedirectMatch 301 ^/section\-1\-bg1\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/section-1-bg1.jpg
+RedirectMatch 301 ^/section\-1\-bg1/$ https://woodingben.com/wp-content/uploads/2021/02/section-1-bg1.jpg
+RedirectMatch 301 ^/serve_10\-e1647257365342\-1\-png/$ https://woodingben.com/wp-content/uploads/2022/03/serve_10-e1647257365342-1-1.png
+RedirectMatch 301 ^/serve_10\-e1647257365342\-png/$ https://woodingben.com/wp-content/uploads/2022/03/serve_10-e1647257365342-1.png
+RedirectMatch 301 ^/serve_10/$ https://woodingben.com/wp-content/uploads/2022/03/serve_10-e1647257365342.png
+RedirectMatch 301 ^/serve_vol\-1\-e1647087670899\-1\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/serve_vol-1-e1647087670899-1-1.jpeg
+RedirectMatch 301 ^/serve_vol\-1\-e1647087670899\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/serve_vol-1-e1647087670899-1.jpeg
+RedirectMatch 301 ^/serve_vol\-1\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/serve_vol-1-1.jpeg
+RedirectMatch 301 ^/serve_vol\-e1647019891230\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/serve_vol-e1647019891230-1.jpeg
+RedirectMatch 301 ^/serve_vol\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/serve_vol-1-e1647087670899.jpeg
+RedirectMatch 301 ^/serve_vol/$ https://woodingben.com/wp-content/uploads/2022/03/serve_vol-e1647019891230.jpeg
+RedirectMatch 301 ^/serve_vol2\-1\-1\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/serve_vol2-1-1-1.jpeg
+RedirectMatch 301 ^/serve_vol2\-1\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/serve_vol2-1-1.jpeg
+RedirectMatch 301 ^/serve_vol2\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/serve_vol2-1.jpeg
+RedirectMatch 301 ^/serve_vol2/$ https://woodingben.com/wp-content/uploads/2022/03/serve_vol2.jpeg
+RedirectMatch 301 ^/set_vol\-1\-1\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/set_vol-1-1-1.jpeg
+RedirectMatch 301 ^/set_vol\-1\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/set_vol-1-1.jpeg
+RedirectMatch 301 ^/set_vol\-jpeg/$ https://woodingben.com/wp-content/uploads/2022/03/set_vol-1.jpeg
+RedirectMatch 301 ^/set_vol/$ https://woodingben.com/wp-content/uploads/2022/03/set_vol.jpeg
+RedirectMatch 301 ^/settings\-png/$ https://woodingben.com/wp-content/uploads/2022/03/settings.png
+RedirectMatch 301 ^/settings/$ https://woodingben.com/wp-content/uploads/2021/02/settings.png
+RedirectMatch 301 ^/shape\-2/$ https://woodingben.com/wp-content/uploads/2021/02/shape-2.png
+RedirectMatch 301 ^/shape1\-1\-1\-1\-1\-1\-1\-png/$ https://woodingben.com/wp-content/uploads/2023/01/shape1-1-1-1-1-1-1.png
+RedirectMatch 301 ^/shape1\-1\-1\-1\-1\-1\-png/$ https://woodingben.com/wp-content/uploads/2022/03/shape1-1-1-1-1-1-1.png
+RedirectMatch 301 ^/shape1\-1\-1\-1\-1\-png/$ https://woodingben.com/wp-content/uploads/2022/03/shape1-1-1-1-1-1.png
+RedirectMatch 301 ^/shape1\-1\-1\-1\-png/$ https://woodingben.com/wp-content/uploads/2022/03/shape1-1-1-1-1.png
+RedirectMatch 301 ^/shape1\-1\-1\-png/$ https://woodingben.com/wp-content/uploads/2022/03/shape1-1-1-1.png
+RedirectMatch 301 ^/shape1\-1\-png/$ https://woodingben.com/wp-content/uploads/2022/03/shape1-1-1.png
+RedirectMatch 301 ^/shape1\-horiz\-png/$ https://woodingben.com/wp-content/uploads/2022/03/shape1-horiz.png
+RedirectMatch 301 ^/shape1\-horiz/$ https://woodingben.com/wp-content/uploads/2021/02/shape1-horiz.png
+RedirectMatch 301 ^/shape1\-png\-2/$ https://woodingben.com/wp-content/uploads/2022/03/shape1-1.png
+RedirectMatch 301 ^/shape1\-png/$ https://woodingben.com/wp-content/uploads/2022/03/shape1.png
+RedirectMatch 301 ^/shape1/$ https://woodingben.com/wp-content/uploads/2021/02/shape1.png
+RedirectMatch 301 ^/smallscot/$ https://woodingben.com/wp-content/uploads/2022/03/smallscot.png
+RedirectMatch 301 ^/software\-tools/impact\-software\-tool/fig/$ https://woodingben.com/wp-content/uploads/2024/02/fig.png
+RedirectMatch 301 ^/software\-tools/protect\-software\-tool/jetengine/$ https://woodingben.com/wp-content/uploads/2024/06/JetEngine.png
+RedirectMatch 301 ^/software\-tools/trust\-software\-tool/ctnps_predator_prey_new/$ https://woodingben.com/wp-content/uploads/2025/03/ctNPS_predator_prey_new.png
+RedirectMatch 301 ^/spike_3\-e1647257320102\-1\-png/$ https://woodingben.com/wp-content/uploads/2022/03/spike_3-e1647257320102-1-1.png
+RedirectMatch 301 ^/spike_3\-e1647257320102\-png/$ https://woodingben.com/wp-content/uploads/2022/03/spike_3-e1647257320102-1.png
+RedirectMatch 301 ^/spike_3/$ https://woodingben.com/wp-content/uploads/2022/03/spike_3-e1647257320102.png
+RedirectMatch 301 ^/team1\-e1647257567666\-2\-png/$ https://woodingben.com/wp-content/uploads/2022/03/team1-e1647257567666-2-1.png
+RedirectMatch 301 ^/team1\-e1647257567666\-png\-2/$ https://woodingben.com/wp-content/uploads/2022/03/team1-e1647257567666-2.png
+RedirectMatch 301 ^/team1\-e1647257567666\-png/$ https://woodingben.com/wp-content/uploads/2022/03/team1-e1647257567666-1.png
+RedirectMatch 301 ^/team1/$ https://woodingben.com/wp-content/uploads/2022/03/team1-e1647257567666.png
+RedirectMatch 301 ^/team2\-e1647257680467\-1\-png/$ https://woodingben.com/wp-content/uploads/2022/03/team2-e1647257680467-1-1.png
+RedirectMatch 301 ^/team2\-e1647257680467\-png/$ https://woodingben.com/wp-content/uploads/2022/03/team2-e1647257680467-1.png
+RedirectMatch 301 ^/team2/$ https://woodingben.com/wp-content/uploads/2022/03/team2-e1647257680467.png
+RedirectMatch 301 ^/team3/$ https://woodingben.com/wp-content/uploads/2022/03/team3-e1647257203231.png
+RedirectMatch 301 ^/tn\-spike\-e1647257082485\-1\-png\-2/$ https://woodingben.com/wp-content/uploads/2022/03/TN-spike-e1647257082485-1-2.png
+RedirectMatch 301 ^/tn\-spike\-e1647257082485\-1\-png/$ https://woodingben.com/wp-content/uploads/2022/03/TN-spike-e1647257082485-1-1.png
+RedirectMatch 301 ^/tn\-spike\-e1647257082485\-png/$ https://woodingben.com/wp-content/uploads/2022/03/TN-spike-e1647257082485-1.png
+RedirectMatch 301 ^/tn\-spike/$ https://woodingben.com/wp-content/uploads/2022/03/TN-spike-e1647257082485.png
+RedirectMatch 301 ^/trust\-hscc/$ https://woodingben.com/wp-content/uploads/2025/03/TRUST-HSCC.pdf
+RedirectMatch 301 ^/untitled\-1\-png/$ https://woodingben.com/wp-content/uploads/2022/03/Untitled-1.png
+RedirectMatch 301 ^/vol_spike\-1\-png/$ https://woodingben.com/wp-content/uploads/2022/03/vol_spike-1-1.png
+RedirectMatch 301 ^/vol_spike\-png/$ https://woodingben.com/wp-content/uploads/2022/03/vol_spike-1.png
+RedirectMatch 301 ^/vol_spike/$ https://woodingben.com/wp-content/uploads/2022/03/vol_spike.png
+RedirectMatch 301 ^/web\-developer\-bg\-min\-jpg/$ https://woodingben.com/wp-content/uploads/2022/03/web-developer-bg-min.jpg
+RedirectMatch 301 ^/web\-developer\-bg\-min/$ https://woodingben.com/wp-content/uploads/2021/02/web-developer-bg-min.jpg
+RedirectMatch 301 ^/wooding_academic_cv\-2/$ https://woodingben.com/wp-content/uploads/2025/07/Wooding_Academic_CV.pdf
+RedirectMatch 301 ^/wooding_academic_cv\-3/$ https://woodingben.com/wp-content/uploads/2026/01/Wooding_Academic_CV.pdf
+RedirectMatch 301 ^/wooding_academic_cv/$ https://woodingben.com/wp-content/uploads/2024/01/Wooding_Academic_CV.pdf
+RedirectMatch 301 ^/wooding_academic_cv18march/$ https://woodingben.com/wp-content/uploads/2025/03/Wooding_Academic_CV18March.pdf
+RedirectMatch 301 ^/wooding_academic_cv_1jul25/$ https://woodingben.com/wp-content/uploads/2025/07/Wooding_Academic_CV_1Jul25.pdf
+RedirectMatch 301 ^/wooding_thesis/$ https://woodingben.com/wp-content/uploads/2025/07/Wooding_Thesis.pdf

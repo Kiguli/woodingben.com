@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <!-- Head order is fixed: charset, viewport, title, description, canonical,
+       OG/Twitter, theme-color, stylesheet, JSON-LD. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pig Dice Game, Solved and Certified - Ben Wooding</title>
+  <meta name="description" content="The dice game Pig solved as a Markov decision process: value iteration proves the first player wins 53.06% under optimal play, certified as a fixpoint.">
+  <link rel="canonical" href="https://woodingben.com/games/pig/">
+
+  <!-- Robots: mirror the live Yoast directive on every indexable page -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <!-- Open Graph / Twitter. og_site_name and locale are constant site-wide. -->
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Pig Dice Game, Solved and Certified - Ben Wooding">
+  <meta property="og:description" content="The dice game Pig solved as a Markov decision process: value iteration proves the first player wins 53.06% under optimal play, certified as a fixpoint.">
+  <meta property="og:url" content="https://woodingben.com/games/pig/">
+  <meta property="og:site_name" content="Ben Wooding">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Pig Dice Game, Solved and Certified - Ben Wooding">
+  <meta name="twitter:description" content="The dice game Pig solved as a Markov decision process: value iteration proves the first player wins 53.06% under optimal play, certified as a fixpoint.">
+
+  <!-- Address-bar tint; matches --bg tokens in style.css -->
+  <meta name="theme-color" content="#f7fafa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1b1c" media="(prefers-color-scheme: dark)">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- The ONLY stylesheet. Root-relative so it works at any URL depth. -->
+  <link rel="stylesheet" href="/assets/style.css?v=4f595879b2">
+  <script src="/assets/embed.js?v=e2b7102aed" defer></script>
+
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://woodingben.com/games/pig/#article",
+        "headline": "Pig Dice Game, Solved and Certified",
+        "description": "The dice game Pig modelled as a two-player stochastic game / Markov decision process and solved by value iteration: the first player wins 53.06% under optimal play, certified by a Bellman residual of exactly 0.",
+        "url": "https://woodingben.com/games/pig/",
+        "mainEntityOfPage": "https://woodingben.com/games/pig/",
+        "author": {
+          "@type": "Person",
+          "name": "Ben Wooding",
+          "url": "https://woodingben.com/",
+          "sameAs": [
+            "https://scholar.google.com/citations?user=YhOmz1kAAAAJ",
+            "https://github.com/Kiguli",
+            "https://www.linkedin.com/in/ben-wooding/",
+            "https://substack.com/@woodingben/posts",
+            "https://www.youtube.com/@The_Real_Kiguli"
+          ]
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://woodingben.com/games/pig/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://woodingben.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Games",
+            "item": "https://woodingben.com/games/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Pig",
+            "item": "https://woodingben.com/games/pig/"
+          }
+        ]
+      }
+    ]
+  }</script>
+</head>
+<body class="game-page">
+  <!-- Skip link: first focusable element on every page. Target is <main id="main">. -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <!-- Site title links home. Plain text, no logo image. -->
+      <a class="site-title" href="/">Ben Wooding</a>
+
+      <nav class="site-nav" aria-label="Site">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li class="has-dropdown">
+            <a href="/software-tools/">Software Tools</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-tools" aria-label="Software Tools submenu"></button>
+            <ul class="dropdown" id="nav-sub-tools">
+              <li><a href="/software-tools/">Overview</a></li>
+              <li><a href="/software-tools/trust-software-tool/">TRUST</a></li>
+              <li><a href="/software-tools/protect-software-tool/">PRoTECT</a></li>
+              <li><a href="/software-tools/impact-software-tool/">IMPaCT</a></li>
+              <li><a href="/software-tools/nnv-software-tool/">NNV</a></li>
+              <li><a href="/software-tools/n2v-software-tool/">n2v</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/publications/">Publications</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-publications" aria-label="Publications submenu"></button>
+            <ul class="dropdown" id="nav-sub-publications">
+              <li><a href="/publications/">Full list</a></li>
+              <li><a href="/publications/#conference">Conference</a></li>
+              <li><a href="/publications/#journal">Journal</a></li>
+              <li><a href="/publications/#book-chapters">Book Chapters</a></li>
+              <li><a href="/publications/#posters-competition">Posters &amp; Competitions</a></li>
+              <li><a href="/publications/#theses">Theses</a></li>
+              <li><a href="/publications/#preprints">Preprints</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/posts/">Posts</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-posts" aria-label="Posts submenu"></button>
+            <ul class="dropdown" id="nav-sub-posts">
+              <li><a href="/posts/">All posts</a></li>
+              <li><a href="https://woodingben.substack.com/p/a-475-million-typo" target="_blank" rel="noopener">A $475 Million Typo<span class="ext-mark" aria-hidden="true"> &#x2197;</span></a></li>
+              <li><a href="/scraping-google-scholar/">Scraping Google Scholar</a></li>
+              <li><a href="https://woodingben.substack.com/p/google-scholar-orderer-a-research">Google Scholar Orderer</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/games/" aria-current="page">Games</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-games" aria-label="Games submenu"></button>
+            <ul class="dropdown" id="nav-sub-games">
+              <li><a href="/games/">All games</a></li>
+              <li><a href="/games/tic-tac-toe/">Tic-Tac-Toe</a></li>
+              <li><a href="/games/nim/">Nim</a></li>
+              <li><a href="/games/pig/">Pig</a></li>
+            </ul>
+          </li>
+          <li><a href="/cv/Ben-Wooding-CV.pdf">CV</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/games/">Games</a></li>
+        <li aria-current="page">Pig</li>
+      </ol>
+    </nav>
+
+    <article>
+      <header class="article-header">
+        <h1>Pig</h1>
+        <p class="article-meta"><span class="status-badge is-solved" title="Full-state value iteration with an independent Bellman-fixpoint certificate; V(0,0,0)=0.5305927 matches Neller-Presser.">Fully solved</span></p>
+        <p class="lede">Pig is a push-your-luck dice race to 100 points; solved as a two-player stochastic game by value iteration, it is certified that the first player wins 53.06% of games under optimal play by both sides.</p>
+      </header>
+
+      <section class="section">
+        <div class="section-heading"><h2>The game</h2></div>
+        <div class="prose">
+          <p>Two players race to be the first to reach 100 points, taking turns with a single six-sided die. On your turn you roll as many times as you dare: each face from 2 to 6 adds to a running <em>turn total</em>, but rolling a 1 busts &mdash; the turn ends immediately and the whole turn total is lost. At any point you may instead <em>hold</em>, banking the turn total into your score and passing the dice. The first player to reach 100 wins, and banking is checked the instant it would win.</p>
+          <p>The tension is entirely in that one repeated decision: every extra roll risks the points already accumulated this turn, so Pig is the textbook example of a jeopardy, or push-your-luck, game.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><h2>Play it</h2></div>
+        <iframe class="game-embed" src="/games/play/?game=pig&amp;embed=1" title="Play Pig interactively" loading="lazy" data-game="pig" height="640"></iframe>
+      </section>
+
+      <aside class="callout-result" role="note">
+        <p class="callout-result-title">Certified result</p>
+        <p>Under optimal play by both players the <strong>first player wins 53.06%</strong> &mdash; the certified Neller&ndash;Presser (2004) value, computed by <strong>value iteration</strong> to a Bellman fixpoint (residual 0). The optimal policy <strong>beats &ldquo;hold at 20&rdquo;</strong> head-to-head from both seats.</p>
+      </aside>
+
+      <section class="section">
+        <div class="section-heading"><h2>The formalization</h2></div>
+        <div class="prose">
+          <p>The game is modelled as a two-player turn-based stochastic game &mdash; equivalently a Markov decision process (MDP), a state machine whose moves have known probabilities &mdash; on the state <code>(myScore, oppScore, turnTotal)</code> for the player to move, with the two actions <code>{roll, hold}</code>. Those three numbers are a sufficient statistic: nothing else in the history affects future play. Because exactly one player wins and both face identical rules, the game is zero-sum and symmetric, so a single value function <code>V(i, j, k)</code> &mdash; the probability the player to move eventually wins under optimal play by both &mdash; captures the whole game, with the handover encoded as <code>1 &minus; V</code>.</p>
+          <p>&ldquo;Who wins under optimal play?&rdquo; is then a probabilistic reachability question &mdash; the probability of eventually reaching a winning state &mdash; written in temporal logic as <code>P=? [F win]</code> and evaluated from the initial state <code>(0, 0, 0)</code>. It is solved by <em>value iteration</em>: repeatedly applying the Bellman optimality backup (take the better of rolling and holding, weighting each die face at 1/6) until the values stop changing &mdash; exactly how probabilistic model checkers such as PRISM and Storm compute MDP reachability values. There is no discount factor, so convergence is not automatic; it holds because every state cedes the turn with positive probability (a bust, or the always-available hold), which makes the fresh-turn values over the finite 100&times;100 grid a finite monotone Bellman system with a unique fixpoint in [0,1].</p>
+          <p>The converged value is then <em>certified</em>, not just reported: recomputing the Bellman residual &mdash; the largest change any state would see under one more backup &mdash; yields exactly 0, the formal-methods analogue of a probabilistic model checker&rsquo;s fixpoint check. A Monte-Carlo run agrees within sampling error, as a cross-check rather than the certificate.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><h2>Results</h2></div>
+        <div class="stat-row">
+          <span class="stat-chip">First-player optimal win probability: 53.06%</span>
+          <span class="stat-chip">Bellman residual: 0.0</span>
+          <span class="stat-chip">Optimal opening threshold: hold at 21</span>
+        </div>
+        <div class="prose">
+          <p>Under optimal play by both players the first player has a real edge: a win probability of 0.530593 (the second player&rsquo;s is 0.469407), an exact value-iteration fixpoint rather than a simulation estimate, reproducing the Neller&ndash;Presser (2004) optimal-play solution exactly. Value iteration over the ~100&times;100&times;100 state space converges in ~150 sweeps.</p>
+          <p>The optimal policy is not a flat threshold. The folk heuristic &ldquo;hold at 20&rdquo; is close at the start &mdash; the optimal threshold at 0&ndash;0 is 21 &mdash; but wrong in general: the boundary rises when you are behind (30 at 70&ndash;70), collapses to all-in when the opponent is one good turn from winning (at opponent 90, never hold short of the target), and drops early when you are close (at 90&ndash;0, bank small totals to lock the win). A truly-optimal player beats a hold-at-20 player head-to-head from both seats:</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th scope="col">Match-up</th><th scope="col">First-player / optimal-player win probability</th><th scope="col">Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Optimal vs optimal (first player)</td><td>0.530593</td><td>certified (exact)</td></tr>
+              <tr><td>Optimal vs optimal (second player)</td><td>0.469407</td><td>certified (exact)</td></tr>
+              <tr><td>Hold-at-20 self-play (first player)</td><td>0.534698</td><td>certified (exact)</td></tr>
+              <tr><td>Optimal vs hold-at-20 (optimal going 1st)</td><td>0.587368</td><td>certified (exact)</td></tr>
+              <tr><td>Optimal vs hold-at-20 (optimal going 2nd)</td><td>0.522382</td><td>certified (exact)</td></tr>
+              <tr><td>Optimal vs hold-at-20 (seat-averaged)</td><td>0.554875</td><td>certified (exact)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="prose">
+          <p>One subtlety: optimal self-play (0.5306 for the first player) is slightly below hold-at-20 self-play (0.5347) &mdash; these are different games. Optimality is defined against an optimal opponent; against a fixed hold-at-20 opponent the optimal best-responder is strictly favoured from both seats, which is the meaningful comparison.</p>
+          <p>Browse the other <a href="/games/">verified board games</a>.</p>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="profile-links">
+        <li><a href="https://github.com/Kiguli" rel="me">GitHub</a></li>
+        <li><a href="https://scholar.google.com/citations?user=YhOmz1kAAAAJ" rel="me">Google Scholar</a></li>
+        <li><a href="https://orcid.org/0000-0003-1713-717X" rel="me">ORCID</a></li>
+        <li><a href="https://www.linkedin.com/in/ben-wooding/" rel="me">LinkedIn</a></li>
+        <li><a href="https://woodingben.substack.com/" rel="me">Substack</a></li>
+        <li><a href="https://www.youtube.com/@The_Real_Kiguli" rel="me">YouTube</a></li>
+        <li><a href="mailto:woodingben@gmail.com">Email</a></li>
+      </ul>
+      <p class="copyright">&copy; 2026 Ben Wooding</p>
+    </div>
+    <script src="/assets/nav.js?v=95b38a628a" defer></script>
+  </footer>
+</body>
+</html>

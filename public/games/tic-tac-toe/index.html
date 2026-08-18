@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tic-Tac-Toe, Formally Verified - Ben Wooding</title>
+  <meta name="description" content="Tic-tac-toe solved as an explicit transition system: 5,478 reachable positions, a certified forced draw, and exact odds against a random opponent.">
+  <link rel="canonical" href="https://woodingben.com/games/tic-tac-toe/">
+
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Tic-Tac-Toe, Formally Verified - Ben Wooding">
+  <meta property="og:description" content="Tic-tac-toe solved as an explicit transition system: 5,478 reachable positions, a certified forced draw, and exact odds against a random opponent.">
+  <meta property="og:url" content="https://woodingben.com/games/tic-tac-toe/">
+  <meta property="og:site_name" content="Ben Wooding">
+  <meta name="twitter:card" content="summary">
+
+  <meta name="theme-color" content="#f7fafa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1b1c" media="(prefers-color-scheme: dark)">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="/assets/style.css?v=4f595879b2">
+  <script src="/assets/embed.js?v=e2b7102aed" defer></script>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","@id":"https://woodingben.com/games/tic-tac-toe/#article","headline":"Tic-Tac-Toe, Formally Verified","description":"Tic-tac-toe solved as an explicit transition system: 5,478 reachable positions, a certified forced draw, and exact odds against a random opponent.","url":"https://woodingben.com/games/tic-tac-toe/","mainEntityOfPage":"https://woodingben.com/games/tic-tac-toe/","author":{"@type":"Person","name":"Ben Wooding","url":"https://woodingben.com/"}},{"@type":"BreadcrumbList","@id":"https://woodingben.com/games/tic-tac-toe/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://woodingben.com/"},{"@type":"ListItem","position":2,"name":"Games","item":"https://woodingben.com/games/"},{"@type":"ListItem","position":3,"name":"Tic-Tac-Toe"}]}]}</script>
+</head>
+<body class="game-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="site-title" href="/">Ben Wooding</a>
+      <nav class="site-nav" aria-label="Site">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li class="has-dropdown">
+            <a href="/software-tools/">Software Tools</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-tools" aria-label="Software Tools submenu"></button>
+            <ul class="dropdown" id="nav-sub-tools">
+              <li><a href="/software-tools/">Overview</a></li>
+              <li><a href="/software-tools/trust-software-tool/">TRUST</a></li>
+              <li><a href="/software-tools/protect-software-tool/">PRoTECT</a></li>
+              <li><a href="/software-tools/impact-software-tool/">IMPaCT</a></li>
+              <li><a href="/software-tools/nnv-software-tool/">NNV</a></li>
+              <li><a href="/software-tools/n2v-software-tool/">n2v</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/publications/">Publications</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-publications" aria-label="Publications submenu"></button>
+            <ul class="dropdown" id="nav-sub-publications">
+              <li><a href="/publications/">Full list</a></li>
+              <li><a href="/publications/#conference">Conference</a></li>
+              <li><a href="/publications/#journal">Journal</a></li>
+              <li><a href="/publications/#book-chapters">Book Chapters</a></li>
+              <li><a href="/publications/#posters-competition">Posters &amp; Competitions</a></li>
+              <li><a href="/publications/#theses">Theses</a></li>
+              <li><a href="/publications/#preprints">Preprints</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/posts/">Posts</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-posts" aria-label="Posts submenu"></button>
+            <ul class="dropdown" id="nav-sub-posts">
+              <li><a href="/posts/">All posts</a></li>
+              <li><a href="https://woodingben.substack.com/p/a-475-million-typo" target="_blank" rel="noopener">A $475 Million Typo<span class="ext-mark" aria-hidden="true"> &#x2197;</span></a></li>
+              <li><a href="/scraping-google-scholar/">Scraping Google Scholar</a></li>
+              <li><a href="https://woodingben.substack.com/p/google-scholar-orderer-a-research">Google Scholar Orderer</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/games/" aria-current="page">Games</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-games" aria-label="Games submenu"></button>
+            <ul class="dropdown" id="nav-sub-games">
+              <li><a href="/games/">All games</a></li>
+              <li><a href="/games/tic-tac-toe/">Tic-Tac-Toe</a></li>
+              <li><a href="/games/nim/">Nim</a></li>
+              <li><a href="/games/pig/">Pig</a></li>
+            </ul>
+          </li>
+          <li><a href="/cv/Ben-Wooding-CV.pdf">CV</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/games/">Games</a></li>
+        <li aria-current="page">Tic-Tac-Toe</li>
+      </ol>
+    </nav>
+
+    <article>
+      <header class="article-header">
+        <h1>Tic-Tac-Toe</h1>
+        <p class="article-meta"><span class="status-badge is-solved" title="All 5,478 reachable positions solved exactly by backward induction: forced draw, and the optimal side never loses.">Fully solved</span></p>
+        <p class="lede">Tic-tac-toe (noughts &amp; crosses) is the classic pencil-and-paper duel on a 3&nbsp;&times;&nbsp;3 grid &mdash; and formal verification certifies the folk wisdom exactly: under perfect play it is a forced draw, and neither player can force a win.</p>
+      </header>
+
+      <section class="section">
+        <div class="section-heading"><h2>The game</h2></div>
+        <div class="prose">
+          <p>Two players, X and O, take turns marking an empty cell of a 3&nbsp;&times;&nbsp;3 board, with X moving first. The first player to complete a line of three of their own marks &mdash; any of the 8 winning lines: 3 rows, 3 columns, or 2 diagonals &mdash; wins immediately; the game ends the instant a line completes. If the board fills with no line, the game is a draw.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><h2>Play it</h2></div>
+        <iframe class="game-embed" src="/games/play/?game=tic-tac-toe&amp;embed=1" title="Play Tic-Tac-Toe interactively" loading="lazy" data-game="tic-tac-toe" height="640"></iframe>
+      </section>
+
+      <aside class="callout-result" role="note">
+        <p class="callout-result-title">Certified result</p>
+        <p><strong>Perfect play is a draw.</strong> Neither side can force a win &mdash; <code>&lt;&lt;X&gt;&gt; F x_win</code> and <code>&lt;&lt;O&gt;&gt; F o_win</code> are both <strong>FALSE</strong>.</p>
+        <div class="table-wrap">
+          <table>
+            <tbody>
+              <tr><td>Reachable positions</td><td><strong>5,478</strong></td></tr>
+              <tr><td>Canonical (mod D4)</td><td><strong>765</strong></td></tr>
+              <tr><td>Optimal X vs random O</td><td><strong>191/192 win &middot; 0 loss</strong></td></tr>
+              <tr><td>Optimal O vs random X</td><td><strong>887/945 win &middot; 1/63 loss</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </aside>
+
+      <section class="section">
+        <div class="section-heading"><h2>The formalization</h2></div>
+        <div class="prose">
+          <p>The whole game is built as an explicit <em>transition system</em> &mdash; a graph whose nodes are board positions and whose edges are legal moves. A breadth-first search from the empty board enumerates every position the rules can actually produce; positions reached by different move orders are merged into a single node, collapsing the game <em>tree</em> (255,168 distinct complete games) into a compact graph of 5,478 reachable positions connected by 16,167 legal-move transitions.</p>
+          <p>Two reductions keep everything exact. Terminating the instant a line completes is simply the rule of the game, so boards where play continues after a win never appear. And because the grid looks the same under rotations and reflections &mdash; the 8-element dihedral symmetry group D4 &mdash; symmetric boards are the same position strategically; taking one canonical representative per symmetry class cuts the 5,478 positions to 765, computed by two independent methods that are checked against each other.</p>
+          <p>Tic-tac-toe is finite, deterministic, zero-sum and <em>perfect information</em> &mdash; both players see everything &mdash; so it has a well-defined game value, computed by backward-induction minimax: solving the game from its endings backwards to the first move. The value of the empty board is 0, a draw, which settles the strategic-logic questions <code>&lt;&lt;X&gt;&gt; F x_win</code> (&ldquo;X can force a win&rdquo;) and <code>&lt;&lt;O&gt;&gt; F o_win</code>: both are FALSE. The result is not just read off the value &mdash; the optimal strategy is extracted and re-verified by reachability, restricting the hero side to its optimal moves, letting the opponent play anything, and checking by search that no line of play ever reaches a loss for the hero.</p>
+          <p>A final layer uses the SMT solver z3 &mdash; a program that proves logical formulas outright rather than testing cases &mdash; to discharge an <em>inductive invariant</em>: a property true of the empty board and preserved by every legal move, and therefore true of every reachable position. It certifies that every reachable board has a single well-defined outcome (the two players can never both hold a completed line), without enumerating the 5,478 positions at all.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><h2>Results</h2></div>
+        <div class="stat-row">
+          <span class="stat-chip">Perfect play: forced draw</span>
+          <span class="stat-chip">Reachable positions: 5,478</span>
+          <span class="stat-chip">Distinct up to symmetry: 765</span>
+          <span class="stat-chip">Game-tree leaves: 255,168</span>
+        </div>
+        <div class="prose">
+          <p>Perfect play from the empty board is a certified <strong>draw</strong>: neither X nor O can force a win, and the reachability certificate confirms the optimal player is never beaten &mdash; for either side. Every first move (corner, edge, or centre) is optimal and leads to a draw under best play. Of the 958 terminal positions, 626 are X wins, 316 are O wins, and just 16 are draws; the D4 symmetry quotient also shrinks the game tree to 26,830 strategically distinct games, a 7.16&times; reduction in positions.</p>
+          <p>The forced draw only holds between two perfect players. Against a fallible opponent the exact odds &mdash; computed in rational arithmetic, with the optimal side maximising its win probability and the random side choosing uniformly among legal moves &mdash; are heavily one-sided:</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Match-up</th><th>Mover wins</th><th>Draw</th><th>Mover loses</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Optimal X vs random O</td><td>191/192 &asymp; 99.48%</td><td>1/192 &asymp; 0.52%</td><td>0 (0.00%)</td></tr>
+              <tr><td>Optimal O vs random X</td><td>887/945 &asymp; 93.86%</td><td>43/945 &asymp; 4.55%</td><td>1/63 &asymp; 1.59%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="prose">
+          <p>A perfect player never loses to a random one and wins almost always &mdash; the forced draw is a statement about perfect opposition, not about how the game usually goes.</p>
+        </div>
+      </section>
+
+      <div class="prose">
+        <p>Explore the rest of the <a href="/games/">verified board games</a>.</p>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="profile-links">
+        <li><a href="https://github.com/Kiguli" rel="me">GitHub</a></li>
+        <li><a href="https://scholar.google.com/citations?user=YhOmz1kAAAAJ" rel="me">Google Scholar</a></li>
+        <li><a href="https://orcid.org/0000-0003-1713-717X" rel="me">ORCID</a></li>
+        <li><a href="https://www.linkedin.com/in/ben-wooding/" rel="me">LinkedIn</a></li>
+        <li><a href="https://woodingben.substack.com/" rel="me">Substack</a></li>
+        <li><a href="https://www.youtube.com/@The_Real_Kiguli" rel="me">YouTube</a></li>
+        <li><a href="mailto:woodingben@gmail.com">Email</a></li>
+      </ul>
+      <p class="copyright">&copy; 2026 Ben Wooding</p>
+    </div>
+    <script src="/assets/nav.js?v=95b38a628a" defer></script>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scraping Google Scholar - Ben Wooding</title>
+  <meta name="description" content="I demonstrate web scraping Google Scholar to pull my article data and build a live publications table inside my own webpage.">
+  <link rel="canonical" href="https://woodingben.com/scraping-google-scholar/">
+  <link rel="alternate" type="application/rss+xml" title="Ben Wooding" href="https://woodingben.com/feed.xml">
+
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Scraping Google Scholar - Ben Wooding">
+  <meta property="og:description" content="I demonstrate web scraping Google Scholar to pull my article data and build a live publications table inside my own webpage.">
+  <meta property="og:url" content="https://woodingben.com/scraping-google-scholar/">
+  <meta property="og:site_name" content="Ben Wooding">
+  <meta property="article:published_time" content="2022-08-26T23:13:52+00:00">
+  <meta property="article:modified_time" content="2025-03-21T11:24:46+00:00">
+  <meta property="og:image" content="https://woodingben.com/wp-content/uploads/2022/08/google_scholar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://woodingben.com/wp-content/uploads/2022/08/google_scholar.png">
+
+  <meta name="theme-color" content="#f7fafa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1b1c" media="(prefers-color-scheme: dark)">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="/assets/style.css?v=4f595879b2">
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","@id":"https://woodingben.com/scraping-google-scholar/#article","headline":"Scraping Google Scholar","url":"https://woodingben.com/scraping-google-scholar/","mainEntityOfPage":"https://woodingben.com/scraping-google-scholar/","datePublished":"2022-08-26T23:13:52+00:00","dateModified":"2025-03-21T11:24:46+00:00","author":{"@type":"Person","@id":"https://woodingben.com/#person","name":"Ben Wooding","url":"https://woodingben.com/"},"image":"https://woodingben.com/wp-content/uploads/2022/08/google_scholar.png","articleSection":"PHP","keywords":["api","google scholar"],"inLanguage":"en-GB","isPartOf":{"@id":"https://woodingben.com/#website"}},{"@type":"BreadcrumbList","@id":"https://woodingben.com/scraping-google-scholar/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://woodingben.com/"},{"@type":"ListItem","position":2,"name":"Posts","item":"https://woodingben.com/posts/"},{"@type":"ListItem","position":3,"name":"Scraping Google Scholar"}]},{"@type":"WebSite","@id":"https://woodingben.com/#website","url":"https://woodingben.com/","name":"Ben Wooding","inLanguage":"en-GB"}]}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="site-title" href="/">Ben Wooding</a>
+
+      <nav class="site-nav" aria-label="Site">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li class="has-dropdown">
+            <a href="/software-tools/">Software Tools</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-tools" aria-label="Software Tools submenu"></button>
+            <ul class="dropdown" id="nav-sub-tools">
+              <li><a href="/software-tools/">Overview</a></li>
+              <li><a href="/software-tools/trust-software-tool/">TRUST</a></li>
+              <li><a href="/software-tools/protect-software-tool/">PRoTECT</a></li>
+              <li><a href="/software-tools/impact-software-tool/">IMPaCT</a></li>
+              <li><a href="/software-tools/nnv-software-tool/">NNV</a></li>
+              <li><a href="/software-tools/n2v-software-tool/">n2v</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/publications/">Publications</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-publications" aria-label="Publications submenu"></button>
+            <ul class="dropdown" id="nav-sub-publications">
+              <li><a href="/publications/">Full list</a></li>
+              <li><a href="/publications/#conference">Conference</a></li>
+              <li><a href="/publications/#journal">Journal</a></li>
+              <li><a href="/publications/#book-chapters">Book Chapters</a></li>
+              <li><a href="/publications/#posters-competition">Posters &amp; Competitions</a></li>
+              <li><a href="/publications/#theses">Theses</a></li>
+              <li><a href="/publications/#preprints">Preprints</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/posts/" aria-current="page">Posts</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-posts" aria-label="Posts submenu"></button>
+            <ul class="dropdown" id="nav-sub-posts">
+              <li><a href="/posts/">All posts</a></li>
+              <li><a href="https://woodingben.substack.com/p/a-475-million-typo" target="_blank" rel="noopener">A $475 Million Typo<span class="ext-mark" aria-hidden="true"> &#x2197;</span></a></li>
+              <li><a href="/scraping-google-scholar/">Scraping Google Scholar</a></li>
+              <li><a href="https://woodingben.substack.com/p/google-scholar-orderer-a-research">Google Scholar Orderer</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/games/">Games</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-games" aria-label="Games submenu"></button>
+            <ul class="dropdown" id="nav-sub-games">
+              <li><a href="/games/">All games</a></li>
+              <li><a href="/games/tic-tac-toe/">Tic-Tac-Toe</a></li>
+              <li><a href="/games/nim/">Nim</a></li>
+              <li><a href="/games/pig/">Pig</a></li>
+            </ul>
+          </li>
+          <li><a href="/cv/Ben-Wooding-CV.pdf">CV</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/posts/">Posts</a></li>
+        <li aria-current="page">Scraping Google Scholar</li>
+      </ol>
+    </nav>
+
+    <article>
+      <header class="article-header">
+        <h1>Scraping Google Scholar</h1>
+        <p class="article-meta">
+          <time datetime="2022-08-26">August 26, 2022</time>
+          <span>PHP</span>
+        </p>
+      </header>
+
+      <div class="prose">
+        <nav aria-labelledby="toc-heading">
+          <h2 id="toc-heading">Table of Contents</h2>
+          <ol>
+            <li><a href="#scraping-total-citations">Scraping Total Citations</a></li>
+            <li><a href="#scraping-h-index">Scraping H-Index</a></li>
+            <li><a href="#scraping-all-article-information">Scraping All Article Information</a></li>
+          </ol>
+        </nav>
+
+        <section id="scraping-total-citations">
+          <h2>Scraping Total Citations</h2>
+          <p>The following snippet of code acquires the value for the <strong>total number of citations</strong> on a users profile. Both [USERNAME] and [LANGUAGE] should be replaced with the respective profile username (found in the scholar page URL) and language you wish to use (en = English). This value can then be embedded in your website on a button or inside the text as you wish. WordPress snippets enable this in an easy way; the below code can be copied into a new snippet and then select the option “only display when inserted into a post or page”. A small code snippet will then be available to embed in your webpage that looks something like {<em>code_snippet id=[id] name = [name] php format}</em> (<strong>note:</strong> the curly brackets should be replaced with square brackets, I used curly to stop WordPress trying to run the snippet!).</p>
+          <pre><code class="language-php">&lt;?php
+
+$profile = "https://scholar.google.com/citations?user=[USERNAME]&amp;hl=[LANGUAGE]&amp;oi=ao";
+
+$contents = file_get_contents($profile);
+
+$citations_xpath = '//*[@id="gsc_rsb_st"]/tbody/tr[1]/td[2]';
+
+$dom = new DOMDocument();
+
+@$dom-&gt;loadHTML($contents);
+
+$xpath = new DOMXPath($dom);
+
+$citations = $xpath-&gt;query($citations_xpath);
+
+$value = $citations-&gt;item(0)-&gt;nodeValue;
+
+echo $value;
+
+?&gt;</code></pre>
+        </section>
+
+        <section id="scraping-h-index">
+          <h2>Scraping H-Index</h2>
+          <p>As before, the following code snippet acquires the <strong>h-index</strong> from the profile. Both [USERNAME] and [LANGUAGE] should be replaced.</p>
+          <pre><code class="language-php">&lt;?php
+
+$profile = "https://scholar.google.com/citations?user=[USERNAME]&amp;hl=[LANGUAGE]&amp;oi=ao";
+
+$contents = file_get_contents($profile);
+
+$hindex_xpath = '//*[@id="gsc_rsb_st"]/tbody/tr[2]/td[2]';
+
+$dom = new DOMDocument();
+
+@$dom-&gt;loadHTML($contents);
+
+$xpath = new DOMXPath($dom);
+
+$hindex = $xpath-&gt;query($hindex_xpath);
+
+$value = $hindex-&gt;item(0)-&gt;nodeValue;
+
+echo $value;
+
+?&gt;</code></pre>
+        </section>
+
+        <section id="scraping-all-article-information">
+          <h2>Scraping All Article Information</h2>
+          <p>The following block of code extracts <strong>all the information required to construct the table that can be found in my portfolio</strong>, consisting of recent articles, authors, citations,<em> etc</em>.. [USERNAME] and [LANGUAGE] should be replaced, additionally [SORT] can take either <em>pubdate</em> for the most recent papers or <em>citedby </em>for the most cited papers. By putting the key authors name in [KEY AUTHOR] you can add bold around their name whenever the name appears, e.g. for me I would have: <strong>keyAuthor = “B Wooding”</strong>.</p>
+          <pre><code class="language-php">&lt;?php
+
+$baseUrl = "https://scholar.google.com";
+$profile = "/citations?hl=en&amp;user=[USERNAME]&amp;view_op=list_works&amp;hl=[LANGUAGE]&amp;sortby=[SORT]";
+
+$contents        = file_get_contents($baseUrl.$profile);
+$citations_xpath = '//*[@id="gsc_a_b"]';
+
+$dom = new DOMDocument();
+@$dom-&gt;loadHTML($contents);
+
+$xpath = new DOMXPath($dom);
+
+$table = $xpath-&gt;query($citations_xpath);
+
+$records = [];
+foreach ($table as $row) {
+    $trs = $row-&gt;getElementsByTagName('tr');
+
+    foreach ($trs as $tr) {
+        $td = $tr-&gt;getElementsByTagName('td')-&gt;item(0);
+
+        $title     = $td-&gt;getElementsByTagName('a')-&gt;item(0)-&gt;nodeValue;
+        $titleHref = $td-&gt;getElementsByTagName('a')-&gt;item(0)-&gt;getAttribute('href');
+        $authors   = $td-&gt;getElementsByTagName('div')-&gt;item(0)-&gt;nodeValue;
+        $conference = $td-&gt;getElementsByTagName('div')-&gt;item(1)-&gt;nodeValue;
+        $cites     = $tr-&gt;getElementsByTagName('td')-&gt;item(1)-&gt;nodeValue;
+        $year      = $tr-&gt;getElementsByTagName('td')-&gt;item(2)-&gt;nodeValue;
+
+        $keyAuthor = "[KEY AUTHOR]";
+        $authors = str_replace($keyAuthor, "&lt;strong&gt;$keyAuthor&lt;/strong&gt;", $authors);
+
+        $records[] = [
+            'title'     =&gt; $title,
+            'titleHref' =&gt; $baseUrl.$titleHref,
+            'authors'   =&gt; $authors,
+            'conference' =&gt; $conference,
+            'cites'     =&gt; $cites,
+            'year'      =&gt; $year,
+        ];
+    }
+}
+
+?&gt;
+
+&lt;style&gt;
+  #php-table {
+    font-family: sans-serif;
+    color: #18181b;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #php-table thead th {
+    padding: 1rem 0.8rem;
+  }
+
+  #php-table thead tr th:first-child {
+    text-align: center;
+  }
+
+  #php-table th, td {
+    border: 1px solid #ccc;
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+  }
+
+  #php-table tr:nth-child(even) {
+    background-color: #f6f6f6;
+  }
+
+  #php-table td &gt; p {
+    font-size: smaller;
+    color: #777;
+    margin: 0.4rem 0 0;
+  }
+&lt;/style&gt;
+
+&lt;table id="php-table"&gt;
+    &lt;thead&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Title&lt;/th&gt;
+        &lt;th&gt;Cited&amp;nbsp;by&lt;/th&gt;
+        &lt;th&gt;Year&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    &lt;?php
+    foreach ($records as $record): ?&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &lt;a target="_blank" href="&lt;?= $record['titleHref'] ?&gt;"&gt;&lt;?= $record['title'] ?&gt;&lt;/a&gt;
+                &lt;p&gt;&lt;?= $record['authors'] ?&gt;&lt;/p&gt;
+                &lt;p&gt;&lt;?= $record['conference'] ?&gt;&lt;/p&gt;
+            &lt;/td&gt;
+            &lt;td&gt;&lt;?= $record['cites'] ?&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;?= $record['year'] ?&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;?php
+    endforeach; ?&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="profile-links">
+        <li><a href="https://github.com/Kiguli" rel="me">GitHub</a></li>
+        <li><a href="https://scholar.google.com/citations?user=YhOmz1kAAAAJ" rel="me">Google Scholar</a></li>
+        <li><a href="https://orcid.org/0000-0003-1713-717X" rel="me">ORCID</a></li>
+        <li><a href="https://www.linkedin.com/in/ben-wooding/" rel="me">LinkedIn</a></li>
+        <li><a href="https://woodingben.substack.com/" rel="me">Substack</a></li>
+        <li><a href="https://www.youtube.com/@The_Real_Kiguli" rel="me">YouTube</a></li>
+        <li><a href="mailto:woodingben@gmail.com">Email</a></li>
+      </ul>
+      <p class="copyright">&copy; 2026 Ben Wooding</p>
+    </div>
+    <script src="/assets/nav.js?v=95b38a628a" defer></script>
+  </footer>
+</body>
+</html>

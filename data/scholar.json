@@ -1,0 +1,270 @@
+{
+  "scholar_id": "YhOmz1kAAAAJ",
+  "profile_name": "Ben Wooding",
+  "affiliation": "Postdoc @ Vanderbilt University",
+  "profile_url": "https://scholar.google.com/citations?user=YhOmz1kAAAAJ&hl=en",
+  "fetched_at": "2026-08-17T02:21:12Z",
+  "stats": {
+    "citations_all": 239,
+    "citations_recent": 229,
+    "h_index_all": 9,
+    "h_index_recent": 9,
+    "i10_index_all": 7,
+    "i10_index_recent": 7
+  },
+  "publication_count": 28,
+  "publications": [
+    {
+      "title": "ARCH-COMP26 Category Report: Continuous and Hybrid Systems with Nonlinear Dynamics",
+      "authors": "L Geretti, JAD Sandretto, M Althoff, L Benet, P Collins, M Forets, S Mitsch, ...",
+      "venue": "Proceedings of the 13th International Workshop on Applied Verification for …, 2026",
+      "year": 2026,
+      "citations": 2,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:dhFuZR0502QC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2028491559157594490"
+    },
+    {
+      "title": "A Self-correcting Neuro-symbolic AI Reasoning Framework",
+      "authors": "B Wooding*, K Brennan*, AM Tumlin, H Zhang, TT Johnson",
+      "venue": "International Symposium on AI Verification, 191-211, 2026",
+      "year": 2026,
+      "citations": 0,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:aqlVkmm33-oC",
+      "cluster_link": null
+    },
+    {
+      "title": "ARCH-COMP26 Category Report: Artificial Intelligence and Neural Network Control Systems (AINNCS) for Continuous and Hybrid Systems Plants",
+      "authors": "S Sasaki, B Wooding, TT Johnson, M Althoff, L Benet, S Coogan, M Forets, ...",
+      "venue": "13th International Workshop on Applied Verification for Continuous and …, 2026",
+      "year": 2026,
+      "citations": 0,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:4TOpqqG69KYC",
+      "cluster_link": null
+    },
+    {
+      "title": "k-Inductive Neural Barrier Certificates for Unknown Nonlinear Dynamics",
+      "authors": "B Wooding, H Zhang, TT Johnson, A Lavaei",
+      "venue": "3rd International Conference on Neuro-Symbolic Systems (NeuS), 2026",
+      "year": 2026,
+      "citations": 0,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:_kc_bZDykSQC",
+      "cluster_link": null
+    },
+    {
+      "title": "MetaMoE: Formal Verification of Compositional Robustness and Scalability of Mixture-of-Experts Architecture",
+      "authors": "Q Pham, B Wooding, L Nam, S Sasaki, TT Johnson",
+      "venue": "International Symposium on AI Verification, 167-190, 2026",
+      "year": 2026,
+      "citations": 0,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:qxL8FJ1GzNcC",
+      "cluster_link": null
+    },
+    {
+      "title": "n2v: Neural Network Verification in Python (Competition Contribution)",
+      "authors": "S Sasaki, B Wooding, HD Wang, AM Tumlin, M Ma, TT Johnson",
+      "venue": "International Symposium on AI Verification, 394-400, 2026",
+      "year": 2026,
+      "citations": 0,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:4DMP91E08xMC",
+      "cluster_link": null
+    },
+    {
+      "title": "Reachability-Based Formal Verification of Graph Neural Networks with Node and Edge Features",
+      "authors": "AM Tumlin, B Wooding, Z Shao, DM Lopez, T Derr, TT Johnson",
+      "venue": "International Symposium on AI Verification, 271-298, 2026",
+      "year": 2026,
+      "citations": 0,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:QIV2ME_5wuYC",
+      "cluster_link": null
+    },
+    {
+      "title": "ARCH-COMP25 Category Report: Stochastic Models",
+      "authors": "A Abate, O Akbarzadeh, HAP Blom, S Haesaert, S Hassani, A Lavaei, ...",
+      "venue": "12th International Workshop on Applied Verification for Continuous and …, 2025",
+      "year": 2025,
+      "citations": 20,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:zYLM7Y9cAGgC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8451837719157046339,14619999915336356145"
+    },
+    {
+      "title": "PRoTECT: Parallelized ConstRuction of SafeTy BarriEr Certificates for Nonlinear Polynomial SysTems",
+      "authors": "B Wooding, V Horbanov, A Lavaei",
+      "venue": "International Colloquium on Theoretical Aspects of Computing, 448-458, 2025",
+      "year": 2025,
+      "citations": 20,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:kNdYIx-mwKoC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3724216332491666368,17488075801860945513"
+    },
+    {
+      "title": "A logic-based resilience metric for water resource recovery facilities",
+      "authors": "AS Laino, B Wooding, S Soudjani, RJ Davenport",
+      "venue": "Environmental Science: Water Research & Technology 11 (2), 377-392, 2025",
+      "year": 2025,
+      "citations": 10,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:d1gkVwhDpl0C",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=252927003529880770"
+    },
+    {
+      "title": "PRoTECT: Parallel construction of barrier certificates for safety verification of polynomial systems",
+      "authors": "B Wooding, V Horbanov, A Lavaei",
+      "venue": "Proceedings of the ACM/IEEE 16th International Conference on Cyber-Physical …, 2025",
+      "year": 2025,
+      "citations": 6,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:KlAtU1dfN6UC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11760034381442051372"
+    },
+    {
+      "title": "TRUST: StabiliTy and Safety ContRoller Synthesis for Unknown Dynamical Models Using a Single Trajectory",
+      "authors": "J Gardner*, B Wooding*, A Nejati, A Lavaei",
+      "venue": "Proceedings of the 28th ACM International Conference on Hybrid Systems …, 2025",
+      "year": 2025,
+      "citations": 4,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:Tyk-4Ss8FVUC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10201056382575059742"
+    },
+    {
+      "title": "Proving the Correctness of CANDO3 Optrode Command Interface VDM model in Isabelle/HOL",
+      "authors": "L Freitas, B Wooding, B Scott, A Pollitt, P Degenaar",
+      "venue": "Proceedings of the 23rd International Overture Workshop, 2025",
+      "year": 2025,
+      "citations": 0,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:ufrVoPGSRksC",
+      "cluster_link": null
+    },
+    {
+      "title": "Data-driven abstraction-based control synthesis",
+      "authors": "M Kazemi*, R Majumdar, M Salamati*, S Soudjani, B Wooding*",
+      "venue": "Nonlinear Analysis: Hybrid Systems 52, 2024",
+      "year": 2024,
+      "citations": 52,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:qjMakFHDy7sC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3616013809379938042,4741884557224910029"
+    },
+    {
+      "title": "IMPaCT: Interval MDP Parallel Construction for Controller Synthesis of Large-Scale STochastic Systems",
+      "authors": "B Wooding, A Lavaei",
+      "venue": "International Conference on Quantitative Evaluation of Systems and Formal …, 2024",
+      "year": 2024,
+      "citations": 13,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:W7OEmFMy1HYC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11403074140355458095,16219661124919054845"
+    },
+    {
+      "title": "Data-driven abstractions via binary-tree Gaussian processes for formal verification",
+      "authors": "O Schön, S Naseer, B Wooding, S Soudjani",
+      "venue": "8th IFAC Conference on Analysis and Design of Hybrid Systems (ADHS) 58 (11 …, 2024",
+      "year": 2024,
+      "citations": 9,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:LkGwnXOMwfcC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14536073154213841339"
+    },
+    {
+      "title": "Learning k-inductive control barrier certificates for unknown nonlinear dynamics beyond polynomials",
+      "authors": "B Wooding, A Lavaei",
+      "venue": "arXiv preprint arXiv:2412.07232, 2024",
+      "year": 2024,
+      "citations": 9,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:Y0pCki6q_DkC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10442240915041248578"
+    },
+    {
+      "title": "IMPaCT: A parallelized software tool for IMDP construction and controller synthesis with convergence guarantees",
+      "authors": "B Wooding, A Lavaei",
+      "venue": "Proceedings of the 27th ACM International Conference on Hybrid Systems …, 2024",
+      "year": 2024,
+      "citations": 5,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:Zph67rFs4hoC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12511301532736095630"
+    },
+    {
+      "title": "Formal control of new England 39-bus test system: an assume-guarantee approach",
+      "authors": "B Wooding, A Lavaei, S Soudjani",
+      "venue": "arXiv preprint arXiv:2307.03467, 2023",
+      "year": 2023,
+      "citations": 9,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:eQOLeE2rZwMC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12160463577391596340"
+    },
+    {
+      "title": "Robust simulation functions with disturbance refinement",
+      "authors": "B Wooding, A Lavaei, V Vahidinasab, S Soudjani",
+      "venue": "2023 European Control Conference (ECC), 1-6, 2023",
+      "year": 2023,
+      "citations": 9,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:UebtZRa9Y70C",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15674660439750060285"
+    },
+    {
+      "title": "Model-based and data-driven formal synthesis of power systems",
+      "authors": "BJ Wooding",
+      "venue": "Newcastle University, 2023",
+      "year": 2023,
+      "citations": 1,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:MXK_kJrjxJIC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11765533375791637681"
+    },
+    {
+      "title": "Arch-comp21 category report: Stochastic models",
+      "authors": "A Abate, H Blom, M Bouissou, N Cauchi, H Chraibi, J Delicaris, ...",
+      "venue": "8th International Workshop on Applied Verification of Continuous and Hybrid …, 2021",
+      "year": 2021,
+      "citations": 39,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:ULOm3_A8WrAC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5674111378034800100,9922909919191349908,16531179409276836483"
+    },
+    {
+      "title": "Tuning Robotti: the machine-assisted exploration of parameter spaces in multi-models of a cyber-physical system",
+      "authors": "S Bogomolov, J Fitzgerald, FF Foldager, C Gamble, PG Larsen, K Pierce, ...",
+      "venue": "Proceedings of the 18th International Overture Workshop, 50-64, 2021",
+      "year": 2021,
+      "citations": 6,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:9yKSN-GCB0IC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=486184481985472806"
+    },
+    {
+      "title": "Operation and control of a population of active buildings at network level",
+      "authors": "B Wooding, V Vahidinasab, S Soudjani",
+      "venue": "Active Building Energy Systems: Operation and Control, 193-218, 2021",
+      "year": 2021,
+      "citations": 3,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:_FxGoFyzp5QC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=13945696302556798827"
+    },
+    {
+      "title": "Control and management of active buildings",
+      "authors": "B Wooding, V Vahidinasab, M Kazemi, S Soudjani",
+      "venue": "Active Building Energy Systems: Operation and Control, 161-192, 2021",
+      "year": 2021,
+      "citations": 2,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:Se3iqnhoufwC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15523403970982737620"
+    },
+    {
+      "title": "Cyber-Physical Smart Homes/Buildings",
+      "authors": "B Wooding, V Vahidinasab, S Soudjani",
+      "venue": "Springer, 2021",
+      "year": 2021,
+      "citations": 0,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:IjCSPb-OGe4C",
+      "cluster_link": null
+    },
+    {
+      "title": "Formal controller synthesis for frequency regulation utilising electric vehicles",
+      "authors": "B Wooding, V Vahidinasab, S Soudjani",
+      "venue": "2020 International Conference on Smart Energy Systems and Technologies (SEST …, 2020",
+      "year": 2020,
+      "citations": 13,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:roLk4NBRz8UC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14830596265241935351"
+    },
+    {
+      "title": "Using formal methods and proof to verify a cando epilepsy medical device",
+      "authors": "B Wooding",
+      "venue": "Master's thesis, School of Computing, Newcastle University, UK (June 2019), 2019",
+      "year": 2019,
+      "citations": 7,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:2osOgNQ5qMEC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2442900944716433375"
+    }
+  ]
+}

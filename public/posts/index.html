@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Posts - Ben Wooding</title>
+  <meta name="description" content="Writing by Ben Wooding: technical posts on this site and plain-English formal methods explainers on Substack, from model checking to AI verification.">
+  <link rel="canonical" href="https://woodingben.com/posts/">
+  <link rel="alternate" type="application/rss+xml" title="Ben Wooding" href="https://woodingben.com/feed.xml">
+
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Posts - Ben Wooding">
+  <meta property="og:description" content="Writing by Ben Wooding: technical posts on this site and plain-English formal methods explainers on Substack, from model checking to AI verification.">
+  <meta property="og:url" content="https://woodingben.com/posts/">
+  <meta property="og:site_name" content="Ben Wooding">
+  <meta property="og:image" content="https://woodingben.com/wp-content/uploads/2023/03/021222-NUHeadshots-33-scaled.jpeg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://woodingben.com/wp-content/uploads/2023/03/021222-NUHeadshots-33-scaled.jpeg">
+
+  <meta name="theme-color" content="#f7fafa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1b1c" media="(prefers-color-scheme: dark)">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="/assets/style.css?v=4f595879b2">
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["CollectionPage","Blog"],"@id":"https://woodingben.com/posts/","url":"https://woodingben.com/posts/","name":"Posts - Ben Wooding","description":"Writing by Ben Wooding: technical posts on this site and plain-English formal methods explainers on Substack, from model checking to AI verification.","inLanguage":"en-GB","isPartOf":{"@id":"https://woodingben.com/#website"},"breadcrumb":{"@id":"https://woodingben.com/posts/#breadcrumb"},"about":{"@type":"Blog","name":"Ben Wooding on Substack","url":"https://woodingben.substack.com"},"blogPost":[{"@type":"BlogPosting","@id":"https://woodingben.com/scraping-google-scholar/#article","headline":"Scraping Google Scholar","url":"https://woodingben.com/scraping-google-scholar/","datePublished":"2022-08-26T23:13:52+00:00","author":{"@type":"Person","@id":"https://woodingben.com/#person","name":"Ben Wooding","url":"https://woodingben.com/"}}],"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Google Scholar Orderer: A Research Tool","url":"https://woodingben.substack.com/p/google-scholar-orderer-a-research"},{"@type":"ListItem","position":2,"name":"Welcome — or, Why I'm Trying to Explain Formal Methods to You","url":"https://woodingben.substack.com/p/welcome-or-why-im-trying-to-explain"},{"@type":"ListItem","position":2,"name":"A $475 Million Typo","url":"https://woodingben.substack.com/p/a-475-million-typo"},{"@type":"ListItem","position":3,"name":"Transition Systems: The Hidden Grammar of Everything","url":"https://woodingben.substack.com/p/transition-systems-the-hidden-grammar"},{"@type":"ListItem","position":4,"name":"Model Checking: Every Possible Future","url":"https://woodingben.substack.com/p/model-checking-every-possible-future"},{"@type":"ListItem","position":5,"name":"Can a Computer Check a Proof?","url":"https://woodingben.substack.com/p/can-a-computer-check-a-proof"},{"@type":"ListItem","position":6,"name":"Proofs vs Testing: The Caveats","url":"https://woodingben.substack.com/p/proofs-vs-testing-the-caveats"},{"@type":"ListItem","position":7,"name":"SAT: Are you not satisfied!?","url":"https://woodingben.substack.com/p/sat-are-you-not-satisfied"},{"@type":"ListItem","position":8,"name":"SMT Solvers: SAT That Learned Arithmetic","url":"https://woodingben.substack.com/p/smt-solvers-sat-that-learned-arithmetic"},{"@type":"ListItem","position":9,"name":"The Panda That Wasn't","url":"https://woodingben.substack.com/p/the-panda-that-wasnt"},{"@type":"ListItem","position":10,"name":"What Would It Mean to Prove an neural network Is Safe?","url":"https://woodingben.substack.com/p/what-would-it-mean-to-prove-an-neural"},{"@type":"ListItem","position":11,"name":"How Do You Prove Something About a Million Images at Once?","url":"https://woodingben.substack.com/p/how-do-you-prove-something-about"},{"@type":"ListItem","position":12,"name":"Is AI Actually Reasoning?","url":"https://woodingben.substack.com/p/is-ai-actually-reasoning"},{"@type":"ListItem","position":13,"name":"Neuro-Symbolic AI: Eyes and a Rulebook","url":"https://woodingben.substack.com/p/neuro-symbolic-ai-eyes-and-a-rulebook"},{"@type":"ListItem","position":14,"name":"An AI Solver That Catches Its Own Mistakes","url":"https://woodingben.substack.com/p/an-ai-solver-that-catches-its-own"}]}},{"@type":"BreadcrumbList","@id":"https://woodingben.com/posts/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://woodingben.com/"},{"@type":"ListItem","position":2,"name":"Posts"}]},{"@type":"WebSite","@id":"https://woodingben.com/#website","url":"https://woodingben.com/","name":"Ben Wooding","inLanguage":"en-GB"}]}</script>
+</head>
+<body class="index-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="site-title" href="/">Ben Wooding</a>
+
+      <nav class="site-nav" aria-label="Site">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li class="has-dropdown">
+            <a href="/software-tools/">Software Tools</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-tools" aria-label="Software Tools submenu"></button>
+            <ul class="dropdown" id="nav-sub-tools">
+              <li><a href="/software-tools/">Overview</a></li>
+              <li><a href="/software-tools/trust-software-tool/">TRUST</a></li>
+              <li><a href="/software-tools/protect-software-tool/">PRoTECT</a></li>
+              <li><a href="/software-tools/impact-software-tool/">IMPaCT</a></li>
+              <li><a href="/software-tools/nnv-software-tool/">NNV</a></li>
+              <li><a href="/software-tools/n2v-software-tool/">n2v</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/publications/">Publications</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-publications" aria-label="Publications submenu"></button>
+            <ul class="dropdown" id="nav-sub-publications">
+              <li><a href="/publications/">Full list</a></li>
+              <li><a href="/publications/#conference">Conference</a></li>
+              <li><a href="/publications/#journal">Journal</a></li>
+              <li><a href="/publications/#book-chapters">Book Chapters</a></li>
+              <li><a href="/publications/#posters-competition">Posters &amp; Competitions</a></li>
+              <li><a href="/publications/#theses">Theses</a></li>
+              <li><a href="/publications/#preprints">Preprints</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/posts/" aria-current="page">Posts</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-posts" aria-label="Posts submenu"></button>
+            <ul class="dropdown" id="nav-sub-posts">
+              <li><a href="/posts/">All posts</a></li>
+              <li><a href="https://woodingben.substack.com/p/a-475-million-typo" target="_blank" rel="noopener">A $475 Million Typo<span class="ext-mark" aria-hidden="true"> &#x2197;</span></a></li>
+              <li><a href="/scraping-google-scholar/">Scraping Google Scholar</a></li>
+              <li><a href="https://woodingben.substack.com/p/google-scholar-orderer-a-research">Google Scholar Orderer</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/games/">Games</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-games" aria-label="Games submenu"></button>
+            <ul class="dropdown" id="nav-sub-games">
+              <li><a href="/games/">All games</a></li>
+              <li><a href="/games/tic-tac-toe/">Tic-Tac-Toe</a></li>
+              <li><a href="/games/nim/">Nim</a></li>
+              <li><a href="/games/pig/">Pig</a></li>
+            </ul>
+          </li>
+          <li><a href="/cv/Ben-Wooding-CV.pdf">CV</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li aria-current="page">Posts</li>
+      </ol>
+    </nav>
+
+    <h1>Posts</h1>
+    <p class="lede">Everything I write in one place: technical posts published here on this site, and plain-English explainers about formal methods on Substack — why software fails in expensive ways, how we can prove that it won't, and what any of that means for AI.</p>
+
+    <div class="btn-row">
+      <a class="btn" href="https://woodingben.substack.com/subscribe" target="_blank" rel="noopener">Subscribe on Substack</a>
+    </div>
+
+    <section class="section">
+      <div class="section-heading">
+        <h2>Highlights</h2>
+      </div>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-body">
+            <h3 class="card-title"><a href="https://woodingben.substack.com/p/a-475-million-typo" target="_blank" rel="noopener">A $475 Million Typo</a></h3>
+            <p>How a flaw in a chip's arithmetic, a recycled line of rocket code, and a hidden timing glitch reveal why testing alone can never make software safe.</p>
+            <a class="card-link" href="https://woodingben.substack.com/p/a-475-million-typo" target="_blank" rel="noopener" aria-label="Read A $475 Million Typo on Substack">Read on Substack</a>
+            <p class="card-meta"><time datetime="2026-06-04">June 4, 2026</time></p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-body">
+            <h3 class="card-title"><a href="https://woodingben.substack.com/p/google-scholar-orderer-a-research" target="_blank" rel="noopener">Google Scholar Orderer: A Research Tool</a></h3>
+            <p>A browser plug-in that sorts Google Scholar results by citation count and badges venues by ranking — and the story of building it.</p>
+            <a class="card-link" href="https://woodingben.substack.com/p/google-scholar-orderer-a-research" target="_blank" rel="noopener" aria-label="Read Google Scholar Orderer: A Research Tool on Substack">Read on Substack</a>
+            <p class="card-meta"><time datetime="2026-08-16">August 16, 2026</time></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <h2>Why Formal Methods?</h2>
+      </div>
+
+      <ul class="pub-list">
+        <li class="pub">
+          <p class="pub-title"><a href="https://woodingben.substack.com/p/welcome-or-why-im-trying-to-explain" target="_blank" rel="noopener">Welcome — or, Why I'm Trying to Explain Formal Methods to You</a></p>
+          <p class="pub-venue">I work in a small, jargon-heavy corner of computer science called Formal Methods. This is an attempt to make it make sense to someone who doesn't.</p>
+          <p class="pub-meta"><time datetime="2026-06-04">June 4, 2026</time></p>
+        </li>
+        <li class="pub">
+          <p class="pub-title"><a href="https://woodingben.substack.com/p/a-475-million-typo" target="_blank" rel="noopener">A $475 Million Typo</a></p>
+          <p class="pub-venue">How a flaw in a chip's arithmetic, a recycled line of rocket code, and a hidden timing glitch reveal why testing alone can never make software safe.</p>
+          <p class="pub-meta"><time datetime="2026-06-04">June 4, 2026</time></p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <h2>Foundations</h2>
+      </div>
+
+      <ul class="pub-list">
+        <li class="pub">
+          <p class="pub-title"><a href="https://woodingben.substack.com/p/transition-systems-the-hidden-grammar" target="_blank" rel="noopener">Transition Systems: The Hidden Grammar of Everything</a></p>
+          <p class="pub-venue">A thermostat, a vending machine, and a traffic light all turn out to be the same kind of thing, and once you see it, you can reason about almost any machine on Earth.</p>
+          <p class="pub-meta"><time datetime="2026-06-05">June 5, 2026</time></p>
+        </li>
+        <li class="pub">
+          <p class="pub-title"><a href="https://woodingben.substack.com/p/model-checking-every-possible-future" target="_blank" rel="noopener">Model Checking: Every Possible Future</a></p>
+          <p class="pub-venue">A machine that plays out every way your system could behave, and when something breaks, hands you the exact sequence of steps that broke it.</p>
+          <p class="pub-meta"><time datetime="2026-06-08">June 8, 2026</time></p>
+        </li>
+        <li class="pub">
+          <p class="pub-title"><a href="https://woodingben.substack.com/p/can-a-computer-check-a-proof" target="_blank" rel="noopener">Can a Computer Check a Proof?</a></p>
+          <p class="pub-venue">Mathematicians trust other mathematicians to catch their mistakes — but what if a small, utterly reliable program checked every step instead?</p>
+          <p class="pub-meta"><time datetime="2026-06-09">June 9, 2026</time></p>
+        </li>
+        <li class="pub">
+          <p class="pub-title"><a href="https://woodingben.substack.com/p/proofs-vs-testing-the-caveats" target="_blank" rel="noopener">Proofs vs Testing: The Caveats</a></p>
+          <p class="pub-venue">A proof can guarantee a system never misbehaves, but we are really speaking about its model, only against a specification, and that fine print is important.</p>
+          <p class="pub-meta"><time datetime="2026-06-10">June 10, 2026</time></p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <h2>Solvers &amp; Tools</h2>
+      </div>
+
+      <ul class="pub-list">
+        <li class="pub">
+          <p class="pub-title"><a href="https://woodingben.substack.com/p/sat-are-you-not-satisfied" target="_blank" rel="noopener">SAT: Are you not satisfied!?</a></p>
+          <p class="pub-venue">How a problem proven to be among the hardest to solve is one of the most useful tools we have.</p>
+          <p class="pub-meta"><time datetime="2026-06-06">June 6, 2026</time></p>
+        </li>
+        <li class="pub">
+          <p class="pub-title"><a href="https://woodingben.substack.com/p/smt-solvers-sat-that-learned-arithmetic" target="_blank" rel="noopener">SMT Solvers: SAT That Learned Arithmetic</a></p>
+          <p class="pub-venue">When true-or-false isn't enough, we can hand the problem to a solver that understands numbers, enabling powerful results.</p>
+          <p class="pub-meta"><time datetime="2026-06-07">June 7, 2026</time></p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <h2>Verifying Neural Networks</h2>
+      </div>
+
+      <ul class="pub-list">
+        <li class="pub">
+          <p class="pub-title"><a href="https://woodingben.substack.com/p/the-panda-that-wasnt" target="_blank" rel="noopener">The Panda That Wasn't</a></p>
+          <p class="pub-venue">How invisible noise can turn a confident, accurate AI into a confidently wrong one and why that should change how you think about "accuracy."</p>
+          <p class="pub-meta"><time datetime="2026-06-11">June 11, 2026</time></p>
+        </li>
+        <li class="pub">
+          <p class="pub-title"><a href="https://woodingben.substack.com/p/what-would-it-mean-to-prove-an-neural" target="_blank" rel="noopener">What Would It Mean to Prove an neural network Is Safe?</a></p>
+          <p class="pub-venue">If "99% accurate" isn't a guarantee, the alternative is a promise that covers infinitely many inputs you never tested — here's what that promise actually says.</p>
+          <p class="pub-meta"><time datetime="2026-06-12">June 12, 2026</time></p>
+        </li>
+        <li class="pub">
+          <p class="pub-title"><a href="https://woodingben.substack.com/p/how-do-you-prove-something-about" target="_blank" rel="noopener">How Do You Prove Something About a Million Images at Once?</a></p>
+          <p class="pub-venue">You can't run a neural network on infinitely many images — so instead of tracking every input, you track a shape that contains all of them and push the shape through the network.</p>
+          <p class="pub-meta"><time datetime="2026-06-13">June 13, 2026</time></p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <h2>AI &amp; Reasoning</h2>
+      </div>
+
+      <ul class="pub-list">
+        <li class="pub">
+          <p class="pub-title"><a href="https://woodingben.substack.com/p/is-ai-actually-reasoning" target="_blank" rel="noopener">Is AI Actually Reasoning?</a></p>
+          <p class="pub-venue">Today's image-reading AIs can describe a photo, pass exams, and write you a sonnet — so why do they fall apart on a number puzzle a ten-year-old can finish?</p>
+          <p class="pub-meta"><time datetime="2026-06-14">June 14, 2026</time></p>
+        </li>
+        <li class="pub">
+          <p class="pub-title"><a href="https://woodingben.substack.com/p/neuro-symbolic-ai-eyes-and-a-rulebook" target="_blank" rel="noopener">Neuro-Symbolic AI: Eyes and a Rulebook</a></p>
+          <p class="pub-venue">The fix for an AI that can't solve a puzzle isn't a bigger AI. It's to chose specialized systems for specialized jobs.</p>
+          <p class="pub-meta"><time datetime="2026-06-15">June 15, 2026</time></p>
+        </li>
+        <li class="pub">
+          <p class="pub-title"><a href="https://woodingben.substack.com/p/an-ai-solver-that-catches-its-own" target="_blank" rel="noopener">An AI Solver That Catches Its Own Mistakes</a></p>
+          <p class="pub-venue">Given a messy handwritten puzzle one may occasionally misread a digit. But we can use logic to notice, point at a culprit, and fix it.</p>
+          <p class="pub-meta"><time datetime="2026-06-16">June 16, 2026</time></p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section" aria-label="Posts on this site">
+      <div class="section-heading">
+        <h2>On this site</h2>
+      </div>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-media">
+            <a href="https://woodingben.substack.com/p/google-scholar-orderer-a-research" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <img src="/wp-content/uploads/2022/08/google_scholar.png" alt=""
+                   width="900" height="880" loading="lazy">
+            </a>
+          </div>
+          <div class="card-body">
+            <span class="badge">Substack</span>
+            <h3 class="card-title"><a href="https://woodingben.substack.com/p/google-scholar-orderer-a-research" target="_blank" rel="noopener">Google Scholar Orderer: A Research Tool</a></h3>
+            <p>A browser plug-in that sorts Google Scholar results by citation count and badges venues by ranking — and the story of building it.</p>
+            <a class="card-link" href="https://woodingben.substack.com/p/google-scholar-orderer-a-research" target="_blank" rel="noopener" aria-label="Read Google Scholar Orderer: A Research Tool on Substack">Read on Substack &raquo;</a>
+            <p class="card-meta"><time datetime="2026-08-16">August 16, 2026</time></p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media">
+            <a href="/scraping-google-scholar/" tabindex="-1" aria-hidden="true">
+              <img src="/wp-content/uploads/2022/08/google_scholar.png" alt=""
+                   width="900" height="880" loading="lazy">
+            </a>
+          </div>
+          <div class="card-body">
+            <span class="badge">PHP</span>
+            <h3 class="card-title"><a href="/scraping-google-scholar/">Scraping Google Scholar</a></h3>
+            <p>In this post I demo how to scrape information from Google Scholar.</p>
+            <a class="card-link" href="/scraping-google-scholar/" aria-label="Read more about Scraping Google Scholar">Read More &raquo;</a>
+            <p class="card-meta"><time datetime="2022-08-26">August 26, 2022</time> &middot; 2 Comments</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="profile-links">
+        <li><a href="https://github.com/Kiguli" rel="me">GitHub</a></li>
+        <li><a href="https://scholar.google.com/citations?user=YhOmz1kAAAAJ" rel="me">Google Scholar</a></li>
+        <li><a href="https://orcid.org/0000-0003-1713-717X" rel="me">ORCID</a></li>
+        <li><a href="https://www.linkedin.com/in/ben-wooding/" rel="me">LinkedIn</a></li>
+        <li><a href="https://woodingben.substack.com/" rel="me">Substack</a></li>
+        <li><a href="https://www.youtube.com/@The_Real_Kiguli" rel="me">YouTube</a></li>
+        <li><a href="mailto:woodingben@gmail.com">Email</a></li>
+      </ul>
+      <p class="copyright">&copy; 2026 Ben Wooding</p>
+    </div>
+    <script src="/assets/nav.js?v=95b38a628a" defer></script>
+  </footer>
+</body>
+</html>

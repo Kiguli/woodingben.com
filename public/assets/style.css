@@ -1,0 +1,734 @@
+/* ==========================================================================
+   woodingben.com — shared design system
+   Typography-led academic portfolio. System fonts only, no JS required by
+   any component. The ONLY sanctioned third-party origin is
+   www.youtube-nocookie.com (lazy-loaded video embeds on the tool pages);
+   everything else is same-origin. Mobile-first. Light + dark via
+   prefers-color-scheme. All colors/spacing are custom properties.
+   ========================================================================== */
+
+/* ---- 1. Tokens ---------------------------------------------------------- */
+:root {
+  /* Type */
+  --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
+                ui-serif, serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
+               "Liberation Mono", monospace;
+  --leading: 1.65;
+  --measure: 70ch;          /* max prose line length */
+
+  /* Spacing rhythm (use these, not ad-hoc values) */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4.5rem;
+
+  /* Layout */
+  --container: 68rem;
+  --radius: 8px;
+  --radius-lg: 14px;
+
+  /* Light palette (cool near-white, petrol-teal primary, amber highlight) */
+  --bg: #f7fafa;
+  --bg-alt: #eaf1f0;
+  --card-bg: #ffffff;
+  --text: #122b2e;
+  --muted: #4c6363;         /* AA on --bg and --card-bg */
+  --accent: #0d6b6b;        /* petrol teal — links, buttons; AA on light backgrounds */
+  --accent-strong: #09514f; /* hover / active */
+  --accent-tint: #dfeeed;   /* subtle accent wash (badges, chips) */
+  --accent-2: #b45309;      /* amber highlight — awards, secondary emphasis; AA on --bg */
+  --on-accent: #ffffff;     /* text on solid --accent surfaces (buttons, skip link) */
+  --media-bg: #ffffff;      /* backing for plots/diagrams authored on white (both themes) */
+  --ok: #0f6b5c;            /* status-badge "solved" text — AA on --ok-tint */
+  --ok-tint: #ddf0ea;
+  --warn: #96530a;          /* status-badge "partial" text — AA on --warn-tint */
+  --warn-tint: #f9edd8;
+  --border: #d7e2e0;
+  --border-strong: #b3c6c4;
+  --code-bg: #eef4f3;
+  --code-text: #24393b;
+  --shadow: 0 1px 2px rgba(18, 43, 46, 0.06), 0 4px 14px rgba(18, 43, 46, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1b1c;
+    --bg-alt: #142324;
+    --card-bg: #152728;
+    --text: #ede9e0;
+    --muted: #a3b6b2;       /* AA on --bg and --card-bg */
+    --accent: #3ec6c0;      /* brighter teal — AA on dark backgrounds */
+    --accent-strong: #71d8d2;
+    --accent-tint: #113635;
+    --accent-2: #f5a623;    /* glowing amber highlight */
+    --on-accent: #06211f;   /* dark text on the bright teal button fill */
+    --media-bg: #ffffff;
+    --ok: #58c9a6;
+    --ok-tint: #10312a;
+    --warn: #e6b45e;
+    --warn-tint: #372b13;
+    --border: #24393a;
+    --border-strong: #385254;
+    --code-bg: #122425;
+    --code-text: #d5ded9;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 14px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ---- 2. Reset / base ----------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: var(--leading);
+  color: var(--text);
+  background: var(--bg);
+}
+
+img, svg, video { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 var(--s-4);
+  text-wrap: balance;
+}
+h1 { font-size: clamp(1.9rem, 4.5vw, 2.75rem); letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.4rem); }
+h4, h5, h6 { font-size: 1.05rem; }
+
+p, ul, ol, blockquote, figure, table, pre { margin: 0 0 var(--s-5); }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: var(--s-2); }
+
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--accent-strong); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+hr { border: 0; border-top: 1px solid var(--border); margin: var(--s-6) 0; }
+
+strong, b { font-weight: 650; }
+
+::selection { background: var(--accent); color: var(--bg); }
+
+/* ---- 3. Layout ----------------------------------------------------------- */
+.container {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--s-4);
+}
+@media (min-width: 48em) { .container { padding-inline: var(--s-6); } }
+
+main { display: block; padding-block: var(--s-6) var(--s-8); }
+.section { margin-block: var(--s-7); }
+
+/* Prose: wrap long-form article/page copy in .prose */
+.prose { max-width: var(--measure); }
+.prose h2 { margin-top: var(--s-7); }
+.prose h3 { margin-top: var(--s-6); }
+.prose blockquote {
+  border-left: 3px solid var(--accent);
+  margin-left: 0;
+  padding: var(--s-2) var(--s-5);
+  color: var(--muted);
+}
+.prose > :first-child { margin-top: 0; }
+
+.lede { font-size: 1.2rem; color: var(--muted); }  /* spans the container: a subheading, not body copy */
+.muted { color: var(--muted); }
+.center { text-align: center; }
+
+/* ---- 4. Skip link + header ----------------------------------------------- */
+.skip-link {
+  position: absolute;
+  left: var(--s-4);
+  top: -100%;
+  z-index: 100;
+  padding: var(--s-2) var(--s-4);
+  background: var(--accent);
+  color: var(--on-accent);
+  border-radius: 0 0 var(--radius) var(--radius);
+  text-decoration: none;
+}
+.skip-link:focus { top: 0; }
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+.site-header .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3) var(--s-5);
+  padding-block: var(--s-4);
+}
+.site-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 650;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.site-title:hover { color: var(--accent); }
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.site-nav li { margin: 0; }
+.site-nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.97rem;
+  padding-block: var(--s-1);
+}
+.site-nav a:hover { color: var(--accent); }
+.site-nav a[aria-current="page"],
+.site-nav a[aria-current="true"] {
+  color: var(--accent);
+  font-weight: 600;
+  border-bottom: 2px solid var(--accent);
+}
+
+/* ---- 4b. Nav dropdowns ----------------------------------------------------- */
+/* li.has-dropdown = parent link (real page, no-JS fallback) + .caret disclosure
+   button (touch/small screens; nav.js) + ul.dropdown panel. Desktop opens by
+   pure CSS on :hover / :focus-within; the caret is hidden there. */
+.site-nav li.has-dropdown {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.site-nav .caret {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  line-height: 1;
+  padding: var(--s-1) var(--s-2);
+  cursor: pointer;
+  border-radius: var(--radius);
+}
+.site-nav .caret::before {
+  content: "\25BE";
+  display: inline-block;
+  transition: transform 120ms ease; /* neutralized by the reduced-motion rule */
+}
+.site-nav .caret:hover { color: var(--accent); }
+.site-nav li.has-dropdown.open > .caret::before { transform: rotate(180deg); }
+
+.site-nav .dropdown {
+  display: none;
+  margin: 0;
+  padding: var(--s-2);
+  list-style: none;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.site-nav .dropdown li { margin: 0; }
+.site-nav .dropdown a {
+  display: block;
+  padding: var(--s-2) var(--s-3);
+  border-radius: calc(var(--radius) - 2px);
+  border-bottom: 0; /* active-parent underline never applies inside panels */
+  white-space: nowrap;
+}
+.site-nav .dropdown a:hover,
+.site-nav .dropdown a:focus-visible {
+  background: var(--bg-alt);
+  color: var(--accent);
+}
+.ext-mark { font-size: 0.8em; }
+
+/* Toggled state (nav.js): panel opens in-flow, full width of the li. */
+.site-nav li.has-dropdown.open > .dropdown {
+  display: block;
+  position: static;
+  flex-basis: 100%;
+}
+
+/* Desktop: wide + hover-capable fine pointer. Carets off; floating panels. */
+@media (min-width: 48em) and (hover: hover) and (pointer: fine) {
+  .site-nav .caret { display: none; }
+  .site-nav li.has-dropdown:hover > .dropdown,
+  .site-nav li.has-dropdown:focus-within > .dropdown {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 50;
+    min-width: 13rem;
+  }
+  /* Last two dropdown items (Posts, Games) hug the right edge instead. */
+  .site-nav li.has-dropdown:nth-last-child(-n+3):hover > .dropdown,
+  .site-nav li.has-dropdown:nth-last-child(-n+3):focus-within > .dropdown {
+    left: auto;
+    right: 0;
+  }
+  .site-nav .dropdown-cols {
+    columns: 2;
+    column-gap: var(--s-2);
+    min-width: 26rem;
+  }
+  .site-nav .dropdown-cols li { break-inside: avoid; }
+}
+
+/* ---- 5. Hero / intro ------------------------------------------------------ */
+/* Float layout: on wide screens the headshot floats left and the name, role
+   and bio wrap around it; on small screens it stacks (image first — its DOM
+   position). flow-root contains the float so following sections never overlap. */
+.hero {
+  display: flow-root;
+  margin-block: var(--s-6) var(--s-5);
+}
+/* Section right after the hero (bio continuation): sits closer, and gets the
+   same full-width justified treatment as the hero body (everything above the
+   Google Scholar stats; lists/chips below keep their own layout). */
+.hero + .section { margin-top: var(--s-5); max-width: none; }
+@media (min-width: 48em) {
+  .hero + .section { text-align: justify; hyphens: auto; }
+}
+.hero-figure { margin: 0 0 var(--s-5); }
+@media (min-width: 48em) {
+  .hero-figure {
+    float: left;
+    width: min(340px, 38%);
+    margin: var(--s-2) var(--s-6) var(--s-4) 0;
+  }
+}
+.hero-figure img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+.hero-body { max-width: none; } /* bio fills the container; the 70ch prose cap left a dead right margin */
+@media (min-width: 48em) {
+  .hero-body { text-align: justify; hyphens: auto; }
+  .hero-body h1, .hero-body .lede { text-align: left; } /* headings never justify */
+}
+/* Role line stays on one line where the float leaves room for it */
+@media (min-width: 64em) {
+  .hero-body .lede { white-space: nowrap; }
+}
+.hero-body > h1, .hero-body > h2 { margin-bottom: var(--s-3); }
+.hero-body > :last-child { margin-bottom: 0; } /* junction spacing = section rhythm, not doubled */
+.hero-actions { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-top: var(--s-5); }
+
+/* ---- 6. Section headings (replaces Elementor divider headings) ----------- */
+/* Centered heading with a hairline either side. Works on h2 or h3. */
+.section-heading {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--s-4);
+  margin-block: var(--s-7) var(--s-5);
+}
+.section-heading::before, .section-heading::after {
+  content: "";
+  height: 1px;
+  background: var(--border-strong);
+}
+.section-heading > * { margin: 0; text-align: center; font-size: clamp(1.15rem, 2.5vw, 1.45rem); }
+
+/* ---- 7. Buttons ----------------------------------------------------------- */
+.btn {
+  display: inline-block;
+  padding: var(--s-2) var(--s-5);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--on-accent);
+  background: var(--accent);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: background-color 120ms ease;
+}
+.btn:hover { background: var(--accent-strong); color: var(--on-accent); }
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.btn-outline:hover { background: var(--accent-tint); color: var(--accent-strong); }
+/* Non-interactive "to appear" button: muted, no hover change, AA in both themes
+   (--muted is AA on --card-bg). Use on a <span> with aria-disabled="true". */
+.btn-disabled,
+.btn-disabled:hover {
+  background: var(--card-bg);
+  border-color: var(--border-strong);
+  color: var(--muted);
+  cursor: not-allowed;
+}
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s-3);
+  margin-block: var(--s-5);
+}
+
+/* Non-interactive stat chips (citations / h-index) */
+.stat-row { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s-4); margin-block: var(--s-5); }
+.stat-chip {
+  padding: var(--s-3) var(--s-5);
+  background: var(--accent-tint);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Reviewing-venue chips: compact non-interactive variant of .stat-chip,
+   grouped by research field. .chip-cat is the category subheading (meta-label
+   style); .chip-label is the "Journals:" / "Conferences:" micro-label. */
+.chip-group { margin-block: var(--s-5); }
+.chip-cat {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-block: var(--s-4) var(--s-2);
+}
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+  margin-block: var(--s-2);
+}
+.chip-label {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--muted);
+  margin-right: var(--s-1);
+}
+.chip {
+  padding: var(--s-1) var(--s-3);
+  background: var(--accent-tint);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: help;
+}
+/* Linked venue chips: identical resting look, subtle affordance on hover/focus */
+a.chip {
+  display: inline-block;
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+}
+a.chip:hover {
+  border-color: var(--accent);
+  color: var(--accent-strong); /* AA on --accent-tint in both themes */
+}
+a.chip:focus-visible { border-radius: var(--radius); } /* keep chip shape under the global outline */
+
+/* ---- 8. Cards (tools index, posts index) ---------------------------------- */
+.card-grid {
+  display: grid;
+  gap: var(--s-5);
+  grid-template-columns: repeat(auto-fill, minmax(min(18rem, 100%), 1fr));
+  margin-block: var(--s-5);
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.card-media img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.card-body { padding: var(--s-5); display: flex; flex-direction: column; gap: var(--s-3); flex: 1; }
+.card-body > * { margin: 0; }
+.card-title { font-size: 1.2rem; }
+.card-title a { color: var(--text); text-decoration: none; }
+.card-title a:hover { color: var(--accent); }
+.card-meta { color: var(--muted); font-size: 0.88rem; margin-top: auto; }
+.card-link { font-weight: 600; text-decoration: none; }
+.card-link::after { content: " \2192"; }
+
+.badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.1rem var(--s-3);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+  background: var(--accent-tint);
+  border-radius: 999px;
+}
+
+/* Formalization-status badge (Games section). Variants: is-solved /
+   is-partial / is-empirical. Non-interactive span; the title attribute
+   carries the one-line rationale. All pairs AA in both themes. */
+.status-badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.1rem var(--s-3);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+.status-badge.is-solved { color: var(--ok); background: var(--ok-tint); }
+.status-badge.is-partial { color: var(--warn); background: var(--warn-tint); }
+.status-badge.is-empirical { color: var(--muted); background: var(--bg-alt); }
+
+/* Legend on the games index: one line per status level. */
+.status-legend {
+  list-style: none;
+  padding: 0;
+  margin-block: var(--s-4) var(--s-5);
+  font-size: 0.92rem;
+  color: var(--muted);
+  max-width: var(--measure);
+}
+.status-legend .status-badge { margin-right: var(--s-2); }
+
+/* ---- 9. Tool row (image beside text, as on the live tool pages) ----------- */
+/* Float layout to match the homepage hero: image floats left on wide screens
+   with justified text wrapping around it; stacked (image first) on mobile. */
+.tool-row {
+  display: flow-root;
+  margin-block: var(--s-6);
+}
+.tool-row figure { margin: 0 0 var(--s-5); }
+.tool-row .tool-text { max-width: none; }
+/* Tool pages: every prose block matches the homepage treatment (full width,
+   justified on wide screens) so wrapped and unwrapped sections read alike. */
+.tool-page .prose, .game-page .prose, .index-page .prose { max-width: none; }
+@media (min-width: 48em) {
+  .tool-page .prose, .game-page .prose, .index-page .prose { text-align: justify; hyphens: auto; }
+  /* ledes and headings stay left-aligned everywhere */
+  .game-page .lede, .tool-page .lede { text-align: left; }
+}
+@media (min-width: 48em) {
+  .tool-row figure {
+    float: left;
+    width: min(420px, 40%);
+    margin: var(--s-1) var(--s-6) var(--s-4) 0;
+  }
+  .tool-row .tool-text { text-align: justify; hyphens: auto; }
+}
+.tool-row img {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--media-bg); /* plots/diagrams are authored on white; keep them legible in dark mode */
+}
+.tool-row .tool-text > :last-child { margin-bottom: 0; }
+
+/* ---- 10. Publication list -------------------------------------------------- */
+.pub-list { list-style: none; padding: 0; margin-block: var(--s-5); }
+.pub-list > li { margin: 0; }
+.pub {
+  padding: var(--s-4) 0;
+  border-bottom: 1px solid var(--border);
+}
+/* .pub-title is an <h3> for document structure, but keeps body leading and
+   the sans face: the heading rule would otherwise retighten every wrapped
+   title to 1.25 and switch it to the serif stack. */
+.pub-title { font-weight: 600; margin: 0 0 var(--s-1); font-family: var(--font-sans); font-size: 1.02rem; line-height: var(--leading); }
+.pub-title a { text-decoration: none; }
+.pub-title a:hover { text-decoration: underline; }
+.pub-authors, .pub-venue { margin: 0; font-size: 0.92rem; color: var(--muted); }
+.pub-authors strong { color: var(--text); }
+.pub-meta { font-size: 0.85rem; color: var(--muted); margin-top: var(--s-1); }
+.accent { color: var(--accent-2); } /* amber highlight: awards, secondary emphasis */
+
+/* ---- 11. Tables (incl. the Scholar publications table) --------------------- */
+/* Always put tables inside .table-wrap so wide tables scroll, not the page. */
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-block: var(--s-5);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.table-wrap table { margin: 0; border: 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+th, td {
+  padding: var(--s-3) var(--s-4);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+thead th {
+  font-family: var(--font-sans);
+  font-weight: 650;
+  background: var(--bg-alt);
+  white-space: nowrap;
+}
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr:nth-child(even) { background: var(--bg-alt); }
+td .cell-sub { font-size: 0.85rem; color: var(--muted); margin: var(--s-1) 0 0; }
+
+/* ---- 12. Code -------------------------------------------------------------- */
+code, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--code-bg);
+  color: var(--code-text);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+pre {
+  background: var(--code-bg);
+  color: var(--code-text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--s-4) var(--s-5);
+  overflow-x: auto;
+  line-height: 1.55;
+  tab-size: 4;
+}
+pre code { background: none; padding: 0; font-size: 0.85rem; }
+
+/* ---- 13. Figures & media embeds -------------------------------------------- */
+figure.figure { margin: var(--s-6) 0; }
+figure.figure img { border-radius: var(--radius); border: 1px solid var(--border); }
+figcaption { font-size: 0.88rem; color: var(--muted); margin-top: var(--s-2); }
+
+.video-grid {
+  display: grid;
+  gap: var(--s-5);
+  grid-template-columns: repeat(auto-fill, minmax(min(18rem, 100%), 1fr));
+  margin-block: var(--s-5);
+}
+.embed { position: relative; aspect-ratio: 16 / 9; background: var(--bg-alt); border-radius: var(--radius); overflow: hidden; }
+.embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ---- 14. Breadcrumbs -------------------------------------------------------- */
+.breadcrumbs { font-size: 0.88rem; margin-block: var(--s-4) var(--s-5); }
+.breadcrumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: var(--s-1); margin: 0; padding: 0; }
+.breadcrumbs li { margin: 0; color: var(--muted); }
+.breadcrumbs li + li::before { content: "/"; margin-inline: var(--s-2); color: var(--border-strong); }
+.breadcrumbs a { color: var(--muted); text-decoration: none; }
+.breadcrumbs a:hover { color: var(--accent); text-decoration: underline; }
+.breadcrumbs [aria-current="page"] { color: var(--text); }
+
+/* ---- 15. Article header (posts) --------------------------------------------- */
+.article-header { margin-block: var(--s-5) var(--s-6); max-width: var(--measure); }
+.article-header h1 { margin-bottom: var(--s-2); }
+.article-meta { color: var(--muted); font-size: 0.92rem; display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-4); }
+
+/* ---- 16. Footer -------------------------------------------------------------- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: var(--bg-alt);
+  margin-top: var(--s-8);
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+.site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3) var(--s-5);
+  padding-block: var(--s-5);
+}
+.profile-links { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-4); margin: 0; padding: 0; list-style: none; }
+.profile-links li { margin: 0; }
+.profile-links a { color: var(--muted); text-decoration: none; }
+.profile-links a:hover { color: var(--accent); text-decoration: underline; }
+.copyright { margin: 0; }
+
+/* ---- 17. Utilities ------------------------------------------------------------ */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.flow > * + * { margin-top: var(--s-4); }
+
+/* ---- 18. Playable game embeds (per-game pages, /assets/embed.js) ------------ */
+.game-embed {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 640px; /* initial; embed.js updates it from the app's posted height */
+  min-height: 420px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-alt);
+  overflow: hidden;
+}
+.embed-note { font-size: 0.88rem; color: var(--muted); margin-top: var(--s-3); }
+.embed-note a { color: var(--muted); }
+.embed-note a:hover { color: var(--accent); }
+
+/* Certified-result callout: the headline verdict from the play app, rendered
+   as page content directly after the "Play it" embed. Tinted --ok wash with
+   --ok border/heading accents; both themes inherit via the tokens. */
+.callout-result {
+  margin-block: var(--s-5);
+  padding: var(--s-4) var(--s-5);
+  background: var(--ok-tint);
+  border: 1px solid var(--ok);
+  border-radius: var(--radius);
+}
+.callout-result-title {
+  margin: 0 0 var(--s-3);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ok);
+}
+.callout-result p { margin-block: 0 var(--s-3); }
+.callout-result .table-wrap { margin-block: var(--s-4); background: var(--card-bg); }
+.callout-result > :last-child { margin-bottom: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+@media print {
+  .site-header, .site-footer, .skip-link, .breadcrumbs { display: none; }
+  body { background: #fff; color: #000; }
+  a { color: inherit; }
+}

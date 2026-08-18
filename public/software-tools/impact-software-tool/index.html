@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IMPaCT Software Tool - Ben Wooding</title>
+  <meta name="description" content="IMPaCT is an open-source software tool for parallel verification and synthesis of large-scale stochastic systems using IMCs and IMDPs.">
+  <link rel="canonical" href="https://woodingben.com/software-tools/impact-software-tool/">
+  <link rel="alternate" type="application/rss+xml" title="Ben Wooding" href="https://woodingben.com/feed.xml">
+
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="IMPaCT Software Tool - Ben Wooding">
+  <meta property="og:description" content="IMPaCT is an open-source software tool for parallel verification and synthesis of large-scale stochastic systems using IMCs and IMDPs.">
+  <meta property="og:url" content="https://woodingben.com/software-tools/impact-software-tool/">
+  <meta property="og:site_name" content="Ben Wooding">
+  <meta property="og:image" content="https://woodingben.com/wp-content/uploads/2024/02/fig.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://woodingben.com/wp-content/uploads/2024/02/fig.png">
+
+  <meta name="theme-color" content="#f7fafa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1b1c" media="(prefers-color-scheme: dark)">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="/assets/style.css?v=4f595879b2">
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://woodingben.com/software-tools/impact-software-tool/#software","name":"IMPaCT","alternateName":"IMPaCT: Interval MDP Parallel Construction for Controller Synthesis of Large-Scale Stochastic Systems","url":"https://woodingben.com/software-tools/impact-software-tool/","description":"IMPaCT is an open-source software tool for parallel verification and synthesis of large-scale stochastic systems using IMCs and IMDPs.","image":"https://woodingben.com/wp-content/uploads/2024/02/fig.png","applicationCategory":"DeveloperApplication","operatingSystem":"Linux (Ubuntu 22.04), Docker","programmingLanguage":"C++","sameAs":["https://github.com/Kiguli/IMPaCT"],"offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"author":{"@type":"Person","@id":"https://woodingben.com/#person","name":"Ben Wooding","url":"https://woodingben.com/"}},{"@type":"BreadcrumbList","@id":"https://woodingben.com/software-tools/impact-software-tool/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://woodingben.com/"},{"@type":"ListItem","position":2,"name":"Software Tools","item":"https://woodingben.com/software-tools/"},{"@type":"ListItem","position":3,"name":"IMPaCT","item":"https://woodingben.com/software-tools/impact-software-tool/"}]}]}</script>
+</head>
+<body class="tool-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="site-title" href="/">Ben Wooding</a>
+
+      <nav class="site-nav" aria-label="Site">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li class="has-dropdown">
+            <a href="/software-tools/" aria-current="page">Software Tools</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-tools" aria-label="Software Tools submenu"></button>
+            <ul class="dropdown" id="nav-sub-tools">
+              <li><a href="/software-tools/">Overview</a></li>
+              <li><a href="/software-tools/trust-software-tool/">TRUST</a></li>
+              <li><a href="/software-tools/protect-software-tool/">PRoTECT</a></li>
+              <li><a href="/software-tools/impact-software-tool/">IMPaCT</a></li>
+              <li><a href="/software-tools/nnv-software-tool/">NNV</a></li>
+              <li><a href="/software-tools/n2v-software-tool/">n2v</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/publications/">Publications</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-publications" aria-label="Publications submenu"></button>
+            <ul class="dropdown" id="nav-sub-publications">
+              <li><a href="/publications/">Full list</a></li>
+              <li><a href="/publications/#conference">Conference</a></li>
+              <li><a href="/publications/#journal">Journal</a></li>
+              <li><a href="/publications/#book-chapters">Book Chapters</a></li>
+              <li><a href="/publications/#posters-competition">Posters &amp; Competitions</a></li>
+              <li><a href="/publications/#theses">Theses</a></li>
+              <li><a href="/publications/#preprints">Preprints</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/posts/">Posts</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-posts" aria-label="Posts submenu"></button>
+            <ul class="dropdown" id="nav-sub-posts">
+              <li><a href="/posts/">All posts</a></li>
+              <li><a href="https://woodingben.substack.com/p/a-475-million-typo" target="_blank" rel="noopener">A $475 Million Typo<span class="ext-mark" aria-hidden="true"> &#x2197;</span></a></li>
+              <li><a href="/scraping-google-scholar/">Scraping Google Scholar</a></li>
+              <li><a href="https://woodingben.substack.com/p/google-scholar-orderer-a-research">Google Scholar Orderer</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/games/">Games</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-games" aria-label="Games submenu"></button>
+            <ul class="dropdown" id="nav-sub-games">
+              <li><a href="/games/">All games</a></li>
+              <li><a href="/games/tic-tac-toe/">Tic-Tac-Toe</a></li>
+              <li><a href="/games/nim/">Nim</a></li>
+              <li><a href="/games/pig/">Pig</a></li>
+            </ul>
+          </li>
+          <li><a href="/cv/Ben-Wooding-CV.pdf">CV</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/software-tools/">Software Tools</a></li>
+        <li aria-current="page">IMPaCT</li>
+      </ol>
+    </nav>
+
+    <article>
+      <h1>IMPaCT Software Tool</h1>
+
+      <section class="section" aria-labelledby="impact-heading">
+        <div class="section-heading">
+          <h2 id="impact-heading">IMPaCT: Interval MDP Parallel Construction for Controller Synthesis of Large-Scale Stochastic Systems</h2>
+        </div>
+
+        <div class="tool-row">
+          <figure>
+            <img src="/wp-content/uploads/2024/02/fig.png" alt="IMPaCT reach-while-avoid result: a stochastic trajectory in the x1-x2 state space skirting the red avoid region and reaching the green target set"
+                 width="1120" height="840" fetchpriority="high">
+          </figure>
+          <div class="tool-text prose">
+            <p><strong>IMPaCT</strong> is an open-source software tool for the parallelised verification and controller synthesis of large-scale stochastic systems using <em>interval Markov chains</em> (IMCs) and <em>interval Markov decision processes</em> (IMDPs), respectively. The tool serves to (i) construct IMCs/IMDPs as finite abstractions of underlying original systems, and (ii) leverage <em>interval iteration algorithms</em> for formal verification and controller synthesis over infinite-horizon properties, including <em>safety</em>, <em>reachability</em>, and <em>reach-while-avoid</em>, while offering convergence guarantees.</p>
+          </div>
+        </div>
+
+        <div class="prose">
+          <p><strong>IMPaCT</strong> is developed in C++ and designed using <a href="https://github.com/AdaptiveCpp/AdaptiveCpp">AdaptiveCpp</a>, an independent open-source implementation of SYCL, for adaptive parallelism over CPUs and GPUs of all hardware vendors, including Intel and NVIDIA. <strong>IMPaCT</strong> stands as the first software tool for the parallel construction of IMCs/IMDPs, empowered with the capability to leverage high-performance computing platforms and cloud computing services. Specifically, parallelism offered by <strong>IMPaCT</strong> effectively addresses the challenges arising from the state-explosion problem inherent in discretization-based techniques applied to large-scale stochastic systems.</p>
+          <p>The GitHub repository for <strong>IMPaCT</strong> can be found at <a href="https://github.com/Kiguli/IMPaCT">Kiguli/IMPaCT</a>, to use <strong>IMPaCT</strong> you can use the docker image, the automated installation instructions (tested on Ubuntu 22.04), or manually install the tool yourself following the installation guide. You can also find some useful videos for installing and understanding <strong>IMPaCT</strong> below.</p>
+        </div>
+
+        <div class="btn-row">
+          <a class="btn" href="/wp-admin/papers/IMPaCT-QEST.pdf" target="_blank" rel="noopener">QEST+FORMATS paper</a>
+          <a class="btn" href="/wp-admin/papers/IMPaCT-arXiv.pdf" target="_blank" rel="noopener">arXiv paper</a>
+          <a class="btn" href="/wp-admin/papers/IMPaCT-HSCC.pdf" target="_blank" rel="noopener">HSCC Poster Abstract</a>
+          <a class="btn" href="/wp-content/uploads/2024/01/IMPaCT_Poster_HSCC24.pdf" target="_blank" rel="noopener">HSCC Poster</a>
+          <a class="btn" href="https://github.com/Kiguli/IMPaCT" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+
+        <div class="video-grid">
+          <div class="embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/wwfP2ErgLcM"
+                    title="IMPaCT installation video" loading="lazy" allowfullscreen></iframe>
+          </div>
+          <div class="embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/6kzuQC_X9WQ"
+                    title="IMPaCT video 2 of 3" loading="lazy" allowfullscreen></iframe>
+          </div>
+          <div class="embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/rsU6fZU_O4c"
+                    title="IMPaCT video 3 of 3" loading="lazy" allowfullscreen></iframe>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="profile-links">
+        <li><a href="https://github.com/Kiguli" rel="me">GitHub</a></li>
+        <li><a href="https://scholar.google.com/citations?user=YhOmz1kAAAAJ" rel="me">Google Scholar</a></li>
+        <li><a href="https://orcid.org/0000-0003-1713-717X" rel="me">ORCID</a></li>
+        <li><a href="https://www.linkedin.com/in/ben-wooding/" rel="me">LinkedIn</a></li>
+        <li><a href="https://woodingben.substack.com/" rel="me">Substack</a></li>
+        <li><a href="https://www.youtube.com/@The_Real_Kiguli" rel="me">YouTube</a></li>
+        <li><a href="mailto:woodingben@gmail.com">Email</a></li>
+      </ul>
+      <p class="copyright">&copy; 2026 Ben Wooding</p>
+    </div>
+    <script src="/assets/nav.js?v=95b38a628a" defer></script>
+  </footer>
+</body>
+</html>
