@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Knight's Tour, Verified - Ben Wooding</title>
+  <meta name="description" content="The knight's tour as a Hamiltonian path problem: existence settled exactly for every board up to 8x8, an exact completability oracle in the browser, and a D4 symmetry reduction.">
+  <link rel="canonical" href="https://woodingben.com/games/knights-tour/">
+
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Knight's Tour, Verified - Ben Wooding">
+  <meta property="og:description" content="The knight's tour as a Hamiltonian path problem: existence settled exactly for every board up to 8x8, an exact completability oracle in the browser, and a D4 symmetry reduction.">
+  <meta property="og:url" content="https://woodingben.com/games/knights-tour/">
+  <meta property="og:site_name" content="Ben Wooding">
+  <meta name="twitter:card" content="summary">
+
+  <meta name="theme-color" content="#f7fafa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1b1c" media="(prefers-color-scheme: dark)">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="/assets/style.css?v=42b870e0ed">
+  <script src="/assets/embed.js?v=e2b7102aed" defer></script>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","@id":"https://woodingben.com/games/knights-tour/#article","headline":"Knight's Tour, Verified","description":"The knight's tour as a Hamiltonian path problem: existence settled exactly for every board up to 8x8, an exact completability oracle in the browser, and a D4 symmetry reduction.","url":"https://woodingben.com/games/knights-tour/","mainEntityOfPage":"https://woodingben.com/games/knights-tour/","author":{"@type":"Person","@id":"https://woodingben.com/#person","name":"Ben Wooding","url":"https://woodingben.com/"}},{"@type":"BreadcrumbList","@id":"https://woodingben.com/games/knights-tour/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://woodingben.com/"},{"@type":"ListItem","position":2,"name":"Games","item":"https://woodingben.com/games/"},{"@type":"ListItem","position":3,"name":"Knight's Tour"}]}]}</script>
+</head>
+<body class="game-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="site-title" href="/">Ben Wooding</a>
+      <nav class="site-nav" aria-label="Site">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li class="has-dropdown">
+            <a href="/software-tools/">Software Tools</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-tools" aria-label="Software Tools submenu"></button>
+            <ul class="dropdown" id="nav-sub-tools">
+              <li><a href="/software-tools/">Overview</a></li>
+              <li><a href="/software-tools/trust-software-tool/">TRUST</a></li>
+              <li><a href="/software-tools/protect-software-tool/">PRoTECT</a></li>
+              <li><a href="/software-tools/impact-software-tool/">IMPaCT</a></li>
+              <li><a href="/software-tools/nnv-software-tool/">NNV</a></li>
+              <li><a href="/software-tools/n2v-software-tool/">n2v</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/publications/">Publications</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-publications" aria-label="Publications submenu"></button>
+            <ul class="dropdown" id="nav-sub-publications">
+              <li><a href="/publications/">Full list</a></li>
+              <li><a href="/publications/#conference">Conference</a></li>
+              <li><a href="/publications/#journal">Journal</a></li>
+              <li><a href="/publications/#book-chapters">Book Chapters</a></li>
+              <li><a href="/publications/#posters-competition">Posters &amp; Competitions</a></li>
+              <li><a href="/publications/#theses">Theses</a></li>
+              <li><a href="/publications/#preprints">Preprints</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/posts/">Posts</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-posts" aria-label="Posts submenu"></button>
+            <ul class="dropdown" id="nav-sub-posts">
+              <li><a href="/posts/">All posts</a></li>
+              <li><a href="https://woodingben.substack.com/p/a-475-million-typo" target="_blank" rel="noopener">A $475 Million Typo<span class="ext-mark" aria-hidden="true"> &#x2197;</span></a></li>
+              <li><a href="/scraping-google-scholar/">Scraping Google Scholar</a></li>
+              <li><a href="https://woodingben.substack.com/p/google-scholar-orderer-a-research">Google Scholar Orderer</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="/games/" aria-current="page">Games</a>
+            <button class="caret" type="button" aria-expanded="false" aria-controls="nav-sub-games" aria-label="Games submenu"></button>
+            <ul class="dropdown" id="nav-sub-games">
+              <li><a href="/games/">All games</a></li>
+              <li><a href="/games/tic-tac-toe/">Tic-Tac-Toe</a></li>
+              <li><a href="/games/nim/">Nim</a></li>
+              <li><a href="/games/pig/">Pig</a></li>
+              <li><a href="/games/knights-tour/">Knight&rsquo;s Tour</a></li>
+            </ul>
+          </li>
+          <li><a href="/cv/Ben-Wooding-CV.pdf">CV</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/games/">Games</a></li>
+        <li aria-current="page">Knight&rsquo;s Tour</li>
+      </ol>
+    </nav>
+
+    <article>
+      <header class="article-header">
+        <h1>Knight&rsquo;s Tour</h1>
+        <p class="article-meta"><span class="status-badge is-solved" title="Existence is settled exactly for every board up to 8x8 by exhaustive search, agreeing with Schwenk's theorem and the open-tour characterisation; the in-page oracle is an exact decision procedure.">Fully solved</span></p>
+        <p class="lede">A knight must visit every square of the board exactly once. It is the oldest puzzle in this collection &mdash; studied since the ninth century &mdash; and the one where the gap between <em>legal</em> and <em>wise</em> is widest: most moves available to you are legal, and a great many of them quietly make the puzzle impossible several moves before you notice.</p>
+      </header>
+
+      <section class="section">
+        <div class="section-heading"><h2>The puzzle</h2></div>
+        <div class="prose">
+          <p>A knight moves two squares along one axis and one along the other. A <strong>tour</strong> is a sequence of legal knight moves that lands on every square of the board exactly once. If the final square is a knight&rsquo;s move from the first, the tour is <strong>closed</strong> &mdash; it forms a cycle you can ride forever; otherwise it is <strong>open</strong>.</p>
+          <p>Formally the board becomes a graph: one vertex per square, one edge per legal knight move. An open tour is then a <em>Hamiltonian path</em> in that graph, and a closed tour is a <em>Hamiltonian cycle</em>. Deciding whether an arbitrary graph has a Hamiltonian path is NP-complete &mdash; but knight graphs are highly structured, and for them the question is completely settled by theorems that this page re-derives rather than trusts.</p>
+          <p>What makes it a good puzzle to play rather than merely read about is the failure mode. Nothing warns you when a move goes wrong. You strand a corner &mdash; a square with only two ways in &mdash; and play on for a dozen more moves before the board closes around you.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><h2>Play it</h2></div>
+        <iframe class="game-embed" src="/games/play/?game=knights-tour&amp;embed=1" title="Play the Knight's Tour interactively" loading="lazy" data-game="knights-tour" height="760"></iframe>
+        <div class="prose">
+          <p>Click any square to place the knight, then follow the green rings &mdash; they are the legal moves from where you stand. With <strong>flag fatal moves</strong> switched on, a move ringed in red is still perfectly legal but would make a complete tour impossible from that point onward. Those red rings are not a heuristic or a guess: each one is an exhaustive search proving no completion exists through that square. Switch the flag off to play blind, and use <strong>where did it go wrong?</strong> afterwards to find the exact move that lost it.</p>
+        </div>
+      </section>
+
+      <aside class="callout-result" role="note">
+        <p class="callout-result-title">Certified result</p>
+        <p><strong>Every square of the 8&nbsp;&times;&nbsp;8 board starts an open tour.</strong> Existence is settled exactly for every board up to 8&nbsp;&times;&nbsp;8 by exhaustive search, and every entry agrees with the published characterisation.</p>
+        <div class="table-wrap">
+          <table>
+            <tbody>
+              <!-- KT-PAGE-FACTS:START -->
+              <tr><td>Boards decided exactly</td><td><strong>every board up to 8 &times; 8</strong></td></tr>
+              <tr><td>Agreement with the literature</td><td><strong>every entry, open and closed</strong></td></tr>
+              <tr><td>Distinct 8 &times; 8 start squares</td><td><strong>10 (of 64, mod D4)</strong></td></tr>
+              <tr><td>Symmetry reduction (2+ cells)</td><td><strong>8&times;</strong></td></tr>
+              <tr><td>Closed tours, 8 &times; 8 (cited)</td><td><strong>13,267,364,410,532</strong></td></tr>
+              <!-- KT-PAGE-FACTS:END -->
+            </tbody>
+          </table>
+        </div>
+      </aside>
+
+      <section class="section">
+        <div class="section-heading"><h2>The formalization</h2></div>
+        <div class="prose">
+          <p>The board is built as a graph and the tour as a Hamiltonian path, then searched exhaustively with three necessary conditions that do almost all of the work. Before recursing, the solver checks that every unvisited square still has at least one free neighbour; that at most one unvisited square has exactly one (only the final square of the tour is allowed to be a dead end); and that the unvisited region is still connected to the knight. Any of these failing refutes the whole subtree without exploring it. Within what survives, moves are tried most-constrained-first &mdash; Warnsdorff&rsquo;s rule &mdash; which finds tours quickly without ever being relied upon for correctness.</p>
+          <p>That combination is what makes the in-page oracle honest. When it answers, it has either produced a completion or exhausted the possibilities, so both answers are exact; it is a decision procedure, not a heuristic. It also carries a node budget, and if a search ever exceeds it the square is marked with an amber question mark and the page says so rather than guessing.</p>
+          <p>The board is invariant under the <strong>dihedral group D4</strong> &mdash; four rotations and four reflections. Two partial tours related by one of those symmetries have genuinely identical futures, because the board geometry is the entire problem: there is no hidden information whose orientation the symmetry would fail to move. So partial tours can be merged mid-search by canonicalising them. On 8&nbsp;&times;&nbsp;8 the 64 opening squares collapse to <strong>10 distinct ones</strong>, and from two cells onward the reduction is the full factor of 8 &mdash; a symmetry fixing a partial tour pointwise would have to fix two knight-adjacent squares, which no non-identity element of D4 does on an even board.</p>
+          <p>The page is careful about which numbers it owns. Anything it can check on this machine, it checks: the existence of tours on every board up to 8&nbsp;&times;&nbsp;8, the exceptional boards, the counts on 5&nbsp;&times;&nbsp;5 and 6&nbsp;&times;&nbsp;6, and the symmetry reduction. The 8&nbsp;&times;&nbsp;8 enumerations are far beyond it &mdash; they are quoted with their sources and explicitly not recomputed. One of them has a cautionary history: the count published by Loebbing and Wegener in 1996 was <em>wrong</em>, and the accepted value is McKay&rsquo;s, which Wegener&rsquo;s own later book agrees with.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><h2>Results</h2></div>
+        <div class="stat-row">
+          <!-- KT-CHIPS:START -->
+          <span class="stat-chip">Existence: settled to 8 &times; 8</span>
+          <span class="stat-chip">Distinct start squares: 10</span>
+          <span class="stat-chip">Symmetry reduction: 8&times;</span>
+          <span class="stat-chip">Oracle median: 0.0312 ms</span>
+          <!-- KT-CHIPS:END -->
+        </div>
+        <div class="prose">
+          <p>Every board up to 8&nbsp;&times;&nbsp;8 was decided by exhaustive search and compared against the literature, with no disagreement in either direction &mdash; open tours and closed tours alike. The exceptional boards fall out of the search rather than being assumed: no open tour exists on 3&nbsp;&times;&nbsp;3, 3&nbsp;&times;&nbsp;5, 3&nbsp;&times;&nbsp;6 or 4&nbsp;&times;&nbsp;4, and none on any board one or two squares wide. The 4&nbsp;&times;&nbsp;n family beyond the table is the expensive case: with no colouring theorem to appeal to, every refutation has to be reached by exhaustion, and the cost climbs steeply with n.</p>
+          <p>Two counts were recomputed from scratch and checked against the Online Encyclopedia of Integer Sequences. Both agree exactly, which is the point &mdash; the search is validated against numbers it did not produce, rather than against itself.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Recomputed here</th><th>Value</th><th>Agrees with</th></tr>
+            </thead>
+            <tbody>
+              <!-- KT-CROSSCHECK:START -->
+              <tr><td>5 &times; 5 directed Hamiltonian paths</td><td>1,728</td><td>OEIS A165134 a(5)</td></tr>
+              <tr><td>6 &times; 6 undirected closed tours</td><td>9,862</td><td>OEIS A001230 a(3)</td></tr>
+              <tr><td>6 &times; 6 directed Hamiltonian paths</td><td>6,637,920</td><td>OEIS A165134 a(6)</td></tr>
+              <!-- KT-CROSSCHECK:END -->
+            </tbody>
+          </table>
+        </div>
+        <div class="prose">
+          <p>The oracle behind the red rings was benchmarked the way the page actually uses it &mdash; called after every move of random play, from the opening move to the dead end. Across tens of thousands of calls the median is a small fraction of a millisecond, but the worst case is over a second: the hard positions are the ones where refutation requires genuine exhaustion. That is why the page carries a budget and reports when it is exceeded.</p>
+        </div>
+      </section>
+
+      <div class="prose">
+        <p>Explore the rest of the <a href="/games/">verified board games</a>.</p>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="profile-links">
+        <li><a href="https://github.com/Kiguli" rel="me">GitHub</a></li>
+        <li><a href="https://scholar.google.com/citations?user=YhOmz1kAAAAJ" rel="me">Google Scholar</a></li>
+        <li><a href="https://orcid.org/0000-0003-1713-717X" rel="me">ORCID</a></li>
+        <li><a href="https://www.linkedin.com/in/ben-wooding/" rel="me">LinkedIn</a></li>
+        <li><a href="https://woodingben.substack.com/" rel="me">Substack</a></li>
+        <li><a href="https://www.youtube.com/@The_Real_Kiguli" rel="me">YouTube</a></li>
+        <li><a href="mailto:woodingben@gmail.com">Email</a></li>
+      </ul>
+      <p class="copyright">&copy; 2026 Ben Wooding</p>
+    </div>
+    <script src="/assets/nav.js?v=95b38a628a" defer></script>
+  </footer>
+</body>
+</html>

@@ -645,7 +645,9 @@ figcaption { font-size: 0.88rem; color: var(--muted); margin-top: var(--s-2); }
 .breadcrumbs [aria-current="page"] { color: var(--text); }
 
 /* ---- 15. Article header (posts) --------------------------------------------- */
-.article-header { margin-block: var(--s-5) var(--s-6); max-width: var(--measure); }
+/* Full content width, matching .prose on tool/game/index pages: the title,
+   status badge and lede must not sit narrower than the sections below them. */
+.article-header { margin-block: var(--s-5) var(--s-6); max-width: none; }
 .article-header h1 { margin-bottom: var(--s-2); }
 .article-meta { color: var(--muted); font-size: 0.92rem; display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-4); }
 

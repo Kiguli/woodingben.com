@@ -28,6 +28,7 @@
     <div class="tab active" data-game="tic-tac-toe">Tic-Tac-Toe</div>
     <div class="tab" data-game="nim">Nim</div>
     <div class="tab" data-game="pig">Pig (dice)</div>
+    <div class="tab" data-game="knights-tour">Knight's Tour</div>
   </div>
 
   <!-- Tic-Tac-Toe -->
@@ -444,6 +445,72 @@ V(i, j, k) = max( roll, hold )</div>
 
 </div>
 
+
+  <!-- Knight's Tour -->
+  <section class="gamepanel" id="panel-knights-tour">
+    <div class="gamehead">
+      <div>
+        <h1 style="font-size:17px">Knight&#39;s Tour <span class="pill">exact completability oracle</span></h1>
+        <div class="sub">Move a knight onto every square exactly once. The board shows you which moves are <b>legal</b> — and, if you want it, which of them still leave a tour <b>possible</b>.</div>
+      </div>
+      <div class="controls">
+        <label class="sub">Board
+          <select id="kt-size">
+            <option value="5">5 &times; 5</option>
+            <option value="6">6 &times; 6</option>
+            <option value="7">7 &times; 7</option>
+            <option value="8" selected>8 &times; 8</option>
+          </select>
+        </label>
+        <label class="sub" style="display:flex;align-items:center;gap:5px">
+          <input type="checkbox" id="kt-warn" checked> Flag fatal moves
+        </label>
+        <button id="kt-demo">Watch a tour</button>
+        <button id="kt-reset" class="primary">Reset</button>
+      </div>
+    </div>
+
+    <div class="rules embed-extra"><b>Goal:</b> starting from any square you like, move a knight (two squares one way, one square the other) so that it lands on every square of the board exactly once. Squares ringed in green are the legal moves available to you now. With <b>flag fatal moves</b> switched on, a move ringed in red is still legal but would make a full tour impossible from that point on — switch it off if you would rather find that out the hard way.</div>
+
+    <div class="grid">
+      <div class="card boardcard">
+        <div class="odds">
+          <div class="sub" style="display:flex;justify-content:space-between;margin-bottom:6px">
+            <span>Squares visited</span>
+            <span id="kt-progress" class="phase">0 / 64</span>
+          </div>
+          <div class="kt-bar"><div id="kt-bar" style="width:0%"></div></div>
+        </div>
+        <div class="kt-grid" id="kt-grid"></div>
+        <div class="kt-legend">
+          <span><span class="kt-swatch" style="background:#25514a;box-shadow:inset 0 0 0 2px #4fd1c5"></span>legal &amp; safe</span>
+          <span><span class="kt-swatch" style="background:#4a2530;box-shadow:inset 0 0 0 2px #ff8f8f"></span>legal but fatal</span>
+          <span><span class="kt-swatch" style="background:#3c5a5e"></span>visited</span>
+          <span><span class="kt-swatch" style="background:#4fd1c5"></span>knight</span>
+        </div>
+        <div class="sub" id="kt-status" style="margin-top:8px"></div>
+        <div class="kt-note" id="kt-note" style="display:none"></div>
+        <div class="actions" style="margin-top:10px;display:flex;gap:8px">
+          <button id="kt-undo">Undo</button>
+          <button id="kt-why">Where did it go wrong?</button>
+        </div>
+      </div>
+
+      <div class="card panel embed-extra">
+        <h2>Certified result</h2>
+        <!-- KT-FACTS:START -->
+        <div class="srow"><span style="width:170px">8 &times; 8 open tours</span><b style="color:var(--accent)">from every square</b></div>
+        <div class="srow"><span style="width:170px">Distinct start squares</span><b>10 (of 64, mod D4)</b></div>
+        <div class="srow"><span style="width:170px">Closed tours (8 &times; 8)</span><b>13,267,364,410,532</b></div>
+        <div class="srow"><span style="width:170px">&hellip; counted directionally</span><b>26,534,728,821,064</b></div>
+        <div class="srow"><span style="width:170px">Oracle above</span><b style="color:#7fb0ff">exact backtracking</b></div>
+        <!-- KT-FACTS:END -->
+        <div class="note">The red rings are not a heuristic. Each one is an exhaustive search proving no completion exists through that square.</div>
+        <div class="actions"></div>
+      </div>
+    </div>
+  </section>
+
 <script>
   // Tab switching shell (game-agnostic). Tabs are addressable by URL hash
   // (/games/play/#<data-game>) or query string (/games/play/?game=<page-slug>,
@@ -519,5 +586,6 @@ V(i, j, k) = max( roll, hold )</div>
 <script src="games/tic-tac-toe.js"></script>
 <script src="games/nim.js"></script>
 <script src="games/pig.js"></script>
+<script src="games/knights-tour.js"></script>
 </body>
 </html>
