@@ -77,7 +77,7 @@
           "number": 17,
           "title": "NNV3: Expanding Neural Network Verification to New Architectures and Domains",
           "authors": [
-            "Anne Marie Tumlin",
+            "Anne M. Tumlin",
             "Samuel Sasaki",
             "Ben Wooding",
             "Diego Manzanas Lopez",
@@ -207,7 +207,7 @@
           "number": 12,
           "title": "Reachability-Based Formal Verification of Graph Neural Networks with Node and Edge Features",
           "authors": [
-            "Anne Marie Tumlin",
+            "Anne M. Tumlin",
             "Ben Wooding",
             "Zhenxuan Shao",
             "Diego Manzanas Lopez",
@@ -231,7 +231,7 @@
           "authors": [
             "Ben Wooding",
             "Kiersten Brennan",
-            "Anne Marie Tumlin",
+            "Anne M. Tumlin",
             "Hongchao Zhang",
             "Taylor T. Johnson"
           ],
@@ -610,7 +610,7 @@
             "Samuel Sasaki",
             "Ben Wooding",
             "Hanchen D. Wang",
-            "Anne Marie Tumlin",
+            "Anne M. Tumlin",
             "Meiyi Ma",
             "Taylor T. Johnson"
           ],
@@ -796,7 +796,7 @@
             "Ben Wooding",
             "Diego Manzanas Lopez",
             "Luke Nam",
-            "Anne Marie Tumlin",
+            "Anne M. Tumlin",
             "Nicholas K. Potteiger",
             "Hongchao Zhang",
             "Taylor T. Johnson"
@@ -875,7 +875,7 @@
           "title": "Input-Agnostic Probabilistic Neural Network Verification for Vision, Speech and Depth",
           "authors": [
             "Ben Wooding",
-            "Anne Marie Tumlin",
+            "Anne M. Tumlin",
             "Samuel Sasaki",
             "Hongchao Zhang",
             "Taylor T. Johnson"
