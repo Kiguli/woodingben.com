@@ -171,12 +171,10 @@
           </figure>
           <div class="tool-text prose">
             <p><strong>n2v</strong> is a Python translation of the MATLAB <a href="/software-tools/nnv-software-tool/"><strong>NNV</strong></a> toolbox by the VeriVITAL research group. It verifies properties of neural networks using <em>sound set-based reachability analysis</em> &mdash; star sets and ImageStars among its set representations &mdash; and <em>probabilistic verification via conformal inference</em>, which provides coverage guarantees for networks that are intractable to analyse exactly.</p>
+          <p><strong>n2v</strong> supports PyTorch models and ONNX networks, using the model transformation tool onnx2torch to load and convert ONNX models to PyTorch. Its verification methods span exact (sound and complete) star splitting, sound over-approximation, and model-agnostic probabilistic reachability, complemented by counterexample search (falsification) via random sampling and projected gradient descent.</p>
           </div>
         </div>
 
-        <div class="prose">
-          <p><strong>n2v</strong> supports PyTorch models and ONNX networks, using the model transformation tool onnx2torch to load and convert ONNX models to PyTorch. Its verification methods span exact (sound and complete) star splitting, sound over-approximation, and model-agnostic probabilistic reachability, complemented by counterexample search (falsification) via random sampling and projected gradient descent.</p>
-        </div>
 
         <div class="btn-row">
           <a class="btn" href="/papers/n2v2026.pdf" target="_blank" rel="noopener">SAIV 2026 Paper (PDF)</a>
