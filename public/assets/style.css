@@ -802,3 +802,7 @@ figcaption { font-size: 0.88rem; color: var(--muted); margin-top: var(--s-2); }
 .collab-featured .collab-name { font-size: 1.02rem; font-weight: 600; }
 
 .collab-note { font-size: 0.9rem; color: var(--muted); }
+
+/* One-shared-paper co-authors: named in a list rather than given a card, so the
+   grid above stays the people actually worked with. */
+.collab-named { line-height: 1.9; }
