@@ -214,6 +214,13 @@ main { display: block; padding-block: var(--s-6) var(--s-8); }
 /* li.has-dropdown = parent link (real page, no-JS fallback) + .caret disclosure
    button (touch/small screens; nav.js) + ul.dropdown panel. Desktop opens by
    pure CSS on :hover / :focus-within; the caret is hidden there. */
+/* Every top-level nav item gets the same box, whether or not it has a
+   dropdown. Without this only .has-dropdown items were flex-centred, so Home
+   and CV (the two without submenus) fell back to inline layout and their text
+   sat ~2px higher than the rest. Scoped to > ul > li so dropdown panel items
+   are untouched. */
+.site-nav > ul > li { display: flex; align-items: center; }
+
 .site-nav li.has-dropdown {
   position: relative;
   display: flex;
