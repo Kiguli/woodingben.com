@@ -3,10 +3,10 @@
   "profile_name": "Ben Wooding",
   "affiliation": "Postdoc @ Vanderbilt University",
   "profile_url": "https://scholar.google.com/citations?user=YhOmz1kAAAAJ&hl=en",
-  "fetched_at": "2026-08-26T05:08:11Z",
+  "fetched_at": "2026-08-28T16:53:58Z",
   "stats": {
-    "citations_all": 240,
-    "citations_recent": 230,
+    "citations_all": 241,
+    "citations_recent": 231,
     "h_index_all": 9,
     "h_index_recent": 9,
     "i10_index_all": 7,
@@ -241,7 +241,7 @@
     },
     {
       "title": "Cyber-Physical Smart Homes/Buildings",
-      "authors": "B Wooding, V Vahidinasab, S Soudjani",
+      "authors": "B Wooding, V Vahidinasab, M Kazemi, S Soudjani",
       "venue": "Springer, 2021",
       "year": 2021,
       "citations": 0,
@@ -253,7 +253,7 @@
       "authors": "B Wooding, V Vahidinasab, S Soudjani",
       "venue": "2020 International Conference on Smart Energy Systems and Technologies (SEST …, 2020",
       "year": 2020,
-      "citations": 13,
+      "citations": 14,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:roLk4NBRz8UC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14830596265241935351"
     },
