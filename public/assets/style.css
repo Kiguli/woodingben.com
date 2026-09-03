@@ -692,6 +692,16 @@ figcaption { font-size: 0.88rem; color: var(--muted); margin-top: var(--s-2); }
 }
 .flow > * + * { margin-top: var(--s-4); }
 
+/* Asterisked footnote hung under a section's list — used where an entry has to
+   be read as of its date (e.g. an institute that has since been renamed). */
+.section-note {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-top: var(--s-3);
+  max-width: var(--measure);
+}
+.section-note sup { margin-right: 0.15em; }
+
 /* ---- 18. Playable game embeds (per-game pages, /assets/embed.js) ------------ */
 .game-embed {
   display: block;
