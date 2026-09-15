@@ -19,7 +19,9 @@ jobs:
     # site, and sync_to_public.py pulls data/scholar.json back from public
     # before regenerating -- so a scrape in the private repo is always
     # discarded. Running it there only doubled the request rate at Scholar
-    # from Actions IP ranges, which is what gets these runs 403'd.
+    # from Actions IP ranges. Scholar 403s those ranges intermittently --
+    # measured over 10 consecutive days in Sept 2026 the scrape succeeded
+    # on 4, so expect the data to be 2-3 days old rather than same-day.
     if: github.repository == 'Kiguli/woodingben.com'
     runs-on: ubuntu-latest
     steps:
