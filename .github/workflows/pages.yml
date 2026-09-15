@@ -3,6 +3,17 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # The daily Scholar refresh commits using GITHUB_TOKEN, and GitHub
+  # deliberately does NOT fire `push`-triggered workflows for such commits
+  # (it is the guard against a workflow endlessly retriggering itself).
+  # Without this second trigger the data refreshed in the repo but the live
+  # site never rebuilt, so woodingben.com sat 12 days behind in Sept 2026
+  # while every scheduled run reported green. Deploying on `completed`
+  # rather than `success` is deliberate: a no-op redeploy is cheap, and it
+  # means a missed deploy self-heals on the next scheduled run.
+  workflow_run:
+    workflows: ["Update Google Scholar data"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
