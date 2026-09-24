@@ -3,10 +3,10 @@
   "profile_name": "Ben Wooding",
   "affiliation": "Postdoc @ Vanderbilt University",
   "profile_url": "https://scholar.google.com/citations?user=YhOmz1kAAAAJ&hl=en",
-  "fetched_at": "2026-09-19T08:56:57Z",
+  "fetched_at": "2026-09-24T09:28:52Z",
   "stats": {
-    "citations_all": 245,
-    "citations_recent": 235,
+    "citations_all": 247,
+    "citations_recent": 237,
     "h_index_all": 9,
     "h_index_recent": 9,
     "i10_index_all": 8,
@@ -78,6 +78,15 @@
       "cluster_link": null
     },
     {
+      "title": "PRoTECT: Parallelized ConstRuction of SafeTy BarriEr Certificates for Nonlinear Polynomial SysTems",
+      "authors": "B Wooding, V Horbanov, A Lavaei",
+      "venue": "International Colloquium on Theoretical Aspects of Computing, 448-458, 2025",
+      "year": 2025,
+      "citations": 21,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:kNdYIx-mwKoC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3724216332491666368,17488075801860945513"
+    },
+    {
       "title": "ARCH-COMP25 Category Report: Stochastic Models",
       "authors": "A Abate, O Akbarzadeh, HAP Blom, S Haesaert, S Hassani, A Lavaei, ...",
       "venue": "12th International Workshop on Applied Verification for Continuous and …, 2025",
@@ -85,15 +94,6 @@
       "citations": 20,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:zYLM7Y9cAGgC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8451837719157046339,14619999915336356145"
-    },
-    {
-      "title": "PRoTECT: Parallelized ConstRuction of SafeTy BarriEr Certificates for Nonlinear Polynomial SysTems",
-      "authors": "B Wooding, V Horbanov, A Lavaei",
-      "venue": "International Colloquium on Theoretical Aspects of Computing, 448-458, 2025",
-      "year": 2025,
-      "citations": 20,
-      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:kNdYIx-mwKoC",
-      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3724216332491666368,17488075801860945513"
     },
     {
       "title": "A logic-based resilience metric for water resource recovery facilities",
@@ -244,7 +244,7 @@
       "authors": "A Alessandro, B Henk, C Nathalie, D Joanna, H Arnd, K Mahmoud, ...",
       "venue": "ARCH-COMP20 Category Report: Stochastic Models 74, 1-30, 2020",
       "year": 2020,
-      "citations": 39,
+      "citations": 40,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:qUcmZB5y_30C",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5674111378034800100,9922909919191349908,16531179409276836483"
     },
