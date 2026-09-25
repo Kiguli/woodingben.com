@@ -6,6 +6,25 @@
       "prefix": "C",
       "entries": [
         {
+          "bibkey": "reachsetgeometry2026",
+          "number": 8,
+          "title": "Learning Reach-Set Geometry for Tighter Probabilistic Neural Network Verification",
+          "authors": [
+            "Samuel Sasaki",
+            "Ben Wooding",
+            "Taylor T. Johnson"
+          ],
+          "venue": "Conference on Neural Information Processing Systems (NeurIPS)",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": true,
+          "addendum_html": "<strong><em>(to appear)</em></strong>",
+          "equal_contrib": []
+        },
+        {
           "bibkey": "semiexplicitdae2026",
           "number": 20,
           "title": "Safe Control of Semi-Explicit Differential-Algebraic Systems: Control Barrier Functions with SOS Verification",
@@ -710,13 +729,12 @@
       "prefix": "P",
       "entries": [
         {
-          "bibkey": "surgicalrobots2026",
-          "number": 11,
-          "title": "Benchmark: Formal Verification for Surgical Robots",
+          "bibkey": "multiagentbt2026",
+          "number": 10,
+          "title": "Composing Multi-Agent Behavior Trees",
           "authors": [
             "Jamie Fong",
             "Ben Wooding",
-            "Jie Ying Wu",
             "Taylor T. Johnson"
           ],
           "venue": "submitted to Formal Methods for Autonomous Systems (FMAS)",
@@ -730,12 +748,13 @@
           "equal_contrib": []
         },
         {
-          "bibkey": "multiagentbt2026",
-          "number": 10,
-          "title": "Composing Multi-Agent Behavior Trees",
+          "bibkey": "surgicalrobots2026",
+          "number": 11,
+          "title": "Benchmark: Formal Verification for Surgical Robots",
           "authors": [
             "Jamie Fong",
             "Ben Wooding",
+            "Jie Ying Wu",
             "Taylor T. Johnson"
           ],
           "venue": "submitted to Formal Methods for Autonomous Systems (FMAS)",
@@ -759,25 +778,6 @@
             "Taylor T. Johnson"
           ],
           "venue": "submitted to Formal Methods for Autonomous Systems (FMAS)",
-          "year": 2026,
-          "doi": null,
-          "url": null,
-          "arxiv": null,
-          "status": "preprint",
-          "mentee_coauthored": true,
-          "addendum_html": null,
-          "equal_contrib": []
-        },
-        {
-          "bibkey": "reachsetgeometry2026",
-          "number": 8,
-          "title": "Learning Reach-Set Geometry for Tighter Probabilistic Neural Network Verification",
-          "authors": [
-            "Samuel Sasaki",
-            "Ben Wooding",
-            "Taylor T. Johnson"
-          ],
-          "venue": "submitted to Neural Information Processing Systems (NeurIPS)",
           "year": 2026,
           "doi": null,
           "url": null,
@@ -881,6 +881,25 @@
             "Taylor T. Johnson"
           ],
           "venue": "submitted to AAAI Conference on Artificial Intelligence (AAAI)",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "preprint",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "safeflight2026",
+          "number": 0,
+          "title": "Safe Flight in Cluttered Indoor Environments: A Verified Union of Neural Control Barrier Functions",
+          "authors": [
+            "Ben Wooding",
+            "Hongchao Zhang",
+            "Taylor T. Johnson"
+          ],
+          "venue": "under submission",
           "year": 2026,
           "doi": null,
           "url": null,

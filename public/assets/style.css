@@ -568,7 +568,12 @@ a.chip:focus-visible { border-radius: var(--radius); } /* keep chip shape under 
 /* .pub-title is an <h3> for document structure, but keeps body leading and
    the sans face: the heading rule would otherwise retighten every wrapped
    title to 1.25 and switch it to the serif stack. */
-.pub-title { font-weight: 600; margin: 0 0 var(--s-1); font-family: var(--font-sans); font-size: 1.02rem; line-height: var(--leading); }
+.pub-title { font-weight: 600; margin: 0 0 var(--s-1); font-family: var(--font-sans); font-size: 1.02rem; line-height: var(--leading); text-wrap: pretty; }
+/* Undoes the global h3 `text-wrap: balance`. Balance suits short display
+   headings, but a long bibliographic title is body text wearing an <h3>:
+   balancing stopped line 1 of the ARCH-COMP26 AINNCS entry at 555px inside a
+   1024px box and split "Neural / Network". `pretty` fills the line (986px)
+   and breaks at a phrase boundary instead. */
 .pub-title a { text-decoration: none; }
 .pub-title a:hover { text-decoration: underline; }
 .pub-authors, .pub-venue { margin: 0; font-size: 0.92rem; color: var(--muted); }
@@ -701,6 +706,17 @@ figcaption { font-size: 0.88rem; color: var(--muted); margin-top: var(--s-2); }
   max-width: var(--measure);
 }
 .section-note sup { margin-right: 0.15em; }
+
+/* Sub-grouping inside a list section (e.g. non-technical invited talks),
+   lighter than an <h2> so the section still reads as one thing. */
+.talks-subhead {
+  margin: var(--s-5) 0 var(--s-2);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 
 /* ---- 18. Playable game embeds (per-game pages, /assets/embed.js) ------------ */
 .game-embed {
