@@ -768,6 +768,49 @@
           "equal_contrib": []
         },
         {
+          "bibkey": "certifiedshift2026",
+          "number": 0,
+          "title": "Does Certified Robustness Generalize? A Neural Network Verification Study of Distribution Shift",
+          "authors": [
+            "Thuy Dung Nguyen",
+            "Simon Lutz",
+            "Samuel Sasaki",
+            "Ben Wooding",
+            "Kevin Leach",
+            "Daniel Neider",
+            "Taylor T. Johnson"
+          ],
+          "venue": "under submission",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "preprint",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "insertordivert2026",
+          "number": 0,
+          "title": "Insert or Divert: A Trigger-free Removability Criterion for LLM Backdoors",
+          "authors": [
+            "Thuy Dung Nguyen",
+            "Ben Wooding",
+            "Taylor T. Johnson",
+            "Kevin Leach"
+          ],
+          "venue": "under submission",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "preprint",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
           "bibkey": "changedetection2026",
           "number": 9,
           "title": "From Estimation to Detection: Sequential Change Detection for Alignment Monitoring",
@@ -802,6 +845,24 @@
             "Taylor T. Johnson"
           ],
           "venue": "submitted to Formal Methods for Autonomous Systems (FMAS)",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "preprint",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "kanverif2026",
+          "number": 0,
+          "title": "Formal Verification of Kolmogorov-Arnold Networks",
+          "authors": [
+            "Ben Wooding",
+            "Taylor T. Johnson"
+          ],
+          "venue": "under submission",
           "year": 2026,
           "doi": null,
           "url": null,
@@ -898,6 +959,28 @@
             "Ben Wooding",
             "Hongchao Zhang",
             "Taylor T. Johnson"
+          ],
+          "venue": "under submission",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "preprint",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "errorlocalization2026",
+          "number": 0,
+          "title": "Error Localization and Steering of Language Model Quantitative Reasoning",
+          "authors": [
+            "Hongchao Zhang",
+            "Guocheng He",
+            "Ben Wooding",
+            "Ahmad F. Taha",
+            "Taylor T. Johnson",
+            "Meiyi Ma"
           ],
           "venue": "under submission",
           "year": 2026,
