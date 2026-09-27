@@ -3,10 +3,10 @@
   "profile_name": "Ben Wooding",
   "affiliation": "Postdoc @ Vanderbilt University",
   "profile_url": "https://scholar.google.com/citations?user=YhOmz1kAAAAJ&hl=en",
-  "fetched_at": "2026-09-26T09:30:00Z",
+  "fetched_at": "2026-09-27T10:10:25Z",
   "stats": {
-    "citations_all": 247,
-    "citations_recent": 237,
+    "citations_all": 249,
+    "citations_recent": 239,
     "h_index_all": 9,
     "h_index_recent": 9,
     "i10_index_all": 8,
@@ -118,7 +118,7 @@
       "authors": "J Gardner*, B Wooding*, A Nejati, A Lavaei",
       "venue": "Proceedings of the 28th ACM International Conference on Hybrid Systems …, 2025",
       "year": 2025,
-      "citations": 4,
+      "citations": 6,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:Tyk-4Ss8FVUC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10201056382575059742"
     },
