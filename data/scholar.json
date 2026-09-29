@@ -3,16 +3,16 @@
   "profile_name": "Ben Wooding",
   "affiliation": "Postdoc @ Vanderbilt University",
   "profile_url": "https://scholar.google.com/citations?user=YhOmz1kAAAAJ&hl=en",
-  "fetched_at": "2026-09-27T10:10:25Z",
+  "fetched_at": "2026-09-29T10:52:24Z",
   "stats": {
-    "citations_all": 249,
-    "citations_recent": 239,
+    "citations_all": 248,
+    "citations_recent": 238,
     "h_index_all": 9,
     "h_index_recent": 9,
     "i10_index_all": 8,
     "i10_index_recent": 7
   },
-  "publication_count": 28,
+  "publication_count": 29,
   "publications": [
     {
       "title": "ARCH-COMP26 Category Report: Continuous and Hybrid Systems with Nonlinear Dynamics",
@@ -69,6 +69,15 @@
       "cluster_link": null
     },
     {
+      "title": "NNV3: Expanding Neural Network Verification to New Architectures and Domains",
+      "authors": "AM Tumlin, S Sasaki, B Wooding, DM Lopez, MU Zubair, N Hashemi, ...",
+      "venue": "arXiv preprint arXiv:2609.30050, 2026",
+      "year": 2026,
+      "citations": 0,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:hC7cP41nSMkC",
+      "cluster_link": null
+    },
+    {
       "title": "Reachability-Based Formal Verification of Graph Neural Networks with Node and Edge Features",
       "authors": "AM Tumlin, B Wooding, Z Shao, DM Lopez, T Derr, TT Johnson",
       "venue": "International Symposium on AI Verification, 271-298, 2026",
@@ -118,7 +127,7 @@
       "authors": "J Gardner*, B Wooding*, A Nejati, A Lavaei",
       "venue": "Proceedings of the 28th ACM International Conference on Hybrid Systems …, 2025",
       "year": 2025,
-      "citations": 6,
+      "citations": 5,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:Tyk-4Ss8FVUC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10201056382575059742"
     },
