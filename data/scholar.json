@@ -3,10 +3,10 @@
   "profile_name": "Ben Wooding",
   "affiliation": "Postdoc @ Vanderbilt University",
   "profile_url": "https://scholar.google.com/citations?user=YhOmz1kAAAAJ&hl=en",
-  "fetched_at": "2026-09-29T10:52:24Z",
+  "fetched_at": "2026-10-01T19:17:01Z",
   "stats": {
-    "citations_all": 248,
-    "citations_recent": 238,
+    "citations_all": 251,
+    "citations_recent": 241,
     "h_index_all": 9,
     "h_index_recent": 9,
     "i10_index_all": 8,
@@ -24,21 +24,39 @@
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2028491559157594490"
     },
     {
+      "title": "ARCH-COMP26 Category Report: Artificial Intelligence and Neural Network Control Systems (AINNCS) for Continuous and Hybrid Systems Plants",
+      "authors": "S Sasaki, B Wooding, TT Johnson, M Althoff, L Benet, S Coogan, M Forets, ...",
+      "venue": "13th International Workshop on Applied Verification for Continuous and …, 2026",
+      "year": 2026,
+      "citations": 1,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:4TOpqqG69KYC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14589182136132336012"
+    },
+    {
+      "title": "n2v: Neural Network Verification in Python (Competition Contribution)",
+      "authors": "S Sasaki, B Wooding, HD Wang, AM Tumlin, M Ma, TT Johnson",
+      "venue": "International Symposium on AI Verification, 394-400, 2026",
+      "year": 2026,
+      "citations": 1,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:4DMP91E08xMC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9865162507003165537,15047897776223211507,10389833611846899187"
+    },
+    {
+      "title": "Reachability-Based Formal Verification of Graph Neural Networks with Node and Edge Features",
+      "authors": "AM Tumlin, B Wooding, Z Shao, DM Lopez, T Derr, TT Johnson",
+      "venue": "International Symposium on AI Verification, 271-298, 2026",
+      "year": 2026,
+      "citations": 1,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:QIV2ME_5wuYC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2039509861699717139,632856019504143076"
+    },
+    {
       "title": "A Self-correcting Neuro-symbolic AI Reasoning Framework",
       "authors": "B Wooding*, K Brennan*, AM Tumlin, H Zhang, TT Johnson",
       "venue": "International Symposium on AI Verification, 191-211, 2026",
       "year": 2026,
       "citations": 0,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:aqlVkmm33-oC",
-      "cluster_link": null
-    },
-    {
-      "title": "ARCH-COMP26 Category Report: Artificial Intelligence and Neural Network Control Systems (AINNCS) for Continuous and Hybrid Systems Plants",
-      "authors": "S Sasaki, B Wooding, TT Johnson, M Althoff, L Benet, S Coogan, M Forets, ...",
-      "venue": "13th International Workshop on Applied Verification for Continuous and …, 2026",
-      "year": 2026,
-      "citations": 0,
-      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:4TOpqqG69KYC",
       "cluster_link": null
     },
     {
@@ -60,30 +78,12 @@
       "cluster_link": null
     },
     {
-      "title": "n2v: Neural Network Verification in Python (Competition Contribution)",
-      "authors": "S Sasaki, B Wooding, HD Wang, AM Tumlin, M Ma, TT Johnson",
-      "venue": "International Symposium on AI Verification, 394-400, 2026",
-      "year": 2026,
-      "citations": 0,
-      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:4DMP91E08xMC",
-      "cluster_link": null
-    },
-    {
       "title": "NNV3: Expanding Neural Network Verification to New Architectures and Domains",
       "authors": "AM Tumlin, S Sasaki, B Wooding, DM Lopez, MU Zubair, N Hashemi, ...",
       "venue": "arXiv preprint arXiv:2609.30050, 2026",
       "year": 2026,
       "citations": 0,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:hC7cP41nSMkC",
-      "cluster_link": null
-    },
-    {
-      "title": "Reachability-Based Formal Verification of Graph Neural Networks with Node and Edge Features",
-      "authors": "AM Tumlin, B Wooding, Z Shao, DM Lopez, T Derr, TT Johnson",
-      "venue": "International Symposium on AI Verification, 271-298, 2026",
-      "year": 2026,
-      "citations": 0,
-      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:QIV2ME_5wuYC",
       "cluster_link": null
     },
     {
