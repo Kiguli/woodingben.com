@@ -101,19 +101,38 @@ def looks_blocked(resp):
     return None
 
 
+# Scholar 403s GitHub's IP ranges intermittently. Giving up on the first
+# refusal cost roughly half of all scheduled runs, so a block is now retried
+# with backoff before the run is abandoned.
+ATTEMPTS = 4
+BACKOFF = (45, 120, 240)   # seconds before attempts 2, 3 and 4
+
+
 def fetch_page(session, cstart):
     url = (f"{BASE}/citations?user={SCHOLAR_ID}&hl=en"
            f"&cstart={cstart}&pagesize={PAGESIZE}")
-    try:
-        resp = session.get(url, headers=HEADERS, timeout=30)
-    except requests.RequestException as exc:
-        bail(f"network error fetching cstart={cstart}: {exc}")
-    blocked = looks_blocked(resp)
-    if blocked:
-        bail(f"Scholar is blocking us at cstart={cstart}: {blocked}")
-    if resp.status_code != 200:
-        bail(f"unexpected HTTP {resp.status_code} at cstart={cstart}")
-    return resp.text
+    last = None
+    for attempt in range(ATTEMPTS):
+        if attempt:
+            wait = BACKOFF[attempt - 1] + random.uniform(0, 20)
+            log(f"blocked at cstart={cstart} ({last}); "
+                f"retry {attempt + 1}/{ATTEMPTS} in {wait:.0f}s")
+            time.sleep(wait)
+        try:
+            resp = session.get(url, headers=HEADERS, timeout=30)
+        except requests.RequestException as exc:
+            last = f"network error: {exc}"
+            continue
+        blocked = looks_blocked(resp)
+        if blocked:
+            last = blocked
+            continue
+        if resp.status_code != 200:
+            last = f"unexpected HTTP {resp.status_code}"
+            continue
+        return resp.text
+    bail(f"Scholar is blocking us at cstart={cstart} after {ATTEMPTS} "
+         f"attempts: {last}")
 
 
 def parse_int(text):

@@ -2,8 +2,13 @@ name: Update Google Scholar data
 
 on:
   schedule:
-    # 04:37 UTC daily -- off-peak, odd minute to avoid the top-of-hour crowd.
+    # Three attempts a day, ~8h apart, at odd minutes to avoid the
+    # top-of-hour crowd. Scholar 403s GitHub's IP ranges intermittently and
+    # each run lands on a different runner, so a blocked slot usually clears
+    # on the next one. With one slot a day the site sat 2-3 days stale.
     - cron: "37 4 * * *"
+    - cron: "17 12 * * *"
+    - cron: "53 20 * * *"
   workflow_dispatch: {}
 
 permissions:
