@@ -3,16 +3,16 @@
   "profile_name": "Ben Wooding",
   "affiliation": "Postdoc @ Vanderbilt University",
   "profile_url": "https://scholar.google.com/citations?user=YhOmz1kAAAAJ&hl=en",
-  "fetched_at": "2026-10-01T19:17:01Z",
+  "fetched_at": "2026-10-04T16:52:11Z",
   "stats": {
-    "citations_all": 251,
-    "citations_recent": 241,
-    "h_index_all": 9,
+    "citations_all": 254,
+    "citations_recent": 244,
+    "h_index_all": 10,
     "h_index_recent": 9,
-    "i10_index_all": 8,
-    "i10_index_recent": 7
+    "i10_index_all": 10,
+    "i10_index_recent": 9
   },
-  "publication_count": 29,
+  "publication_count": 32,
   "publications": [
     {
       "title": "ARCH-COMP26 Category Report: Continuous and Hybrid Systems with Nonlinear Dynamics",
@@ -25,7 +25,7 @@
     },
     {
       "title": "ARCH-COMP26 Category Report: Artificial Intelligence and Neural Network Control Systems (AINNCS) for Continuous and Hybrid Systems Plants",
-      "authors": "S Sasaki, B Wooding, TT Johnson, M Althoff, L Benet, S Coogan, M Forets, ...",
+      "authors": "S Sasaki*, B Wooding*, TT Johnson, M Althoff, L Benet, S Coogan, ...",
       "venue": "13th International Workshop on Applied Verification for Continuous and …, 2026",
       "year": 2026,
       "citations": 1,
@@ -60,6 +60,15 @@
       "cluster_link": null
     },
     {
+      "title": "Control Barrier Function Synthesis for Differential-Algebraic Systems",
+      "authors": "H Zhang, MH Kazma, B Wooding, M Ma, TT Johnson, AF Taha",
+      "venue": "accepted to 65th IEEE Conference on Decision and Control (CDC), 2026",
+      "year": 2026,
+      "citations": 0,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:-f6ydRqryjwC",
+      "cluster_link": null
+    },
+    {
       "title": "k-Inductive Neural Barrier Certificates for Unknown Nonlinear Dynamics",
       "authors": "B Wooding, H Zhang, TT Johnson, A Lavaei",
       "venue": "3rd International Conference on Neuro-Symbolic Systems (NeuS), 2026",
@@ -79,11 +88,29 @@
     },
     {
       "title": "NNV3: Expanding Neural Network Verification to New Architectures and Domains",
-      "authors": "AM Tumlin, S Sasaki, B Wooding, DM Lopez, MU Zubair, N Hashemi, ...",
-      "venue": "arXiv preprint arXiv:2609.30050, 2026",
+      "authors": "AM Tumlin*, S Sasaki*, B Wooding, DM Lopez, MU Zubair, N Hashemi, ...",
+      "venue": "24th International Symposium on Automated Technology for Verification and …, 2026",
       "year": 2026,
       "citations": 0,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:hC7cP41nSMkC",
+      "cluster_link": null
+    },
+    {
+      "title": "Safe Autonomous Takeover for Unknown Descriptor Systems",
+      "authors": "B Wooding, MH Kazma, H Zhang, AF Taha, M Ma, TT Johnson",
+      "venue": "accepted to 65th IEEE Conference on Decision and Control (CDC), 2026",
+      "year": 2026,
+      "citations": 0,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:mB3voiENLucC",
+      "cluster_link": null
+    },
+    {
+      "title": "Safe Control of Semi-Explicit Differential-Algebraic Systems: Control Barrier Functions with SOS Verification",
+      "authors": "MH Kazma, H Zhang, AA Albustami, B Wooding, M Ma, TT Johnson, ...",
+      "venue": "accepted to 65th IEEE Conference on Decision and Control (CDC), 2026",
+      "year": 2026,
+      "citations": 0,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:hFOr9nPyWt4C",
       "cluster_link": null
     },
     {
@@ -127,7 +154,7 @@
       "authors": "J Gardner*, B Wooding*, A Nejati, A Lavaei",
       "venue": "Proceedings of the 28th ACM International Conference on Hybrid Systems …, 2025",
       "year": 2025,
-      "citations": 5,
+      "citations": 6,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:Tyk-4Ss8FVUC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10201056382575059742"
     },
@@ -172,7 +199,7 @@
       "authors": "B Wooding, A Lavaei",
       "venue": "arXiv preprint arXiv:2412.07232, 2024",
       "year": 2024,
-      "citations": 9,
+      "citations": 10,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:Y0pCki6q_DkC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10442240915041248578"
     },
@@ -186,6 +213,15 @@
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12511301532736095630"
     },
     {
+      "title": "Robust simulation functions with disturbance refinement",
+      "authors": "B Wooding, A Lavaei, V Vahidinasab, S Soudjani",
+      "venue": "2023 European Control Conference (ECC), 1-6, 2023",
+      "year": 2023,
+      "citations": 10,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:UebtZRa9Y70C",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15674660439750060285"
+    },
+    {
       "title": "Formal control of new England 39-bus test system: an assume-guarantee approach",
       "authors": "B Wooding, A Lavaei, S Soudjani",
       "venue": "arXiv preprint arXiv:2307.03467, 2023",
@@ -193,15 +229,6 @@
       "citations": 9,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:eQOLeE2rZwMC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12160463577391596340"
-    },
-    {
-      "title": "Robust simulation functions with disturbance refinement",
-      "authors": "B Wooding, A Lavaei, V Vahidinasab, S Soudjani",
-      "venue": "2023 European Control Conference (ECC), 1-6, 2023",
-      "year": 2023,
-      "citations": 9,
-      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:UebtZRa9Y70C",
-      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15674660439750060285"
     },
     {
       "title": "Model-based and data-driven formal synthesis of power systems",
