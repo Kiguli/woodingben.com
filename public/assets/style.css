@@ -483,6 +483,20 @@ a.chip:focus-visible { border-radius: var(--radius); } /* keep chip shape under 
 .card-title a:hover { color: var(--accent); }
 .card-meta { color: var(--muted); font-size: 0.88rem; margin-top: auto; }
 .card-link { font-weight: 600; text-decoration: none; }
+
+/* Tool index: cards carry only an image and the tool's name, so the four
+   tools led and the three contributed to each sit on one row and all seven
+   are visible at a glance. The descriptions live on the pages behind them. */
+.tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.tool-grid .card-body { padding: var(--s-4); }
+.tool-grid .card-title { font-size: 1.1rem; text-align: center; }
+@media (min-width: 56rem) {
+  .tool-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .tool-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 26rem) {
+  .tool-grid { grid-template-columns: 1fr; }
+}
 .card-link::after { content: " \2192"; }
 
 .badge {
