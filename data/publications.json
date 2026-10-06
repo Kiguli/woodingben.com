@@ -855,6 +855,26 @@
           "equal_contrib": []
         },
         {
+          "bibkey": "scenopt2026",
+          "number": null,
+          "title": "Scen-Opt: A Scenario Optimization Toolbox for Data-Driven Convex Programming",
+          "authors": [
+            "Ben Wooding",
+            "Simone Garatti",
+            "Marco C. Campi",
+            "Abolfazl Lavaei"
+          ],
+          "venue": "in preparation",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "preprint",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
           "bibkey": "kanverif2026",
           "number": 0,
           "title": "Formal Verification of Kolmogorov-Arnold Networks",
@@ -1058,26 +1078,6 @@
             "Ben Wooding",
             "Simone Garatti",
             "Marco C. Campi"
-          ],
-          "venue": "in preparation",
-          "year": 2026,
-          "doi": null,
-          "url": null,
-          "arxiv": null,
-          "status": "preprint",
-          "mentee_coauthored": false,
-          "addendum_html": null,
-          "equal_contrib": []
-        },
-        {
-          "bibkey": "scenopt2026",
-          "number": null,
-          "title": "Scen-Opt: A Scenario Optimization Toolbox for Data-Driven Convex Programming",
-          "authors": [
-            "Ben Wooding",
-            "Simone Garatti",
-            "Marco C. Campi",
-            "Abolfazl Lavaei"
           ],
           "venue": "in preparation",
           "year": 2026,

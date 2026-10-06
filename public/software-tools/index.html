@@ -183,14 +183,17 @@
         <p class="lede">Presented below is a collection of the software tools I have created or contributed to as part of my research. Do check them out!</p>
       </header>
 
-      <div class="card-grid">
+      <section class="section">
+        <div class="section-heading"><h2>Tools I lead</h2></div>
+        <div class="prose"><p>Tools I created and lead the development of, listed alphabetically.</p></div>
+        <div class="card-grid">
         <article class="card">
           <a class="card-media" href="/software-tools/impact-software-tool/">
             <img src="/wp-content/uploads/2024/02/fig.png" alt="IMPaCT reach-while-avoid result: a stochastic trajectory in the x1-x2 state space skirting the red avoid region and reaching the green target set"
                  width="1120" height="840" fetchpriority="high">
           </a>
           <div class="card-body">
-            <h2 class="card-title"><a href="/software-tools/impact-software-tool/">IMPaCT: Interval MDP Parallel Construction for Controller Synthesis of Large-Scale Stochastic Systems</a></h2>
+            <h3 class="card-title"><a href="/software-tools/impact-software-tool/">IMPaCT: Interval MDP Parallel Construction for Controller Synthesis of Large-Scale Stochastic Systems</a></h3>
             <p><a href="/software-tools/impact-software-tool/"><strong>IMPaCT</strong></a> is an open-source software tool for the parallelised verification and controller synthesis of large-scale stochastic systems using <em>interval Markov chains</em> (IMCs) and <em>interval Markov decision processes</em> (IMDPs), respectively. The tool serves to (i) construct IMCs/IMDPs as finite abstractions of underlying original systems, and (ii) leverage <em>interval iteration algorithms</em> for formal verification and controller synthesis over infinite-horizon properties, including <em>safety</em>, <em>reachability</em>, and <em>reach-while-avoid</em>, while offering convergence guarantees.</p>
           </div>
         </article>
@@ -201,8 +204,19 @@
                  width="747" height="560" loading="lazy">
           </a>
           <div class="card-body">
-            <h2 class="card-title"><a href="/software-tools/protect-software-tool/">PRoTECT: Parallelized Construction of Safety Barrier Certificates for Nonlinear Polynomial Systems</a></h2>
+            <h3 class="card-title"><a href="/software-tools/protect-software-tool/">PRoTECT: Parallelized Construction of Safety Barrier Certificates for Nonlinear Polynomial Systems</a></h3>
             <p><a href="/software-tools/protect-software-tool/"><strong>PRoTECT</strong></a> is an open-source software tool for the parallelized construction of safety barrier certificates (BCs) for nonlinear polynomial systems. This tool employs <em>sum-of-squares</em> (SOS) <em>optimization</em> programs to systematically search for polynomial-type BCs, while aiming to verify safety properties over <em>four classes of dynamical systems</em>: (i) discrete-time <em>stochastic</em> systems, (ii) discrete-time <em>deterministic</em> systems, (iii) <em>continuous-time</em> stochastic systems, and (iv) <em>continuous-time</em> deterministic systems.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <a class="card-media" href="https://scen-opt.woodingben.com" rel="noopener">
+            <img src="/assets/img/scenopt-card.png" alt="Scen-Opt web app: the linear-program tab showing a robust scenario formulation with editable constraint matrices and solver options"
+                 width="1120" height="700" loading="lazy">
+          </a>
+          <div class="card-body">
+            <h3 class="card-title"><a href="https://scen-opt.woodingben.com" rel="noopener">Scen-Opt: A Scenario Optimization Toolbox for Data-Driven Convex Programming</a></h3>
+            <p><a href="https://scen-opt.woodingben.com" rel="noopener"><strong>Scen-Opt</strong></a> is an open-source toolbox and <a href="https://scen-opt.woodingben.com" rel="noopener">web app</a> for the <em>scenario approach</em>: it turns observed data into convex programs that carry distribution-free feasibility and risk guarantees, without assuming a distribution for the uncertainty. It covers <em>linear</em>, <em>quadratic</em> and <em>semidefinite</em> programs, each with a choice of <em>robust</em>, <em>regularized</em>, <em>relaxed</em> and combined formulations, and supports a dozen solvers including MOSEK, CLARABEL, SCS and OSQP. Problems can be built in the browser from symbolic or numeric matrices, and scenario data imported from CSV, JSON, MAT, NPY, Excel or Parquet. Source is on <a href="https://github.com/Kiguli/Scen-Opt" rel="noopener">GitHub</a>.</p>
           </div>
         </article>
 
@@ -212,31 +226,51 @@
                  width="560" height="420" loading="lazy">
           </a>
           <div class="card-body">
-            <h2 class="card-title"><a href="/software-tools/trust-software-tool/">TRUST: Stability and Safety Controller Synthesis for Unknown Dynamical Models Using a Single Trajectory</a></h2>
+            <h3 class="card-title"><a href="/software-tools/trust-software-tool/">TRUST: Stability and Safety Controller Synthesis for Unknown Dynamical Models Using a Single Trajectory</a></h3>
             <p><a href="/software-tools/trust-software-tool/"><strong>TRUST</strong></a> is an open-source software tool developed for data-driven controller synthesis of dynamical systems with unknown mathematical models, ensuring either stability or safety properties. By collecting only a single input-state trajectory from the unknown system and satisfying a rank condition that ensures the system is persistently excited according to the Willems <em>et al</em>.'s fundamental lemma, <a href="/software-tools/trust-software-tool/"><strong>TRUST</strong></a> aims to design either <em>control Lyapunov functions</em> (CLF) or <em>control barrier certificates</em> (CBC), along with their corresponding stability or safety controllers.</p>
           </div>
         </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><h2>Tools I contribute to</h2></div>
+        <div class="prose"><p>Tools led by others that I contribute to, listed alphabetically.</p></div>
+        <div class="card-grid">
         <article class="card">
-          <a class="card-media" href="/software-tools/nnv-software-tool/">
-            <img src="/assets/img/nnv-card.png" alt="NNV reachability analysis: reachable set of a neural-network controlled system spiralling inside its safe set"
-                 width="840" height="630" loading="lazy">
+          <a class="card-media" href="https://github.com/verivital/behaverify" rel="noopener">
+            <img src="/assets/img/behaverify-card.png" alt="BehaVerify pipeline: behavior-tree DSL, ONNX and nuXmv inputs feed a parser and model builder, whose code generators emit SMV, Python, C++, Haskell, LaTeX and runtime-monitor artefacts for model checking, simulation and on-robot monitoring"
+                 width="1120" height="700" loading="lazy">
           </a>
           <div class="card-body">
-            <h2 class="card-title"><a href="/software-tools/nnv-software-tool/">NNV: Neural Network Verification Toolbox for MATLAB</a></h2>
-            <p><a href="/software-tools/nnv-software-tool/"><strong>NNV</strong></a> is an open-source MATLAB toolbox for the formal verification of deep neural networks and learning-enabled cyber-physical systems, developed by the <a href="https://www.verivital.com/" rel="noopener">VeriVITAL</a> research group at Vanderbilt University. It implements <em>set-based reachability analysis</em> using star sets and their extensions, supporting feedforward, convolutional, recurrent, and graph networks, neural ODEs, and neural network control systems. I am a contributor to <a href="/software-tools/nnv-software-tool/"><strong>NNV3</strong></a>.</p>
+            <h3 class="card-title"><a href="https://github.com/verivital/behaverify" rel="noopener">BehaVerify: A Formal Verification Tool for Behavior Trees</a></h3>
+            <p><a href="https://github.com/verivital/behaverify" rel="noopener"><strong>BehaVerify</strong></a> turns behavior trees, written in its own domain-specific language, into <a href="https://nuxmv.fbk.eu/" rel="noopener">nuXmv</a> models, so that <em>invariant</em>, <em>CTL</em> and <em>LTL</em> properties can be model-checked against them. From that same specification it generates executable implementations in <em>Python</em> (py_trees), <em>C++</em> (BT.CPP) and <em>Haskell</em>, along with LaTeX/TikZ diagrams and runtime <em>LTL monitors</em> &#8212; so the model that was verified and the behaviour that runs on the robot come from one source. Neural decision nodes can be supplied as ONNX leaves. Full documentation is <a href="https://verivital.github.io/behaverify/" rel="noopener">here</a>.</p>
           </div>
         </article>
+
         <article class="card">
           <a class="card-media" href="/software-tools/n2v-software-tool/">
             <img src="/assets/img/n2v-card.png" alt="n2v architecture: ONNX networks and VNN-LIB specifications parsed into reachability solvers feeding verifier and falsifier frontends"
                  width="1120" height="840" loading="lazy">
           </a>
           <div class="card-body">
-            <h2 class="card-title"><a href="/software-tools/n2v-software-tool/">n2v: Neural Network Verification in Python</a></h2>
+            <h3 class="card-title"><a href="/software-tools/n2v-software-tool/">n2v: Neural Network Verification in Python</a></h3>
             <p><a href="/software-tools/n2v-software-tool/"><strong>n2v</strong></a> is a Python translation of the <a href="/software-tools/nnv-software-tool/"><strong>NNV</strong></a> toolbox. It verifies properties of neural networks using <em>sound set-based reachability analysis</em> and <em>probabilistic verification via conformal inference</em>, with support for PyTorch models and ONNX networks.</p>
           </div>
         </article>
-      </div>
+
+        <article class="card">
+          <a class="card-media" href="/software-tools/nnv-software-tool/">
+            <img src="/assets/img/nnv-card.png" alt="NNV reachability analysis: reachable set of a neural-network controlled system spiralling inside its safe set"
+                 width="840" height="630" loading="lazy">
+          </a>
+          <div class="card-body">
+            <h3 class="card-title"><a href="/software-tools/nnv-software-tool/">NNV: Neural Network Verification Toolbox for MATLAB</a></h3>
+            <p><a href="/software-tools/nnv-software-tool/"><strong>NNV</strong></a> is an open-source MATLAB toolbox for the formal verification of deep neural networks and learning-enabled cyber-physical systems, developed by the <a href="https://www.verivital.com/" rel="noopener">VeriVITAL</a> research group at Vanderbilt University. It implements <em>set-based reachability analysis</em> using star sets and their extensions, supporting feedforward, convolutional, recurrent, and graph networks, neural ODEs, and neural network control systems. I am a contributor to <a href="/software-tools/nnv-software-tool/"><strong>NNV3</strong></a>.</p>
+          </div>
+        </article>
+        </div>
+      </section>
     </article>
   </main>
 
