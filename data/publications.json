@@ -6,6 +6,30 @@
       "prefix": "C",
       "entries": [
         {
+          "bibkey": "behaverify2026",
+          "number": 7,
+          "title": "BehaVerify: A Formal Verification Tool for Behavior Trees",
+          "authors": [
+            "Serena S. Serbinowska",
+            "Ben Wooding",
+            "Diego Manzanas Lopez",
+            "Luke Nam",
+            "Anne M. Tumlin",
+            "Nicholas K. Potteiger",
+            "Hongchao Zhang",
+            "Taylor T. Johnson"
+          ],
+          "venue": "8th International Workshop on Formal Methods for Autonomous Systems (FMAS)",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": "<strong><em>(to appear)</em></strong>",
+          "equal_contrib": []
+        },
+        {
           "bibkey": "reachsetgeometry2026",
           "number": 8,
           "title": "Learning Reach-Set Geometry for Tighter Probabilistic Neural Network Verification",
@@ -827,30 +851,6 @@
           "arxiv": null,
           "status": "preprint",
           "mentee_coauthored": true,
-          "addendum_html": null,
-          "equal_contrib": []
-        },
-        {
-          "bibkey": "behaverify2026",
-          "number": 7,
-          "title": "BehaVerify: A Formal Verification Tool for Behavior Trees",
-          "authors": [
-            "Serena S. Serbinowska",
-            "Ben Wooding",
-            "Diego Manzanas Lopez",
-            "Luke Nam",
-            "Anne M. Tumlin",
-            "Nicholas K. Potteiger",
-            "Hongchao Zhang",
-            "Taylor T. Johnson"
-          ],
-          "venue": "submitted to Formal Methods for Autonomous Systems (FMAS)",
-          "year": 2026,
-          "doi": null,
-          "url": null,
-          "arxiv": null,
-          "status": "preprint",
-          "mentee_coauthored": false,
           "addendum_html": null,
           "equal_contrib": []
         },
