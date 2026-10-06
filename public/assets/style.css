@@ -578,7 +578,12 @@ a.chip:focus-visible { border-radius: var(--radius); } /* keep chip shape under 
 .pub-title a:hover { text-decoration: underline; }
 .pub-authors, .pub-venue { margin: 0; font-size: 0.92rem; color: var(--muted); }
 .pub-authors strong { color: var(--text); }
-.pub-meta { font-size: 0.85rem; color: var(--muted); margin-top: var(--s-1); }
+/* margin-bottom must be zeroed explicitly: the global `p` rule gives every
+   paragraph 1.5rem below it, which .pub-authors and .pub-venue cancel but
+   this one did not. The result was 24px of dead space under every entry
+   that has PDF/DOI links and none under the entries that do not, so the
+   list appeared to space itself unevenly. */
+.pub-meta { font-size: 0.85rem; color: var(--muted); margin: var(--s-1) 0 0; }
 .accent { color: var(--accent-2); } /* amber highlight: awards, secondary emphasis */
 
 /* ---- 11. Tables (incl. the Scholar publications table) --------------------- */
