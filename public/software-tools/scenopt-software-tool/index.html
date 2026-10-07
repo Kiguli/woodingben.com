@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
+  <!-- Head order is fixed: charset, viewport, title, description, canonical,
+       OG/Twitter, theme-color, stylesheet, JSON-LD. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PRoTECT Software Tool - Ben Wooding</title>
-  <meta name="description" content="PRoTECT is an open-source software tool for stochastic and deterministic safety barrier certificates (BCs) for nonlinear polynomial systems.">
-  <link rel="canonical" href="https://woodingben.com/software-tools/protect-software-tool/">
+  <title>Scen-Opt Software Tool - Ben Wooding</title>
+  <meta name="description" content="Scen-Opt is a toolbox and web app for the scenario approach, giving distribution-free feasibility and risk guarantees for convex programs.">
+  <link rel="canonical" href="https://woodingben.com/software-tools/scenopt-software-tool/">
   <link rel="alternate" type="application/rss+xml" title="Ben Wooding" href="https://woodingben.com/feed.xml">
 
+  <!-- Robots: mirror the live Yoast directive on every indexable page -->
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
+  <!-- Open Graph / Twitter. og_site_name and locale are constant site-wide. -->
   <meta property="og:locale" content="en_GB">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="PRoTECT Software Tool - Ben Wooding">
-  <meta property="og:description" content="PRoTECT is an open-source software tool for stochastic and deterministic safety barrier certificates (BCs) for nonlinear polynomial systems.">
-  <meta property="og:url" content="https://woodingben.com/software-tools/protect-software-tool/">
+  <meta property="og:title" content="Scen-Opt Software Tool - Ben Wooding">
+  <meta property="og:description" content="Scen-Opt is a toolbox and web app for the scenario approach, giving distribution-free feasibility and risk guarantees for convex programs.">
+  <meta property="og:url" content="https://woodingben.com/software-tools/scenopt-software-tool/">
   <meta property="og:site_name" content="Ben Wooding">
-  <meta property="og:image" content="https://woodingben.com/wp-content/uploads/2024/06/JetEngine.png">
+  <meta property="og:image" content="https://woodingben.com/assets/img/scenopt-card.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://woodingben.com/wp-content/uploads/2024/06/JetEngine.png">
+  <meta name="twitter:image" content="https://woodingben.com/assets/img/scenopt-card.png">
 
+  <!-- Address-bar tint; matches --bg tokens in style.css -->
   <meta name="theme-color" content="#f7fafa" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f1b1c" media="(prefers-color-scheme: dark)">
 
@@ -27,6 +32,7 @@
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
+  <!-- The ONLY stylesheet. Root-relative so it works at any URL depth. -->
   <link rel="stylesheet" href="/assets/style.css?v=224f745947">
 
   <script type="application/ld+json">{
@@ -34,25 +40,14 @@
     "@graph": [
       {
         "@type": "SoftwareApplication",
-        "@id": "https://woodingben.com/software-tools/protect-software-tool/#software",
-        "name": "PRoTECT",
-        "alternateName": "PRoTECT: Parallelized Construction of Safety Barrier Certificates for Nonlinear Polynomial Systems",
-        "description": "PRoTECT is an open-source software tool for stochastic and deterministic safety barrier certificates (BCs) for nonlinear polynomial systems.",
-        "url": "https://woodingben.com/software-tools/protect-software-tool/",
-        "image": "https://woodingben.com/wp-content/uploads/2024/06/JetEngine.png",
+        "@id": "https://woodingben.com/software-tools/scenopt-software-tool/#software",
+        "name": "Scen-Opt",
+        "url": "https://woodingben.com/software-tools/scenopt-software-tool/",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Windows, macOS, Linux",
-        "softwareRequirements": "Python",
-        "isAccessibleForFree": true,
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
-        "downloadUrl": "https://github.com/Kiguli/PRoTECT",
-        "sameAs": [
-          "https://github.com/Kiguli/PRoTECT"
-        ],
+        "description": "Scen-Opt is an open-source toolbox and web application for the scenario approach, turning observed data into linear, quadratic and semidefinite programs that carry distribution-free feasibility and risk guarantees, with robust, regularized and relaxed formulations and a dozen supported solvers.",
+        "image": "https://woodingben.com/assets/img/scenopt-card.png",
+        "codeRepository": "https://github.com/Kiguli/Scen-Opt",
         "author": {
           "@type": "Person",
           "@id": "https://woodingben.com/#person",
@@ -62,7 +57,7 @@
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://woodingben.com/software-tools/protect-software-tool/#breadcrumb",
+        "@id": "https://woodingben.com/software-tools/scenopt-software-tool/#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",
@@ -79,8 +74,8 @@
           {
             "@type": "ListItem",
             "position": 3,
-            "name": "PRoTECT Software Tool",
-            "item": "https://woodingben.com/software-tools/protect-software-tool/"
+            "name": "Scen-Opt Software Tool",
+            "item": "https://woodingben.com/software-tools/scenopt-software-tool/"
           }
         ]
       }
@@ -88,10 +83,12 @@
   }</script>
 </head>
 <body class="tool-page">
+  <!-- Skip link: first focusable element on every page. Target is <main id="main">. -->
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
     <div class="container">
+      <!-- Site title links home. Plain text, no logo image. -->
       <a class="site-title" href="/">Ben Wooding</a>
 
       <nav class="site-nav" aria-label="Site">
@@ -158,85 +155,38 @@
       <ol>
         <li><a href="/">Home</a></li>
         <li><a href="/software-tools/">Software Tools</a></li>
-        <li aria-current="page">PRoTECT Software Tool</li>
+        <li aria-current="page">Scen-Opt Software Tool</li>
       </ol>
     </nav>
 
     <article>
-      <h1>PRoTECT Software Tool</h1>
+      <h1>Scen-Opt Software Tool</h1>
 
-      <section class="section">
+      <section class="section" aria-labelledby="tool-heading">
         <div class="section-heading">
-          <h2>PRoTECT: Parallelized Construction of Safety Barrier Certificates for Nonlinear Polynomial Systems</h2>
+          <h2 id="tool-heading">Scen-Opt: A Scenario Optimization Toolbox for Data-Driven Convex Programming</h2>
         </div>
 
         <div class="tool-row">
           <figure>
-            <img src="/wp-content/uploads/2024/06/JetEngine.png" alt="PRoTECT jet-engine case study: barrier-certificate level sets separating trajectories starting in the initial set from the unsafe region"
-                 width="747" height="560" fetchpriority="high">
+            <img src="/assets/img/scenopt-card.png"
+                 alt="Scen-Opt web app: the linear-program tab showing a robust scenario formulation with editable constraint matrices and solver options"
+                 width="1120" height="700" fetchpriority="high">
           </figure>
           <div class="tool-text prose">
-            <p><strong>PRoTECT</strong> is an open-source software tool for the parallelized construction of safety barrier certificates (BCs) for nonlinear polynomial systems. This tool employs <em>sum-of-squares</em> (SOS) <em>optimization</em> programs to systematically search for polynomial-type BCs. It can verify safety properties over <em>four classes of dynamical systems:</em> (i) discrete-time <em>stochastic</em> systems, (ii) discrete-time <em>deterministic</em> systems, (iii) <em>continuous-time</em> stochastic systems, and (iv) <em>continuous-time</em> deterministic systems.</p>
-          <p><strong>PRoTECT</strong> is implemented in Python as an application programming interface (API). It includes a user-friendly graphic user interface (GUI) or interaction via function calls from other Python programs. <strong>PRoTECT</strong> leverages <em>parallelism</em> across different barrier degrees to efficiently search for a feasible BC. The GitHub repository for <strong>PRoTECT</strong> can be found at <a href="https://github.com/Kiguli/PRoTECT">Kiguli/PRoTECT</a>. You can also find some useful videos for installing and understanding <strong>PRoTECT</strong> below.</p>
+            <p><strong>Scen-Opt</strong> is an open-source toolbox and <a href="https://scen-opt.woodingben.com" target="_blank" rel="noopener">web app</a> for the <em>scenario approach</em>. Given a collection of observed scenarios, it builds and solves a convex program whose solution carries <em>distribution-free</em> feasibility and risk guarantees &mdash; the uncertainty never has to be given a distribution, only sampled.</p>
+          <p>It covers <em>linear</em>, <em>quadratic</em> and <em>semidefinite</em> programs, each with a choice of <em>robust</em>, <em>regularized</em>, <em>relaxed</em> and combined formulations, so the trade-off between cost and the risk that a constraint is violated can be set explicitly. A dozen solvers are supported, including MOSEK, CLARABEL, SCS and OSQP.</p>
+          <p>Problems can be assembled in the browser from symbolic or numeric matrices, or uploaded as JSON or MAT files; scenario data imports from CSV, TXT, JSON, NPY, MAT, Excel or Parquet. Nothing needs to be installed to try it.</p>
           </div>
         </div>
-
 
         <div class="btn-row">
-          <a class="btn" href="/wp-content/uploads/2025/12/PROTECT_ICTAC.pdf" target="_blank" rel="noopener">ICTAC paper</a>
-          <a class="btn" href="/wp-content/uploads/2025/06/PRoTECT_v2.pdf" target="_blank" rel="noopener">Extended arXiv paper</a>
-          <a class="btn" href="/wp-content/uploads/2025/04/Poster_ICCPS25_PRoTECT-1.pdf" target="_blank" rel="noopener">ICCPS Poster Abstract</a>
-          <a class="btn" href="https://github.com/Kiguli/PRoTECT" target="_blank" rel="noopener">View on GitHub</a>
-        </div>
-
-        <div class="video-grid">
-          <div class="embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/g3PXGEoZqJE"
-                    title="PRoTECT software tool video 1" loading="lazy" allowfullscreen></iframe>
-          </div>
-          <div class="embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/mJ0Zl6wTwKM"
-                    title="PRoTECT software tool video 2" loading="lazy" allowfullscreen></iframe>
-          </div>
-          <div class="embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/GibzI014egg"
-                    title="PRoTECT software tool video 3" loading="lazy" allowfullscreen></iframe>
-          </div>
+          <a class="btn" href="https://scen-opt.woodingben.com" target="_blank" rel="noopener">Launch the web app</a>
+          <a class="btn" href="/publications/#scenopt2026">Paper (under submission)</a>
+          <a class="btn" href="https://github.com/Kiguli/Scen-Opt" target="_blank" rel="noopener">View on GitHub</a>
         </div>
       </section>
       <!-- TOOL-USES:START -->
-      <section class="section">
-        <div class="section-heading"><h2>Used in</h2></div>
-        <div class="prose">
-          <p>Independent groups that have run PRoTECT as a baseline in their own evaluations.</p>
-        </div>
-        <ul class="prose">
-        <li>
-          <a href="https://arxiv.org/abs/2605.02526" rel="noopener">Set-Based Training of Neural Barrier Certificates for Safety Verification of Dynamical Systems</a><br>
-          <span class="muted">M. Kranzlmüller, L. Koller, T. Ladner, M. Althoff &middot; arXiv:2605.02526, 2026</span>
-        </li>
-        <li>
-          <a href="https://arxiv.org/abs/2602.20359" rel="noopener">StochasticBarrier.jl: A Toolbox for Stochastic Barrier Function Synthesis</a><br>
-          <span class="muted">R. Mazouz, F. B. Mathiesen, L. Laurenti, M. Lahijanian &middot; arXiv:2602.20359, 2026</span>
-        </li>
-        </ul>
-      </section>
-      <section class="section">
-        <div class="section-heading"><h2>Competitions</h2></div>
-        <div class="prose">
-          <p>Entered in the ARCH-COMP friendly verification competition and run on the community benchmark suite. Category reports are co-authored by the participating teams.</p>
-        </div>
-        <ul class="prose">
-        <li>
-          <a href="/papers/archcomp26_nonlinear.pdf" rel="noopener">ARCH-COMP26 Category Report: Continuous and Hybrid Systems with Nonlinear Dynamics</a><br>
-          <span class="muted">13th Int. Workshop on Applied Verification of Continuous and Hybrid Systems, 2026</span>
-        </li>
-        <li>
-          <a href="https://doi.org/10.29007/mfm4" rel="noopener">ARCH-COMP25 Category Report: Stochastic Models</a><br>
-          <span class="muted">12th Int. Workshop on Applied Verification of Continuous and Hybrid Systems, 2025</span>
-        </li>
-        </ul>
-      </section>
       <!-- TOOL-USES:END -->
     </article>
   </main>
