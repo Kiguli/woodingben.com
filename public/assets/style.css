@@ -489,7 +489,9 @@ a.chip:focus-visible { border-radius: var(--radius); } /* keep chip shape under 
    are visible at a glance. The descriptions live on the pages behind them. */
 .tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .tool-grid .card-body { padding: var(--s-4); }
-.tool-grid .card-title { font-size: 1.1rem; text-align: center; }
+/* Full paper-style titles run to several lines in a four-up grid, so they
+   stay left-aligned and ragged; centring only reads well on one line. */
+.tool-grid .card-title { font-size: 1rem; line-height: 1.35; }
 @media (min-width: 56rem) {
   .tool-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .tool-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
