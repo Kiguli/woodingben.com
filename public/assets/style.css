@@ -730,6 +730,62 @@ figcaption { font-size: 0.88rem; color: var(--muted); margin-top: var(--s-2); }
 
 /* Sub-grouping inside a list section (e.g. non-technical invited talks),
    lighter than an <h2> so the section still reads as one thing. */
+/* ---- 19. Homepage section menu ------------------------------------------- */
+/* A quiet rail down the right-hand gutter marking which section is in view.
+   Plain anchor links, so it still navigates with JavaScript disabled; the
+   script only sets aria-current. Hidden below 85rem, where the 68rem
+   container leaves no gutter to put it in. */
+.section-toc { display: none; }
+
+@media (min-width: 85rem) {
+  .section-toc {
+    display: block;
+    position: fixed;
+    top: 50%;
+    right: max(1.5rem, calc((100vw - var(--container)) / 2 - 11rem));
+    transform: translateY(-50%);
+    z-index: 5;
+  }
+  .section-toc ul { list-style: none; margin: 0; padding: 0; }
+  .section-toc li + li { margin-top: var(--s-2); }
+  .section-toc a {
+    display: flex;
+    align-items: center;
+    gap: var(--s-2);
+    font-size: 0.78rem;
+    line-height: 1.2;
+    color: var(--muted);
+    text-decoration: none;
+    opacity: 0.65;
+    transition: opacity 0.2s ease, color 0.2s ease;
+  }
+  /* The rule doubles as the progress marker: short when idle, long and
+     accented for the section currently in view. */
+  .section-toc a::before {
+    content: "";
+    width: 0.75rem;
+    height: 1px;
+    background: currentColor;
+    transition: width 0.2s ease, background 0.2s ease;
+  }
+  .section-toc a:hover { opacity: 1; color: var(--text); }
+  .section-toc a[aria-current="true"] {
+    opacity: 1;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .section-toc a[aria-current="true"]::before { width: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-toc a, .section-toc a::before { transition: none; }
+}
+
+/* Anchor jumps should not tuck a heading under the top of the viewport. */
+#bio, #scholar, #funding, #organization, #talks, #publications, #reviewing {
+  scroll-margin-top: var(--s-6);
+}
+
 .talks-subhead {
   margin: var(--s-5) 0 var(--s-2);
   font-size: 0.8rem;

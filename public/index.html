@@ -34,7 +34,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <!-- The ONLY stylesheet. Root-relative so it works at any URL depth. -->
-  <link rel="stylesheet" href="/assets/style.css?v=224f745947">
+  <link rel="stylesheet" href="/assets/style.css?v=d4c40c25eb">
 
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://woodingben.com/#person","name":"Ben Wooding","givenName":"Ben","familyName":"Wooding","jobTitle":"Postdoctoral Scholar","description":"Postdoctoral Scholar at the Institute for Convergent Software Integrated Systems, Vanderbilt University, working on formal methods, verifiable machine learning and cyber-physical systems.","url":"https://woodingben.com/","image":"https://woodingben.com/wp-content/uploads/2023/03/021222-NUHeadshots-33-scaled.jpeg","email":"woodingben@gmail.com","worksFor":{"@type":"ResearchOrganization","name":"Institute for Convergent Software Integrated Systems","alternateName":"ICONS","url":"https://www.icons.vanderbilt.edu/","parentOrganization":{"@type":"CollegeOrUniversity","name":"Vanderbilt University","url":"https://www.vanderbilt.edu/"}},"affiliation":{"@type":"CollegeOrUniversity","name":"Vanderbilt University","url":"https://www.vanderbilt.edu/"},"workLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Nashville","addressRegion":"TN","addressCountry":"US"}},"alumniOf":{"@type":"CollegeOrUniversity","name":"Newcastle University","url":"https://www.ncl.ac.uk/"},"knowsAbout":["Formal methods","Neural network verification","Verifiable machine learning","Cyber-physical systems","Control barrier certificates","Stochastic systems","Controller synthesis","Reachability analysis","Data-driven control","Safe autonomy"],"identifier":{"@type":"PropertyValue","propertyID":"ORCID","value":"https://orcid.org/0000-0003-1713-717X"},"sameAs":["https://www.icons.vanderbilt.edu/team/414","https://scholar.google.com/citations?user=YhOmz1kAAAAJ","https://orcid.org/0000-0003-1713-717X","https://github.com/Kiguli","https://dblp.org/pid/264/9847","https://arxiv.org/a/wooding_b_1","https://www.semanticscholar.org/author/1686502607","https://www.linkedin.com/in/ben-wooding/","https://woodingben.substack.com/","https://www.youtube.com/@The_Real_Kiguli"]},{"@type":"ProfilePage","@id":"https://woodingben.com/#profilepage","url":"https://woodingben.com/","name":"Ben Wooding","mainEntity":{"@id":"https://woodingben.com/#person"},"isPartOf":{"@id":"https://woodingben.com/#website"},"dateModified":"2026-08-18","inLanguage":"en-GB"},{"@type":"WebSite","@id":"https://woodingben.com/#website","name":"Ben Wooding","url":"https://woodingben.com/","publisher":{"@id":"https://woodingben.com/#person"}}]}</script>
 </head>
@@ -107,6 +107,18 @@
   </header>
 
   <main id="main" class="container">
+    <nav class="section-toc" aria-label="Page sections">
+      <ul>
+        <li><a href="#bio">Bio</a></li>
+        <li><a href="#scholar">Google Scholar</a></li>
+        <li><a href="#funding">Funding &amp; Awards</a></li>
+        <li><a href="#organization">Organization</a></li>
+        <li><a href="#talks">Invited Talks</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#reviewing">Reviewing</a></li>
+      </ul>
+    </nav>
+
     <!-- Hero: headshot + name + role + verbatim intro copy -->
     <section class="hero">
       <figure class="hero-figure">
@@ -126,7 +138,7 @@
     </section>
 
     <!-- Community, thesis, teaching and education (verbatim bio copy) -->
-    <section class="section prose">
+    <section class="section prose" id="bio">
       <p>I have contributed to the international academic community with published works, conference presentations, program committee memberships, and paper reviews. I am publicity chair for <a href="https://hscc.acm.org/2027/">HSCC+ICCPS 2027</a>, the merged ACM/IEEE International Conference on Cyber-Physical and Autonomous Systems, and for <a href="https://vnn-comp.github.io/">VNN-COMP 2026</a>. I am a Program Committee member for <a href="https://fmasworkshop.github.io/FMAS2026/">FMAS 2026</a>, and I contributed to a <a href="https://vnn-comp.github.io/#aaai2026">AAAI tutorial</a>. Published works of particular note are conference works at <a href="https://www.colorado.edu/conference/adhs2024/conference-program">ADHS</a>, <a href="https://link.springer.com/conference/atva">ATVA</a>, <a href="https://cdc2026.ieeecss.org/">CDC</a>, <a href="https://euca-ecc.org/ecc/">ECC</a>, <a href="https://hscc.acm.org/2024/accepted-posters/">HSCC</a>, <a href="https://iccps.acm.org/2025/accepted-posters-and-demos/index.html">ICCPS</a>, <a href="https://link.springer.com/conference/ictac">ICTAC</a>, <a href="https://neurips.cc/">NeurIPS</a>, <a href="https://www.neusconference.org/">NeuS</a>, <a href="https://www.qest-formats.org/">QEST+FORMATS</a>, <a href="https://www.aiverification.org/">SAIV</a>, and the <a href="https://cps-vo.org/group/ARCH">ARCH Competition</a>, and journal works in <a href="https://www.sciencedirect.com/journal/nonlinear-analysis-hybrid-systems">NAHS</a> and <a href="https://www.rsc.org/journals-books-databases/about-journals/environmental-science-water-research-technology/">ES:WR&amp;T</a>. I contributed two chapters to the book <a href="https://link.springer.com/book/10.1007/978-3-030-79742-3">Active Building Energy Systems: Operation and Control</a>.</p>
       <p>At <a href="https://www.vanderbilt.edu/">Vanderbilt University</a>, I have given a couple lectures for the Advanced Graduate Course: <em>Automated Verification</em> (CS6315). I attended the <a href="https://medschool.vanderbilt.edu/career-development/2025/12/05/vus-advanced-ed-hosting-academy-of-college-teaching-workshop/">Academy of College Teaching (ACT 2026S)</a> workshop series to prepare for college level teaching, and the Postdoctoral Mentoring Skills Workshop at Vanderbilt University. I have worked on the <a href="https://news.vanderbilt.edu/2024/05/30/tennessee-institutions-partner-to-develop-dependable-ai-for-national-security-applications/">DAINS (Dependable AI for National Security)</a> project, collaborating with the Air Force Research Laboratory and Oak Ridge National Laboratory.</p>
       <p>At <a href="https://www.ncl.ac.uk/">Newcastle University</a>, I was the chair of <a href="https://www.ncl.ac.uk/computing/research/amber/">AMBER</a> (involved coordinating regular seminars), gave multiple internal research presentations, and assisted widely by teaching as a demonstrator and with marking. I have experience with supervising PhD, MSc and BSc student projects. Alongside these, I previously led the team for research communication and dissemination for the <a href="https://hycodev.com/">HyCoDeV Lab</a>.</p>
@@ -137,7 +149,7 @@
          regenerated daily by scripts/scholar_scrape.py from data/scholar.json.
          Do not edit the generated block by hand. -->
     <!-- SCHOLAR-STATS:START -->
-    <section class="section">
+    <section class="section" id="scholar">
       <div class="section-heading">
         <h2>Google Scholar</h2>
       </div>
@@ -150,7 +162,7 @@
     <!-- SCHOLAR-STATS:END -->
 
     <!-- Funding & Awards (source: Master_CV_Ben.tex, Achievements + Grants) -->
-    <section class="section">
+    <section class="section" id="funding">
       <div class="section-heading">
         <h2>Funding &amp; Awards</h2>
       </div>
@@ -163,7 +175,7 @@
     </section>
 
     <!-- Organization Committees -->
-    <section class="section">
+    <section class="section" id="organization">
       <div class="section-heading">
         <h2>Organization Committees</h2>
       </div>
@@ -177,7 +189,7 @@
     </section>
 
     <!-- In-Person Invited Talks -->
-    <section class="section">
+    <section class="section" id="talks">
       <div class="section-heading">
         <h2>In-Person Invited Talks</h2>
       </div>
@@ -202,106 +214,8 @@
 
 
     <!-- Reviewing Activities -->
-    <section class="section">
-      <div class="section-heading">
-        <h2>Reviewing Activities</h2>
-      </div>
-      <div class="chip-group">
-        <h3 class="chip-cat">Formal Methods</h3>
-        <div class="chip-row">
-          <span class="chip-label">Conferences:</span>
-          <a class="chip" href="https://link.springer.com/conference/atva" rel="noopener" title="International Symposium on Automated Technology for Verification and Analysis">ATVA<span class="visually-hidden"> &#8212; International Symposium on Automated Technology for Verification and Analysis</span></a>
-          <a class="chip" href="https://i-cav.org/" rel="noopener" title="International Conference on Computer Aided Verification">CAV<span class="visually-hidden"> &#8212; International Conference on Computer Aided Verification</span></a>
-          <a class="chip" href="https://fmasworkshop.github.io/" rel="noopener" title="Formal Methods for Autonomous Systems">FMAS<span class="visually-hidden"> &#8212; Formal Methods for Autonomous Systems</span></a>
-          <a class="chip" href="https://hscc.acm.org/" rel="noopener" title="ACM Hybrid Systems: Computation and Control">HSCC<span class="visually-hidden"> &#8212; ACM Hybrid Systems: Computation and Control</span></a>
-          <a class="chip" href="https://isola-conference.org/" rel="noopener" title="International Symposium on Leveraging Applications of Formal Methods, Verification and Validation">ISoLA<span class="visually-hidden"> &#8212; International Symposium on Leveraging Applications of Formal Methods, Verification and Validation</span></a>
-          <a class="chip" href="https://www.qest-formats.org/" rel="noopener" title="International Conference on Quantitative Evaluation of Systems and International Conference on Formal Modeling and Analysis of Timed Systems">QEST+FORMATS<span class="visually-hidden"> &#8212; International Conference on Quantitative Evaluation of Systems and International Conference on Formal Modeling and Analysis of Timed Systems</span></a>
-          <a class="chip" href="https://runtime-verification.org/" rel="noopener" title="International Conference on Runtime Verification">RV<span class="visually-hidden"> &#8212; International Conference on Runtime Verification</span></a>
-          <a class="chip" href="https://aiverification.org/" rel="noopener" title="Symposium on Artificial Intelligence Verification">SAIV<span class="visually-hidden"> &#8212; Symposium on Artificial Intelligence Verification</span></a>
-        </div>
-      </div>
-      <div class="chip-group">
-        <h3 class="chip-cat">Control</h3>
-        <div class="chip-row">
-          <span class="chip-label">Conferences:</span>
-          <a class="chip" href="https://a2c2.org/" rel="noopener" title="IFAC American Control Conference">ACC<span class="visually-hidden"> &#8212; IFAC American Control Conference</span></a>
-          <a class="chip" href="https://tc.ifac-control.org/1/3/adhs-series" rel="noopener" title="IFAC Conference on Analysis and Design of Hybrid Systems">ADHS<span class="visually-hidden"> &#8212; IFAC Conference on Analysis and Design of Hybrid Systems</span></a>
-          <a class="chip" href="https://ccta2026.ieeecss.org/" rel="noopener" title="IEEE Conference on Control Technology and Applications">CCTA<span class="visually-hidden"> &#8212; IEEE Conference on Control Technology and Applications</span></a>
-          <a class="chip" href="https://cdc2026.ieeecss.org/" rel="noopener" title="IEEE Conference on Decision and Control">CDC<span class="visually-hidden"> &#8212; IEEE Conference on Decision and Control</span></a>
-          <a class="chip" href="https://euca-ecc.org/ecc/" rel="noopener" title="IEEE European Control Conference">ECC<span class="visually-hidden"> &#8212; IEEE European Control Conference</span></a>
-          <a class="chip" href="https://l4dc.org/" rel="noopener" title="Learning for Decision and Control">L4DC<span class="visually-hidden"> &#8212; Learning for Decision and Control</span></a>
-          <a class="chip" href="https://ifac2026.org/" rel="noopener" title="IFAC World Congress">IFAC WC<span class="visually-hidden"> &#8212; IFAC World Congress</span></a>
-        </div>
-        <div class="chip-row">
-          <span class="chip-label">Journals:</span>
-          <a class="chip" href="https://www.sciencedirect.com/journal/automatica" rel="noopener" title="IFAC Automatica">Automatica</a>
-          <a class="chip" href="https://www.sciencedirect.com/journal/european-journal-of-control" rel="noopener" title="Elsevier European Journal of Control">EJCON<span class="visually-hidden"> &#8212; Elsevier European Journal of Control</span></a>
-          <a class="chip" href="https://www.ieeecss.org/publication/ieee-control-systems-letters" rel="noopener" title="IEEE Control Systems Letters">L-CSS<span class="visually-hidden"> &#8212; IEEE Control Systems Letters</span></a>
-          <a class="chip" href="https://www.sciencedirect.com/journal/nonlinear-analysis-hybrid-systems" rel="noopener" title="Elsevier Nonlinear Analysis: Hybrid Systems">NAHS<span class="visually-hidden"> &#8212; Elsevier Nonlinear Analysis: Hybrid Systems</span></a>
-          <a class="chip" href="https://www.ieeecss.org/publication/transactions-automatic-control" rel="noopener" title="IEEE Transactions on Automatic Control">TAC<span class="visually-hidden"> &#8212; IEEE Transactions on Automatic Control</span></a>
-          <a class="chip" href="https://www.ieeecss.org/publication/transactions-control-systems-technology" rel="noopener" title="IEEE Transactions on Control Systems Technology">TCST<span class="visually-hidden"> &#8212; IEEE Transactions on Control Systems Technology</span></a>
-        </div>
-      </div>
-      <div class="chip-group">
-        <h3 class="chip-cat">Machine Learning &amp; AI</h3>
-        <div class="chip-row">
-          <span class="chip-label">Conferences:</span>
-          <a class="chip" href="https://www.aclweb.org/portal/" rel="noopener" title="Annual Meeting of the Association for Computational Linguistics">ACL<span class="visually-hidden"> &#8212; Annual Meeting of the Association for Computational Linguistics</span></a>
-          <a class="chip" href="https://eccv.ecva.net/" rel="noopener" title="European Conference on Computer Vision">ECCV<span class="visually-hidden"> &#8212; European Conference on Computer Vision</span></a>
-          <a class="chip" href="https://neurips.cc/" rel="noopener" title="Conference on Neural Information Processing Systems">NeurIPS<span class="visually-hidden"> &#8212; Conference on Neural Information Processing Systems</span></a>
-          <a class="chip" href="https://www.neusconference.org/" rel="noopener" title="Neuro-Symbolic Systems">NeuS<span class="visually-hidden"> &#8212; Neuro-Symbolic Systems</span></a>
-        </div>
-        <div class="chip-row">
-          <span class="chip-label">Journals:</span>
-          <a class="chip" href="https://link.springer.com/journal/10472" rel="noopener" title="Springer Annals of Mathematics and Artificial Intelligence">AMAI<span class="visually-hidden"> &#8212; Springer Annals of Mathematics and Artificial Intelligence</span></a>
-        </div>
-      </div>
-      <div class="chip-group">
-        <h3 class="chip-cat">Autonomous Vehicles &amp; Cyber-Physical Systems</h3>
-        <div class="chip-row">
-          <span class="chip-label">Conferences:</span>
-          <a class="chip" href="https://www.hyconsys.com/CAADCPS2023/" rel="noopener" title="Computation-Aware Algorithmic Design for Cyber-Physical Systems">CAADCPS<span class="visually-hidden"> &#8212; Computation-Aware Algorithmic Design for Cyber-Physical Systems</span></a>
-          <a class="chip" href="https://esweek.org/emsoft/" rel="noopener" title="IEEE/ACM International Conference on Embedded Software">EMSOFT<span class="visually-hidden"> &#8212; IEEE/ACM International Conference on Embedded Software</span></a>
-          <a class="chip" href="https://2026.ieee-eras.org/" rel="noopener" title="IEEE Engineering Reliably Autonomous Systems">ERAS<span class="visually-hidden"> &#8212; IEEE Engineering Reliably Autonomous Systems</span></a>
-          <a class="chip" href="https://iccps.acm.org/" rel="noopener" title="ACM/IEEE International Conference on Cyber-Physical Systems">ICCPS<span class="visually-hidden"> &#8212; ACM/IEEE International Conference on Cyber-Physical Systems</span></a>
-          <a class="chip" href="https://ieee-itsc.org/" rel="noopener" title="IEEE Intelligent Transportation Systems Conference">ITSC<span class="visually-hidden"> &#8212; IEEE Intelligent Transportation Systems Conference</span></a>
-          <a class="chip" href="https://ieee-iv.org/" rel="noopener" title="IEEE Intelligent Vehicle Symposium">IV<span class="visually-hidden"> &#8212; IEEE Intelligent Vehicle Symposium</span></a>
-          <a class="chip" href="https://www.rtss.org/" rel="noopener" title="IEEE Real-Time Systems Symposium">RTSS<span class="visually-hidden"> &#8212; IEEE Real-Time Systems Symposium</span></a>
-        </div>
-        <div class="chip-row">
-          <span class="chip-label">Journals:</span>
-          <a class="chip" href="https://www.cambridge.org/core/journals/research-directions-cyber-physical-systems" rel="noopener" title="Cambridge University Press Research Directions: Cyber-Physical Systems">Research Directions: CPS<span class="visually-hidden"> &#8212; Cambridge University Press Research Directions: Cyber-Physical Systems</span></a>
-        </div>
-      </div>
-      <div class="chip-group">
-        <h3 class="chip-cat">Environment &amp; Energy</h3>
-        <div class="chip-row">
-          <span class="chip-label">Journals:</span>
-          <a class="chip" href="https://www.rsc.org/publishing/journals/environmental-science-processes-and-impacts" rel="noopener" title="Royal Society of Chemistry Environmental Science: Processes &amp; Impacts">ES: Processes &amp; Impacts<span class="visually-hidden"> &#8212; Royal Society of Chemistry Environmental Science: Processes &amp; Impacts</span></a>
-        </div>
-        <div class="chip-row">
-          <span class="chip-label">Book chapters:</span>
-          <a class="chip" href="https://link.springer.com/book/10.1007/978-3-030-79742-3" rel="noopener" title="Active Building Energy Systems: Operation and Control">Active Building Energy Systems<span class="visually-hidden">: Operation and Control</span></a>
-        </div>
-      </div>
-      <div class="chip-group">
-        <h3 class="chip-cat">Miscellaneous</h3>
-        <div class="chip-row">
-          <span class="chip-label">Journals:</span>
-          <a class="chip" href="https://ieeeaccess.ieee.org/" rel="noopener" title="IEEE Access">IEEE Access</a>
-          <a class="chip" href="https://www.sciencedirect.com/journal/performance-evaluation" rel="noopener" title="Elsevier Performance Evaluation">PEVA<span class="visually-hidden"> &#8212; Elsevier Performance Evaluation</span></a>
-          <a class="chip" href="https://royalsocietypublishing.org/journal/rsta" rel="noopener" title="Philosophical Transactions of the Royal Society A">Phil. Trans. A<span class="visually-hidden"> &#8212; Philosophical Transactions of the Royal Society A</span></a>
-        </div>
-      </div>
-      <div class="btn-row">
-      </div>
-    </section>
-
-    <!-- Recent publications: everything between the SCHOLAR-LIST markers is
-         regenerated daily by scripts/scholar_scrape.py from data/scholar.json.
-         Do not edit the generated block by hand. -->
     <!-- SCHOLAR-LIST:START -->
-    <section class="section">
+    <section class="section" id="publications">
       <div class="section-heading">
         <h2>Publications (Google Scholar)</h2>
       </div>
@@ -609,6 +523,105 @@
       <p class="muted center">Updated daily from <a href="https://scholar.google.com/citations?user=YhOmz1kAAAAJ&amp;hl=en">Google Scholar</a>. See <a href="/publications/">Publications</a> for the full list.</p>
     </section>
     <!-- SCHOLAR-LIST:END -->
+
+    <section class="section" id="reviewing">
+      <div class="section-heading">
+        <h2>Reviewing Activities</h2>
+      </div>
+      <div class="chip-group">
+        <h3 class="chip-cat">Formal Methods</h3>
+        <div class="chip-row">
+          <span class="chip-label">Conferences:</span>
+          <a class="chip" href="https://link.springer.com/conference/atva" rel="noopener" title="International Symposium on Automated Technology for Verification and Analysis">ATVA<span class="visually-hidden"> &#8212; International Symposium on Automated Technology for Verification and Analysis</span></a>
+          <a class="chip" href="https://i-cav.org/" rel="noopener" title="International Conference on Computer Aided Verification">CAV<span class="visually-hidden"> &#8212; International Conference on Computer Aided Verification</span></a>
+          <a class="chip" href="https://fmasworkshop.github.io/" rel="noopener" title="Formal Methods for Autonomous Systems">FMAS<span class="visually-hidden"> &#8212; Formal Methods for Autonomous Systems</span></a>
+          <a class="chip" href="https://hscc.acm.org/" rel="noopener" title="ACM Hybrid Systems: Computation and Control">HSCC<span class="visually-hidden"> &#8212; ACM Hybrid Systems: Computation and Control</span></a>
+          <a class="chip" href="https://isola-conference.org/" rel="noopener" title="International Symposium on Leveraging Applications of Formal Methods, Verification and Validation">ISoLA<span class="visually-hidden"> &#8212; International Symposium on Leveraging Applications of Formal Methods, Verification and Validation</span></a>
+          <a class="chip" href="https://www.qest-formats.org/" rel="noopener" title="International Conference on Quantitative Evaluation of Systems and International Conference on Formal Modeling and Analysis of Timed Systems">QEST+FORMATS<span class="visually-hidden"> &#8212; International Conference on Quantitative Evaluation of Systems and International Conference on Formal Modeling and Analysis of Timed Systems</span></a>
+          <a class="chip" href="https://runtime-verification.org/" rel="noopener" title="International Conference on Runtime Verification">RV<span class="visually-hidden"> &#8212; International Conference on Runtime Verification</span></a>
+          <a class="chip" href="https://aiverification.org/" rel="noopener" title="Symposium on Artificial Intelligence Verification">SAIV<span class="visually-hidden"> &#8212; Symposium on Artificial Intelligence Verification</span></a>
+        </div>
+      </div>
+      <div class="chip-group">
+        <h3 class="chip-cat">Control</h3>
+        <div class="chip-row">
+          <span class="chip-label">Conferences:</span>
+          <a class="chip" href="https://a2c2.org/" rel="noopener" title="IFAC American Control Conference">ACC<span class="visually-hidden"> &#8212; IFAC American Control Conference</span></a>
+          <a class="chip" href="https://tc.ifac-control.org/1/3/adhs-series" rel="noopener" title="IFAC Conference on Analysis and Design of Hybrid Systems">ADHS<span class="visually-hidden"> &#8212; IFAC Conference on Analysis and Design of Hybrid Systems</span></a>
+          <a class="chip" href="https://ccta2026.ieeecss.org/" rel="noopener" title="IEEE Conference on Control Technology and Applications">CCTA<span class="visually-hidden"> &#8212; IEEE Conference on Control Technology and Applications</span></a>
+          <a class="chip" href="https://cdc2026.ieeecss.org/" rel="noopener" title="IEEE Conference on Decision and Control">CDC<span class="visually-hidden"> &#8212; IEEE Conference on Decision and Control</span></a>
+          <a class="chip" href="https://euca-ecc.org/ecc/" rel="noopener" title="IEEE European Control Conference">ECC<span class="visually-hidden"> &#8212; IEEE European Control Conference</span></a>
+          <a class="chip" href="https://l4dc.org/" rel="noopener" title="Learning for Decision and Control">L4DC<span class="visually-hidden"> &#8212; Learning for Decision and Control</span></a>
+          <a class="chip" href="https://ifac2026.org/" rel="noopener" title="IFAC World Congress">IFAC WC<span class="visually-hidden"> &#8212; IFAC World Congress</span></a>
+        </div>
+        <div class="chip-row">
+          <span class="chip-label">Journals:</span>
+          <a class="chip" href="https://www.sciencedirect.com/journal/automatica" rel="noopener" title="IFAC Automatica">Automatica</a>
+          <a class="chip" href="https://www.sciencedirect.com/journal/european-journal-of-control" rel="noopener" title="Elsevier European Journal of Control">EJCON<span class="visually-hidden"> &#8212; Elsevier European Journal of Control</span></a>
+          <a class="chip" href="https://www.ieeecss.org/publication/ieee-control-systems-letters" rel="noopener" title="IEEE Control Systems Letters">L-CSS<span class="visually-hidden"> &#8212; IEEE Control Systems Letters</span></a>
+          <a class="chip" href="https://www.sciencedirect.com/journal/nonlinear-analysis-hybrid-systems" rel="noopener" title="Elsevier Nonlinear Analysis: Hybrid Systems">NAHS<span class="visually-hidden"> &#8212; Elsevier Nonlinear Analysis: Hybrid Systems</span></a>
+          <a class="chip" href="https://www.ieeecss.org/publication/transactions-automatic-control" rel="noopener" title="IEEE Transactions on Automatic Control">TAC<span class="visually-hidden"> &#8212; IEEE Transactions on Automatic Control</span></a>
+          <a class="chip" href="https://www.ieeecss.org/publication/transactions-control-systems-technology" rel="noopener" title="IEEE Transactions on Control Systems Technology">TCST<span class="visually-hidden"> &#8212; IEEE Transactions on Control Systems Technology</span></a>
+        </div>
+      </div>
+      <div class="chip-group">
+        <h3 class="chip-cat">Machine Learning &amp; AI</h3>
+        <div class="chip-row">
+          <span class="chip-label">Conferences:</span>
+          <a class="chip" href="https://www.aclweb.org/portal/" rel="noopener" title="Annual Meeting of the Association for Computational Linguistics">ACL<span class="visually-hidden"> &#8212; Annual Meeting of the Association for Computational Linguistics</span></a>
+          <a class="chip" href="https://eccv.ecva.net/" rel="noopener" title="European Conference on Computer Vision">ECCV<span class="visually-hidden"> &#8212; European Conference on Computer Vision</span></a>
+          <a class="chip" href="https://neurips.cc/" rel="noopener" title="Conference on Neural Information Processing Systems">NeurIPS<span class="visually-hidden"> &#8212; Conference on Neural Information Processing Systems</span></a>
+          <a class="chip" href="https://www.neusconference.org/" rel="noopener" title="Neuro-Symbolic Systems">NeuS<span class="visually-hidden"> &#8212; Neuro-Symbolic Systems</span></a>
+        </div>
+        <div class="chip-row">
+          <span class="chip-label">Journals:</span>
+          <a class="chip" href="https://link.springer.com/journal/10472" rel="noopener" title="Springer Annals of Mathematics and Artificial Intelligence">AMAI<span class="visually-hidden"> &#8212; Springer Annals of Mathematics and Artificial Intelligence</span></a>
+        </div>
+      </div>
+      <div class="chip-group">
+        <h3 class="chip-cat">Autonomous Vehicles &amp; Cyber-Physical Systems</h3>
+        <div class="chip-row">
+          <span class="chip-label">Conferences:</span>
+          <a class="chip" href="https://www.hyconsys.com/CAADCPS2023/" rel="noopener" title="Computation-Aware Algorithmic Design for Cyber-Physical Systems">CAADCPS<span class="visually-hidden"> &#8212; Computation-Aware Algorithmic Design for Cyber-Physical Systems</span></a>
+          <a class="chip" href="https://esweek.org/emsoft/" rel="noopener" title="IEEE/ACM International Conference on Embedded Software">EMSOFT<span class="visually-hidden"> &#8212; IEEE/ACM International Conference on Embedded Software</span></a>
+          <a class="chip" href="https://2026.ieee-eras.org/" rel="noopener" title="IEEE Engineering Reliably Autonomous Systems">ERAS<span class="visually-hidden"> &#8212; IEEE Engineering Reliably Autonomous Systems</span></a>
+          <a class="chip" href="https://iccps.acm.org/" rel="noopener" title="ACM/IEEE International Conference on Cyber-Physical Systems">ICCPS<span class="visually-hidden"> &#8212; ACM/IEEE International Conference on Cyber-Physical Systems</span></a>
+          <a class="chip" href="https://ieee-itsc.org/" rel="noopener" title="IEEE Intelligent Transportation Systems Conference">ITSC<span class="visually-hidden"> &#8212; IEEE Intelligent Transportation Systems Conference</span></a>
+          <a class="chip" href="https://ieee-iv.org/" rel="noopener" title="IEEE Intelligent Vehicle Symposium">IV<span class="visually-hidden"> &#8212; IEEE Intelligent Vehicle Symposium</span></a>
+          <a class="chip" href="https://www.rtss.org/" rel="noopener" title="IEEE Real-Time Systems Symposium">RTSS<span class="visually-hidden"> &#8212; IEEE Real-Time Systems Symposium</span></a>
+        </div>
+        <div class="chip-row">
+          <span class="chip-label">Journals:</span>
+          <a class="chip" href="https://www.cambridge.org/core/journals/research-directions-cyber-physical-systems" rel="noopener" title="Cambridge University Press Research Directions: Cyber-Physical Systems">Research Directions: CPS<span class="visually-hidden"> &#8212; Cambridge University Press Research Directions: Cyber-Physical Systems</span></a>
+        </div>
+      </div>
+      <div class="chip-group">
+        <h3 class="chip-cat">Environment &amp; Energy</h3>
+        <div class="chip-row">
+          <span class="chip-label">Journals:</span>
+          <a class="chip" href="https://www.rsc.org/publishing/journals/environmental-science-processes-and-impacts" rel="noopener" title="Royal Society of Chemistry Environmental Science: Processes &amp; Impacts">ES: Processes &amp; Impacts<span class="visually-hidden"> &#8212; Royal Society of Chemistry Environmental Science: Processes &amp; Impacts</span></a>
+        </div>
+        <div class="chip-row">
+          <span class="chip-label">Book chapters:</span>
+          <a class="chip" href="https://link.springer.com/book/10.1007/978-3-030-79742-3" rel="noopener" title="Active Building Energy Systems: Operation and Control">Active Building Energy Systems<span class="visually-hidden">: Operation and Control</span></a>
+        </div>
+      </div>
+      <div class="chip-group">
+        <h3 class="chip-cat">Miscellaneous</h3>
+        <div class="chip-row">
+          <span class="chip-label">Journals:</span>
+          <a class="chip" href="https://ieeeaccess.ieee.org/" rel="noopener" title="IEEE Access">IEEE Access</a>
+          <a class="chip" href="https://www.sciencedirect.com/journal/performance-evaluation" rel="noopener" title="Elsevier Performance Evaluation">PEVA<span class="visually-hidden"> &#8212; Elsevier Performance Evaluation</span></a>
+          <a class="chip" href="https://royalsocietypublishing.org/journal/rsta" rel="noopener" title="Philosophical Transactions of the Royal Society A">Phil. Trans. A<span class="visually-hidden"> &#8212; Philosophical Transactions of the Royal Society A</span></a>
+        </div>
+      </div>
+      <div class="btn-row">
+      </div>
+    </section>
+
+    <!-- Recent publications: everything between the SCHOLAR-LIST markers is
+         regenerated daily by scripts/scholar_scrape.py from data/scholar.json.
+         Do not edit the generated block by hand. -->
   </main>
 
   <footer class="site-footer">
@@ -626,5 +639,49 @@
     </div>
     <script src="/assets/nav.js?v=95b38a628a" defer></script>
   </footer>
+  <!-- Section menu: marks whichever section is in view. Homepage-only and
+       short, so it stays inline rather than becoming a third asset file that
+       bump_assets.py would have to learn to version. Without it the menu is
+       still a working list of anchor links.
+       A scroll handler rather than IntersectionObserver: a position check is
+       easy to reason about and to test against synthetic geometry, and it
+       needs no rootMargin tuning to decide which of several visible sections
+       owns the page. -->
+  <script>
+  (function () {
+    var links = [].slice.call(document.querySelectorAll('.section-toc a'));
+    if (!links.length) return;
+    var items = links.map(function (a) {
+      return { link: a, el: document.querySelector(a.getAttribute('href')) };
+    }).filter(function (i) { return i.el; });
+    if (!items.length) return;
+    var current = null;
+
+    function update() {
+      // The section owning the page is the last one starting above a line a
+      // third of the way down the viewport.
+      var line = window.innerHeight * 0.33, pick = items[0];
+      for (var i = 0; i < items.length; i++) {
+        if (items[i].el.getBoundingClientRect().top <= line) pick = items[i];
+      }
+      // At the very bottom the final section may never cross the line.
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) {
+        pick = items[items.length - 1];
+      }
+      if (pick === current) return;
+      current = pick;
+      items.forEach(function (i) { i.link.removeAttribute('aria-current'); });
+      pick.link.setAttribute('aria-current', 'true');
+    }
+    // Called straight from the listener. Scroll events are already coalesced
+    // by the browser, seven getBoundingClientRect reads is cheap, and the
+    // early return on an unchanged pick means the DOM is only touched when
+    // the section actually changes -- so rAF would add a moving part for no
+    // measurable gain.
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
+  </script>
 </body>
 </html>

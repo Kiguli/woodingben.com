@@ -220,7 +220,7 @@ def build_stats_section(data):
     """
     stats = data.get("stats", {})
     lines = [
-        '    <section class="section">',
+        '    <section class="section" id="scholar">',
         '      <div class="section-heading">',
         "        <h2>Google Scholar</h2>",
         "      </div>",
@@ -258,7 +258,7 @@ def build_list_section(data):
     profile_url = html.escape(data.get("profile_url", PROFILE_URL), quote=True)
 
     lines = [
-        '    <section class="section">',
+        '    <section class="section" id="publications">',
         '      <div class="section-heading">',
         "        <h2>Publications (Google Scholar)</h2>",
         "      </div>",
