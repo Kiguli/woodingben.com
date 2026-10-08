@@ -1,0 +1,124 @@
+/* Research page: one horizontally sliding panel per theme. Without JS the
+   track is a plain scroll-snap strip and the tabs are in-page anchors;
+   research.js adds the arrows, keeps the active tab in sync and fits the
+   track height to the visible slide. Colours come from style.css tokens. */
+.research-slider { margin-top: var(--s-6); }
+
+.research-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-bottom: var(--s-4);
+}
+.research-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-4);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--card-bg);
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+}
+.research-tab:hover { color: var(--accent); border-color: var(--accent); }
+.research-tab[aria-selected="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+.research-tab-num {
+  display: inline-grid;
+  place-items: center;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background: var(--accent-tint);
+  color: var(--accent);
+  font-size: 0.85em;
+}
+.research-tab[aria-selected="true"] .research-tab-num {
+  background: var(--on-accent);
+  color: var(--accent);
+}
+
+.research-track {
+  display: flex;
+  align-items: flex-start;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  transition: height 0.25s ease;
+}
+.research-track::-webkit-scrollbar { display: none; }
+.research-track:focus { outline: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .research-track { scroll-behavior: smooth; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .research-track { transition: none; }
+}
+
+.research-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  scroll-snap-align: start;
+  padding: var(--s-5);
+}
+@media (min-width: 48em) { .research-slide { padding: var(--s-6) var(--s-7); } }
+.research-slide h2 { margin: 0; }
+.research-summary { margin: var(--s-2) 0 var(--s-5); color: var(--muted); font-size: 1.05rem; }
+.research-slide .prose { max-width: none; }
+.research-tools { margin-top: var(--s-4); }
+
+.research-refs-title {
+  margin: var(--s-6) 0 var(--s-3);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--border);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.research-refs {
+  margin: 0;
+  padding-left: 1.75em;
+  display: grid;
+  gap: var(--s-3);
+}
+.research-refs li { padding-left: var(--s-1); }
+.research-refs li::marker { color: var(--muted); font-weight: 600; }
+.research-refs li:target { background: var(--accent-tint); border-radius: var(--radius); }
+.research-ref-title { display: block; font-weight: 600; text-decoration: none; }
+.research-ref-title:hover { text-decoration: underline; }
+.research-ref-authors, .research-ref-venue { display: block; font-size: 0.9rem; color: var(--muted); }
+
+.research-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--s-4);
+  margin-top: var(--s-4);
+}
+.research-controls[hidden] { display: none; }
+.research-arrow {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  background: var(--card-bg);
+  color: var(--text);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.research-arrow:hover:not(:disabled) { color: var(--accent); border-color: var(--accent); }
+.research-arrow:disabled { opacity: 0.4; cursor: default; }
+.research-count { min-width: 3.5em; text-align: center; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.research-more { margin-top: var(--s-6); color: var(--muted); }
