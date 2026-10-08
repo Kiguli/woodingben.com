@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Research - Ben Wooding</title>
-  <meta name="description" content="Ben Wooding's research themes: verified neural networks, data-driven safety certificates, and safe autonomy and robotics.">
+  <meta name="description" content="Ben Wooding's research: neural network verification, data-driven control, stochastic systems, and safe autonomy and robotics.">
   <link rel="canonical" href="https://woodingben.com/research/">
   <link rel="alternate" type="application/rss+xml" title="Ben Wooding" href="https://woodingben.com/feed.xml">
 
@@ -13,7 +13,7 @@
   <meta property="og:locale" content="en_GB">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Research - Ben Wooding">
-  <meta property="og:description" content="Ben Wooding's research themes: verified neural networks, data-driven safety certificates, and safe autonomy and robotics.">
+  <meta property="og:description" content="Ben Wooding's research: neural network verification, data-driven control, stochastic systems, and safe autonomy and robotics.">
   <meta property="og:url" content="https://woodingben.com/research/">
   <meta property="og:site_name" content="Ben Wooding">
   <meta property="og:image" content="https://woodingben.com/wp-content/uploads/2024/06/JetEngine.png">
@@ -27,9 +27,9 @@
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="/assets/style.css?v=224f745947">
-  <link rel="stylesheet" href="/assets/research.css?v=8facafeb77">
-  <script src="/assets/research.js?v=94f53ae7bc" defer></script>
+  <link rel="stylesheet" href="/assets/style.css?v=d4c40c25eb">
+  <link rel="stylesheet" href="/assets/research.css?v=7847712cf0">
+  <script src="/assets/research.js?v=4280a8d7e2" defer></script>
 
   <script type="application/ld+json">{
     "@context": "https://schema.org",
@@ -39,7 +39,7 @@
         "@id": "https://woodingben.com/research/",
         "url": "https://woodingben.com/research/",
         "name": "Research - Ben Wooding",
-        "description": "Ben Wooding's research themes: verified neural networks, data-driven safety certificates, and safe autonomy and robotics.",
+        "description": "Ben Wooding's research: neural network verification, data-driven control, stochastic systems, and safe autonomy and robotics.",
         "inLanguage": "en-GB",
         "isPartOf": {
           "@type": "WebSite",
@@ -136,149 +136,277 @@
       </nav>
   
       <h1>Research</h1>
-      <p class="lede">I develop methods and open-source tools that give provable guarantees for AI-enabled and autonomous systems, including when their models are learned from data or unknown. My work sits at the intersection of formal methods, machine learning and control, in three connected themes.</p>
+      <p class="lede">I develop methods and open-source tools that give provable guarantees for AI-enabled and autonomous systems, including when their models are learned from data or unknown. Each tab below introduces one topic and the papers behind it.</p>
   
-      <div class="research-slider" data-slider>
-        <div class="research-tabs" role="tablist" aria-label="Research themes">
-          <a class="research-tab" role="tab" id="tab-verified-neural-networks" href="#verified-neural-networks" aria-controls="verified-neural-networks" aria-selected="true"><span class="research-tab-num">1</span> Verified neural networks</a>
-          <a class="research-tab" role="tab" id="tab-data-driven-safety-certificates" href="#data-driven-safety-certificates" aria-controls="data-driven-safety-certificates" aria-selected="false"><span class="research-tab-num">2</span> Data-driven safety certificates</a>
-          <a class="research-tab" role="tab" id="tab-safe-autonomy-and-robotics" href="#safe-autonomy-and-robotics" aria-controls="safe-autonomy-and-robotics" aria-selected="false"><span class="research-tab-num">3</span> Safe autonomy and robotics</a>
+      <div class="research-tabset" data-tabs>
+        <div class="research-tabs" role="tablist" aria-label="Research topics">
+          <a class="research-tab" role="tab" id="tab-neural-network-verification" href="#neural-network-verification" aria-controls="neural-network-verification" aria-selected="true">Neural network verification</a>
+          <a class="research-tab" role="tab" id="tab-data-driven-control" href="#data-driven-control" aria-controls="data-driven-control" aria-selected="false">Data-driven control</a>
+          <a class="research-tab" role="tab" id="tab-stochastic-systems" href="#stochastic-systems" aria-controls="stochastic-systems" aria-selected="false">Stochastic systems</a>
+          <a class="research-tab" role="tab" id="tab-safe-autonomy-and-robotics" href="#safe-autonomy-and-robotics" aria-controls="safe-autonomy-and-robotics" aria-selected="false">Safe autonomy and robotics</a>
         </div>
   
-        <div class="research-track" data-track tabindex="-1">
-          <section class="research-slide" id="verified-neural-networks" role="tabpanel" aria-labelledby="tab-verified-neural-networks" aria-roledescription="slide" aria-label="1 of 3">
-            <h2>Verified neural networks</h2>
-            <p class="research-summary">Proving how neural networks behave over every input they may see.</p>
-            <div class="prose">
-              <p>Neural networks now sit inside perception, control and decision-making pipelines, yet a small change to an input can change their output. I work on verification methods that prove how a network behaves over a whole set of inputs, not only on the examples it was tested on. Reachability analysis computes every output a network can produce for a given set of inputs, and probabilistic verification gives high-confidence guarantees where exact analysis does not scale [<a href="#verified-neural-networks-ref-1">1</a>, <a href="#verified-neural-networks-ref-2">2</a>].</p>
-              <p>A theme of this work is bringing verification to the architectures used in practice, including vision models, graph neural networks [<a href="#verified-neural-networks-ref-3">3</a>] and mixture-of-experts models [<a href="#verified-neural-networks-ref-4">4</a>]. I also use symbolic checks to catch and correct errors in the reasoning of AI systems [<a href="#verified-neural-networks-ref-5">5</a>].</p>
-            </div>
-            <p class="research-tools"><strong>Tools:</strong> <a href="/software-tools/nnv-software-tool/">NNV</a>, <a href="/software-tools/n2v-software-tool/">n2v</a></p>
-            <h3 class="research-refs-title">Papers</h3>
-            <ol class="research-refs">
-              <li id="verified-neural-networks-ref-1">
-                <a class="research-ref-title" href="/publications/#reachsetgeometry2026">Learning Reach-Set Geometry for Tighter Probabilistic Neural Network Verification</a>
-                <span class="research-ref-authors">Samuel Sasaki, <strong>Ben Wooding</strong>, Taylor T. Johnson</span>
-                <span class="research-ref-venue">Conference on Neural Information Processing Systems (NeurIPS), 2026 <strong><em>(to appear)</em></strong></span>
-              </li>
-              <li id="verified-neural-networks-ref-2">
-                <a class="research-ref-title" href="/publications/#nnv3_2026">NNV3: Expanding Neural Network Verification to New Architectures and Domains</a>
-                <span class="research-ref-authors">Anne M. Tumlin<sup>*</sup>, Samuel Sasaki<sup>*</sup>, <strong>Ben Wooding</strong>, Diego Manzanas Lopez, Muhammad Usama Zubair, Navid Hashemi, Hongchao Zhang, Waseem Abbas, Ipek Oguz, Meiyi Ma, Taylor T. Johnson</span>
-                <span class="research-ref-venue">International Symposium on Automated Technology for Verification and Analysis (ATVA), 2026 <strong><em>(to appear; <sup>*</sup>co-first authors)</em></strong></span>
-              </li>
-              <li id="verified-neural-networks-ref-3">
-                <a class="research-ref-title" href="/publications/#gnnverif2026">Reachability-Based Formal Verification of Graph Neural Networks with Node and Edge Features</a>
-                <span class="research-ref-authors">Anne M. Tumlin, <strong>Ben Wooding</strong>, Zhenxuan Shao, Diego Manzanas Lopez, Tyler Derr, Taylor T. Johnson</span>
-                <span class="research-ref-venue">9th International Symposium on AI Verification (SAIV), 2026</span>
-              </li>
-              <li id="verified-neural-networks-ref-4">
-                <a class="research-ref-title" href="/publications/#metamoe2026">MetaMoE: Formal Verification of Compositional Robustness and Scalability of Mixture-of-Experts Architecture</a>
-                <span class="research-ref-authors">Quang Pham, <strong>Ben Wooding</strong>, Luke Nam, Samuel Sasaki, Taylor T. Johnson</span>
-                <span class="research-ref-venue">9th International Symposium on AI Verification (SAIV), 2026</span>
-              </li>
-              <li id="verified-neural-networks-ref-5">
-                <a class="research-ref-title" href="/publications/#selfcorrecting2026">A Self-Correcting Neuro-Symbolic AI Reasoning Framework</a>
-                <span class="research-ref-authors"><strong>Ben Wooding</strong><sup>*</sup>, Kiersten Brennan<sup>*</sup>, Anne M. Tumlin, Hongchao Zhang, Taylor T. Johnson</span>
-                <span class="research-ref-venue">9th International Symposium on AI Verification (SAIV), 2026 <strong><em>(<sup>*</sup>contributed equally)</em></strong></span>
-              </li>
-            </ol>
-          </section>
-          <section class="research-slide" id="data-driven-safety-certificates" role="tabpanel" aria-labelledby="tab-data-driven-safety-certificates" aria-roledescription="slide" aria-label="2 of 3">
-            <h2>Data-driven safety certificates</h2>
-            <p class="research-summary">Safety proofs and safe controllers built from data when no model is available.</p>
-            <div class="prose">
-              <p>A barrier certificate is a function that proves a system can never reach an unsafe state, without simulating every possible run. Constructing one normally needs an accurate model of the system, which real systems rarely have. My work builds certificates and safe controllers directly from data, with guarantees on how far they can be trusted: from a single recorded trajectory [<a href="#data-driven-safety-certificates-ref-1">1</a>], through data-driven abstractions [<a href="#data-driven-safety-certificates-ref-2">2</a>, <a href="#data-driven-safety-certificates-ref-3">3</a>], and with neural network certificates for nonlinear dynamics [<a href="#data-driven-safety-certificates-ref-4">4</a>].</p>
-              <p>Alongside the theory, I lead tools that make these methods usable: <a href="/software-tools/protect-software-tool/">PRoTECT</a> constructs barrier certificates for polynomial systems in parallel [<a href="#data-driven-safety-certificates-ref-5">5</a>], <a href="/software-tools/trust-software-tool/">TRUST</a> synthesises controllers from data, <a href="/software-tools/impact-software-tool/">IMPaCT</a> synthesises controllers for large-scale stochastic systems [<a href="#data-driven-safety-certificates-ref-6">6</a>], and <a href="/software-tools/scenopt-software-tool/">Scen-Opt</a> gives confidence bounds through the scenario approach.</p>
-            </div>
-            <p class="research-tools"><strong>Tools:</strong> <a href="/software-tools/protect-software-tool/">PRoTECT</a>, <a href="/software-tools/trust-software-tool/">TRUST</a>, <a href="/software-tools/impact-software-tool/">IMPaCT</a>, <a href="/software-tools/scenopt-software-tool/">Scen-Opt</a></p>
-            <h3 class="research-refs-title">Papers</h3>
-            <ol class="research-refs">
-              <li id="data-driven-safety-certificates-ref-1">
-                <a class="research-ref-title" href="/publications/#trust2025">TRUST: Stability and Safety Controller Synthesis for Unknown Dynamical Models Using a Single Trajectory</a>
-                <span class="research-ref-authors">Jamie Gardner<sup>*</sup>, <strong>Ben Wooding</strong><sup>*</sup>, Amy Nejati, Abolfazl Lavaei</span>
-                <span class="research-ref-venue">Hybrid Systems: Computation and Control (HSCC), 2025 <strong><em>(<sup>*</sup>contributed equally)</em></strong></span>
-              </li>
-              <li id="data-driven-safety-certificates-ref-2">
-                <a class="research-ref-title" href="/publications/#ddacs2024">Data-Driven Abstraction-Based Control Synthesis</a>
-                <span class="research-ref-authors">Milad Kazemi<sup>*</sup>, Rupak Majumdar, Mahmoud Salamati<sup>*</sup>, Sadegh Soudjani, <strong>Ben Wooding</strong><sup>*</sup></span>
-                <span class="research-ref-venue">Nonlinear Analysis: Hybrid Systems (NAHS), 2024 <strong><em>(<sup>*</sup>contributed equally)</em></strong></span>
-              </li>
-              <li id="data-driven-safety-certificates-ref-3">
-                <a class="research-ref-title" href="/publications/#bintreegp2024">Data-Driven Abstractions via Binary-Tree Gaussian Processes for Formal Verification</a>
-                <span class="research-ref-authors">Oliver Schön, Shammakh Naseer, <strong>Ben Wooding</strong>, Sadegh Soudjani</span>
-                <span class="research-ref-venue">Analysis and Design of Hybrid Systems (ADHS), 2024</span>
-              </li>
-              <li id="data-driven-safety-certificates-ref-4">
-                <a class="research-ref-title" href="/publications/#kinductiveneural2026">k-Inductive Neural Barrier Certificates for Unknown Nonlinear Dynamics</a>
-                <span class="research-ref-authors"><strong>Ben Wooding</strong>, Hongchao Zhang, Taylor T. Johnson, Abolfazl Lavaei</span>
-                <span class="research-ref-venue">3rd International Conference on Neuro-Symbolic Systems (NeuS), 2026 <strong><em>(selected as oral presentation &mdash; 28% of submissions)</em></strong></span>
-              </li>
-              <li id="data-driven-safety-certificates-ref-5">
-                <a class="research-ref-title" href="/publications/#protect2025">PRoTECT: Parallelized Construction of Safety Barrier Certificates for Nonlinear Polynomial Systems</a>
-                <span class="research-ref-authors"><strong>Ben Wooding</strong>, Viacheslav Horbanov, Abolfazl Lavaei</span>
-                <span class="research-ref-venue">International Colloquium on Theoretical Aspects of Computing (ICTAC), 2025 <span class="accent"><strong>[2<sup>nd</sup> place &mdash; ARCH 2025 Best Result Award]</strong></span></span>
-              </li>
-              <li id="data-driven-safety-certificates-ref-6">
-                <a class="research-ref-title" href="/publications/#impact2024">IMPaCT: Interval MDP Parallel Construction for Controller Synthesis of Large-Scale Stochastic Systems</a>
-                <span class="research-ref-authors"><strong>Ben Wooding</strong>, Abolfazl Lavaei</span>
-                <span class="research-ref-venue">Quantitative Evaluation of Systems and Formal Modeling and Analysis of Timed Systems (QEST+FORMATS), 2024</span>
-              </li>
-            </ol>
-          </section>
-          <section class="research-slide" id="safe-autonomy-and-robotics" role="tabpanel" aria-labelledby="tab-safe-autonomy-and-robotics" aria-roledescription="slide" aria-label="3 of 3">
-            <h2>Safe autonomy and robotics</h2>
-            <p class="research-summary">Correct-by-construction control and verified decision-making for robots and autonomous systems.</p>
-            <div class="prose">
-              <p>Autonomous systems such as drones and robots must stay safe while acting on learned components. I design correct-by-construction controllers and runtime safeguards, for example a controller that safely takes over when an autonomous system leaves its safe operating region [<a href="#safe-autonomy-and-robotics-ref-1">1</a>], and control barrier functions for systems described by differential-algebraic equations [<a href="#safe-autonomy-and-robotics-ref-2">2</a>]. I also verify the decision logic of robots: <a href="/software-tools/behaverify-software-tool/">BehaVerify</a> checks behaviour trees, a common way to program robot behaviour, against formal specifications [<a href="#safe-autonomy-and-robotics-ref-3">3</a>].</p>
-              <p>I co-lead the category of the ARCH-COMP competition that evaluates verification tools on neural network control systems [<a href="#safe-autonomy-and-robotics-ref-4">4</a>]. Earlier work applied the same ideas to energy grids and smart buildings [<a href="#safe-autonomy-and-robotics-ref-5">5</a>, <a href="#safe-autonomy-and-robotics-ref-6">6</a>] and to the resilience of water treatment facilities [<a href="#safe-autonomy-and-robotics-ref-7">7</a>].</p>
-            </div>
-            <p class="research-tools"><strong>Tools:</strong> <a href="/software-tools/behaverify-software-tool/">BehaVerify</a>, <a href="/software-tools/impact-software-tool/">IMPaCT</a></p>
-            <h3 class="research-refs-title">Papers</h3>
-            <ol class="research-refs">
-              <li id="safe-autonomy-and-robotics-ref-1">
-                <a class="research-ref-title" href="/publications/#safetakeover2026">Safe Autonomous Takeover for Unknown Descriptor Systems</a>
-                <span class="research-ref-authors"><strong>Ben Wooding</strong>, Mohamad H. Kazma, Hongchao Zhang, Ahmad F. Taha, Meiyi Ma, Taylor T. Johnson</span>
-                <span class="research-ref-venue">IEEE Conference on Decision and Control (CDC), 2026 <strong><em>(to appear)</em></strong></span>
-              </li>
-              <li id="safe-autonomy-and-robotics-ref-2">
-                <a class="research-ref-title" href="/publications/#daecbf2026">Control Barrier Function Synthesis for Differential-Algebraic Systems</a>
-                <span class="research-ref-authors">Hongchao Zhang, Mohamad H. Kazma, <strong>Ben Wooding</strong>, Meiyi Ma, Taylor T. Johnson, Ahmad F. Taha</span>
-                <span class="research-ref-venue">IEEE Conference on Decision and Control (CDC), 2026 <strong><em>(to appear)</em></strong></span>
-              </li>
-              <li id="safe-autonomy-and-robotics-ref-3">
-                <a class="research-ref-title" href="/publications/#behaverify2026">BehaVerify: A Formal Verification Tool for Behavior Trees</a>
-                <span class="research-ref-authors">Serena S. Serbinowska, <strong>Ben Wooding</strong>, Diego Manzanas Lopez, Luke Nam, Anne M. Tumlin, Nicholas K. Potteiger, Hongchao Zhang, Taylor T. Johnson</span>
-                <span class="research-ref-venue">8th International Workshop on Formal Methods for Autonomous Systems (FMAS), 2026 <strong><em>(to appear)</em></strong></span>
-              </li>
-              <li id="safe-autonomy-and-robotics-ref-4">
-                <a class="research-ref-title" href="/publications/#archcomp26_ainncs">ARCH-COMP26 Category Report: Artificial Intelligence and Neural Network Control Systems (AINNCS) for Continuous and Hybrid Systems Plants</a>
-                <span class="research-ref-authors">Samuel Sasaki<sup>*</sup>, <strong>Ben Wooding</strong><sup>*</sup>, Matthias Althoff, Luis Benet, Samuel Coogan, Marcelo Forets, Akash Harapanahalli, Lukas Koller, Tobias Ladner, Christian Schilling, Taylor T. Johnson, Hongchao Zhang, Xiangru Zhong</span>
-                <span class="research-ref-venue">13th International Workshop on Applied Verification of Continuous and Hybrid Systems (ARCH), 2026 <strong><em>(<sup>*</sup>category co-leads)</em></strong></span>
-              </li>
-              <li id="safe-autonomy-and-robotics-ref-5">
-                <a class="research-ref-title" href="/publications/#evfreq2020">Formal Controller Synthesis for Frequency Regulation Utilising Electric Vehicles</a>
-                <span class="research-ref-authors"><strong>Ben Wooding</strong>, Vahid Vahidinasab, Sadegh Soudjani</span>
-                <span class="research-ref-venue">Smart Energy Systems and Technologies (SEST), 2020</span>
-              </li>
-              <li id="safe-autonomy-and-robotics-ref-6">
-                <a class="research-ref-title" href="/publications/#activebuildingmgmt2021">Control and management of active buildings</a>
-                <span class="research-ref-authors"><strong>Ben Wooding</strong>, Vahid Vahidinasab, Milad Kazemi, Sadegh Soudjani</span>
-                <span class="research-ref-venue">Active Building Energy Systems: Operation and Control, 2021</span>
-              </li>
-              <li id="safe-autonomy-and-robotics-ref-7">
-                <a class="research-ref-title" href="/publications/#wrrf2025">A logic-based resilience metric for water resource recovery facilities</a>
-                <span class="research-ref-authors">Anna S. Laino, <strong>Ben Wooding</strong>, Sadegh Soudjani, Russell J. Davenport</span>
-                <span class="research-ref-venue">Environmental Science: Water Research &amp; Technology, 2025 <span class="accent"><strong>[1 of 20 papers (8.5% of eligible papers) chosen for the themed collection &mdash; Highlights from Environmental Science: Water Research &amp; Technology in 2024]</strong></span></span>
-              </li>
-            </ol>
-          </section>
-        </div>
+        <section class="research-panel" id="neural-network-verification" role="tabpanel" aria-labelledby="tab-neural-network-verification" tabindex="0">
+          <h2>Neural network verification</h2>
+          <p class="research-summary">How can we prove what a neural network will do for every input in a set, not only the inputs we tested?</p>
+          <div class="prose">
+            <h3>Propagating sets, not points</h3>
+          <p>Testing a neural network means feeding it one input at a time and checking each answer. Verification asks a stronger question: what can the network output for <em>every</em> input in a set? The set might be every version of an image within a small change in brightness, or every state a drone could be in at take-off. Instead of sampling from that set, we push the whole set through the network, layer by layer, and look at the set of outputs it can produce.</p>
+          <p>Each linear layer maps a set to another set exactly and cheaply. The difficulty is the nonlinear activation functions, such as ReLU, which bend and fold the set as it passes through.</p>
+          <figure class="research-figure">
+            <svg class="rfig" viewBox="0 0 680 250" role="img" aria-labelledby="nnfig-title nnfig-desc">
+              <title id="nnfig-title">Set propagation through a neural network</title>
+              <desc id="nnfig-desc">A box of inputs is pushed through the layers of a network. In the output space, the exact reachable set is a union of pieces, and a dashed over-approximation encloses it. The over-approximation stays clear of the shaded unsafe region, so the property is verified.</desc>
+              <defs>
+                <marker id="nnfig-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" class="rfig-ink-fill"/>
+                </marker>
+              </defs>
+              <text x="70" y="28" class="rfig-label" text-anchor="middle">Input set</text>
+              <rect x="25" y="85" width="90" height="90" rx="4" class="rfig-input"/>
+              <line x1="125" y1="130" x2="185" y2="130" class="rfig-ink" marker-end="url(#nnfig-arrow)"/>
+              <text x="300" y="28" class="rfig-label" text-anchor="middle">Network, layer by layer</text>
+              <g class="rfig-edges">
+                <path d="M215 75 L300 55 M215 75 L300 105 M215 75 L300 155 M215 75 L300 205 M215 130 L300 55 M215 130 L300 105 M215 130 L300 155 M215 130 L300 205 M215 185 L300 55 M215 185 L300 105 M215 185 L300 155 M215 185 L300 205 M300 55 L385 80 M300 105 L385 80 M300 155 L385 80 M300 205 L385 80 M300 55 L385 180 M300 105 L385 180 M300 155 L385 180 M300 205 L385 180"/>
+              </g>
+              <g class="rfig-nodes">
+                <circle cx="215" cy="75" r="11"/><circle cx="215" cy="130" r="11"/><circle cx="215" cy="185" r="11"/>
+                <circle cx="300" cy="55" r="11"/><circle cx="300" cy="105" r="11"/><circle cx="300" cy="155" r="11"/><circle cx="300" cy="205" r="11"/>
+                <circle cx="385" cy="80" r="11"/><circle cx="385" cy="180" r="11"/>
+              </g>
+              <line x1="410" y1="130" x2="465" y2="130" class="rfig-ink" marker-end="url(#nnfig-arrow)"/>
+              <text x="570" y="28" class="rfig-label" text-anchor="middle">Output space</text>
+              <rect x="475" y="45" width="190" height="190" rx="4" class="rfig-frame"/>
+              <path d="M580 45 L665 45 L665 140 Z" class="rfig-unsafe"/>
+              <text x="660" y="62" class="rfig-small" text-anchor="end">unsafe</text>
+              <polygon points="500,200 520,150 560,130 590,150 600,195 560,220" class="rfig-over"/>
+              <polygon points="510,195 528,158 552,150 548,190" class="rfig-exact"/>
+              <polygon points="552,150 566,140 586,156 572,186 548,190" class="rfig-exact"/>
+              <polygon points="548,190 572,186 590,195 560,212" class="rfig-exact"/>
+            </svg>
+            <figcaption>
+              <span class="rfig-key"><span class="rfig-swatch rfig-swatch-exact"></span>Exact reachable set (a union of pieces)</span>
+              <span class="rfig-key"><span class="rfig-swatch rfig-swatch-over"></span>Over-approximation (one convex set)</span>
+              <span class="rfig-key"><span class="rfig-swatch rfig-swatch-unsafe"></span>Unsafe outputs</span>
+            </figcaption>
+          </figure>
+          <h3>Exact or over-approximate?</h3>
+          <p>An <strong>exact</strong> method splits the set wherever an activation can switch on or off, so the output is a union of pieces that matches exactly what the network can produce. It is sound and complete: if it reports a violation, a real counterexample exists. The price is that the number of pieces can grow exponentially with the size of the network.</p>
+          <p>An <strong>over-approximate</strong> method keeps a single convex set at each layer that is guaranteed to contain every reachable output. It scales far better and is still sound: if the over-approximation avoids the unsafe outputs, so does the network. If the two overlap, the answer is &ldquo;unknown&rdquo;, and the set can be split to tighten it. Tools such as <a href="/software-tools/nnv-software-tool/">NNV</a> and <a href="/software-tools/n2v-software-tool/">n2v</a> represent these sets as <em>star sets</em>, which support both kinds of analysis [<a href="#neural-network-verification-ref-1">1</a>, <a href="#neural-network-verification-ref-2">2</a>].</p>
+          <h3>What can be guaranteed</h3>
+          <p>Once we have the output set, a property is a question about that set:</p>
+          <ul>
+            <li><strong>Robustness:</strong> every perturbed version of an image receives the same label.</li>
+            <li><strong>Safety of a control loop:</strong> a neural network controller, run together with the system it controls, never drives the system out of its safe region. The output set of one step becomes the input set of the next [<a href="#neural-network-verification-ref-3">3</a>].</li>
+            <li><strong>New architectures:</strong> the same questions for graph neural networks [<a href="#neural-network-verification-ref-4">4</a>] and mixture-of-experts models [<a href="#neural-network-verification-ref-5">5</a>].</li>
+          </ul>
+          <p>For very large models, or inputs such as video and 3D scans, even over-approximation can be too slow. <strong>Probabilistic verification</strong> then gives a guarantee that holds with a chosen high probability, computed from samples of the network&rsquo;s behaviour; learning the shape of the reachable set makes these guarantees much tighter [<a href="#neural-network-verification-ref-6">6</a>, <a href="#neural-network-verification-ref-1">1</a>]. The same idea of checking a model&rsquo;s output against a formal description also lets us catch and correct mistakes in the reasoning of AI systems [<a href="#neural-network-verification-ref-7">7</a>].</p>
+          </div>
+          <p class="research-tools"><strong>Tools:</strong> <a href="/software-tools/nnv-software-tool/">NNV</a>, <a href="/software-tools/n2v-software-tool/">n2v</a></p>
+          <h3 class="research-refs-title">Papers</h3>
+          <ol class="research-refs">
+            <li id="neural-network-verification-ref-1">
+              <a class="research-ref-title" href="/publications/#nnv3_2026">NNV3: Expanding Neural Network Verification to New Architectures and Domains</a>
+              <span class="research-ref-authors">Anne M. Tumlin<sup>*</sup>, Samuel Sasaki<sup>*</sup>, <strong>Ben Wooding</strong>, Diego Manzanas Lopez, Muhammad Usama Zubair, Navid Hashemi, Hongchao Zhang, Waseem Abbas, Ipek Oguz, Meiyi Ma, Taylor T. Johnson</span>
+              <span class="research-ref-venue">International Symposium on Automated Technology for Verification and Analysis (ATVA), 2026 <strong><em>(to appear; <sup>*</sup>co-first authors)</em></strong></span>
+            </li>
+            <li id="neural-network-verification-ref-2">
+              <a class="research-ref-title" href="/publications/#n2v2026">n2v: Neural Network Verification in Python (Competition Contribution)</a>
+              <span class="research-ref-authors">Samuel Sasaki, <strong>Ben Wooding</strong>, Hanchen D. Wang, Anne M. Tumlin, Meiyi Ma, Taylor T. Johnson</span>
+              <span class="research-ref-venue">9th International Symposium on AI Verification (SAIV), 2026</span>
+            </li>
+            <li id="neural-network-verification-ref-3">
+              <a class="research-ref-title" href="/publications/#archcomp26_ainncs">ARCH-COMP26 Category Report: Artificial Intelligence and Neural Network Control Systems (AINNCS) for Continuous and Hybrid Systems Plants</a>
+              <span class="research-ref-authors">Samuel Sasaki<sup>*</sup>, <strong>Ben Wooding</strong><sup>*</sup>, Matthias Althoff, Luis Benet, Samuel Coogan, Marcelo Forets, Akash Harapanahalli, Lukas Koller, Tobias Ladner, Christian Schilling, Taylor T. Johnson, Hongchao Zhang, Xiangru Zhong</span>
+              <span class="research-ref-venue">13th International Workshop on Applied Verification of Continuous and Hybrid Systems (ARCH), 2026 <strong><em>(<sup>*</sup>category co-leads)</em></strong></span>
+            </li>
+            <li id="neural-network-verification-ref-4">
+              <a class="research-ref-title" href="/publications/#gnnverif2026">Reachability-Based Formal Verification of Graph Neural Networks with Node and Edge Features</a>
+              <span class="research-ref-authors">Anne M. Tumlin, <strong>Ben Wooding</strong>, Zhenxuan Shao, Diego Manzanas Lopez, Tyler Derr, Taylor T. Johnson</span>
+              <span class="research-ref-venue">9th International Symposium on AI Verification (SAIV), 2026</span>
+            </li>
+            <li id="neural-network-verification-ref-5">
+              <a class="research-ref-title" href="/publications/#metamoe2026">MetaMoE: Formal Verification of Compositional Robustness and Scalability of Mixture-of-Experts Architecture</a>
+              <span class="research-ref-authors">Quang Pham, <strong>Ben Wooding</strong>, Luke Nam, Samuel Sasaki, Taylor T. Johnson</span>
+              <span class="research-ref-venue">9th International Symposium on AI Verification (SAIV), 2026</span>
+            </li>
+            <li id="neural-network-verification-ref-6">
+              <a class="research-ref-title" href="/publications/#reachsetgeometry2026">Learning Reach-Set Geometry for Tighter Probabilistic Neural Network Verification</a>
+              <span class="research-ref-authors">Samuel Sasaki, <strong>Ben Wooding</strong>, Taylor T. Johnson</span>
+              <span class="research-ref-venue">Conference on Neural Information Processing Systems (NeurIPS), 2026 <strong><em>(to appear)</em></strong></span>
+            </li>
+            <li id="neural-network-verification-ref-7">
+              <a class="research-ref-title" href="/publications/#selfcorrecting2026">A Self-Correcting Neuro-Symbolic AI Reasoning Framework</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong><sup>*</sup>, Kiersten Brennan<sup>*</sup>, Anne M. Tumlin, Hongchao Zhang, Taylor T. Johnson</span>
+              <span class="research-ref-venue">9th International Symposium on AI Verification (SAIV), 2026 <strong><em>(<sup>*</sup>contributed equally)</em></strong></span>
+            </li>
+          </ol>
+        </section>
   
-        <div class="research-controls" data-controls hidden>
-          <button type="button" class="research-arrow" data-prev aria-label="Previous theme">&larr;</button>
-          <span class="research-count" data-count aria-live="polite">1 / 3</span>
-          <button type="button" class="research-arrow" data-next aria-label="Next theme">&rarr;</button>
-        </div>
+        <section class="research-panel" id="data-driven-control" role="tabpanel" aria-labelledby="tab-data-driven-control" tabindex="0">
+          <h2>Data-driven control</h2>
+          <p class="research-summary">Safety and stability guarantees when the model of the system is unknown and all we have is data.</p>
+          <div class="prose">
+            <p>Classical verification starts from a mathematical model of the system. Real systems rarely come with an accurate one, but we can usually observe them. I work on two different routes from data to a formal guarantee, and they give different kinds of answer.</p>
+          <h3>Route 1: the scenario approach</h3>
+          <p>Treat each observation, such as a recorded trajectory or a measured disturbance, as a <em>scenario</em>, and write it as a constraint. Then solve a convex optimisation problem that satisfies every scenario. Scenario theory, developed by Campi and Garatti, bounds the chance that the solution is violated by a new, unseen scenario: with confidence at least 1&minus;&beta;, the probability of violation is at most &epsilon;. The bound depends only on the number of samples and on how many of them shaped the solution. It needs no assumption about the probability distribution the data came from.</p>
+          <p>I have used this to estimate how fast the trajectories of an unknown system can spread apart, which is enough to build a finite abstraction and synthesise a controller for temporal logic specifications [<a href="#data-driven-control-ref-1">1</a>]. <a href="/software-tools/scenopt-software-tool/">Scen-Opt</a> makes the scenario approach available as a toolbox and web app for linear, quadratic and semidefinite programs [<a href="#data-driven-control-ref-2">2</a>].</p>
+          <h3>Route 2: Willems&rsquo; fundamental lemma</h3>
+          <p>For linear systems, and some classes of polynomial ones, a single trajectory can contain everything there is to know about the system, provided the input was varied enough. This condition is called <em>persistence of excitation</em> and is checked with a rank test on the recorded data. When it holds, every other trajectory of the system is a combination of the recorded one, so the unknown model can be replaced by matrices of data.</p>
+          <p>The data matrices can then be placed directly into a sum-of-squares program that searches for a control Lyapunov function (for stability) or a control barrier certificate (for safety), together with the controller that enforces it. Unlike the scenario approach, the resulting guarantee is deterministic. <a href="/software-tools/trust-software-tool/">TRUST</a> automates this for four classes of systems from one input-state trajectory [<a href="#data-driven-control-ref-3">3</a>]. I have extended the idea to neural network barrier certificates verified with SMT solvers [<a href="#data-driven-control-ref-4">4</a>], and to systems with algebraic constraints, where the data alone is not rich enough until it is collected in the right subspace; this enables a user to hand control safely to an autonomous controller once enough data has been gathered [<a href="#data-driven-control-ref-5">5</a>].</p>
+          <h3>Which route when?</h3>
+          <div class="table-wrap">
+          <table class="research-compare">
+            <thead><tr><th scope="col"></th><th scope="col">Scenario approach</th><th scope="col">Willems&rsquo; lemma</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Data needed</th><td>Many independent samples</td><td>One persistently exciting trajectory</td></tr>
+              <tr><th scope="row">Systems</th><td>Any system that can be sampled</td><td>Linear and structured polynomial systems</td></tr>
+              <tr><th scope="row">Guarantee</th><td>Probabilistic, with explicit confidence</td><td>Deterministic</td></tr>
+              <tr><th scope="row">Tool</th><td><a href="/software-tools/scenopt-software-tool/">Scen-Opt</a></td><td><a href="/software-tools/trust-software-tool/">TRUST</a></td></tr>
+            </tbody>
+          </table>
+          </div>
+          </div>
+          <p class="research-tools"><strong>Tools:</strong> <a href="/software-tools/trust-software-tool/">TRUST</a>, <a href="/software-tools/scenopt-software-tool/">Scen-Opt</a></p>
+          <h3 class="research-refs-title">Papers</h3>
+          <ol class="research-refs">
+            <li id="data-driven-control-ref-1">
+              <a class="research-ref-title" href="/publications/#ddacs2024">Data-Driven Abstraction-Based Control Synthesis</a>
+              <span class="research-ref-authors">Milad Kazemi<sup>*</sup>, Rupak Majumdar, Mahmoud Salamati<sup>*</sup>, Sadegh Soudjani, <strong>Ben Wooding</strong><sup>*</sup></span>
+              <span class="research-ref-venue">Nonlinear Analysis: Hybrid Systems (NAHS), 2024 <strong><em>(<sup>*</sup>contributed equally)</em></strong></span>
+            </li>
+            <li id="data-driven-control-ref-2">
+              <a class="research-ref-title" href="/publications/#scenopt2026">Scen-Opt: A Scenario Optimization Toolbox for Data-Driven Convex Programming</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong>, Simone Garatti, Marco C. Campi, Abolfazl Lavaei</span>
+              <span class="research-ref-venue">Under submission, 2026</span>
+            </li>
+            <li id="data-driven-control-ref-3">
+              <a class="research-ref-title" href="/publications/#trust2025">TRUST: Stability and Safety Controller Synthesis for Unknown Dynamical Models Using a Single Trajectory</a>
+              <span class="research-ref-authors">Jamie Gardner<sup>*</sup>, <strong>Ben Wooding</strong><sup>*</sup>, Amy Nejati, Abolfazl Lavaei</span>
+              <span class="research-ref-venue">Hybrid Systems: Computation and Control (HSCC), 2025 <strong><em>(<sup>*</sup>contributed equally)</em></strong></span>
+            </li>
+            <li id="data-driven-control-ref-4">
+              <a class="research-ref-title" href="/publications/#kinductiveneural2026">k-Inductive Neural Barrier Certificates for Unknown Nonlinear Dynamics</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong>, Hongchao Zhang, Taylor T. Johnson, Abolfazl Lavaei</span>
+              <span class="research-ref-venue">3rd International Conference on Neuro-Symbolic Systems (NeuS), 2026 <strong><em>(selected as oral presentation &mdash; 28% of submissions)</em></strong></span>
+            </li>
+            <li id="data-driven-control-ref-5">
+              <a class="research-ref-title" href="/publications/#safetakeover2026">Safe Autonomous Takeover for Unknown Descriptor Systems</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong>, Mohamad H. Kazma, Hongchao Zhang, Ahmad F. Taha, Meiyi Ma, Taylor T. Johnson</span>
+              <span class="research-ref-venue">IEEE Conference on Decision and Control (CDC), 2026 <strong><em>(to appear)</em></strong></span>
+            </li>
+          </ol>
+        </section>
+  
+        <section class="research-panel" id="stochastic-systems" role="tabpanel" aria-labelledby="tab-stochastic-systems" tabindex="0">
+          <h2>Stochastic systems</h2>
+          <p class="research-summary">Two ways to prove what a noisy system will do: build a finite abstraction, or find a barrier certificate.</p>
+          <div class="prose">
+            <p>When a system is affected by noise, such as wind on a drone or demand on a power grid, no controller can promise that every run is safe. The right question becomes a probability: <em>what is the probability that the system stays safe</em>, or reaches its target while avoiding danger? I lead two tools that answer this question in different ways.</p>
+          <h3>Abstraction: IMPaCT</h3>
+          <p>The first approach divides the continuous state space into a finite grid of cells. For every cell and control input, we compute an interval that contains the probability of moving to each other cell. The result is an <em>interval Markov decision process</em>, a finite model that is guaranteed to contain the behaviour of the real system. An algorithm called interval iteration then computes lower and upper bounds on the probability of satisfying the specification, together with a controller that achieves the lower bound.</p>
+          <figure class="research-figure">
+            <img src="/wp-content/uploads/2024/02/fig.png" alt="IMPaCT reach-while-avoid result: a stochastic trajectory in the x1-x2 state space skirting the red avoid region and reaching the green target set" width="1120" height="840" loading="lazy">
+            <figcaption>A controller synthesised with IMPaCT steers a noisy system to the green target while avoiding the red region.</figcaption>
+          </figure>
+          <p>Abstraction handles rich specifications such as safety, reachability and reach-while-avoid, but the number of cells grows exponentially with the dimension of the system. <a href="/software-tools/impact-software-tool/">IMPaCT</a> tackles this by building the abstraction in parallel on CPUs and GPUs [<a href="#stochastic-systems-ref-1">1</a>]. Abstractions can also be learned from data, with a quantified error, using Gaussian processes [<a href="#stochastic-systems-ref-2">2</a>].</p>
+          <h3>Barrier certificates: PRoTECT</h3>
+          <p>The second approach avoids the grid altogether. A <em>barrier certificate</em> is a function over the state space that is low on the initial states, high on the unsafe states, and does not grow too quickly in expectation as the system evolves. Finding such a function proves an upper bound on the probability of ever reaching the unsafe states within a time horizon, without simulating a single run. For polynomial systems, the search for a barrier certificate becomes a sum-of-squares optimisation problem.</p>
+          <figure class="research-figure">
+            <img src="/wp-content/uploads/2024/06/JetEngine.png" alt="PRoTECT jet-engine case study: barrier-certificate level sets separating trajectories starting in the initial set from the unsafe region" width="747" height="560" loading="lazy">
+            <figcaption>Level sets of a barrier certificate found by PRoTECT for a jet engine model, separating the initial states from the unsafe region.</figcaption>
+          </figure>
+          <p><a href="/software-tools/protect-software-tool/">PRoTECT</a> searches over several polynomial degrees in parallel and covers discrete- and continuous-time systems, both stochastic and deterministic [<a href="#stochastic-systems-ref-3">3</a>]. Barrier certificates scale better with dimension than a grid, at the cost of more conservative probability bounds and a focus on safety. Both tools take part in the stochastic category of the ARCH-COMP verification competition [<a href="#stochastic-systems-ref-4">4</a>].</p>
+          </div>
+          <p class="research-tools"><strong>Tools:</strong> <a href="/software-tools/impact-software-tool/">IMPaCT</a>, <a href="/software-tools/protect-software-tool/">PRoTECT</a></p>
+          <h3 class="research-refs-title">Papers</h3>
+          <ol class="research-refs">
+            <li id="stochastic-systems-ref-1">
+              <a class="research-ref-title" href="/publications/#impact2024">IMPaCT: Interval MDP Parallel Construction for Controller Synthesis of Large-Scale Stochastic Systems</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong>, Abolfazl Lavaei</span>
+              <span class="research-ref-venue">Quantitative Evaluation of Systems and Formal Modeling and Analysis of Timed Systems (QEST+FORMATS), 2024</span>
+            </li>
+            <li id="stochastic-systems-ref-2">
+              <a class="research-ref-title" href="/publications/#bintreegp2024">Data-Driven Abstractions via Binary-Tree Gaussian Processes for Formal Verification</a>
+              <span class="research-ref-authors">Oliver Schön, Shammakh Naseer, <strong>Ben Wooding</strong>, Sadegh Soudjani</span>
+              <span class="research-ref-venue">Analysis and Design of Hybrid Systems (ADHS), 2024</span>
+            </li>
+            <li id="stochastic-systems-ref-3">
+              <a class="research-ref-title" href="/publications/#protect2025">PRoTECT: Parallelized Construction of Safety Barrier Certificates for Nonlinear Polynomial Systems</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong>, Viacheslav Horbanov, Abolfazl Lavaei</span>
+              <span class="research-ref-venue">International Colloquium on Theoretical Aspects of Computing (ICTAC), 2025 <span class="accent"><strong>[2<sup>nd</sup> place &mdash; ARCH 2025 Best Result Award]</strong></span></span>
+            </li>
+            <li id="stochastic-systems-ref-4">
+              <a class="research-ref-title" href="/publications/#archcomp25_stochastic">ARCH-COMP25 Category Report: Stochastic Models</a>
+              <span class="research-ref-authors">Alessandro Abate, Omid Akbarzadeh, Henk A. P. Blom, Sofie Haesaert, Sina Hassani, Abolfazl Lavaei, Frederik Baymler Mathiesen, Rahul Misra, Amy Nejati, Mathis Niehage, Fie Ørum, Anne Remke, Behrad Samari, Ruohan Wang, Rafael Wisniewski, <strong>Ben Wooding</strong>, Mahdieh Zaker</span>
+              <span class="research-ref-venue">12th International Workshop on Applied Verification of Continuous and Hybrid Systems (ARCH25), 2025 <strong><em>(authors alphabetical)</em></strong></span>
+            </li>
+          </ol>
+        </section>
+  
+        <section class="research-panel" id="safe-autonomy-and-robotics" role="tabpanel" aria-labelledby="tab-safe-autonomy-and-robotics" tabindex="0">
+          <h2>Safe autonomy and robotics</h2>
+          <p class="research-summary">Bringing formal guarantees onto real robots: certified drone flight and verified robot decision-making.</p>
+          <div class="prose">
+            <h3>Certified flight through a doorway</h3>
+          <p>A control barrier function acts as a safety filter: it watches the commands sent to a robot and changes them only when needed to keep the robot inside a certified safe set. In a cluttered indoor space, a single barrier function that covers two rooms joined by a narrow doorway is either far too cautious or impossible to find.</p>
+          <p>Our approach instead uses a <em>union</em> of many small neural control barrier functions, each one verified, and certifies which handovers between them are safe. A mission is then a path through these certified pieces. On hardware, a drone flew through our lab and its doorway with every logged state inside the certified safe set [<a href="#safe-autonomy-and-robotics-ref-1">1</a>].</p>
+          <figure class="research-figure research-video-placeholder">
+            <div class="research-video-box">Drone video goes here</div>
+            <figcaption>A drone flies through the doorway of our lab under the certified safety filter.</figcaption>
+          </figure>
+          <h3>Verifying behaviour trees</h3>
+          <p>Behaviour trees are a popular way to program what a robot does. Small actions and conditions are arranged in a tree, and sequence and fallback nodes decide which one runs next. Trees are easy to build and reuse, but mistakes can hide in how the pieces interact, for example a fallback that is never reached or two branches that fight over the same actuator.</p>
+          <figure class="research-figure">
+            <svg class="rfig rfig-bt" viewBox="0 0 520 250" role="img" aria-labelledby="btfig-title btfig-desc">
+              <title id="btfig-title">A small behaviour tree</title>
+              <desc id="btfig-desc">A fallback node at the root tries a sequence first: if the battery is low, return to base. If that sequence fails because the battery is fine, the fallback moves on to the patrol action.</desc>
+              <g class="rfig-bt-edges">
+                <path d="M280 62 L160 112 M280 62 L430 112 M160 148 L85 192 M160 148 L235 192"/>
+              </g>
+              <rect x="250" y="26" width="60" height="36" rx="6" class="rfig-bt-ctrl"/>
+              <text x="280" y="50" class="rfig-label" text-anchor="middle">?</text>
+              <rect x="130" y="112" width="60" height="36" rx="6" class="rfig-bt-ctrl"/>
+              <text x="160" y="136" class="rfig-label" text-anchor="middle">&#8594;</text>
+              <rect x="370" y="112" width="120" height="36" rx="18" class="rfig-bt-act"/>
+              <text x="430" y="135" class="rfig-label" text-anchor="middle">Patrol</text>
+              <rect x="20" y="192" width="130" height="36" rx="4" class="rfig-bt-cond"/>
+              <text x="85" y="215" class="rfig-label" text-anchor="middle">Battery low?</text>
+              <rect x="170" y="192" width="130" height="36" rx="18" class="rfig-bt-act"/>
+              <text x="235" y="215" class="rfig-label" text-anchor="middle">Return to base</text>
+            </svg>
+            <figcaption>A behaviour tree that returns to base when the battery is low and patrols otherwise. The fallback node (?) tries its children in order until one succeeds; the sequence node (&#8594;) succeeds only if all of its children do.</figcaption>
+          </figure>
+          <p><a href="/software-tools/behaverify-software-tool/">BehaVerify</a> translates a behaviour tree into a model that a model checker can explore exhaustively, so properties such as &ldquo;the robot always returns to base when the battery is low&rdquo; are proved for every possible run. Decisions made by neural networks can be included, and the same specification generates the code that runs on the robot, so the verified model and the deployed behaviour cannot drift apart [<a href="#safe-autonomy-and-robotics-ref-2">2</a>]. We are now extending this to teams of robots whose trees must be composed safely [<a href="#safe-autonomy-and-robotics-ref-3">3</a>].</p>
+          <h3>Safety under physical constraints</h3>
+          <p>Robot arms and many physical systems are described by equations with algebraic constraints, such as links that must stay connected. I helped develop the first method to synthesise control barrier functions for these systems, demonstrated on a three-link manipulator [<a href="#safe-autonomy-and-robotics-ref-4">4</a>].</p>
+          </div>
+          <p class="research-tools"><strong>Tools:</strong> <a href="/software-tools/behaverify-software-tool/">BehaVerify</a></p>
+          <h3 class="research-refs-title">Papers</h3>
+          <ol class="research-refs">
+            <li id="safe-autonomy-and-robotics-ref-1">
+              <a class="research-ref-title" href="/publications/#safeflight2026">Safe Flight in Cluttered Indoor Environments: A Verified Union of Neural Control Barrier Functions</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong>, Hongchao Zhang, Taylor T. Johnson</span>
+              <span class="research-ref-venue">Under submission, 2026</span>
+            </li>
+            <li id="safe-autonomy-and-robotics-ref-2">
+              <a class="research-ref-title" href="/publications/#behaverify2026">BehaVerify: A Formal Verification Tool for Behavior Trees</a>
+              <span class="research-ref-authors">Serena S. Serbinowska, <strong>Ben Wooding</strong>, Diego Manzanas Lopez, Luke Nam, Anne M. Tumlin, Nicholas K. Potteiger, Hongchao Zhang, Taylor T. Johnson</span>
+              <span class="research-ref-venue">8th International Workshop on Formal Methods for Autonomous Systems (FMAS), 2026 <strong><em>(to appear)</em></strong></span>
+            </li>
+            <li id="safe-autonomy-and-robotics-ref-3">
+              <a class="research-ref-title" href="/publications/#multiagentbt2026">Composing Multi-Agent Behavior Trees</a>
+              <span class="research-ref-authors">Jamie Fong, <strong>Ben Wooding</strong>, Taylor T. Johnson</span>
+              <span class="research-ref-venue">Under submission, 2026</span>
+            </li>
+            <li id="safe-autonomy-and-robotics-ref-4">
+              <a class="research-ref-title" href="/publications/#daecbf2026">Control Barrier Function Synthesis for Differential-Algebraic Systems</a>
+              <span class="research-ref-authors">Hongchao Zhang, Mohamad H. Kazma, <strong>Ben Wooding</strong>, Meiyi Ma, Taylor T. Johnson, Ahmad F. Taha</span>
+              <span class="research-ref-venue">IEEE Conference on Decision and Control (CDC), 2026 <strong><em>(to appear)</em></strong></span>
+            </li>
+          </ol>
+        </section>
+  
       </div>
   
       <p class="research-more">All papers, with PDFs, are on the <a href="/publications/">Publications</a> page.</p>

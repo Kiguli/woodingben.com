@@ -1,75 +1,60 @@
-/* Research page slider. Tabs and arrows scroll the track to a slide, the
-   active tab follows the visible slide (including swipes), the track height
-   fits that slide, and the URL hash names the current theme. */
+/* Research page tabs. Shows one topic panel at a time, keeps the URL hash in
+   step so each topic can be linked to, and follows the WAI-ARIA tabs pattern
+   for the keyboard (arrow keys, Home, End). */
 (function () {
   "use strict";
-  var root = document.querySelector("[data-slider]");
+  var root = document.querySelector("[data-tabs]");
   if (!root) return;
-  var track = root.querySelector("[data-track]");
-  var slides = Array.prototype.slice.call(track.querySelectorAll(".research-slide"));
   var tabs = Array.prototype.slice.call(root.querySelectorAll(".research-tab"));
-  var controls = root.querySelector("[data-controls]");
-  var prev = root.querySelector("[data-prev]");
-  var next = root.querySelector("[data-next]");
-  var count = root.querySelector("[data-count]");
+  var panels = tabs.map(function (tab) {
+    return document.getElementById(tab.getAttribute("aria-controls"));
+  });
   var current = -1;
 
-  function fitHeight() {
-    if (current >= 0) track.style.height = slides[current].offsetHeight + "px";
-  }
-
-  function setActive(i, quiet) {
-    if (i === current) return;
+  function select(i, opts) {
+    opts = opts || {};
     current = i;
     tabs.forEach(function (tab, j) {
       tab.setAttribute("aria-selected", j === i ? "true" : "false");
       tab.tabIndex = j === i ? 0 : -1;
     });
-    slides.forEach(function (slide, j) { slide.inert = j !== i; });
-    prev.disabled = i === 0;
-    next.disabled = i === slides.length - 1;
-    count.textContent = (i + 1) + " / " + slides.length;
-    fitHeight();
-    if (!quiet && history.replaceState) history.replaceState(null, "", "#" + slides[i].id);
+    panels.forEach(function (panel, j) { panel.hidden = j !== i; });
+    if (opts.focus) tabs[i].focus();
+    if (opts.hash && history.replaceState) {
+      history.replaceState(null, "", "#" + panels[i].id);
+    }
   }
 
-  function go(i, focusTab, quiet) {
-    i = Math.max(0, Math.min(slides.length - 1, i));
-    track.scrollTo({ left: slides[i].offsetLeft - track.offsetLeft - track.clientLeft });
-    setActive(i, quiet);
-    if (focusTab) tabs[i].focus();
+  // Which panel holds an element id (a topic or one of its citations)?
+  function panelFor(id) {
+    var el = id && document.getElementById(id);
+    if (!el) return -1;
+    for (var i = 0; i < panels.length; i++) {
+      if (panels[i] === el || panels[i].contains(el)) return i;
+    }
+    return -1;
   }
 
   tabs.forEach(function (tab, i) {
-    tab.addEventListener("click", function (e) { e.preventDefault(); go(i); });
+    tab.addEventListener("click", function (e) {
+      e.preventDefault();
+      select(i, { hash: true });
+    });
     tab.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowRight") { e.preventDefault(); go(i + 1, true); }
-      else if (e.key === "ArrowLeft") { e.preventDefault(); go(i - 1, true); }
-      else if (e.key === "Home") { e.preventDefault(); go(0, true); }
-      else if (e.key === "End") { e.preventDefault(); go(slides.length - 1, true); }
+      var n = tabs.length, to = null;
+      if (e.key === "ArrowRight") to = (i + 1) % n;
+      else if (e.key === "ArrowLeft") to = (i - 1 + n) % n;
+      else if (e.key === "Home") to = 0;
+      else if (e.key === "End") to = n - 1;
+      if (to === null) return;
+      e.preventDefault();
+      select(to, { focus: true, hash: true });
     });
   });
-  prev.addEventListener("click", function () { go(current - 1); });
-  next.addEventListener("click", function () { go(current + 1); });
 
-  // Follow swipes and trackpad scrolls.
-  var timer;
-  track.addEventListener("scroll", function () {
-    clearTimeout(timer);
-    timer = setTimeout(function () {
-      setActive(Math.round(track.scrollLeft / track.clientWidth));
-    }, 80);
-  }, { passive: true });
-
-  window.addEventListener("resize", function () {
-    track.style.height = "";
-    go(current);
-    fitHeight();
-  });
-
-  // Citation links inside a slide jump to that slide's paper list.
-  track.addEventListener("click", function (e) {
-    var a = e.target.closest('a[href^="#"]');
+  // Citation numbers jump to the paper in the same panel.
+  root.addEventListener("click", function (e) {
+    var a = e.target.closest('.research-panel a[href^="#"]');
     if (!a) return;
     var ref = document.getElementById(a.getAttribute("href").slice(1));
     if (!ref) return;
@@ -79,10 +64,12 @@
     ref.scrollIntoView({ block: "center" });
   });
 
-  controls.hidden = false;
-  var start = 0;
-  slides.forEach(function (s, i) { if ("#" + s.id === location.hash) start = i; });
-  track.style.scrollBehavior = "auto";
-  go(start, false, true);
-  track.style.scrollBehavior = "";
+  window.addEventListener("hashchange", function () {
+    var i = panelFor(location.hash.slice(1));
+    if (i >= 0 && i !== current) select(i);
+  });
+
+  root.classList.add("is-tabbed");
+  var start = panelFor(location.hash.slice(1));
+  select(start >= 0 ? start : 0);
 })();
