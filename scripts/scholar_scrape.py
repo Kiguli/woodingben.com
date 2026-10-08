@@ -260,7 +260,7 @@ def build_list_section(data):
     lines = [
         '    <section class="section" id="publications">',
         '      <div class="section-heading">',
-        "        <h2>Publications (Google Scholar)</h2>",
+        "        <h2>Publications</h2>",
         "      </div>",
         '      <div class="table-wrap">',
         "        <table>",
