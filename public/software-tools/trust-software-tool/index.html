@@ -5,7 +5,7 @@
        OG/Twitter, theme-color, stylesheet, JSON-LD. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TRUST Software Tool - Ben Wooding</title>
+  <title>TRUST: Data-Driven Controller Synthesis Tool - Ben Wooding</title>
   <meta name="description" content="The TRUST software tool is developed for data-driven controller synthesis. It considers dynamical systems with unknown mathematical models.">
   <link rel="canonical" href="https://woodingben.com/software-tools/trust-software-tool/">
   <link rel="alternate" type="application/rss+xml" title="Ben Wooding" href="https://woodingben.com/feed.xml">
@@ -16,7 +16,7 @@
   <!-- Open Graph / Twitter. og_site_name and locale are constant site-wide. -->
   <meta property="og:locale" content="en_GB">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="TRUST Software Tool - Ben Wooding">
+  <meta property="og:title" content="TRUST: Data-Driven Controller Synthesis Tool - Ben Wooding">
   <meta property="og:description" content="The TRUST software tool is developed for data-driven controller synthesis. It considers dynamical systems with unknown mathematical models.">
   <meta property="og:url" content="https://woodingben.com/software-tools/trust-software-tool/">
   <meta property="og:site_name" content="Ben Wooding">
@@ -36,52 +36,78 @@
   <link rel="stylesheet" href="/assets/style.css?v=d4c40c25eb">
 
   <script type="application/ld+json">{
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "SoftwareApplication",
-        "@id": "https://woodingben.com/software-tools/trust-software-tool/#software",
-        "name": "TRUST",
-        "url": "https://woodingben.com/software-tools/trust-software-tool/",
-        "applicationCategory": "DeveloperApplication",
-        "operatingSystem": "Web",
-        "description": "TRUST is an open-source software tool developed for data-driven controller synthesis. It considers dynamical systems with unknown mathematical models, ensuring either stability or safety properties, designing control Lyapunov functions (CLF) or control barrier certificates (CBC) from a single input-state trajectory.",
-        "image": "https://woodingben.com/wp-content/uploads/2025/03/ctNPS_predator_prey_new.png",
-        "codeRepository": "https://github.com/Kiguli/TRUST",
-        "installUrl": "https://trust.tgo.dev",
-        "author": {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://woodingben.com/software-tools/trust-software-tool/#software",
+      "name": "TRUST",
+      "alternateName": [
+        "TRUST: Stability and Safety Controller Synthesis for Unknown Dynamical Models Using a Single Trajectory"
+      ],
+      "description": "TRUST is an open-source software tool developed for data-driven controller synthesis. It considers dynamical systems with unknown mathematical models, ensuring either stability or safety properties, designing control Lyapunov functions (CLF) or control barrier certificates (CBC) from a single input-state trajectory.",
+      "url": "https://woodingben.com/software-tools/trust-software-tool/",
+      "image": "https://woodingben.com/wp-content/uploads/2025/03/ctNPS_predator_prey_new.png",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "programmingLanguage": "Python",
+      "isAccessibleForFree": true,
+      "codeRepository": "https://github.com/Kiguli/TRUST",
+      "sameAs": [
+        "https://github.com/Kiguli/TRUST",
+        "https://trust.tgo.dev/"
+      ],
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Jamie Gardner"
+        },
+        {
           "@type": "Person",
           "@id": "https://woodingben.com/#person",
           "name": "Ben Wooding",
           "url": "https://woodingben.com/"
         }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://woodingben.com/software-tools/trust-software-tool/#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://woodingben.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Software Tools",
-            "item": "https://woodingben.com/software-tools/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "TRUST Software Tool",
-            "item": "https://woodingben.com/software-tools/trust-software-tool/"
-          }
-        ]
+      ],
+      "installUrl": "https://trust.tgo.dev",
+      "subjectOf": {
+        "@type": "ScholarlyArticle",
+        "name": "TRUST: Stability and Safety Controller Synthesis for Unknown Dynamical Models Using a Single Trajectory",
+        "url": "https://doi.org/10.1145/3716863.3718036",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "DOI",
+          "value": "10.1145/3716863.3718036"
+        },
+        "sameAs": "https://arxiv.org/abs/2503.08081"
       }
-    ]
-  }</script>
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://woodingben.com/software-tools/trust-software-tool/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://woodingben.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Software Tools",
+          "item": "https://woodingben.com/software-tools/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "TRUST Software Tool",
+          "item": "https://woodingben.com/software-tools/trust-software-tool/"
+        }
+      ]
+    }
+  ]
+}</script>
 </head>
 <body class="tool-page">
   <!-- Skip link: first focusable element on every page. Target is <main id="main">. -->

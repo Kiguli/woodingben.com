@@ -5,7 +5,7 @@
        OG/Twitter, theme-color, stylesheet, JSON-LD. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BehaVerify Software Tool - Ben Wooding</title>
+  <title>BehaVerify: Behavior Tree Verification Tool - Ben Wooding</title>
   <meta name="description" content="BehaVerify compiles behavior trees into nuXmv models for CTL and LTL verification, and generates Python, C++ and Haskell implementations.">
   <link rel="canonical" href="https://woodingben.com/software-tools/behaverify-software-tool/">
   <link rel="alternate" type="application/rss+xml" title="Ben Wooding" href="https://woodingben.com/feed.xml">
@@ -16,7 +16,7 @@
   <!-- Open Graph / Twitter. og_site_name and locale are constant site-wide. -->
   <meta property="og:locale" content="en_GB">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="BehaVerify Software Tool - Ben Wooding">
+  <meta property="og:title" content="BehaVerify: Behavior Tree Verification Tool - Ben Wooding">
   <meta property="og:description" content="BehaVerify compiles behavior trees into nuXmv models for CTL and LTL verification, and generates Python, C++ and Haskell implementations.">
   <meta property="og:url" content="https://woodingben.com/software-tools/behaverify-software-tool/">
   <meta property="og:site_name" content="Ben Wooding">
@@ -36,51 +36,70 @@
   <link rel="stylesheet" href="/assets/style.css?v=d4c40c25eb">
 
   <script type="application/ld+json">{
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "SoftwareApplication",
-        "@id": "https://woodingben.com/software-tools/behaverify-software-tool/#software",
-        "name": "BehaVerify",
-        "url": "https://woodingben.com/software-tools/behaverify-software-tool/",
-        "applicationCategory": "DeveloperApplication",
-        "operatingSystem": "Windows, macOS, Linux",
-        "description": "BehaVerify turns behavior trees written in its own domain-specific language into nuXmv models so that invariant, CTL and LTL properties can be model-checked, and generates executable implementations in Python, C++ and Haskell along with LaTeX diagrams and runtime LTL monitors.",
-        "image": "https://woodingben.com/assets/img/behaverify-card.png",
-        "codeRepository": "https://github.com/verivital/behaverify",
-        "author": {
-          "@type": "Person",
-          "@id": "https://woodingben.com/#person",
-          "name": "Ben Wooding",
-          "url": "https://woodingben.com/"
-        }
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://woodingben.com/software-tools/behaverify-software-tool/#software",
+      "name": "BehaVerify",
+      "alternateName": [
+        "BehaVerify: A Formal Verification Tool for Behavior Trees"
+      ],
+      "description": "BehaVerify turns behavior trees written in its own domain-specific language into nuXmv models so that invariant, CTL and LTL properties can be model-checked, and generates executable implementations in Python, C++ and Haskell along with LaTeX diagrams and runtime LTL monitors.",
+      "url": "https://woodingben.com/software-tools/behaverify-software-tool/",
+      "image": "https://woodingben.com/assets/img/behaverify-card.png",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Windows, macOS, Linux",
+      "programmingLanguage": "Python",
+      "isAccessibleForFree": true,
+      "codeRepository": "https://github.com/verivital/behaverify",
+      "sameAs": [
+        "https://github.com/verivital/behaverify",
+        "https://verivital.github.io/behaverify/",
+        "https://pypi.org/project/behaverify/"
+      ],
+      "author": {
+        "@type": "Person",
+        "name": "Serena S. Serbinowska"
       },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://woodingben.com/software-tools/behaverify-software-tool/#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://woodingben.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Software Tools",
-            "item": "https://woodingben.com/software-tools/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "BehaVerify Software Tool",
-            "item": "https://woodingben.com/software-tools/behaverify-software-tool/"
-          }
-        ]
+      "contributor": {
+        "@type": "Person",
+        "@id": "https://woodingben.com/#person",
+        "name": "Ben Wooding",
+        "url": "https://woodingben.com/"
+      },
+      "sourceOrganization": {
+        "@type": "Organization",
+        "name": "VeriVITAL, Vanderbilt University",
+        "url": "https://www.verivital.com/"
       }
-    ]
-  }</script>
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://woodingben.com/software-tools/behaverify-software-tool/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://woodingben.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Software Tools",
+          "item": "https://woodingben.com/software-tools/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "BehaVerify Software Tool",
+          "item": "https://woodingben.com/software-tools/behaverify-software-tool/"
+        }
+      ]
+    }
+  ]
+}</script>
 </head>
 <body class="tool-page">
   <!-- Skip link: first focusable element on every page. Target is <main id="main">. -->

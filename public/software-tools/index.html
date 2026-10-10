@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Software Tools - Ben Wooding</title>
-  <meta name="description" content="Open-source verification tools: IMPaCT, PRoTECT and TRUST for stochastic systems and controller synthesis, plus NNV and n2v for neural networks.">
+  <title>Open-Source Formal Verification Tools - Ben Wooding</title>
+  <meta name="description" content="Open-source formal verification tools: IMPaCT, PRoTECT, Scen-Opt and TRUST, which I lead, and BehaVerify, n2v and NNV, which I contribute to.">
   <link rel="canonical" href="https://woodingben.com/software-tools/">
   <link rel="alternate" type="application/rss+xml" title="Ben Wooding" href="https://woodingben.com/feed.xml">
 
@@ -12,8 +12,8 @@
 
   <meta property="og:locale" content="en_GB">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Software Tools - Ben Wooding">
-  <meta property="og:description" content="Open-source verification tools: IMPaCT, PRoTECT and TRUST for stochastic systems and controller synthesis, plus NNV and n2v for neural networks.">
+  <meta property="og:title" content="Open-Source Formal Verification Tools - Ben Wooding">
+  <meta property="og:description" content="Open-source formal verification tools: IMPaCT, PRoTECT, Scen-Opt and TRUST, which I lead, and BehaVerify, n2v and NNV, which I contribute to.">
   <meta property="og:url" content="https://woodingben.com/software-tools/">
   <meta property="og:site_name" content="Ben Wooding">
   <meta property="og:image" content="https://woodingben.com/wp-content/uploads/2024/06/JetEngine.png">
@@ -30,80 +30,163 @@
   <link rel="stylesheet" href="/assets/style.css?v=d4c40c25eb">
 
   <script type="application/ld+json">{
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "CollectionPage",
-        "@id": "https://woodingben.com/software-tools/",
-        "url": "https://woodingben.com/software-tools/",
-        "name": "Software Tools - Ben Wooding",
-        "description": "Open-source verification tools: IMPaCT, PRoTECT and TRUST for stochastic systems and controller synthesis, plus NNV and n2v for neural networks.",
-        "inLanguage": "en-GB",
-        "isPartOf": {
-          "@type": "WebSite",
-          "@id": "https://woodingben.com/#website",
-          "url": "https://woodingben.com/",
-          "name": "Ben Wooding"
-        },
-        "primaryImageOfPage": {
-          "@type": "ImageObject",
-          "url": "https://woodingben.com/wp-content/uploads/2024/06/JetEngine.png",
-          "width": 747,
-          "height": 560
-        },
-        "breadcrumb": { "@id": "https://woodingben.com/software-tools/#breadcrumb" },
-        "hasPart": [
-          {
-            "@type": "WebPage",
-            "@id": "https://woodingben.com/software-tools/impact-software-tool/",
-            "url": "https://woodingben.com/software-tools/impact-software-tool/",
-            "name": "IMPaCT Software Tool"
-          },
-          {
-            "@type": "WebPage",
-            "@id": "https://woodingben.com/software-tools/protect-software-tool/",
-            "url": "https://woodingben.com/software-tools/protect-software-tool/",
-            "name": "PRoTECT Software Tool"
-          },
-          {
-            "@type": "WebPage",
-            "@id": "https://woodingben.com/software-tools/trust-software-tool/",
-            "url": "https://woodingben.com/software-tools/trust-software-tool/",
-            "name": "TRUST Software Tool"
-          },
-          {
-            "@type": "WebPage",
-            "@id": "https://woodingben.com/software-tools/nnv-software-tool/",
-            "url": "https://woodingben.com/software-tools/nnv-software-tool/",
-            "name": "NNV Software Tool"
-          },
-          {
-            "@type": "WebPage",
-            "@id": "https://woodingben.com/software-tools/n2v-software-tool/",
-            "url": "https://woodingben.com/software-tools/n2v-software-tool/",
-            "name": "n2v Software Tool"
-          }
-        ]
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://woodingben.com/software-tools/",
+      "url": "https://woodingben.com/software-tools/",
+      "name": "Open-Source Formal Verification Tools - Ben Wooding",
+      "description": "Open-source formal verification tools: IMPaCT, PRoTECT, Scen-Opt and TRUST, which I lead, and BehaVerify, n2v and NNV, which I contribute to.",
+      "inLanguage": "en-GB",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://woodingben.com/#website",
+        "url": "https://woodingben.com/",
+        "name": "Ben Wooding"
       },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://woodingben.com/software-tools/#breadcrumb",
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://woodingben.com/wp-content/uploads/2024/06/JetEngine.png",
+        "width": 747,
+        "height": 560
+      },
+      "breadcrumb": {
+        "@id": "https://woodingben.com/software-tools/#breadcrumb"
+      },
+      "hasPart": [
+        {
+          "@type": "WebPage",
+          "@id": "https://woodingben.com/software-tools/impact-software-tool/",
+          "url": "https://woodingben.com/software-tools/impact-software-tool/",
+          "name": "IMPaCT"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://woodingben.com/software-tools/protect-software-tool/",
+          "url": "https://woodingben.com/software-tools/protect-software-tool/",
+          "name": "PRoTECT"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://woodingben.com/software-tools/scenopt-software-tool/",
+          "url": "https://woodingben.com/software-tools/scenopt-software-tool/",
+          "name": "Scen-Opt"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://woodingben.com/software-tools/trust-software-tool/",
+          "url": "https://woodingben.com/software-tools/trust-software-tool/",
+          "name": "TRUST"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://woodingben.com/software-tools/behaverify-software-tool/",
+          "url": "https://woodingben.com/software-tools/behaverify-software-tool/",
+          "name": "BehaVerify"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://woodingben.com/software-tools/n2v-software-tool/",
+          "url": "https://woodingben.com/software-tools/n2v-software-tool/",
+          "name": "n2v"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://woodingben.com/software-tools/nnv-software-tool/",
+          "url": "https://woodingben.com/software-tools/nnv-software-tool/",
+          "name": "NNV"
+        }
+      ],
+      "mainEntity": {
+        "@type": "ItemList",
+        "numberOfItems": 7,
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
-            "name": "Home",
-            "item": "https://woodingben.com/"
+            "name": "IMPaCT",
+            "url": "https://woodingben.com/software-tools/impact-software-tool/",
+            "item": {
+              "@id": "https://woodingben.com/software-tools/impact-software-tool/#software"
+            }
           },
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Software Tools"
+            "name": "PRoTECT",
+            "url": "https://woodingben.com/software-tools/protect-software-tool/",
+            "item": {
+              "@id": "https://woodingben.com/software-tools/protect-software-tool/#software"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Scen-Opt",
+            "url": "https://woodingben.com/software-tools/scenopt-software-tool/",
+            "item": {
+              "@id": "https://woodingben.com/software-tools/scenopt-software-tool/#software"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "TRUST",
+            "url": "https://woodingben.com/software-tools/trust-software-tool/",
+            "item": {
+              "@id": "https://woodingben.com/software-tools/trust-software-tool/#software"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "BehaVerify",
+            "url": "https://woodingben.com/software-tools/behaverify-software-tool/",
+            "item": {
+              "@id": "https://woodingben.com/software-tools/behaverify-software-tool/#software"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "name": "n2v",
+            "url": "https://woodingben.com/software-tools/n2v-software-tool/",
+            "item": {
+              "@id": "https://woodingben.com/software-tools/n2v-software-tool/#software"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "name": "NNV",
+            "url": "https://woodingben.com/software-tools/nnv-software-tool/",
+            "item": {
+              "@id": "https://woodingben.com/software-tools/nnv-software-tool/#software"
+            }
           }
         ]
       }
-    ]
-  }</script>
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://woodingben.com/software-tools/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://woodingben.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Software Tools"
+        }
+      ]
+    }
+  ]
+}</script>
 </head>
 <body class="index-page">
   <a class="skip-link" href="#main">Skip to content</a>
