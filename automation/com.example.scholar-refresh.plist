@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  TEMPLATE launchd agent for scholar-refresh.sh. Replace every ALL-CAPS
+  placeholder, rename the file to match your Label, and install it with the
+  steps in README.md.
+
+  Keep every path below OUTSIDE ~/Documents, ~/Desktop and ~/Downloads:
+  macOS privacy protection blocks launchd jobs from those folders, and the
+  job then fails with "Operation not permitted".
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.YOURNAME.scholar-refresh</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/YOUR_USERNAME/Library/Application Support/scholar-refresh/scholar-refresh.sh</string>
+  </array>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>SITE_REPO_URL</key>
+    <string>https://github.com/YOUR_GITHUB_USER/YOUR_SITE_REPO.git</string>
+    <key>WORK_DIR</key>
+    <string>/Users/YOUR_USERNAME/Library/Application Support/scholar-refresh</string>
+    <!-- An interpreter with `requests` and `beautifulsoup4` installed.
+         launchd does not see your shell PATH, so give an absolute path. -->
+    <key>PYTHON</key>
+    <string>/ABSOLUTE/PATH/TO/python3</string>
+    <key>GIT</key>
+    <string>/ABSOLUTE/PATH/TO/git</string>
+    <key>PATH</key>
+    <string>/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin</string>
+  </dict>
+
+  <!-- Twice a day. If the Mac is asleep at a scheduled time the job runs
+       when it wakes; if it is shut down, that slot is skipped. -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>15</integer></dict>
+    <dict><key>Hour</key><integer>21</integer><key>Minute</key><integer>15</integer></dict>
+  </array>
+
+  <key>StandardOutPath</key>
+  <string>/Users/YOUR_USERNAME/Library/Logs/scholar-refresh.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/YOUR_USERNAME/Library/Logs/scholar-refresh.log</string>
+
+  <key>ProcessType</key>
+  <string>Background</string>
+  <key>LowPriorityIO</key>
+  <true/>
+</dict>
+</plist>
