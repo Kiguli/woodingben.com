@@ -1,0 +1,159 @@
+/* Research page: one tab per topic. Without JS every panel shows in turn and
+   the tabs are in-page links; research.js hides the inactive panels and adds
+   keyboard support. Colours come from the tokens in style.css. */
+.research-tabset { margin-top: var(--s-6); }
+
+.research-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-2);
+}
+@media (min-width: 48em) {
+  .research-tabs {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    border-bottom: 1px solid var(--border-strong);
+  }
+}
+.research-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: var(--s-2) var(--s-3);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  color: var(--text);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1.3;
+}
+.research-tab:hover { color: var(--accent); }
+.research-tab[aria-selected="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+@media (min-width: 48em) {
+  .research-tab {
+    margin-bottom: -1px;
+    border-color: transparent;
+    border-bottom: 3px solid transparent;
+    border-radius: var(--radius) var(--radius) 0 0;
+    background: transparent;
+    padding: var(--s-3) var(--s-3);
+  }
+  .research-tab[aria-selected="true"] {
+    background: var(--card-bg);
+    border-color: var(--border-strong) var(--border-strong) var(--card-bg);
+    border-bottom: 3px solid var(--accent);
+    color: var(--accent);
+  }
+}
+
+.research-panel {
+  margin-top: var(--s-4);
+  padding: var(--s-5);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+}
+.research-panel[hidden] { display: none; }
+.research-panel:focus { outline: none; }
+.research-panel:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (min-width: 48em) {
+  .research-panel {
+    margin-top: 0;
+    padding: var(--s-6) var(--s-7);
+    border-top: 0;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  }
+  /* Without JS the panels stack; give each its own top edge. */
+  .research-tabset:not(.is-tabbed) .research-panel {
+    margin-top: var(--s-5);
+    border-top: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
+}
+.research-panel h2 { margin: 0; }
+.research-summary { margin: var(--s-2) 0 var(--s-5); color: var(--muted); font-size: 1.05rem; }
+.research-panel .prose { max-width: none; }
+.research-panel .prose h3 { margin-top: var(--s-6); }
+.research-tools { margin-top: var(--s-5); }
+
+.research-figure { margin: var(--s-5) 0; }
+.research-figure img,
+.research-figure svg { display: block; width: 100%; height: auto; max-width: 40rem; margin-inline: auto; }
+.research-figure img { border-radius: var(--radius); background: var(--media-bg); }
+.research-figure figcaption {
+  max-width: 40rem;
+  margin: var(--s-2) auto 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Set-propagation diagram (inline SVG) */
+.rfig-label { fill: var(--text); font: 600 15px var(--font-sans); }
+.rfig-small { fill: var(--warn); font: 600 13px var(--font-sans); }
+.rfig-ink { stroke: var(--muted); stroke-width: 2; fill: none; }
+.rfig-ink-fill { fill: var(--muted); }
+.rfig-input { fill: var(--accent-tint); stroke: var(--accent); stroke-width: 2; }
+.rfig-edges path { stroke: var(--border-strong); stroke-width: 1.2; fill: none; }
+.rfig-nodes circle { fill: var(--card-bg); stroke: var(--accent); stroke-width: 2; }
+.rfig-frame { fill: none; stroke: var(--border-strong); stroke-width: 1.5; }
+.rfig-unsafe { fill: var(--warn-tint); stroke: var(--warn); stroke-width: 1.5; }
+.rfig-over { fill: none; stroke: var(--text); stroke-width: 2; stroke-dasharray: 6 5; }
+.rfig-exact { fill: var(--accent); fill-opacity: 0.55; stroke: var(--accent); stroke-width: 1.5; }
+.rfig-key { display: inline-flex; align-items: center; gap: var(--s-2); margin: 0 var(--s-3); white-space: nowrap; }
+.rfig-swatch { display: inline-block; width: 1.1em; height: 0.8em; border-radius: 2px; }
+.rfig-swatch-exact { background: var(--accent); opacity: 0.7; }
+.rfig-swatch-over { border: 2px dashed var(--text); }
+.rfig-swatch-unsafe { background: var(--warn-tint); border: 1px solid var(--warn); }
+@media (max-width: 30em) { .rfig-key { display: flex; margin: var(--s-1) 0; white-space: normal; } }
+
+.research-compare th[scope="row"] { white-space: nowrap; }
+
+.research-video video { display: block; width: 100%; max-width: 40rem; margin-inline: auto; border-radius: var(--radius); background: #000; }
+.research-video-box {
+  display: grid;
+  place-items: center;
+  max-width: 40rem;
+  aspect-ratio: 16 / 9;
+  margin-inline: auto;
+  border: 2px dashed var(--border-strong);
+  border-radius: var(--radius);
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.research-refs-title {
+  margin: var(--s-6) 0 var(--s-3);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--border);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.research-refs { margin: 0; padding-left: 1.75em; display: grid; gap: var(--s-3); }
+.research-refs li { padding-left: var(--s-1); }
+.research-refs li::marker { color: var(--muted); font-weight: 600; }
+.research-refs li:target,
+.research-refs li:focus { background: var(--accent-tint); border-radius: var(--radius); outline: none; }
+.research-ref-title { display: block; font-weight: 600; text-decoration: none; }
+.research-ref-title:hover { text-decoration: underline; }
+.research-ref-authors, .research-ref-venue { display: block; font-size: 0.9rem; color: var(--muted); }
+
+.research-more { margin-top: var(--s-6); color: var(--muted); }
+
+/* Behaviour-tree diagram (inline SVG) */
+.rfig-note { fill: var(--muted); font: 13px var(--font-sans); }
+.rfig-bt-edges path { stroke: var(--border-strong); stroke-width: 2; fill: none; }
+.rfig-bt-ctrl { fill: var(--accent); }
+.rfig-bt-ctrl + .rfig-label { fill: var(--on-accent); font-size: 20px; }
+.rfig-bt-act { fill: var(--accent-tint); stroke: var(--accent); stroke-width: 2; }
+.rfig-bt-cond { fill: var(--warn-tint); stroke: var(--warn); stroke-width: 2; }
