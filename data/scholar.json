@@ -3,17 +3,26 @@
   "profile_name": "Ben Wooding",
   "affiliation": "Postdoc @ Vanderbilt University",
   "profile_url": "https://scholar.google.com/citations?user=YhOmz1kAAAAJ&hl=en",
-  "fetched_at": "2026-10-09T00:42:24Z",
+  "fetched_at": "2026-10-10T03:53:27Z",
   "stats": {
-    "citations_all": 254,
-    "citations_recent": 244,
+    "citations_all": 257,
+    "citations_recent": 247,
     "h_index_all": 10,
     "h_index_recent": 9,
     "i10_index_all": 10,
     "i10_index_recent": 9
   },
-  "publication_count": 32,
+  "publication_count": 34,
   "publications": [
+    {
+      "title": "n2v: Neural Network Verification in Python (Competition Contribution)",
+      "authors": "S Sasaki, B Wooding, HD Wang, AM Tumlin, M Ma, TT Johnson",
+      "venue": "International Symposium on AI Verification, 394-400, 2026",
+      "year": 2026,
+      "citations": 3,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:4DMP91E08xMC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9865162507003165537,15047897776223211507,10389833611846899187"
+    },
     {
       "title": "ARCH-COMP26 Category Report: Continuous and Hybrid Systems with Nonlinear Dynamics",
       "authors": "L Geretti, JAD Sandretto, M Althoff, L Benet, P Collins, M Forets, S Mitsch, ...",
@@ -31,15 +40,6 @@
       "citations": 1,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:4TOpqqG69KYC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14589182136132336012"
-    },
-    {
-      "title": "n2v: Neural Network Verification in Python (Competition Contribution)",
-      "authors": "S Sasaki, B Wooding, HD Wang, AM Tumlin, M Ma, TT Johnson",
-      "venue": "International Symposium on AI Verification, 394-400, 2026",
-      "year": 2026,
-      "citations": 1,
-      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:4DMP91E08xMC",
-      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9865162507003165537,15047897776223211507,10389833611846899187"
     },
     {
       "title": "Reachability-Based Formal Verification of Graph Neural Networks with Node and Edge Features",
@@ -172,7 +172,7 @@
       "authors": "M Kazemi*, R Majumdar, M Salamati*, S Soudjani, B Wooding*",
       "venue": "Nonlinear Analysis: Hybrid Systems 52, 2024",
       "year": 2024,
-      "citations": 56,
+      "citations": 57,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:qjMakFHDy7sC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3616013809379938042,4741884557224910029"
     },
@@ -301,6 +301,24 @@
       "citations": 7,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:2osOgNQ5qMEC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2442900944716433375"
+    },
+    {
+      "title": "Benchmark: Formal Verification for Surgical Robots",
+      "authors": "J Fong, B Wooding, JY Wu, TT Johnson",
+      "venue": "",
+      "year": null,
+      "citations": 0,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:TQgYirikUcIC",
+      "cluster_link": null
+    },
+    {
+      "title": "Composing Multi-Agent Behavior Trees",
+      "authors": "J Fong, B Wooding, TT Johnson",
+      "venue": "",
+      "year": null,
+      "citations": 0,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:HDshCWvjkbEC",
+      "cluster_link": null
     }
   ]
 }
