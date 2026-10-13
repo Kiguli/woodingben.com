@@ -3,10 +3,10 @@
   "profile_name": "Ben Wooding",
   "affiliation": "Postdoc @ Vanderbilt University",
   "profile_url": "https://scholar.google.com/citations?user=YhOmz1kAAAAJ&hl=en",
-  "fetched_at": "2026-10-13T12:06:52Z",
+  "fetched_at": "2026-10-13T21:23:33Z",
   "stats": {
-    "citations_all": 258,
-    "citations_recent": 248,
+    "citations_all": 259,
+    "citations_recent": 249,
     "h_index_all": 10,
     "h_index_recent": 9,
     "i10_index_all": 10,
@@ -49,6 +49,15 @@
       "citations": 1,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:QIV2ME_5wuYC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2039509861699717139,632856019504143076"
+    },
+    {
+      "title": "Safe Control of Semi-Explicit Differential-Algebraic Systems: Control Barrier Functions with SOS Verification",
+      "authors": "MH Kazma, H Zhang, AA Albustami, B Wooding, M Ma, TT Johnson, ...",
+      "venue": "accepted to 65th IEEE Conference on Decision and Control (CDC), 2026",
+      "year": 2026,
+      "citations": 1,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:hFOr9nPyWt4C",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1490938583241706698"
     },
     {
       "title": "A Self-correcting Neuro-symbolic AI Reasoning Framework",
@@ -102,15 +111,6 @@
       "year": 2026,
       "citations": 0,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:mB3voiENLucC",
-      "cluster_link": null
-    },
-    {
-      "title": "Safe Control of Semi-Explicit Differential-Algebraic Systems: Control Barrier Functions with SOS Verification",
-      "authors": "MH Kazma, H Zhang, AA Albustami, B Wooding, M Ma, TT Johnson, ...",
-      "venue": "accepted to 65th IEEE Conference on Decision and Control (CDC), 2026",
-      "year": 2026,
-      "citations": 0,
-      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:hFOr9nPyWt4C",
       "cluster_link": null
     },
     {
