@@ -235,7 +235,7 @@
             "Samuel Sasaki",
             "Taylor T. Johnson"
           ],
-          "venue": "9th International Symposium on AI Verification (SAIV)",
+          "venue": "3rd International Symposium on AI Verification (SAIV)",
           "year": 2026,
           "doi": "10.1007/978-3-032-32357-6_8",
           "url": null,
@@ -257,7 +257,7 @@
             "Tyler Derr",
             "Taylor T. Johnson"
           ],
-          "venue": "9th International Symposium on AI Verification (SAIV)",
+          "venue": "3rd International Symposium on AI Verification (SAIV)",
           "year": 2026,
           "doi": "10.1007/978-3-032-32357-6_13",
           "url": null,
@@ -278,7 +278,7 @@
             "Hongchao Zhang",
             "Taylor T. Johnson"
           ],
-          "venue": "9th International Symposium on AI Verification (SAIV)",
+          "venue": "3rd International Symposium on AI Verification (SAIV)",
           "year": 2026,
           "doi": "10.1007/978-3-032-32357-6_9",
           "url": null,
@@ -442,7 +442,7 @@
           "arxiv": null,
           "status": "published",
           "mentee_coauthored": false,
-          "addendum_html": null,
+          "addendum_html": "<strong><em>(invited session)</em></strong>",
           "equal_contrib": []
         },
         {
@@ -657,7 +657,7 @@
             "Meiyi Ma",
             "Taylor T. Johnson"
           ],
-          "venue": "9th International Symposium on AI Verification (SAIV)",
+          "venue": "3rd International Symposium on AI Verification (SAIV)",
           "year": 2026,
           "doi": "10.1007/978-3-032-32357-6_21",
           "url": null,
