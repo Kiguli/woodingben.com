@@ -3,10 +3,10 @@
   "profile_name": "Ben Wooding",
   "affiliation": "Postdoc @ Vanderbilt University",
   "profile_url": "https://scholar.google.com/citations?user=YhOmz1kAAAAJ&hl=en",
-  "fetched_at": "2026-10-14T09:41:36Z",
+  "fetched_at": "2026-10-17T08:45:53Z",
   "stats": {
-    "citations_all": 259,
-    "citations_recent": 249,
+    "citations_all": 262,
+    "citations_recent": 252,
     "h_index_all": 10,
     "h_index_recent": 9,
     "i10_index_all": 10,
@@ -127,7 +127,7 @@
       "authors": "B Wooding, V Horbanov, A Lavaei",
       "venue": "International Colloquium on Theoretical Aspects of Computing, 448-458, 2025",
       "year": 2025,
-      "citations": 21,
+      "citations": 22,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:kNdYIx-mwKoC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3724216332491666368,17488075801860945513"
     },
@@ -136,7 +136,7 @@
       "authors": "A Abate, O Akbarzadeh, HAP Blom, S Haesaert, S Hassani, A Lavaei, ...",
       "venue": "12th International Workshop on Applied Verification for Continuous and …, 2025",
       "year": 2025,
-      "citations": 20,
+      "citations": 21,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:zYLM7Y9cAGgC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8451837719157046339,14619999915336356145"
     },
@@ -190,7 +190,7 @@
       "authors": "B Wooding, A Lavaei",
       "venue": "International Conference on Quantitative Evaluation of Systems and Formal …, 2024",
       "year": 2024,
-      "citations": 13,
+      "citations": 14,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:W7OEmFMy1HYC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11403074140355458095,16219661124919054845"
     },
