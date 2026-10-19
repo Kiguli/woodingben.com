@@ -88,6 +88,7 @@
 .research-figure img,
 .research-figure svg { display: block; width: 100%; height: auto; max-width: 40rem; margin-inline: auto; }
 .research-figure img { border-radius: var(--radius); background: var(--media-bg); }
+.research-figure-narrow img { max-width: 28rem; }
 .research-figure figcaption {
   max-width: 40rem;
   margin: var(--s-2) auto 0;
