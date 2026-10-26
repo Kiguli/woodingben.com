@@ -528,6 +528,24 @@
       "prefix": "J",
       "entries": [
         {
+          "bibkey": "robustsiminterconnected2026",
+          "number": 3,
+          "title": "Robust Simulation Functions for Interconnected Systems under Large Disturbances",
+          "authors": [
+            "Ben Wooding",
+            "Sadegh Soudjani"
+          ],
+          "venue": "IEEE Access",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": "<strong><em>(to appear)</em></strong>",
+          "equal_contrib": []
+        },
+        {
           "bibkey": "wrrf2025",
           "number": 2,
           "title": "A logic-based resilience metric for water resource recovery facilities",
@@ -933,24 +951,6 @@
           "equal_contrib": []
         },
         {
-          "bibkey": "robustsiminterconnected2026",
-          "number": 4,
-          "title": "Robust Simulation Functions for Interconnected Systems under Large Disturbances",
-          "authors": [
-            "Ben Wooding",
-            "Sadegh Soudjani"
-          ],
-          "venue": "submitted to IEEE Access",
-          "year": 2026,
-          "doi": null,
-          "url": null,
-          "arxiv": null,
-          "status": "preprint",
-          "mentee_coauthored": false,
-          "addendum_html": null,
-          "equal_contrib": []
-        },
-        {
           "bibkey": "inputagnostic2026",
           "number": 3,
           "title": "Input-Agnostic Probabilistic Neural Network Verification for Vision, Speech and Depth",
@@ -1025,25 +1025,6 @@
           "doi": null,
           "url": "https://arxiv.org/abs/2412.07232",
           "arxiv": "2412.07232",
-          "status": "preprint",
-          "mentee_coauthored": false,
-          "addendum_html": null,
-          "equal_contrib": []
-        },
-        {
-          "bibkey": "nets39bus2023",
-          "number": 1,
-          "title": "Formal Control of New England 39-Bus Test System: An Assume-Guarantee Approach",
-          "authors": [
-            "Ben Wooding",
-            "Abolfazl Lavaei",
-            "Sadegh Soudjani"
-          ],
-          "venue": "arXiv preprint",
-          "year": 2023,
-          "doi": null,
-          "url": "https://arxiv.org/abs/2307.03467",
-          "arxiv": "2307.03467",
           "status": "preprint",
           "mentee_coauthored": false,
           "addendum_html": null,
