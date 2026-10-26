@@ -72,8 +72,37 @@ def main() -> int:
                 block,
                 count=1,
             )
+            if not n and "https://doi.org/" not in block:
+                # No fallback link to swap (e.g. an author PDF only): add the
+                # DOI link after the existing links, as gen_pubs.py orders them.
+                doi_link = f'<a href="https://doi.org/{doi}">DOI</a>'
+                new_block, n = re.subn(
+                    r'(<p class="pub-meta">.*?)(</p>)',
+                    rf'\1 &middot; {doi_link}\2',
+                    block,
+                    count=1,
+                    flags=re.S,
+                )
+                if not n:
+                    new_block, n = re.subn(
+                        r'(( *)<p class="pub-venue">.*?</p>(\r?\n))',
+                        rf'\1\2<p class="pub-meta">{doi_link}</p>\3',
+                        block,
+                        count=1,
+                        flags=re.S,
+                    )
             if n:
                 page = page.replace(block, new_block, 1)
+        # Point the entry's JSON-LD at the DOI, as gen_pubs.py does for
+        # entries that already have one.
+        page = re.sub(
+            rf'("@id":"https://woodingben\.com/publications/#{re.escape(key)}".*?)'
+            r'"url":"[^"]*"',
+            lambda m: m.group(1) + f'"url":"https://doi.org/{doi}","identifier":'
+            f'{{"@type":"PropertyValue","propertyID":"DOI","value":"{doi}"}}',
+            page,
+            count=1,
+        )
         del pending[key]
         print(f"[activate_pending_dois] ACTIVATED {key} -> https://doi.org/{doi}")
 
