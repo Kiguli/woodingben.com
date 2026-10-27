@@ -3,16 +3,16 @@
   "profile_name": "Ben Wooding",
   "affiliation": "Postdoc @ Vanderbilt University",
   "profile_url": "https://scholar.google.com/citations?user=YhOmz1kAAAAJ&hl=en",
-  "fetched_at": "2026-10-25T22:50:37Z",
+  "fetched_at": "2026-10-27T18:02:57Z",
   "stats": {
-    "citations_all": 263,
-    "citations_recent": 253,
+    "citations_all": 264,
+    "citations_recent": 254,
     "h_index_all": 10,
     "h_index_recent": 9,
     "i10_index_all": 10,
     "i10_index_recent": 9
   },
-  "publication_count": 35,
+  "publication_count": 36,
   "publications": [
     {
       "title": "n2v: Neural Network Verification in Python (Competition Contribution)",
@@ -31,6 +31,15 @@
       "citations": 2,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:dhFuZR0502QC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2028491559157594490"
+    },
+    {
+      "title": "A Self-correcting Neuro-symbolic AI Reasoning Framework",
+      "authors": "B Wooding*, K Brennan*, AM Tumlin, H Zhang, TT Johnson",
+      "venue": "International Symposium on AI Verification, 191-211, 2026",
+      "year": 2026,
+      "citations": 1,
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:aqlVkmm33-oC",
+      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15735637184469434571,6804007210525191037"
     },
     {
       "title": "ARCH-COMP26 Category Report: Artificial Intelligence and Neural Network Control Systems (AINNCS) for Continuous and Hybrid Systems Plants",
@@ -60,12 +69,12 @@
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1490938583241706698"
     },
     {
-      "title": "A Self-correcting Neuro-symbolic AI Reasoning Framework",
-      "authors": "B Wooding*, K Brennan*, AM Tumlin, H Zhang, TT Johnson",
-      "venue": "International Symposium on AI Verification, 191-211, 2026",
+      "title": "BehaVerify: A Formal Verification Tool for Behavior Trees",
+      "authors": "SS Serbinowska, B Wooding, DM Lopez, L Nam, AM Tumlin, NK Potteiger, ...",
+      "venue": "Proceedings Eighth International Workshop on Formal Methods for Autonomous …, 2026",
       "year": 2026,
       "citations": 0,
-      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:aqlVkmm33-oC",
+      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:e5wmG9Sq2KIC",
       "cluster_link": null
     },
     {
