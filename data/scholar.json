@@ -3,10 +3,10 @@
   "profile_name": "Ben Wooding",
   "affiliation": "Postdoc @ Vanderbilt University",
   "profile_url": "https://scholar.google.com/citations?user=YhOmz1kAAAAJ&hl=en",
-  "fetched_at": "2026-10-30T00:28:18Z",
+  "fetched_at": "2026-10-31T00:11:12Z",
   "stats": {
-    "citations_all": 264,
-    "citations_recent": 254,
+    "citations_all": 265,
+    "citations_recent": 255,
     "h_index_all": 10,
     "h_index_recent": 9,
     "i10_index_all": 10,
@@ -136,7 +136,7 @@
       "authors": "B Wooding, V Horbanov, A Lavaei",
       "venue": "International Colloquium on Theoretical Aspects of Computing, 448-458, 2025",
       "year": 2025,
-      "citations": 23,
+      "citations": 24,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:kNdYIx-mwKoC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3724216332491666368,17488075801860945513"
     },
