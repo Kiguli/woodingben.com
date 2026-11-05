@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Daily Google Scholar scraper for woodingben.com (static site).
+"""Weekly Google Scholar scraper for woodingben.com (static site).
 
 Fetches Ben Wooding's full publication list from his Google Scholar profile
 (user=YhOmz1kAAAAJ -- verified: "Ben Wooding, Postdoc @ Vanderbilt University";
@@ -32,6 +32,7 @@ Dependencies: Python 3 stdlib + requests + beautifulsoup4 only.
 
 import html
 import json
+import os
 import random
 import re
 import sys
@@ -87,6 +88,10 @@ def log(msg):
 def bail(msg):
     """Exit 0 without writing anything -- keep whatever data already exists."""
     log(f"SKIPPED (existing files untouched): {msg}")
+    # Surface the skip as an annotation on the run summary. Without it a
+    # blocked run looks identical to a successful one with nothing new.
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        print(f"::warning title=Scholar scrape skipped::{msg}")
     sys.exit(0)
 
 
@@ -293,7 +298,7 @@ def build_list_section(data):
     lines.append("          </tbody>")
     lines.append("        </table>")
     lines.append("      </div>")
-    lines.append(f'      <p class="muted center">Updated daily from '
+    lines.append(f'      <p class="muted center">Updated weekly from '
                  f'<a href="{profile_url}">Google Scholar</a>. '
                  f'See <a href="/publications/">Publications</a> for the '
                  f"full list.</p>")

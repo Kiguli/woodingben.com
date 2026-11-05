@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
-  # The daily Scholar refresh commits using GITHUB_TOKEN, and GitHub
+  # The weekly Scholar refresh commits using GITHUB_TOKEN, and GitHub
   # deliberately does NOT fire `push`-triggered workflows for such commits
   # (it is the guard against a workflow endlessly retriggering itself).
   # Without this second trigger the data refreshed in the repo but the live
