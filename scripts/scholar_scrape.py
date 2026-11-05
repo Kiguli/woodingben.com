@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Daily Google Scholar scraper for woodingben.com (static site).
+"""Weekly Google Scholar scraper for woodingben.com (static site).
 
 Fetches Ben Wooding's full publication list from his Google Scholar profile
 (user=YhOmz1kAAAAJ -- verified: "Ben Wooding, Postdoc @ Vanderbilt University";
@@ -298,7 +298,7 @@ def build_list_section(data):
     lines.append("          </tbody>")
     lines.append("        </table>")
     lines.append("      </div>")
-    lines.append(f'      <p class="muted center">Updated daily from '
+    lines.append(f'      <p class="muted center">Updated weekly from '
                  f'<a href="{profile_url}">Google Scholar</a>. '
                  f'See <a href="/publications/">Publications</a> for the '
                  f"full list.</p>")

@@ -7,5 +7,5 @@ Integrated Systems, Vanderbilt University.
 Static site, no build step: everything served lives in `public/`.
 GitHub Pages deploys that directory on every push to `main`.
 
-The publication list on the homepage refreshes itself daily from Google
+The publication list on the homepage refreshes itself weekly from Google
 Scholar via `.github/workflows/scholar-update.yml`.

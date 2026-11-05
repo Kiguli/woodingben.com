@@ -1,8 +1,8 @@
 # Refreshing Google Scholar figures from your own machine
 
 This site shows citation counts and a publication list scraped from Google
-Scholar (`scripts/scholar_scrape.py`). A GitHub Actions job tries this several
-times a day, but **Google Scholar blocks the IP ranges GitHub's runners use** —
+Scholar (`scripts/scholar_scrape.py`). A GitHub Actions job tries this once a
+week, but **Google Scholar blocks the IP ranges GitHub's runners use** —
 here, roughly two runs in three. Retrying from the same runner does not help:
 the block holds for the whole job. Scholar does not block home connections, so
 the reliable fix is to run the same scraper on your own Mac on a schedule.
