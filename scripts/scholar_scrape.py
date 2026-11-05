@@ -32,6 +32,7 @@ Dependencies: Python 3 stdlib + requests + beautifulsoup4 only.
 
 import html
 import json
+import os
 import random
 import re
 import sys
@@ -87,6 +88,10 @@ def log(msg):
 def bail(msg):
     """Exit 0 without writing anything -- keep whatever data already exists."""
     log(f"SKIPPED (existing files untouched): {msg}")
+    # Surface the skip as an annotation on the run summary. Without it a
+    # blocked run looks identical to a successful one with nothing new.
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        print(f"::warning title=Scholar scrape skipped::{msg}")
     sys.exit(0)
 
 
