@@ -911,6 +911,24 @@
           "equal_contrib": []
         },
         {
+          "bibkey": "intervalbt2026",
+          "number": null,
+          "title": "Interval Behavior Trees",
+          "authors": [
+            "Ben Wooding",
+            "Taylor T. Johnson"
+          ],
+          "venue": "submitted to Hybrid Systems: Computation and Control and International Conference on Cyber-Physical Systems (HSCC+ICCPS)",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "preprint",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
           "bibkey": "roger2026",
           "number": 6,
           "title": "Roger? Probabilistic Certificates for Safety-Critical ATC Speech Recognition",
@@ -1077,24 +1095,6 @@
           "authors": [
             "Ben Wooding",
             "Jonte R. Hance",
-            "Taylor T. Johnson"
-          ],
-          "venue": "in preparation",
-          "year": 2026,
-          "doi": null,
-          "url": null,
-          "arxiv": null,
-          "status": "preprint",
-          "mentee_coauthored": false,
-          "addendum_html": null,
-          "equal_contrib": []
-        },
-        {
-          "bibkey": "intervalbt2026",
-          "number": null,
-          "title": "Interval Behavior Trees and their Verification",
-          "authors": [
-            "Ben Wooding",
             "Taylor T. Johnson"
           ],
           "venue": "in preparation",
