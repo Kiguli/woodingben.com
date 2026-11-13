@@ -53,6 +53,8 @@ MAX_PAGES = 10  # hard cap; 10 * 100 publications is far beyond plausible
 REPO_ROOT = Path(__file__).resolve().parent.parent
 JSON_PATH = REPO_ROOT / "data" / "scholar.json"
 INDEX_PATH = REPO_ROOT / "public" / "index.html"
+# CV-derived publication data (the same file that drives /publications/).
+CV_PUBS_PATH = REPO_ROOT / "data" / "publications.json"
 
 # Exact marker lines in public/index.html delimiting the generated blocks.
 STATS_START = "<!-- SCHOLAR-STATS:START -->"
@@ -244,10 +246,112 @@ def build_stats_section(data):
 
 
 def most_recent(pubs, count=LIST_COUNT):
-    """The `count` most recent publications by year (desc), preserving the
-    JSON order within a year (sorted() is stable)."""
-    ranked = sorted(pubs, key=lambda p: -(p["year"] or 0))
+    """The `count` most recent publications by year (desc), published work
+    before work under submission within a year, otherwise preserving the
+    input order (sorted() is stable)."""
+    ranked = sorted(pubs, key=lambda p: (-(p["year"] or 0),
+                                         bool(p.get("under_submission"))))
     return ranked[:count]
+
+
+def _norm_title(title):
+    return re.sub(r"[^a-z0-9]", "", (title or "").lower())
+
+
+def _scholar_style_authors(authors):
+    """'Taylor T. Johnson' -> 'TT Johnson', matching Scholar's author line."""
+    out = []
+    for name in authors:
+        parts = name.replace(".", " ").split()
+        if not parts:
+            continue
+        initials = "".join(w[0].upper() for w in parts[:-1])
+        out.append(f"{initials} {parts[-1]}".strip())
+    return ", ".join(out)
+
+
+def load_cv_publications():
+    """Entries from data/publications.json (the CV) that belong on the
+    homepage list: everything published, plus preprints that are under
+    submission (work 'in preparation' is left out, as on /publications/)."""
+    if not CV_PUBS_PATH.exists():
+        return []
+    try:
+        data = json.loads(CV_PUBS_PATH.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        log(f"WARNING: could not read {CV_PUBS_PATH}: {exc}")
+        return []
+    entries = []
+    for section in data.get("sections", []):
+        for e in section.get("entries", []):
+            venue = (e.get("venue") or "").strip()
+            if "in preparation" in venue.lower():
+                continue
+            entries.append(e)
+    return entries
+
+
+def merge_with_cv(scholar_pubs, cv_entries):
+    """Scholar lags behind the CV: accepted papers appear weeks after
+    acceptance and preprints that are not on arXiv never appear. Merge the CV
+    in so the homepage list is complete:
+
+    * a Scholar row that matches a CV preprint is relabelled
+      "Under submission, <year>" (Scholar still says "arXiv preprint" or has
+      no venue at all), and gets the CV year if Scholar has none;
+    * a CV entry Scholar does not list yet is added, with Scholar-style
+      author initials and an empty "Cited by" cell;
+    * an arXiv-only Scholar row that the CV no longer lists is dropped.
+
+    Titles are matched after stripping case and punctuation, allowing one to
+    contain the other (Scholar drops prefixes such as "Poster Abstract:").
+    """
+    def find(title):
+        t = _norm_title(title)
+        for e in cv_entries:
+            c = _norm_title(e.get("title"))
+            if not c or not t:
+                continue
+            if t == c or (min(len(t), len(c)) >= 25 and (t in c or c in t)):
+                return e
+        return None
+
+    merged, matched = [], set()
+    for p in scholar_pubs:
+        p = dict(p)
+        e = find(p.get("title"))
+        if e is None and (p.get("venue") or "").lower().startswith("arxiv"):
+            # An arXiv-only row the CV no longer lists (e.g. superseded by
+            # the published version under another title): leave it out.
+            continue
+        if e is not None:
+            matched.add(e["bibkey"])
+            if not p.get("year") and e.get("year"):
+                p["year"] = e["year"]
+            if e.get("status") == "preprint":
+                p["under_submission"] = True
+                p["venue"] = f"Under submission, {p['year'] or e.get('year')}"
+        merged.append(p)
+
+    for e in cv_entries:
+        if e["bibkey"] in matched:
+            continue
+        preprint = e.get("status") == "preprint"
+        if preprint:
+            venue = f"Under submission, {e.get('year')}"
+        else:
+            venue = f"{e.get('venue')}, {e.get('year')}"
+            if "to appear" in (e.get("addendum_html") or ""):
+                venue += " (to appear)"
+        merged.append({
+            "title": e.get("title", ""),
+            "authors": _scholar_style_authors(e.get("authors", [])),
+            "venue": venue,
+            "year": e.get("year"),
+            "citations": 0,
+            "under_submission": preprint,
+        })
+    return merged
 
 
 def build_list_section(data):
@@ -278,7 +382,9 @@ def build_list_section(data):
         "          </thead>",
         "          <tbody>",
     ]
-    for p in most_recent(data.get("publications", [])):
+    pubs = merge_with_cv(data.get("publications", []),
+                         load_cv_publications())
+    for p in most_recent(pubs):
         lines.append("            <tr>")
         lines.append("              <td>")
         lines.append(f"                {html.escape(p['title'])}")
@@ -298,8 +404,9 @@ def build_list_section(data):
     lines.append("          </tbody>")
     lines.append("        </table>")
     lines.append("      </div>")
-    lines.append(f'      <p class="muted center">Updated weekly from '
-                 f'<a href="{profile_url}">Google Scholar</a>. '
+    lines.append(f'      <p class="muted center">Citations updated weekly '
+                 f'from <a href="{profile_url}">Google Scholar</a>; papers '
+                 f"Scholar has not indexed yet are added from my CV. "
                  f'See <a href="/publications/">Publications</a> for the '
                  f"full list.</p>")
     lines.append("    </section>")
