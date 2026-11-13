@@ -46,6 +46,12 @@ jobs:
         # between the SCHOLAR:START/END markers in public/index.html.
         run: python scripts/scholar_scrape.py
 
+      - name: Re-render homepage list from CV data
+        # The homepage list merges data/publications.json (the CV) into the
+        # Scholar rows. Re-render from the saved JSON so CV changes reach the
+        # homepage even in weeks when Scholar blocks the scrape above.
+        run: python scripts/scholar_scrape.py --from-json
+
       - name: Commit and push if changed
         run: |
           python3 scripts/activate_pending_dois.py
