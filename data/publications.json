@@ -405,7 +405,7 @@
       "entries": [
         {
           "bibkey": "robustsiminterconnected2026",
-          "number": 3,
+          "number": 4,
           "title": "Robust Simulation Functions for Interconnected Systems under Large Disturbances",
           "authors": [
             "Ben Wooding",
@@ -414,6 +414,24 @@
           "venue": "IEEE Access",
           "year": 2026,
           "doi": "10.1109/ACCESS.2026.3748385",
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": null,
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "roger2026",
+          "number": 3,
+          "title": "Roger? Probabilistic Certificates for Safety-Critical ATC Speech Recognition",
+          "authors": [
+            "Ben Wooding",
+            "Taylor T. Johnson"
+          ],
+          "venue": "Transactions on Machine Learning Research (TMLR)",
+          "year": 2026,
+          "doi": null,
           "url": null,
           "arxiv": null,
           "status": "published",
@@ -800,7 +818,7 @@
       "entries": [
         {
           "bibkey": "multiagentbt2026",
-          "number": 10,
+          "number": 9,
           "title": "Composing Multi-Agent Behavior Trees",
           "authors": [
             "Jamie Fong",
@@ -819,7 +837,7 @@
         },
         {
           "bibkey": "surgicalrobots2026",
-          "number": 11,
+          "number": 10,
           "title": "Benchmark: Formal Verification for Surgical Robots",
           "authors": [
             "Jamie Fong",
@@ -882,7 +900,7 @@
         },
         {
           "bibkey": "changedetection2026",
-          "number": 9,
+          "number": 8,
           "title": "From Estimation to Detection: Sequential Change Detection for Alignment Monitoring",
           "authors": [
             "Samuel Sasaki",
@@ -947,24 +965,6 @@
             "Taylor T. Johnson"
           ],
           "venue": "submitted to Hybrid Systems: Computation and Control and International Conference on Cyber-Physical Systems (HSCC+ICCPS)",
-          "year": 2026,
-          "doi": null,
-          "url": null,
-          "arxiv": null,
-          "status": "preprint",
-          "mentee_coauthored": false,
-          "addendum_html": null,
-          "equal_contrib": []
-        },
-        {
-          "bibkey": "roger2026",
-          "number": 6,
-          "title": "Roger? Probabilistic Certificates for Safety-Critical ATC Speech Recognition",
-          "authors": [
-            "Ben Wooding",
-            "Taylor T. Johnson"
-          ],
-          "venue": "submitted to Transactions on Machine Learning Research (TMLR)",
           "year": 2026,
           "doi": null,
           "url": null,
