@@ -26,11 +26,13 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  # Build and deploy are separate jobs (GitHub's starter-workflow layout).
+  # In Nov 2026 a single job uploading the ~170 MB artifact and deploying it
+  # straight away failed repeatedly: deploy-pages queried the artifact API
+  # before the just-finalized upload was listed ("No artifacts named
+  # github-pages were found"). The job boundary gives the API time to settle.
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -43,6 +45,13 @@ jobs:
         with:
           path: public
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
