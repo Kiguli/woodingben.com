@@ -132,7 +132,7 @@ BACKOFF = (45, 120, 240)   # seconds before attempts 2, 3 and 4
 
 def fetch_page(session, cstart):
     url = (f"{BASE}/citations?user={SCHOLAR_ID}&hl=en"
-           f"&cstart={cstart}&pagesize={PAGESIZE}")
+           f"&cstart={cstart}&pagesize={PAGESIZE}&sortby=pubdate")
     last = None
     for attempt in range(ATTEMPTS):
         if attempt:
@@ -261,11 +261,10 @@ def build_stats_section(data):
 
 
 def most_recent(pubs, count=LIST_COUNT):
-    """The `count` most recent publications by year (desc), published work
-    before work under submission within a year, otherwise preserving the
-    input order (sorted() is stable)."""
-    ranked = sorted(pubs, key=lambda p: (-(p["year"] or 0),
-                                         bool(p.get("under_submission"))))
+    """The `count` most recent publications by year (desc), otherwise
+    preserving the input order (sorted() is stable): Scholar's own
+    within-year order, with CV-only papers first in their year."""
+    ranked = sorted(pubs, key=lambda p: -(p["year"] or 0))
     return ranked[:count]
 
 
@@ -348,6 +347,11 @@ def merge_with_cv(scholar_pubs, cv_entries):
                 p["venue"] = f"Under submission, {p['year'] or e.get('year')}"
         merged.append(p)
 
+    # Published CV entries Scholar has not indexed yet are the newest work,
+    # so they go first; most_recent()'s stable year sort then puts them at
+    # the top of their year, matching the CV numbering. Preprints Scholar
+    # does not list go last in their year, below Scholar's own rows.
+    cv_only, cv_preprints = [], []
     for e in cv_entries:
         if e["bibkey"] in matched:
             continue
@@ -358,7 +362,7 @@ def merge_with_cv(scholar_pubs, cv_entries):
             venue = f"{e.get('venue')}, {e.get('year')}"
             if "to appear" in (e.get("addendum_html") or ""):
                 venue += " (to appear)"
-        merged.append({
+        (cv_preprints if preprint else cv_only).append({
             "title": e.get("title", ""),
             "authors": _scholar_style_authors(e.get("authors", [])),
             "venue": venue,
@@ -366,7 +370,7 @@ def merge_with_cv(scholar_pubs, cv_entries):
             "citations": 0,
             "under_submission": preprint,
         })
-    return merged
+    return cv_only + merged + cv_preprints
 
 
 def build_list_section(data):
@@ -506,8 +510,11 @@ def main():
             seen.add(key)
             pubs.append(p)
 
-    pubs.sort(key=lambda p: (-(p["year"] or 0), -p["citations"],
-                             p["title"].lower()))
+    # Keep Scholar's own "sort by year" order (sortby=pubdate above): newest
+    # first, and within a year the order Scholar shows. The CV numbering
+    # (userc in the CV's ref.bib) follows the same order. The stable sort
+    # only guards against a row whose year is out of place.
+    pubs.sort(key=lambda p: -(p["year"] or 0))
 
     fetched_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     data = {
