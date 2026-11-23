@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Weekly Google Scholar scraper for woodingben.com (static site).
+"""Monthly Google Scholar scraper for woodingben.com (static site).
 
 Fetches Ben Wooding's full publication list from his Google Scholar profile
 (user=YhOmz1kAAAAJ -- verified: "Ben Wooding, Postdoc @ Vanderbilt University";
@@ -66,17 +66,32 @@ LIST_END = "<!-- SCHOLAR-LIST:END -->"
 # None = show the full list (Ben's preference since the list sits at the page end).
 LIST_COUNT = None
 
+# Present as a current desktop Chrome on Windows. The old header claimed
+# Chrome 126 on macOS (mid-2024); a browser that far out of date is itself a
+# bot signal. The Sec-CH-UA client hints match what real Chrome sends and the
+# Referer makes the request look like a click-through from Scholar's own
+# search page. These headers cannot hide the GitHub runner's IP address,
+# which is what Scholar mostly blocks on.
 HEADERS = {
     "User-Agent": (
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/126.0.0.0 Safari/537.36"
+        "Chrome/142.0.0.0 Safari/537.36"
     ),
     "Accept": (
         "text/html,application/xhtml+xml,application/xml;q=0.9,"
-        "image/avif,image/webp,*/*;q=0.8"
+        "image/avif,image/webp,image/apng,*/*;q=0.8"
     ),
-    "Accept-Language": "en-US,en;q=0.9",
+    "Accept-Language": "en-GB,en;q=0.9,en-US;q=0.8",
+    "Referer": "https://scholar.google.com/scholar?hl=en&q=Ben+Wooding",
+    "Sec-CH-UA": '"Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"',
+    "Sec-CH-UA-Mobile": "?0",
+    "Sec-CH-UA-Platform": '"Windows"',
+    "Sec-Fetch-Dest": "document",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-Site": "same-origin",
+    "Sec-Fetch-User": "?1",
+    "Upgrade-Insecure-Requests": "1",
 }
 
 # Name variants to bold in the authors line of the HTML fragment.
@@ -404,7 +419,7 @@ def build_list_section(data):
     lines.append("          </tbody>")
     lines.append("        </table>")
     lines.append("      </div>")
-    lines.append(f'      <p class="muted center">Citations updated weekly '
+    lines.append(f'      <p class="muted center">Citations updated monthly '
                  f'from <a href="{profile_url}">Google Scholar</a>; papers '
                  f"Scholar has not indexed yet are added from my CV. "
                  f'See <a href="/publications/">Publications</a> for the '
