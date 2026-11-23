@@ -3,16 +3,16 @@
   "profile_name": "Ben Wooding",
   "affiliation": "Postdoc @ Vanderbilt University",
   "profile_url": "https://scholar.google.com/citations?user=YhOmz1kAAAAJ&hl=en",
-  "fetched_at": "2026-11-03T19:31:10Z",
+  "fetched_at": "2026-11-23T20:01:09Z",
   "stats": {
-    "citations_all": 273,
-    "citations_recent": 257,
+    "citations_all": 285,
+    "citations_recent": 275,
     "h_index_all": 10,
-    "h_index_recent": 9,
-    "i10_index_all": 10,
-    "i10_index_recent": 9
+    "h_index_recent": 10,
+    "i10_index_all": 11,
+    "i10_index_recent": 11
   },
-  "publication_count": 37,
+  "publication_count": 36,
   "publications": [
     {
       "title": "n2v: Neural Network Verification in Python (Competition Contribution)",
@@ -37,7 +37,7 @@
       "authors": "L Geretti, JAD Sandretto, M Althoff, L Benet, P Collins, M Forets, S Mitsch, ...",
       "venue": "Proceedings of the 13th International Workshop on Applied Verification for …, 2026",
       "year": 2026,
-      "citations": 2,
+      "citations": 4,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:dhFuZR0502QC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2028491559157594490"
     },
@@ -46,7 +46,7 @@
       "authors": "B Wooding*, K Brennan*, AM Tumlin, H Zhang, TT Johnson",
       "venue": "International Symposium on AI Verification, 191-211, 2026",
       "year": 2026,
-      "citations": 1,
+      "citations": 2,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:aqlVkmm33-oC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15735637184469434571,6804007210525191037"
     },
@@ -64,7 +64,7 @@
       "authors": "AM Tumlin, B Wooding, Z Shao, DM Lopez, T Derr, TT Johnson",
       "venue": "International Symposium on AI Verification, 271-298, 2026",
       "year": 2026,
-      "citations": 1,
+      "citations": 2,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:QIV2ME_5wuYC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2039509861699717139,632856019504143076"
     },
@@ -118,7 +118,7 @@
       "authors": "B Wooding, S Soudjani",
       "venue": "IEEE Access, 2026",
       "year": 2026,
-      "citations": 0,
+      "citations": 10,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:_Qo2XoVZTnwC",
       "cluster_link": null
     },
@@ -154,7 +154,7 @@
       "authors": "A Abate, O Akbarzadeh, HAP Blom, S Haesaert, S Hassani, A Lavaei, ...",
       "venue": "12th International Workshop on Applied Verification for Continuous and …, 2025",
       "year": 2025,
-      "citations": 21,
+      "citations": 23,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:zYLM7Y9cAGgC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8451837719157046339,14619999915336356145"
     },
@@ -199,7 +199,7 @@
       "authors": "M Kazemi*, R Majumdar, M Salamati*, S Soudjani, B Wooding*",
       "venue": "Nonlinear Analysis: Hybrid Systems 52, 2024",
       "year": 2024,
-      "citations": 58,
+      "citations": 61,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:qjMakFHDy7sC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3616013809379938042,4741884557224910029"
     },
@@ -208,7 +208,7 @@
       "authors": "B Wooding, A Lavaei",
       "venue": "International Conference on Quantitative Evaluation of Systems and Formal …, 2024",
       "year": 2024,
-      "citations": 14,
+      "citations": 15,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:W7OEmFMy1HYC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11403074140355458095,16219661124919054845"
     },
@@ -217,7 +217,7 @@
       "authors": "O Schön, S Naseer, B Wooding, S Soudjani",
       "venue": "8th IFAC Conference on Analysis and Design of Hybrid Systems (ADHS) 58 (11 …, 2024",
       "year": 2024,
-      "citations": 10,
+      "citations": 12,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:LkGwnXOMwfcC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14536073154213841339"
     },
@@ -244,25 +244,16 @@
       "authors": "B Wooding, A Lavaei, V Vahidinasab, S Soudjani",
       "venue": "2023 European Control Conference (ECC), 1-6, 2023",
       "year": 2023,
-      "citations": 10,
+      "citations": 11,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:UebtZRa9Y70C",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15674660439750060285"
-    },
-    {
-      "title": "Formal control of new England 39-bus test system: an assume-guarantee approach",
-      "authors": "B Wooding, A Lavaei, S Soudjani",
-      "venue": "arXiv preprint arXiv:2307.03467, 2023",
-      "year": 2023,
-      "citations": 9,
-      "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:eQOLeE2rZwMC",
-      "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12160463577391596340"
     },
     {
       "title": "Model-based and data-driven formal synthesis of power systems",
       "authors": "BJ Wooding",
       "venue": "Newcastle University, 2023",
       "year": 2023,
-      "citations": 1,
+      "citations": 2,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:MXK_kJrjxJIC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11765533375791637681"
     },
@@ -289,7 +280,7 @@
       "authors": "B Wooding, V Vahidinasab, M Kazemi, S Soudjani",
       "venue": "Active Building Energy Systems: Operation and Control, 161-192, 2021",
       "year": 2021,
-      "citations": 2,
+      "citations": 3,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:Se3iqnhoufwC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15523403970982737620"
     },
@@ -316,7 +307,7 @@
       "authors": "B Wooding, V Vahidinasab, S Soudjani",
       "venue": "2020 International Conference on Smart Energy Systems and Technologies (SEST …, 2020",
       "year": 2020,
-      "citations": 14,
+      "citations": 16,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:roLk4NBRz8UC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14830596265241935351"
     },
