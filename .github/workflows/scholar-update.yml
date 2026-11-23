@@ -2,11 +2,12 @@ name: Update Google Scholar data
 
 on:
   schedule:
-    # Once a week, Monday 04:37 UTC (odd minute to avoid the top-of-hour
-    # crowd). Scholar 403s GitHub's IP ranges intermittently, so a blocked
-    # week leaves the figures a further week old; use "Run workflow" or the
-    # local refresh in automation/ to update sooner.
-    - cron: "37 4 * * 1"
+    # Once a month, on the 1st at 04:37 UTC (odd minute to avoid the
+    # top-of-hour crowd). Was weekly until Nov 2026, but Scholar blocked
+    # GitHub's IP ranges on most runs, so weekly runs mostly just retried
+    # into a block. Use "Run workflow", the local refresh in automation/,
+    # or a hand edit of data/scholar.json to update sooner.
+    - cron: "37 4 1 * *"
   workflow_dispatch: {}
 
 permissions:
@@ -61,13 +62,13 @@ jobs:
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git commit -m "chore: weekly refresh (Scholar data; pending-DOI activation when registered)"
+            git commit -m "chore: monthly refresh (Scholar data; pending-DOI activation when registered)"
             git push
           fi
 
       - name: Check data freshness
         # The scrape step stays green when Scholar blocks us. Once the data
-        # is more than 15 days old (two weekly runs missed) this raises a
+        # is more than 45 days old (a monthly run missed) this raises a
         # warning annotation and a job-summary note, so the stale figure can
         # be fixed by hand or by the local refresh in automation/.
         # It used to exit 1, but Scholar blocks GitHub runners most weeks, so
@@ -81,7 +82,7 @@ jobs:
           fetched = datetime.strptime(d["fetched_at"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
           age_h = (datetime.now(timezone.utc) - fetched).total_seconds() / 3600
           print(f"Scholar data last fetched {d['fetched_at']} ({age_h:.0f}h ago)")
-          if age_h > 15 * 24:
+          if age_h > 45 * 24:
               msg = f"Last successful scrape was {age_h/24:.1f} days ago; Scholar is likely blocking GitHub runners. Run automation/scholar-refresh.sh locally or update data/scholar.json by hand."
               print(f"::warning title=Scholar data stale::{msg}")
               with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f:
