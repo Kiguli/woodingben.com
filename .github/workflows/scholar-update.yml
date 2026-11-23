@@ -66,19 +66,24 @@ jobs:
           fi
 
       - name: Check data freshness
-        # The scrape step stays green when Scholar blocks us, so a run of
-        # blocked runs used to go unnoticed. Fail once the data is more than
-        # 15 days old (two weekly runs missed), so GitHub emails a failure and the stale figure gets
-        # fixed by hand or by the local refresh in automation/.
+        # The scrape step stays green when Scholar blocks us. Once the data
+        # is more than 15 days old (two weekly runs missed) this raises a
+        # warning annotation and a job-summary note, so the stale figure can
+        # be fixed by hand or by the local refresh in automation/.
+        # It used to exit 1, but Scholar blocks GitHub runners most weeks, so
+        # in Nov 2026 the workflow went red every week and buried real
+        # failures; the committed data keeps serving the site either way.
         run: |
           python3 - <<'PY'
-          import json, sys
+          import json, os
           from datetime import datetime, timezone
           d = json.load(open("data/scholar.json"))
           fetched = datetime.strptime(d["fetched_at"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
           age_h = (datetime.now(timezone.utc) - fetched).total_seconds() / 3600
           print(f"Scholar data last fetched {d['fetched_at']} ({age_h:.0f}h ago)")
           if age_h > 15 * 24:
-              print(f"::error title=Scholar data stale::Last successful scrape was {age_h/24:.1f} days ago; Scholar is likely blocking GitHub runners. Run automation/scholar-refresh.sh locally or update data/scholar.json by hand.")
-              sys.exit(1)
+              msg = f"Last successful scrape was {age_h/24:.1f} days ago; Scholar is likely blocking GitHub runners. Run automation/scholar-refresh.sh locally or update data/scholar.json by hand."
+              print(f"::warning title=Scholar data stale::{msg}")
+              with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f:
+                  f.write(f"### Scholar data stale\n\n{msg}\n")
           PY
