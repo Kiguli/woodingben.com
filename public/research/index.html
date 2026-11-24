@@ -263,7 +263,7 @@
           </figure>
           <h3>Exact or over-approximate?</h3>
           <p>An <strong>exact</strong> method splits the set wherever an activation can switch on or off, so the output is a union of pieces that matches exactly what the network can produce. It is sound and complete: if it reports a violation, a real counterexample exists. The price is that the number of pieces can grow exponentially with the size of the network.</p>
-          <p>An <strong>over-approximate</strong> method keeps a single convex set at each layer that is guaranteed to contain every reachable output. It scales far better and is still sound: if the over-approximation avoids the unsafe outputs, so does the network. If the two overlap, the answer is &ldquo;unknown&rdquo;, and the set can be split to tighten it. Tools such as <a href="/software-tools/nnv-software-tool/">NNV</a> and <a href="/software-tools/n2v-software-tool/">n2v</a> represent these sets as <em>star sets</em>, which support both kinds of analysis [<a href="#neural-network-verification-ref-1">1</a>, <a href="#neural-network-verification-ref-2">2</a>].</p>
+          <p>An <strong>over-approximate</strong> method keeps a single convex set at each layer that is guaranteed to contain every reachable output. It scales far better and is still sound: if the over-approximation avoids the unsafe outputs, so does the network. If the two overlap, the answer is &ldquo;unknown&rdquo;, and the set can be split to tighten it. Tools such as <a href="/software-tools/nnv-software-tool/">NNV</a> and <a href="/software-tools/n2v-software-tool/">n2v</a> represent these sets as <em>star sets</em>, which support both kinds of analysis [<a href="#neural-network-verification-ref-1">1</a>, <a href="#neural-network-verification-ref-2">2</a>]. Each year the International Verification of Neural Networks Competition (VNN-COMP) compares verification tools on shared benchmarks [<a href="#neural-network-verification-ref-8">8</a>].</p>
           <h3>What can be guaranteed</h3>
           <p>Once we have the output set, a property is a question about that set:</p>
           <ul>
@@ -271,7 +271,7 @@
             <li><strong>Safety of a control loop:</strong> a neural network controller, run together with the system it controls, never drives the system out of its safe region. The output set of one step becomes the input set of the next [<a href="#neural-network-verification-ref-3">3</a>].</li>
             <li><strong>New architectures:</strong> the same questions for graph neural networks [<a href="#neural-network-verification-ref-4">4</a>] and mixture-of-experts models [<a href="#neural-network-verification-ref-5">5</a>].</li>
           </ul>
-          <p>For very large models, or inputs such as video and 3D scans, even over-approximation can be too slow. <strong>Probabilistic verification</strong> then gives a guarantee that holds with a chosen high probability, computed from samples of the network&rsquo;s behaviour; learning the shape of the reachable set makes these guarantees much tighter [<a href="#neural-network-verification-ref-6">6</a>, <a href="#neural-network-verification-ref-1">1</a>]. The same idea of checking a model&rsquo;s output against a formal description also lets us catch and correct mistakes in the reasoning of AI systems [<a href="#neural-network-verification-ref-7">7</a>].</p>
+          <p>For very large models, or inputs such as video and 3D scans, even over-approximation can be too slow. <strong>Probabilistic verification</strong> then gives a guarantee that holds with a chosen high probability, computed from samples of the network&rsquo;s behaviour; learning the shape of the reachable set makes these guarantees much tighter [<a href="#neural-network-verification-ref-6">6</a>, <a href="#neural-network-verification-ref-1">1</a>]. The same guarantees carry across vision, speech and depth models [<a href="#neural-network-verification-ref-9">9</a>], including speech recognition for air traffic control, where a misheard instruction is safety-critical [<a href="#neural-network-verification-ref-10">10</a>]. The same idea of checking a model&rsquo;s output against a formal description also lets us catch and correct mistakes in the reasoning of AI systems [<a href="#neural-network-verification-ref-7">7</a>].</p>
           </div>
           <p class="research-tools"><strong>Tools:</strong> <a href="/software-tools/nnv-software-tool/">NNV</a>, <a href="/software-tools/n2v-software-tool/">n2v</a></p>
           <h3 class="research-refs-title">Papers</h3>
@@ -310,6 +310,21 @@
               <a class="research-ref-title" href="/publications/#selfcorrecting2026">A Self-Correcting Neuro-Symbolic AI Reasoning Framework</a>
               <span class="research-ref-authors"><strong>Ben Wooding</strong><sup>*</sup>, Kiersten Brennan<sup>*</sup>, Anne M. Tumlin, Hongchao Zhang, Taylor T. Johnson</span>
               <span class="research-ref-venue">3rd International Symposium on AI Verification (SAIV), 2026 <strong><em>(<sup>*</sup>contributed equally)</em></strong></span>
+            </li>
+            <li id="neural-network-verification-ref-8">
+              <a class="research-ref-title" href="/publications/#vnncomp2026">The 7th International Verification of Neural Networks Competition (VNN-COMP 2026): Summary and Results</a>
+              <span class="research-ref-authors">Tobias Ladner<sup>*</sup>, Konstantin Kaulen<sup>*</sup>, Stanley Bak, Julien Girard-Satabin, Taylor T. Johnson, Edoardo Manino, ThanhVu H Nguyen, <strong>Ben Wooding</strong>, Haoze Wu</span>
+              <span class="research-ref-venue">arXiv preprint, 2026 <strong><em>(presented at SAIV 2026; <sup>*</sup>co-first authors)</em></strong></span>
+            </li>
+            <li id="neural-network-verification-ref-9">
+              <a class="research-ref-title" href="/publications/#inputagnostic2026">Input-Agnostic Probabilistic Neural Network Verification for Vision, Speech and Depth</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong>, Anne M. Tumlin, Samuel Sasaki, Hongchao Zhang, Taylor T. Johnson</span>
+              <span class="research-ref-venue">Under submission, 2026</span>
+            </li>
+            <li id="neural-network-verification-ref-10">
+              <a class="research-ref-title" href="/publications/#roger2026">Roger? Probabilistic Certificates for Safety-Critical ATC Speech Recognition</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong>, Taylor T. Johnson</span>
+              <span class="research-ref-venue">Transactions on Machine Learning Research (TMLR), 2026</span>
             </li>
           </ol>
         </section>
@@ -478,7 +493,7 @@
           </figure>
           <p><a href="/software-tools/behaverify-software-tool/">BehaVerify</a> translates a behaviour tree into a model that a model checker can explore exhaustively, so properties such as &ldquo;the robot always returns to base when the battery is low&rdquo; are proved for every possible run. Decisions made by neural networks can be included, and the same specification generates the code that runs on the robot, so the verified model and the deployed behaviour cannot drift apart [<a href="#safe-autonomy-and-robotics-ref-2">2</a>]. We are now extending this to teams of robots whose trees must be composed safely [<a href="#safe-autonomy-and-robotics-ref-3">3</a>].</p>
           <h3>Safety under physical constraints</h3>
-          <p>Robot arms and many physical systems are described by equations with algebraic constraints, such as links that must stay connected. I helped develop the first method to synthesise control barrier functions for these systems, demonstrated on a three-link manipulator [<a href="#safe-autonomy-and-robotics-ref-4">4</a>].</p>
+          <p>Robot arms and many physical systems are described by equations with algebraic constraints, such as links that must stay connected. I helped develop the first method to synthesise control barrier functions for these systems, demonstrated on a three-link manipulator [<a href="#safe-autonomy-and-robotics-ref-4">4</a>]. A companion paper covers semi-explicit differential-algebraic systems, with the barrier functions checked by sum-of-squares verification [<a href="#safe-autonomy-and-robotics-ref-5">5</a>].</p>
           </div>
           <p class="research-tools"><strong>Tools:</strong> <a href="/software-tools/behaverify-software-tool/">BehaVerify</a></p>
           <h3 class="research-refs-title">Papers</h3>
@@ -501,6 +516,11 @@
             <li id="safe-autonomy-and-robotics-ref-4">
               <a class="research-ref-title" href="/publications/#daecbf2026">Control Barrier Function Synthesis for Differential-Algebraic Systems</a>
               <span class="research-ref-authors">Hongchao Zhang, Mohamad H. Kazma, <strong>Ben Wooding</strong>, Meiyi Ma, Taylor T. Johnson, Ahmad F. Taha</span>
+              <span class="research-ref-venue">IEEE Conference on Decision and Control (CDC), 2026 <strong><em>(to appear)</em></strong></span>
+            </li>
+            <li id="safe-autonomy-and-robotics-ref-5">
+              <a class="research-ref-title" href="/publications/#semiexplicitdae2026">Safe Control of Semi-Explicit Differential-Algebraic Systems: Control Barrier Functions with SOS Verification</a>
+              <span class="research-ref-authors">Mohamad H. Kazma, Hongchao Zhang, Abdallah A. Albustami, <strong>Ben Wooding</strong>, Meiyi Ma, Taylor T. Johnson, Ahmad F. Taha</span>
               <span class="research-ref-venue">IEEE Conference on Decision and Control (CDC), 2026 <strong><em>(to appear)</em></strong></span>
             </li>
           </ol>
