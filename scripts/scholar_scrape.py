@@ -261,10 +261,13 @@ def build_stats_section(data):
 
 
 def most_recent(pubs, count=LIST_COUNT):
-    """The `count` most recent publications by year (desc), otherwise
-    preserving the input order (sorted() is stable): Scholar's own
-    within-year order, with CV-only papers first in their year."""
-    ranked = sorted(pubs, key=lambda p: -(p["year"] or 0))
+    """The `count` most recent publications by year (desc), then by the
+    CV's chronological order (cv_rank, set by merge_with_cv from
+    data/publications.json "chronological_order": conference dates for
+    the 2026 conferences, otherwise Scholar's by-year order). Rows without
+    a rank keep their input order (sorted() is stable) after ranked ones."""
+    ranked = sorted(pubs, key=lambda p: (-(p["year"] or 0),
+                                         p.get("cv_rank", 10**6)))
     return ranked[:count]
 
 
@@ -305,6 +308,15 @@ def load_cv_publications():
     return entries
 
 
+def load_cv_order():
+    """bibkey -> position in data/publications.json "chronological_order"."""
+    try:
+        data = json.loads(CV_PUBS_PATH.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    return {k: i for i, k in enumerate(data.get("chronological_order", []))}
+
+
 def merge_with_cv(scholar_pubs, cv_entries):
     """Scholar lags behind the CV: accepted papers appear weeks after
     acceptance and preprints that are not on arXiv never appear. Merge the CV
@@ -330,6 +342,7 @@ def merge_with_cv(scholar_pubs, cv_entries):
                 return e
         return None
 
+    rank = load_cv_order()
     merged, matched = [], set()
     for p in scholar_pubs:
         p = dict(p)
@@ -340,6 +353,8 @@ def merge_with_cv(scholar_pubs, cv_entries):
             continue
         if e is not None:
             matched.add(e["bibkey"])
+            if e["bibkey"] in rank:
+                p["cv_rank"] = rank[e["bibkey"]]
             if not p.get("year") and e.get("year"):
                 p["year"] = e["year"]
             if e.get("status") == "preprint":
@@ -362,14 +377,17 @@ def merge_with_cv(scholar_pubs, cv_entries):
             venue = f"{e.get('venue')}, {e.get('year')}"
             if "to appear" in (e.get("addendum_html") or ""):
                 venue += " (to appear)"
-        (cv_preprints if preprint else cv_only).append({
+        row = {
             "title": e.get("title", ""),
             "authors": _scholar_style_authors(e.get("authors", [])),
             "venue": venue,
             "year": e.get("year"),
             "citations": 0,
             "under_submission": preprint,
-        })
+        }
+        if e["bibkey"] in rank:
+            row["cv_rank"] = rank[e["bibkey"]]
+        (cv_preprints if preprint else cv_only).append(row)
     return cv_only + merged + cv_preprints
 
 
