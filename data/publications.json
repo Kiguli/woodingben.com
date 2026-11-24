@@ -1,4 +1,56 @@
 {
+  "_chronological_order_note": "Newest first, from the CV's biblatex sort (year, then userc: conference/publication dates for 2026, else Google Scholar's by-year order). Drives the homepage list order within a year.",
+  "chronological_order": [
+    "safetakeover2026",
+    "semiexplicitdae2026",
+    "daecbf2026",
+    "reachsetgeometry2026",
+    "nnv3_2026",
+    "roger2026",
+    "behaverify2026",
+    "robustsiminterconnected2026",
+    "gnnverif2026",
+    "selfcorrecting2026",
+    "metamoe2026",
+    "vnncomp2026",
+    "n2v2026",
+    "kinductiveneural2026",
+    "archcomp26_nonlinear",
+    "archcomp26_ainncs",
+    "inputagnostic2026",
+    "intervalbt2026",
+    "safeflight2026",
+    "certifiedshift2026",
+    "insertordivert2026",
+    "kanverif2026",
+    "errorlocalization2026",
+    "daecbcunknown2026",
+    "changedetection2026",
+    "scenopt2026",
+    "surgicalrobots2026",
+    "multiagentbt2026",
+    "wrrfinfluent2026",
+    "partialconsistency2026",
+    "qstar2026",
+    "archcomp25_stochastic",
+    "protect2025",
+    "cando3isabelle2025",
+    "protectposter2025",
+    "smarthomes2025",
+    "wrrf2025",
+    "trust2025",
+    "bintreegp2024",
+    "impactposter2024",
+    "ddacs2024",
+    "impact2024",
+    "learnkinductive2024",
+    "robustsimfunc2023",
+    "robotti2021",
+    "activebuildingmgmt2021",
+    "activebuildingnetwork2021",
+    "archcomp20_stochastic",
+    "evfreq2020"
+  ],
   "sections": [
     {
       "id": "conference",
@@ -6,8 +58,75 @@
       "prefix": "C",
       "entries": [
         {
-          "bibkey": "reachsetgeometry2026",
+          "bibkey": "safetakeover2026",
           "number": 18,
+          "title": "Safe Autonomous Takeover for Unknown Descriptor Systems",
+          "authors": [
+            "Ben Wooding",
+            "Mohamad H. Kazma",
+            "Hongchao Zhang",
+            "Ahmad F. Taha",
+            "Meiyi Ma",
+            "Taylor T. Johnson"
+          ],
+          "venue": "IEEE Conference on Decision and Control (CDC)",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": "<strong><em>(to appear)</em></strong>",
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "semiexplicitdae2026",
+          "number": 17,
+          "title": "Safe Control of Semi-Explicit Differential-Algebraic Systems: Control Barrier Functions with SOS Verification",
+          "authors": [
+            "Mohamad H. Kazma",
+            "Hongchao Zhang",
+            "Abdallah A. Albustami",
+            "Ben Wooding",
+            "Meiyi Ma",
+            "Taylor T. Johnson",
+            "Ahmad F. Taha"
+          ],
+          "venue": "IEEE Conference on Decision and Control (CDC)",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": "<strong><em>(to appear)</em></strong>",
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "daecbf2026",
+          "number": 16,
+          "title": "Control Barrier Function Synthesis for Differential-Algebraic Systems",
+          "authors": [
+            "Hongchao Zhang",
+            "Mohamad H. Kazma",
+            "Ben Wooding",
+            "Meiyi Ma",
+            "Taylor T. Johnson",
+            "Ahmad F. Taha"
+          ],
+          "venue": "IEEE Conference on Decision and Control (CDC)",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": "<strong><em>(to appear)</em></strong>",
+          "equal_contrib": []
+        },
+        {
+          "bibkey": "reachsetgeometry2026",
+          "number": 15,
           "title": "Learning Reach-Set Geometry for Tighter Probabilistic Neural Network Verification",
           "authors": [
             "Samuel Sasaki",
@@ -26,7 +145,7 @@
         },
         {
           "bibkey": "nnv3_2026",
-          "number": 17,
+          "number": 14,
           "title": "NNV3: Expanding Neural Network Verification to New Architectures and Domains",
           "authors": [
             "Anne M. Tumlin",
@@ -55,8 +174,32 @@
           ]
         },
         {
+          "bibkey": "behaverify2026",
+          "number": 13,
+          "title": "BehaVerify: A Formal Verification Tool for Behavior Trees",
+          "authors": [
+            "Serena S. Serbinowska",
+            "Ben Wooding",
+            "Diego Manzanas Lopez",
+            "Luke Nam",
+            "Anne M. Tumlin",
+            "Nicholas K. Potteiger",
+            "Hongchao Zhang",
+            "Taylor T. Johnson"
+          ],
+          "venue": "8th International Workshop on Formal Methods for Autonomous Systems (FMAS)",
+          "year": 2026,
+          "doi": null,
+          "url": null,
+          "arxiv": null,
+          "status": "published",
+          "mentee_coauthored": false,
+          "addendum_html": "<strong><em>(to appear)</em></strong>",
+          "equal_contrib": []
+        },
+        {
           "bibkey": "gnnverif2026",
-          "number": 16,
+          "number": 12,
           "title": "Reachability-Based Formal Verification of Graph Neural Networks with Node and Edge Features",
           "authors": [
             "Anne M. Tumlin",
@@ -78,7 +221,7 @@
         },
         {
           "bibkey": "selfcorrecting2026",
-          "number": 15,
+          "number": 11,
           "title": "A Self-Correcting Neuro-Symbolic AI Reasoning Framework",
           "authors": [
             "Ben Wooding",
@@ -102,7 +245,7 @@
         },
         {
           "bibkey": "metamoe2026",
-          "number": 14,
+          "number": 10,
           "title": "MetaMoE: Formal Verification of Compositional Robustness and Scalability of Mixture-of-Experts Architecture",
           "authors": [
             "Quang Pham",
@@ -123,7 +266,7 @@
         },
         {
           "bibkey": "kinductiveneural2026",
-          "number": 13,
+          "number": 9,
           "title": "k-Inductive Neural Barrier Certificates for Unknown Nonlinear Dynamics",
           "authors": [
             "Ben Wooding",
@@ -139,97 +282,6 @@
           "status": "published",
           "mentee_coauthored": false,
           "addendum_html": "<strong><em>(selected as oral presentation &mdash; 28% of submissions)</em></strong>",
-          "equal_contrib": []
-        },
-        {
-          "bibkey": "behaverify2026",
-          "number": 12,
-          "title": "BehaVerify: A Formal Verification Tool for Behavior Trees",
-          "authors": [
-            "Serena S. Serbinowska",
-            "Ben Wooding",
-            "Diego Manzanas Lopez",
-            "Luke Nam",
-            "Anne M. Tumlin",
-            "Nicholas K. Potteiger",
-            "Hongchao Zhang",
-            "Taylor T. Johnson"
-          ],
-          "venue": "8th International Workshop on Formal Methods for Autonomous Systems (FMAS)",
-          "year": 2026,
-          "doi": null,
-          "url": null,
-          "arxiv": null,
-          "status": "published",
-          "mentee_coauthored": false,
-          "addendum_html": "<strong><em>(to appear)</em></strong>",
-          "equal_contrib": []
-        },
-        {
-          "bibkey": "safetakeover2026",
-          "number": 11,
-          "title": "Safe Autonomous Takeover for Unknown Descriptor Systems",
-          "authors": [
-            "Ben Wooding",
-            "Mohamad H. Kazma",
-            "Hongchao Zhang",
-            "Ahmad F. Taha",
-            "Meiyi Ma",
-            "Taylor T. Johnson"
-          ],
-          "venue": "IEEE Conference on Decision and Control (CDC)",
-          "year": 2026,
-          "doi": null,
-          "url": null,
-          "arxiv": null,
-          "status": "published",
-          "mentee_coauthored": false,
-          "addendum_html": "<strong><em>(to appear)</em></strong>",
-          "equal_contrib": []
-        },
-        {
-          "bibkey": "semiexplicitdae2026",
-          "number": 10,
-          "title": "Safe Control of Semi-Explicit Differential-Algebraic Systems: Control Barrier Functions with SOS Verification",
-          "authors": [
-            "Mohamad H. Kazma",
-            "Hongchao Zhang",
-            "Abdallah A. Albustami",
-            "Ben Wooding",
-            "Meiyi Ma",
-            "Taylor T. Johnson",
-            "Ahmad F. Taha"
-          ],
-          "venue": "IEEE Conference on Decision and Control (CDC)",
-          "year": 2026,
-          "doi": null,
-          "url": null,
-          "arxiv": null,
-          "status": "published",
-          "mentee_coauthored": false,
-          "addendum_html": "<strong><em>(to appear)</em></strong>",
-          "equal_contrib": []
-        },
-        {
-          "bibkey": "daecbf2026",
-          "number": 9,
-          "title": "Control Barrier Function Synthesis for Differential-Algebraic Systems",
-          "authors": [
-            "Hongchao Zhang",
-            "Mohamad H. Kazma",
-            "Ben Wooding",
-            "Meiyi Ma",
-            "Taylor T. Johnson",
-            "Ahmad F. Taha"
-          ],
-          "venue": "IEEE Conference on Decision and Control (CDC)",
-          "year": 2026,
-          "doi": null,
-          "url": null,
-          "arxiv": null,
-          "status": "published",
-          "mentee_coauthored": false,
-          "addendum_html": "<strong><em>(to appear)</em></strong>",
           "equal_contrib": []
         },
         {
