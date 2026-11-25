@@ -30,8 +30,8 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <link rel="stylesheet" href="/assets/style.css?v=d4c40c25eb">
-  <link rel="stylesheet" href="/assets/research.css?v=d1f0b0eacc">
-  <script src="/assets/research.js?v=21fdb7222d" defer></script>
+  <link rel="stylesheet" href="/assets/research.css?v=dbe7851e5f">
+  <script src="/assets/research.js?v=a863e8d31f" defer></script>
 
   <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -212,9 +212,11 @@
       <div class="research-tabset" data-tabs>
         <div class="research-tabs" role="tablist" aria-label="Research topics">
           <a class="research-tab" role="tab" id="tab-neural-network-verification" href="#neural-network-verification" aria-controls="neural-network-verification" aria-selected="true">Neural network verification</a>
+          <a class="research-tab" role="tab" id="tab-safe-autonomy-and-robotics" href="#safe-autonomy-and-robotics" aria-controls="safe-autonomy-and-robotics" aria-selected="false">Safe autonomy and robotics</a>
           <a class="research-tab" role="tab" id="tab-data-driven-control" href="#data-driven-control" aria-controls="data-driven-control" aria-selected="false">Data-driven control</a>
           <a class="research-tab" role="tab" id="tab-stochastic-systems" href="#stochastic-systems" aria-controls="stochastic-systems" aria-selected="false">Stochastic systems</a>
-          <a class="research-tab" role="tab" id="tab-safe-autonomy-and-robotics" href="#safe-autonomy-and-robotics" aria-controls="safe-autonomy-and-robotics" aria-selected="false">Safe autonomy and robotics</a>
+          <a class="research-tab" role="tab" id="tab-model-reduction" href="#model-reduction" aria-controls="model-reduction" aria-selected="false">Model reduction and abstraction</a>
+          <a class="research-tab" role="tab" id="tab-applications" href="#applications" aria-controls="applications" aria-selected="false">Applications</a>
         </div>
   
         <section class="research-panel" id="neural-network-verification" role="tabpanel" aria-labelledby="tab-neural-network-verification" tabindex="0">
@@ -338,6 +340,92 @@
           </ol>
         </section>
   
+        <section class="research-panel" id="safe-autonomy-and-robotics" role="tabpanel" aria-labelledby="tab-safe-autonomy-and-robotics" tabindex="0">
+          <h2>Safe autonomy and robotics</h2>
+          <p class="research-summary">Bringing formal guarantees onto real robots: certified drone flight, verified robot decision-making, and safety under physical constraints.</p>
+          <div class="prose">
+          <h3>Certified flight through a doorway</h3>
+          <p>A control barrier function acts as a safety filter: it watches the commands sent to a robot and changes them only when needed to keep the robot inside a certified safe set. In a cluttered indoor space a single barrier function struggles. To cover two rooms joined by a narrow doorway it must be either so cautious that little of either room counts as safe, or so loose that its guarantee fails exactly where the space pinches.</p>
+          <p>Our approach instead covers the free space with a <em>union</em> of many small neural control barrier functions, each verified on its own, and certifies which handovers between them are safe. The handovers form a graph, and a mission is a path through it. Each check is exact: it either proves a piece safe or returns a concrete state where it fails, never an inconclusive answer. The same analysis says, before any training, whether a passage is simply too narrow for any such union to carry the drone through it [<a href="#safe-autonomy-and-robotics-ref-1">1</a>].</p>
+          <figure class="research-figure research-video">
+            <video src="/assets/video/NCBF-doorway.mp4" poster="/assets/video/NCBF-doorway.jpg" width="1280" height="720" autoplay muted loop playsinline controls preload="metadata" aria-label="Four synchronised overhead views of a drone flying through a doorway: three flights with the safety filter on stay inside the green certified region, and one flight without the monitor leaves it."></video>
+            <figcaption>Four flights through the lab doorway, played in sync. The green outline is the certified safe set at flight height and the yellow circle marks the drone. In the three flights with the safety filter on, the drone stays inside the set; with the monitor removed (bottom right), it leaves, and the panel turns red.</figcaption>
+          </figure>
+          <p>On the drone, safety is enforced at run time in layers. A tracker steers towards the next waypoint; a supervisor keeps track of which safe region the drone is in and when it may hand over to the next; and the filter adjusts each command so the drone stays inside the active region. If no region can safely be held or entered, the supervisor stops the drone rather than guessing, and it ends the mission only if that stop lasts more than ten seconds. The drone&rsquo;s position comes from visual markers around the lab, fused with its own motion sensors, and the estimate grows less certain the longer the drone goes without seeing a marker.</p>
+          <p>Across flights through the doorway and around a structural column, no logged state left the certified set while the filter was running. With the filter removed, the drone left the set and was logged outside it at more than a hundred locations. Staying inside the safe set is something the filter guarantees, not something the unfiltered controller sometimes manages [<a href="#safe-autonomy-and-robotics-ref-1">1</a>].</p>
+          <h3>Tracking a moving target</h3>
+          <p>The same lab is also where we test drones on targets that move. In this flight a small consumer drone follows a remote-controlled truck around the lab with nobody on the sticks: a detector finds the truck in the drone&rsquo;s camera feed, and a computer flies the drone over Wi-Fi to keep the truck in view, backing off when the truck comes too close.</p>
+          <figure class="research-figure research-video">
+            <video src="/assets/video/drone-truck-tracking.mp4" poster="/assets/video/drone-truck-tracking.jpg" width="1280" height="720" autoplay muted loop playsinline controls preload="metadata" aria-label="View from a small drone following a remote-controlled truck around a lab, with a small inset of the cockpit&rsquo;s view in which a green box marks the truck. Captions and a timeline describe the drone backing off when the truck is close, closing in when it pulls ahead, slowing near furniture and following the truck into a passage."></video>
+            <figcaption>The drone&rsquo;s own camera view as it follows a remote-controlled truck through the lab, shown at twice real speed. The inset at the top right is the cockpit&rsquo;s view of the same camera, with a green box whenever the detector has a lock on the truck. The caption and the timeline at the bottom say what the drone is doing: backing off when the truck is too close, closing in when it pulls ahead, and slowing down near furniture.</figcaption>
+          </figure>
+          <h3>Adversarial attacks on drone following</h3>
+          <p>Detectors like this are neural networks, and a small, deliberate change to their input can fool them. In the flight below, a drone uses its detector to find a small orange car in its camera images and follows the car from about two metres back. Partway through, we attack the detector: each camera image is changed slightly, with every pixel moved by at most 16/255 of its range in the direction that most increases the network&rsquo;s error (an FGSM attack). The changed images look almost the same, but the detector no longer finds the car. The drone loses it and starts searching, first turning on the spot and then flying across the room. When the attack is switched off the car is already out of view, and the drone only finds it again 17 seconds later.</p>
+          <figure class="research-figure research-video">
+            <video src="/assets/video/FGSM-car-follow.mp4" poster="/assets/video/FGSM-car-follow.jpg" width="1280" height="720" autoplay muted loop playsinline controls preload="metadata" aria-label="A drone follows a small car using its onboard car detector. When an adversarial attack on the camera images is switched on, the detector stops seeing the car, the drone loses it and searches the room, and it finds the car again only after the attack has ended."></video>
+            <figcaption>A drone following a small car, replayed at 2.2&times; speed. Left: what the drone&rsquo;s car detector sees in the clean camera image and in the attacked one, with the depth estimated from each image underneath. Right: the lab&rsquo;s ceiling cameras. The timeline at the bottom marks when the attack starts and stops, when the drone loses the car, and when it finds it again.</figcaption>
+          </figure>
+          <p><a href="#neural-network-verification">Robustness verification</a> asks whether <em>any</em> change of that size could alter the detector&rsquo;s answer for a given image. When the proof succeeds, no attack within that bound can work on that image, however it is crafted.</p>
+          <h3>Verifying behaviour trees</h3>
+          <p>Behaviour trees are a popular way to program what a robot does. Small actions and conditions are arranged in a tree, and sequence and fallback nodes decide which one runs next. Trees are easy to build and reuse, but mistakes can hide in how the pieces interact, for example a fallback that is never reached or two branches that fight over the same actuator.</p>
+          <figure class="research-figure">
+            <svg class="rfig rfig-bt" viewBox="0 0 520 250" role="img" aria-labelledby="btfig-title btfig-desc">
+              <title id="btfig-title">A small behaviour tree</title>
+              <desc id="btfig-desc">A fallback node at the root tries a sequence first: if the battery is low, return to base. If that sequence fails because the battery is fine, the fallback moves on to the patrol action.</desc>
+              <g class="rfig-bt-edges">
+                <path d="M280 62 L160 112 M280 62 L430 112 M160 148 L85 192 M160 148 L235 192"/>
+              </g>
+              <rect x="250" y="26" width="60" height="36" rx="6" class="rfig-bt-ctrl"/>
+              <text x="280" y="50" class="rfig-label" text-anchor="middle">?</text>
+              <rect x="130" y="112" width="60" height="36" rx="6" class="rfig-bt-ctrl"/>
+              <text x="160" y="136" class="rfig-label" text-anchor="middle">&#8594;</text>
+              <rect x="370" y="112" width="120" height="36" rx="18" class="rfig-bt-act"/>
+              <text x="430" y="135" class="rfig-label" text-anchor="middle">Patrol</text>
+              <rect x="20" y="192" width="130" height="36" rx="4" class="rfig-bt-cond"/>
+              <text x="85" y="215" class="rfig-label" text-anchor="middle">Battery low?</text>
+              <rect x="170" y="192" width="130" height="36" rx="18" class="rfig-bt-act"/>
+              <text x="235" y="215" class="rfig-label" text-anchor="middle">Return to base</text>
+            </svg>
+            <figcaption>A behaviour tree that returns to base when the battery is low and patrols otherwise. The fallback node (?) tries its children in order until one succeeds; the sequence node (&#8594;) succeeds only if all of its children do.</figcaption>
+          </figure>
+          <p><a href="/software-tools/behaverify-software-tool/">BehaVerify</a> translates a behaviour tree into a model that a model checker can explore exhaustively, so properties such as &ldquo;the robot always returns to base when the battery is low&rdquo; are proved for every possible run. Decisions made by neural networks can be included, and the same specification generates the code that runs on the robot, so the verified model and the deployed behaviour cannot drift apart [<a href="#safe-autonomy-and-robotics-ref-2">2</a>]. We are now extending this to teams of robots whose trees must be composed safely [<a href="#safe-autonomy-and-robotics-ref-3">3</a>].</p>
+          <h3>Safety under physical constraints</h3>
+          <p>Robot arms and many physical systems are described by equations with algebraic constraints, such as links that must stay connected. I helped develop the first method to synthesise control barrier functions for these systems, demonstrated on a three-link manipulator [<a href="#safe-autonomy-and-robotics-ref-4">4</a>]. A companion paper covers semi-explicit differential-algebraic systems, with the barrier functions checked by sum-of-squares verification [<a href="#safe-autonomy-and-robotics-ref-5">5</a>].</p>
+          </div>
+          <p class="research-tools"><strong>Tools:</strong> <a href="/software-tools/behaverify-software-tool/">BehaVerify</a></p>
+          <h3 class="research-refs-title">Papers</h3>
+          <ol class="research-refs">
+            <li id="safe-autonomy-and-robotics-ref-1">
+              <a class="research-ref-title" href="/publications/#safeflight2026">Safe Flight in Cluttered Indoor Environments: A Verified Union of Neural Control Barrier Functions</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong>, Hongchao Zhang, Taylor T. Johnson</span>
+              <span class="research-ref-venue">Under submission, 2026</span>
+            </li>
+            <li id="safe-autonomy-and-robotics-ref-2">
+              <a class="research-ref-title" href="/publications/#behaverify2026">BehaVerify: A Formal Verification Tool for Behavior Trees</a>
+              <span class="research-ref-authors">Serena S. Serbinowska, <strong>Ben Wooding</strong>, Diego Manzanas Lopez, Luke Nam, Anne M. Tumlin, Nicholas K. Potteiger, Hongchao Zhang, Taylor T. Johnson</span>
+              <span class="research-ref-venue">8th International Workshop on Formal Methods for Autonomous Systems (FMAS), 2026 <strong><em>(to appear)</em></strong></span>
+              <span class="research-ref-links"><a href="/papers/behaverify2026.pdf">PDF</a></span>
+            </li>
+            <li id="safe-autonomy-and-robotics-ref-3">
+              <a class="research-ref-title" href="/publications/#multiagentbt2026">Composing Multi-Agent Behavior Trees</a>
+              <span class="research-ref-authors">Jamie Fong, <strong>Ben Wooding</strong>, Taylor T. Johnson</span>
+              <span class="research-ref-venue">Under submission, 2026</span>
+            </li>
+            <li id="safe-autonomy-and-robotics-ref-4">
+              <a class="research-ref-title" href="/publications/#daecbf2026">Control Barrier Function Synthesis for Differential-Algebraic Systems</a>
+              <span class="research-ref-authors">Hongchao Zhang, Mohamad H. Kazma, <strong>Ben Wooding</strong>, Meiyi Ma, Taylor T. Johnson, Ahmad F. Taha</span>
+              <span class="research-ref-venue">IEEE Conference on Decision and Control (CDC), 2026 <strong><em>(to appear)</em></strong></span>
+              <span class="research-ref-links"><a href="/papers/daecbf2026.pdf">PDF</a></span>
+            </li>
+            <li id="safe-autonomy-and-robotics-ref-5">
+              <a class="research-ref-title" href="/publications/#semiexplicitdae2026">Safe Control of Semi-Explicit Differential-Algebraic Systems: Control Barrier Functions with SOS Verification</a>
+              <span class="research-ref-authors">Mohamad H. Kazma, Hongchao Zhang, Abdallah A. Albustami, <strong>Ben Wooding</strong>, Meiyi Ma, Taylor T. Johnson, Ahmad F. Taha</span>
+              <span class="research-ref-venue">IEEE Conference on Decision and Control (CDC), 2026 <strong><em>(to appear)</em></strong></span>
+              <span class="research-ref-links"><a href="/papers/semiexplicitdae2026.pdf">PDF</a></span>
+            </li>
+          </ol>
+        </section>
+
         <section class="research-panel" id="data-driven-control" role="tabpanel" aria-labelledby="tab-data-driven-control" tabindex="0">
           <h2>Data-driven control</h2>
           <p class="research-summary">Safety and stability guarantees when the model of the system is unknown and all we have is data.</p>
@@ -461,88 +549,151 @@
           </ol>
         </section>
   
-        <section class="research-panel" id="safe-autonomy-and-robotics" role="tabpanel" aria-labelledby="tab-safe-autonomy-and-robotics" tabindex="0">
-          <h2>Safe autonomy and robotics</h2>
-          <p class="research-summary">Bringing formal guarantees onto real robots: certified drone flight, verified robot decision-making, and safety under physical constraints.</p>
+        <section class="research-panel" id="model-reduction" role="tabpanel" aria-labelledby="tab-model-reduction" tabindex="0">
+          <h2>Model reduction and abstraction</h2>
+          <p class="research-summary">Design controllers on a small model, with a proof of how closely the large system follows it.</p>
           <div class="prose">
-          <h3>Certified flight through a doorway</h3>
-          <p>A control barrier function acts as a safety filter: it watches the commands sent to a robot and changes them only when needed to keep the robot inside a certified safe set. In a cluttered indoor space a single barrier function struggles. To cover two rooms joined by a narrow doorway it must be either so cautious that little of either room counts as safe, or so loose that its guarantee fails exactly where the space pinches.</p>
-          <p>Our approach instead covers the free space with a <em>union</em> of many small neural control barrier functions, each verified on its own, and certifies which handovers between them are safe. The handovers form a graph, and a mission is a path through it. Each check is exact: it either proves a piece safe or returns a concrete state where it fails, never an inconclusive answer. The same analysis says, before any training, whether a passage is simply too narrow for any such union to carry the drone through it [<a href="#safe-autonomy-and-robotics-ref-1">1</a>].</p>
-          <figure class="research-figure research-video">
-            <video src="/assets/video/NCBF-doorway.mp4" poster="/assets/video/NCBF-doorway.jpg" width="1280" height="720" autoplay muted loop playsinline controls preload="metadata" aria-label="Four synchronised overhead views of a drone flying through a doorway: three flights with the safety filter on stay inside the green certified region, and one flight without the monitor leaves it."></video>
-            <figcaption>Four flights through the lab doorway, played in sync. The green outline is the certified safe set at flight height and the yellow circle marks the drone. In the three flights with the safety filter on, the drone stays inside the set; with the monitor removed (bottom right), it leaves, and the panel turns red.</figcaption>
-          </figure>
-          <p>On the drone, safety is enforced at run time in layers. A tracker steers towards the next waypoint; a supervisor keeps track of which safe region the drone is in and when it may hand over to the next; and the filter adjusts each command so the drone stays inside the active region. If no region can safely be held or entered, the supervisor stops the drone rather than guessing, and it ends the mission only if that stop lasts more than ten seconds. The drone&rsquo;s position comes from visual markers around the lab, fused with its own motion sensors, and the estimate grows less certain the longer the drone goes without seeing a marker.</p>
-          <p>Across flights through the doorway and around a structural column, no logged state left the certified set while the filter was running. With the filter removed, the drone left the set and was logged outside it at more than a hundred locations. Staying inside the safe set is something the filter guarantees, not something the unfiltered controller sometimes manages [<a href="#safe-autonomy-and-robotics-ref-1">1</a>].</p>
-          <h3>Tracking a moving target</h3>
-          <p>The same lab is also where we test drones on targets that move. In this flight a small consumer drone follows a remote-controlled truck around the lab with nobody on the sticks: a detector finds the truck in the drone&rsquo;s camera feed, and a computer flies the drone over Wi-Fi to keep the truck in view, backing off when the truck comes too close.</p>
-          <figure class="research-figure research-video">
-            <video src="/assets/video/drone-truck-tracking.mp4" poster="/assets/video/drone-truck-tracking.jpg" width="1280" height="720" autoplay muted loop playsinline controls preload="metadata" aria-label="View from a small drone following a remote-controlled truck around a lab, with a small inset of the cockpit&rsquo;s view in which a green box marks the truck. Captions and a timeline describe the drone backing off when the truck is close, closing in when it pulls ahead, slowing near furniture and following the truck into a passage."></video>
-            <figcaption>The drone&rsquo;s own camera view as it follows a remote-controlled truck through the lab, shown at twice real speed. The inset at the top right is the cockpit&rsquo;s view of the same camera, with a green box whenever the detector has a lock on the truck. The caption and the timeline at the bottom say what the drone is doing: backing off when the truck is too close, closing in when it pulls ahead, and slowing down near furniture.</figcaption>
-          </figure>
-          <h3>Adversarial attacks on drone following</h3>
-          <p>Detectors like this are neural networks, and a small, deliberate change to their input can fool them. In the flight below, a drone uses its detector to find a small orange car in its camera images and follows the car from about two metres back. Partway through, we attack the detector: each camera image is changed slightly, with every pixel moved by at most 16/255 of its range in the direction that most increases the network&rsquo;s error (an FGSM attack). The changed images look almost the same, but the detector no longer finds the car. The drone loses it and starts searching, first turning on the spot and then flying across the room. When the attack is switched off the car is already out of view, and the drone only finds it again 17 seconds later.</p>
-          <figure class="research-figure research-video">
-            <video src="/assets/video/FGSM-car-follow.mp4" poster="/assets/video/FGSM-car-follow.jpg" width="1280" height="720" autoplay muted loop playsinline controls preload="metadata" aria-label="A drone follows a small car using its onboard car detector. When an adversarial attack on the camera images is switched on, the detector stops seeing the car, the drone loses it and searches the room, and it finds the car again only after the attack has ended."></video>
-            <figcaption>A drone following a small car, replayed at 2.2&times; speed. Left: what the drone&rsquo;s car detector sees in the clean camera image and in the attacked one, with the depth estimated from each image underneath. Right: the lab&rsquo;s ceiling cameras. The timeline at the bottom marks when the attack starts and stops, when the drone loses the car, and when it finds it again.</figcaption>
-          </figure>
-          <p><a href="#neural-network-verification">Robustness verification</a> asks whether <em>any</em> change of that size could alter the detector&rsquo;s answer for a given image. When the proof succeeds, no attack within that bound can work on that image, however it is crafted.</p>
-          <h3>Verifying behaviour trees</h3>
-          <p>Behaviour trees are a popular way to program what a robot does. Small actions and conditions are arranged in a tree, and sequence and fallback nodes decide which one runs next. Trees are easy to build and reuse, but mistakes can hide in how the pieces interact, for example a fallback that is never reached or two branches that fight over the same actuator.</p>
-          <figure class="research-figure">
-            <svg class="rfig rfig-bt" viewBox="0 0 520 250" role="img" aria-labelledby="btfig-title btfig-desc">
-              <title id="btfig-title">A small behaviour tree</title>
-              <desc id="btfig-desc">A fallback node at the root tries a sequence first: if the battery is low, return to base. If that sequence fails because the battery is fine, the fallback moves on to the patrol action.</desc>
-              <g class="rfig-bt-edges">
-                <path d="M280 62 L160 112 M280 62 L430 112 M160 148 L85 192 M160 148 L235 192"/>
-              </g>
-              <rect x="250" y="26" width="60" height="36" rx="6" class="rfig-bt-ctrl"/>
-              <text x="280" y="50" class="rfig-label" text-anchor="middle">?</text>
-              <rect x="130" y="112" width="60" height="36" rx="6" class="rfig-bt-ctrl"/>
-              <text x="160" y="136" class="rfig-label" text-anchor="middle">&#8594;</text>
-              <rect x="370" y="112" width="120" height="36" rx="18" class="rfig-bt-act"/>
-              <text x="430" y="135" class="rfig-label" text-anchor="middle">Patrol</text>
-              <rect x="20" y="192" width="130" height="36" rx="4" class="rfig-bt-cond"/>
-              <text x="85" y="215" class="rfig-label" text-anchor="middle">Battery low?</text>
-              <rect x="170" y="192" width="130" height="36" rx="18" class="rfig-bt-act"/>
-              <text x="235" y="215" class="rfig-label" text-anchor="middle">Return to base</text>
-            </svg>
-            <figcaption>A behaviour tree that returns to base when the battery is low and patrols otherwise. The fallback node (?) tries its children in order until one succeeds; the sequence node (&#8594;) succeeds only if all of its children do.</figcaption>
-          </figure>
-          <p><a href="/software-tools/behaverify-software-tool/">BehaVerify</a> translates a behaviour tree into a model that a model checker can explore exhaustively, so properties such as &ldquo;the robot always returns to base when the battery is low&rdquo; are proved for every possible run. Decisions made by neural networks can be included, and the same specification generates the code that runs on the robot, so the verified model and the deployed behaviour cannot drift apart [<a href="#safe-autonomy-and-robotics-ref-2">2</a>]. We are now extending this to teams of robots whose trees must be composed safely [<a href="#safe-autonomy-and-robotics-ref-3">3</a>].</p>
-          <h3>Safety under physical constraints</h3>
-          <p>Robot arms and many physical systems are described by equations with algebraic constraints, such as links that must stay connected. I helped develop the first method to synthesise control barrier functions for these systems, demonstrated on a three-link manipulator [<a href="#safe-autonomy-and-robotics-ref-4">4</a>]. A companion paper covers semi-explicit differential-algebraic systems, with the barrier functions checked by sum-of-squares verification [<a href="#safe-autonomy-and-robotics-ref-5">5</a>].</p>
+            <p>Formal controller synthesis gives guarantees, but its cost grows quickly with the number of states. One way round this is to design the controller on a smaller model and then prove how far the large system can drift from it. A <em>simulation function</em> is a Lyapunov-like function over both systems that bounds the distance between their outputs, so a guarantee on the small model carries over to the large one with a known error.</p>
+          <h3>Robust simulation functions</h3>
+          <p>Real systems face large disturbances, and these usually make the error bound too loose to be useful. Robust simulation functions with disturbance refinement pass part of the disturbance to the reduced-order model through an interface function, which keeps the error small. With this, a controller for a 9-state area of the New England 39-bus power system was designed from a 3-state model [<a href="#model-reduction-ref-1">1</a>]. The journal version makes the method compositional: assume-guarantee contracts give each subsystem its own controller, and the local guarantees combine into a safety guarantee for the whole network. It also covers nonlinear terms such as the sine functions in power-system models [<a href="#model-reduction-ref-2">2</a>].</p>
+          <h3>Projected systems with algebraic constraints</h3>
+          <p>Many physical systems are written as differential-algebraic equations, where algebraic constraints keep the state on a lower-dimensional manifold. Power networks and robot arms with linked joints are two examples. Standard control barrier functions ignore these constraints and can produce safety filters that are impossible to apply. We project the dynamics onto the constraint manifold and build barrier functions that respect it, checked by sum-of-squares verification [<a href="#model-reduction-ref-3">3</a>]. A companion paper turns the problem into barrier synthesis for an ordinary differential equation with extra compatibility constraints, then lifts the result back to the full state space [<a href="#model-reduction-ref-4">4</a>].</p>
+          <p>My PhD thesis brings the simulation-function work together with its power-system case studies [<a href="#model-reduction-ref-5">5</a>].</p>
           </div>
-          <p class="research-tools"><strong>Tools:</strong> <a href="/software-tools/behaverify-software-tool/">BehaVerify</a></p>
           <h3 class="research-refs-title">Papers</h3>
           <ol class="research-refs">
-            <li id="safe-autonomy-and-robotics-ref-1">
-              <a class="research-ref-title" href="/publications/#safeflight2026">Safe Flight in Cluttered Indoor Environments: A Verified Union of Neural Control Barrier Functions</a>
-              <span class="research-ref-authors"><strong>Ben Wooding</strong>, Hongchao Zhang, Taylor T. Johnson</span>
-              <span class="research-ref-venue">Under submission, 2026</span>
+            <li id="model-reduction-ref-1">
+              <a class="research-ref-title" href="/publications/#robustsimfunc2023">Robust Simulation Functions with Disturbance Refinement</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong>, Abolfazl Lavaei, Vahid Vahidinasab, Sadegh Soudjani</span>
+              <span class="research-ref-venue">European Control Conference (ECC), 2023 <strong><em>(invited session)</em></strong></span>
+              <span class="research-ref-links"><a href="/papers/robustsimfunc2023.pdf">PDF</a> &middot; <a href="https://doi.org/10.23919/ECC57647.2023.10178241">DOI</a></span>
             </li>
-            <li id="safe-autonomy-and-robotics-ref-2">
-              <a class="research-ref-title" href="/publications/#behaverify2026">BehaVerify: A Formal Verification Tool for Behavior Trees</a>
-              <span class="research-ref-authors">Serena S. Serbinowska, <strong>Ben Wooding</strong>, Diego Manzanas Lopez, Luke Nam, Anne M. Tumlin, Nicholas K. Potteiger, Hongchao Zhang, Taylor T. Johnson</span>
-              <span class="research-ref-venue">8th International Workshop on Formal Methods for Autonomous Systems (FMAS), 2026 <strong><em>(to appear)</em></strong></span>
-              <span class="research-ref-links"><a href="/papers/behaverify2026.pdf">PDF</a></span>
+            <li id="model-reduction-ref-2">
+              <a class="research-ref-title" href="/publications/#robustsiminterconnected2026">Robust Simulation Functions for Interconnected Systems under Large Disturbances</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong>, Sadegh Soudjani</span>
+              <span class="research-ref-venue">IEEE Access, 2026</span>
+              <span class="research-ref-links"><a href="/papers/robustsiminterconnected2026.pdf">PDF</a> &middot; <a href="https://doi.org/10.1109/ACCESS.2026.3748385">DOI</a></span>
             </li>
-            <li id="safe-autonomy-and-robotics-ref-3">
-              <a class="research-ref-title" href="/publications/#multiagentbt2026">Composing Multi-Agent Behavior Trees</a>
-              <span class="research-ref-authors">Jamie Fong, <strong>Ben Wooding</strong>, Taylor T. Johnson</span>
-              <span class="research-ref-venue">Under submission, 2026</span>
+            <li id="model-reduction-ref-3">
+              <a class="research-ref-title" href="/publications/#semiexplicitdae2026">Safe Control of Semi-Explicit Differential-Algebraic Systems: Control Barrier Functions with SOS Verification</a>
+              <span class="research-ref-authors">Mohamad H. Kazma, Hongchao Zhang, Abdallah A. Albustami, <strong>Ben Wooding</strong>, Meiyi Ma, Taylor T. Johnson, Ahmad F. Taha</span>
+              <span class="research-ref-venue">IEEE Conference on Decision and Control (CDC), 2026 <strong><em>(to appear)</em></strong></span>
+              <span class="research-ref-links"><a href="/papers/semiexplicitdae2026.pdf">PDF</a></span>
             </li>
-            <li id="safe-autonomy-and-robotics-ref-4">
+            <li id="model-reduction-ref-4">
               <a class="research-ref-title" href="/publications/#daecbf2026">Control Barrier Function Synthesis for Differential-Algebraic Systems</a>
               <span class="research-ref-authors">Hongchao Zhang, Mohamad H. Kazma, <strong>Ben Wooding</strong>, Meiyi Ma, Taylor T. Johnson, Ahmad F. Taha</span>
               <span class="research-ref-venue">IEEE Conference on Decision and Control (CDC), 2026 <strong><em>(to appear)</em></strong></span>
               <span class="research-ref-links"><a href="/papers/daecbf2026.pdf">PDF</a></span>
             </li>
-            <li id="safe-autonomy-and-robotics-ref-5">
-              <a class="research-ref-title" href="/publications/#semiexplicitdae2026">Safe Control of Semi-Explicit Differential-Algebraic Systems: Control Barrier Functions with SOS Verification</a>
-              <span class="research-ref-authors">Mohamad H. Kazma, Hongchao Zhang, Abdallah A. Albustami, <strong>Ben Wooding</strong>, Meiyi Ma, Taylor T. Johnson, Ahmad F. Taha</span>
-              <span class="research-ref-venue">IEEE Conference on Decision and Control (CDC), 2026 <strong><em>(to appear)</em></strong></span>
-              <span class="research-ref-links"><a href="/papers/semiexplicitdae2026.pdf">PDF</a></span>
+            <li id="model-reduction-ref-5">
+              <a class="research-ref-title" href="/publications/#phdthesis2023">Model-Based and Data-Driven Formal Synthesis of Power Systems</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong></span>
+              <span class="research-ref-venue">PhD thesis, School of Computing, Newcastle University, 2023</span>
+              <span class="research-ref-links"><a href="/wp-content/uploads/2025/07/Wooding_Thesis.pdf">PDF</a> &middot; <a href="https://theses.ncl.ac.uk/jspui/handle/10443/6183">theses.ncl.ac.uk</a></span>
+            </li>
+          </ol>
+        </section>
+
+        <section class="research-panel" id="applications" role="tabpanel" aria-labelledby="tab-applications" tabindex="0">
+          <h2>Applications</h2>
+          <p class="research-summary">Where the methods are used: robotics, power, water, air traffic control, medical devices and agriculture.</p>
+          <div class="prose">
+            <p>The methods on the other tabs are tested on real systems. These are the domains where a paper is built around one application.</p>
+          <h3>Drones and robotics</h3>
+          <p>Drones, robot teams and other autonomous vehicles are the most direct application, and they have their own section: see <a href="#safe-autonomy-and-robotics">Safe autonomy and robotics</a>.</p>
+          <h3>Power systems</h3>
+          <p>Power grids must keep their frequency inside tight limits, even after a sudden loss of generation. I designed the first formally verified controller for frequency regulation of a power grid, using a population of electric vehicles to support the Great Britain grid after a large outage [<a href="#applications-ref-1">1</a>]. Model reduction makes larger grids possible: controllers for the New England 39-bus system are designed on reduced-order models with a guaranteed error, first for one area and then for the whole interconnected network [<a href="#applications-ref-2">2</a>, <a href="#applications-ref-3">3</a>].</p>
+          <p>Graph neural networks are now used as fast stand-ins for power flow, optimal power flow and cascading failure analysis. With Anne Tumlin, we extended NNV to verify these networks under changes to both bus and line features, on the IEEE 24-, 39- and 118-bus test cases [<a href="#applications-ref-4">4</a>]. This paper also appears under neural network verification.</p>
+          <p>Buildings are turning from passive loads into active players that generate, store and share energy. Three book chapters cover how to control and manage active buildings, both one at a time and as a population at network level, and how to model smart homes as cyber-physical systems [<a href="#applications-ref-5">5</a>, <a href="#applications-ref-6">6</a>, <a href="#applications-ref-7">7</a>]. My PhD thesis collects the power-system work [<a href="#applications-ref-8">8</a>].</p>
+          <h3>Water systems</h3>
+          <p>Water resource recovery facilities treat wastewater and must meet legal limits even during extreme rainfall. With Anna Laino and colleagues, we proposed a resilience metric based on signal temporal logic. It finds the largest stress a facility can take while still meeting its limits on biochemical and chemical oxygen demand, and it works on data that water companies already collect [<a href="#applications-ref-9">9</a>]. The paper was chosen for the journal's 2024 highlights collection.</p>
+          <h3>Air traffic control</h3>
+          <p>Pilots and controllers talk over a noisy VHF radio channel, and speech-to-text models are starting to transcribe these clearances. For each individual message, we certify how likely radio noise is to change what the model decodes, with a distribution-free bound from repeated noise samples. We produced over 450,000 such certificates for four public speech-to-text systems on two public air traffic control datasets [<a href="#applications-ref-10">10</a>]. This paper also appears under neural network verification.</p>
+          <h3>Medical devices</h3>
+          <p>Implanted medical devices must not fail. CANDO is an optogenetic brain implant that aims to prevent epileptic seizures. My MComp dissertation built a formal model of its controller from the source code and found design errors such as unreachable states and wrong transitions [<a href="#applications-ref-11">11</a>]. A later paper proved the command interface of its chip correct in the Isabelle/HOL theorem prover [<a href="#applications-ref-12">12</a>].</p>
+          <h3>Agriculture</h3>
+          <p>Robotti is a semi-autonomous agricultural robot. We used data from its field tests to tune the parameters of a co-simulation model of the robot, so that the model matches the real machine more closely [<a href="#applications-ref-13">13</a>].</p>
+          </div>
+          <h3 class="research-refs-title">Papers</h3>
+          <ol class="research-refs">
+            <li id="applications-ref-1">
+              <a class="research-ref-title" href="/publications/#evfreq2020">Formal Controller Synthesis for Frequency Regulation Utilising Electric Vehicles</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong>, Vahid Vahidinasab, Sadegh Soudjani</span>
+              <span class="research-ref-venue">Smart Energy Systems and Technologies (SEST), 2020</span>
+              <span class="research-ref-links"><a href="/papers/evfreq2020.pdf">PDF</a> &middot; <a href="https://doi.org/10.1109/SEST48500.2020.9203234">DOI</a> &middot; <a href="https://arxiv.org/abs/2005.04053">arXiv:2005.04053</a></span>
+            </li>
+            <li id="applications-ref-2">
+              <a class="research-ref-title" href="/publications/#robustsimfunc2023">Robust Simulation Functions with Disturbance Refinement</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong>, Abolfazl Lavaei, Vahid Vahidinasab, Sadegh Soudjani</span>
+              <span class="research-ref-venue">European Control Conference (ECC), 2023 <strong><em>(invited session)</em></strong></span>
+              <span class="research-ref-links"><a href="/papers/robustsimfunc2023.pdf">PDF</a> &middot; <a href="https://doi.org/10.23919/ECC57647.2023.10178241">DOI</a></span>
+            </li>
+            <li id="applications-ref-3">
+              <a class="research-ref-title" href="/publications/#robustsiminterconnected2026">Robust Simulation Functions for Interconnected Systems under Large Disturbances</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong>, Sadegh Soudjani</span>
+              <span class="research-ref-venue">IEEE Access, 2026</span>
+              <span class="research-ref-links"><a href="/papers/robustsiminterconnected2026.pdf">PDF</a> &middot; <a href="https://doi.org/10.1109/ACCESS.2026.3748385">DOI</a></span>
+            </li>
+            <li id="applications-ref-4">
+              <a class="research-ref-title" href="/publications/#gnnverif2026">Reachability-Based Formal Verification of Graph Neural Networks with Node and Edge Features</a>
+              <span class="research-ref-authors">Anne M. Tumlin, <strong>Ben Wooding</strong>, Zhenxuan Shao, Diego Manzanas Lopez, Tyler Derr, Taylor T. Johnson</span>
+              <span class="research-ref-venue">3rd International Symposium on AI Verification (SAIV), 2026</span>
+              <span class="research-ref-links"><a href="/papers/gnnverif2026.pdf">PDF</a> &middot; <a href="https://doi.org/10.1007/978-3-032-32357-6_13">DOI</a> &middot; <a href="https://arxiv.org/abs/2609.30079">arXiv:2609.30079</a></span>
+            </li>
+            <li id="applications-ref-5">
+              <a class="research-ref-title" href="/publications/#activebuildingmgmt2021">Control and management of active buildings</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong>, Vahid Vahidinasab, Milad Kazemi, Sadegh Soudjani</span>
+              <span class="research-ref-venue">Active Building Energy Systems: Operation and Control, 2021</span>
+              <span class="research-ref-links"><a href="/papers/activebuildingmgmt2021.pdf">PDF</a> &middot; <a href="https://doi.org/10.1007/978-3-030-79742-3_7">DOI</a></span>
+            </li>
+            <li id="applications-ref-6">
+              <a class="research-ref-title" href="/publications/#activebuildingnetwork2021">Operation and control of a population of active buildings at network level</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong>, Vahid Vahidinasab, Sadegh Soudjani</span>
+              <span class="research-ref-venue">Active Building Energy Systems: Operation and Control, 2021</span>
+              <span class="research-ref-links"><a href="/papers/activebuildingnetwork2021.pdf">PDF</a> &middot; <a href="https://doi.org/10.1007/978-3-030-79742-3_8">DOI</a></span>
+            </li>
+            <li id="applications-ref-7">
+              <a class="research-ref-title" href="/publications/#smarthomes2025">Cyber-Physical Smart Homes/Buildings</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong>, Vahid Vahidinasab, Milad Kazemi, Sadegh Soudjani</span>
+              <span class="research-ref-venue">Cyber-Physical Structures of Power Applications, 2025</span>
+              <span class="research-ref-links"><a href="/papers/smarthomes2025.pdf">PDF</a> &middot; <a href="https://salford-repository.worktribe.com/output/3778004">salford-repository.worktribe.com</a></span>
+            </li>
+            <li id="applications-ref-8">
+              <a class="research-ref-title" href="/publications/#phdthesis2023">Model-Based and Data-Driven Formal Synthesis of Power Systems</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong></span>
+              <span class="research-ref-venue">PhD thesis, School of Computing, Newcastle University, 2023</span>
+              <span class="research-ref-links"><a href="/wp-content/uploads/2025/07/Wooding_Thesis.pdf">PDF</a> &middot; <a href="https://theses.ncl.ac.uk/jspui/handle/10443/6183">theses.ncl.ac.uk</a></span>
+            </li>
+            <li id="applications-ref-9">
+              <a class="research-ref-title" href="/publications/#wrrf2025">A logic-based resilience metric for water resource recovery facilities</a>
+              <span class="research-ref-authors">Anna S. Laino, <strong>Ben Wooding</strong>, Sadegh Soudjani, Russell J. Davenport</span>
+              <span class="research-ref-venue">Environmental Science: Water Research &amp; Technology, 2025 <span class="accent"><strong>[1 of 20 papers (8.5% of eligible papers) chosen for the themed collection &mdash; Highlights from Environmental Science: Water Research &amp; Technology in 2024]</strong></span></span>
+              <span class="research-ref-links"><a href="/papers/wrrf2025.pdf">PDF</a> &middot; <a href="https://doi.org/10.1039/D4EW00649F">DOI</a></span>
+            </li>
+            <li id="applications-ref-10">
+              <a class="research-ref-title" href="/publications/#roger2026">Roger? Probabilistic Certificates for Safety-Critical ATC Speech Recognition</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong>, Taylor T. Johnson</span>
+              <span class="research-ref-venue">Transactions on Machine Learning Research (TMLR), 2026</span>
+              <span class="research-ref-links"><a href="/papers/roger2026.pdf">PDF</a></span>
+            </li>
+            <li id="applications-ref-11">
+              <a class="research-ref-title" href="/publications/#mcompthesis2019">Using Formal Methods and Proof to Verify a CANDO Epilepsy Medical Device</a>
+              <span class="research-ref-authors"><strong>Ben Wooding</strong></span>
+              <span class="research-ref-venue">MComp dissertation, Newcastle University, 2019</span>
+              <span class="research-ref-links"><a href="/papers/mcompthesis2019.pdf">PDF</a></span>
+            </li>
+            <li id="applications-ref-12">
+              <a class="research-ref-title" href="/publications/#cando3isabelle2025">Proving the Correctness of CANDO3 Optrode Command Interface VDM model in Isabelle/HOL</a>
+              <span class="research-ref-authors">Leo Freitas, <strong>Ben Wooding</strong>, Bill Scott, Andrew Pollitt, Patrick Degenaar</span>
+              <span class="research-ref-venue">23rd Overture Workshop and 3rd INTO-CPS Association Brainstorm, 2025</span>
+              <span class="research-ref-links"><a href="/papers/cando3isabelle2025.pdf">PDF</a> &middot; <a href="https://www.overturetool.org/workshops/23rd-overture-workshop.html">www.overturetool.org</a></span>
+            </li>
+            <li id="applications-ref-13">
+              <a class="research-ref-title" href="/publications/#robotti2021">Tuning Robotti: the machine-assisted exploration of parameter spaces in multi-models of a cyber-physical system</a>
+              <span class="research-ref-authors">Sergiy Bogomolov, John Fitzgerald, Frederik F. Foldager, Carl Gamble, Peter Gorm Larsen, Kenneth Pierce, Paulius Stankaitis, <strong>Ben Wooding</strong></span>
+              <span class="research-ref-venue">18th International Overture Workshop, 2021 <strong><em>(authors alphabetical)</em></strong></span>
+              <span class="research-ref-links"><a href="/papers/robotti2021.pdf">PDF</a> &middot; <a href="https://arxiv.org/abs/2101.07261">arXiv:2101.07261</a> &middot; <a href="https://www.overturetool.org/workshops/18th-overture-workshop.html">www.overturetool.org</a></span>
             </li>
           </ol>
         </section>

@@ -56,9 +56,17 @@
   root.addEventListener("click", function (e) {
     var a = e.target.closest('.research-panel a[href^="#"]');
     if (!a) return;
-    var ref = document.getElementById(a.getAttribute("href").slice(1));
+    var id = a.getAttribute("href").slice(1);
+    var ref = document.getElementById(id);
     if (!ref) return;
     e.preventDefault();
+    // A link to another topic opens that topic's tab.
+    var i = panels.indexOf(ref);
+    if (i >= 0) {
+      select(i, { hash: true });
+      tabs[i].scrollIntoView({ block: "nearest" });
+      return;
+    }
     ref.setAttribute("tabindex", "-1");
     ref.focus({ preventScroll: true });
     ref.scrollIntoView({ block: "center" });
