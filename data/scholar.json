@@ -5,8 +5,8 @@
   "profile_url": "https://scholar.google.com/citations?user=YhOmz1kAAAAJ&hl=en",
   "fetched_at": "2026-11-24T21:14:24Z",
   "stats": {
-    "citations_all": 286,
-    "citations_recent": 276,
+    "citations_all": 287,
+    "citations_recent": 277,
     "h_index_all": 10,
     "h_index_recent": 10,
     "i10_index_all": 11,
@@ -37,7 +37,7 @@
       "authors": "AM Tumlin*, S Sasaki*, B Wooding, DM Lopez, MU Zubair, N Hashemi, ...",
       "venue": "24th International Symposium on Automated Technology for Verification and …, 2026",
       "year": 2026,
-      "citations": 1,
+      "citations": 2,
       "citation_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=YhOmz1kAAAAJ&pagesize=100&citation_for_view=YhOmz1kAAAAJ:hC7cP41nSMkC",
       "cluster_link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17583973038430151841"
     },
