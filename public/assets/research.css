@@ -149,7 +149,7 @@
 .research-refs li:focus { background: var(--accent-tint); border-radius: var(--radius); outline: none; }
 .research-ref-title { display: block; font-weight: 600; text-decoration: none; }
 .research-ref-title:hover { text-decoration: underline; }
-.research-ref-authors, .research-ref-venue { display: block; font-size: 0.9rem; color: var(--muted); }
+.research-ref-authors, .research-ref-venue, .research-ref-links { display: block; font-size: 0.9rem; color: var(--muted); }
 
 .research-more { margin-top: var(--s-6); color: var(--muted); }
 
