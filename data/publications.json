@@ -162,12 +162,12 @@
           ],
           "venue": "International Symposium on Automated Technology for Verification and Analysis (ATVA)",
           "year": 2026,
-          "doi": null,
+          "doi": "10.1007/978-3-032-45597-0_5",
           "url": null,
           "arxiv": "2609.30050",
           "status": "published",
           "mentee_coauthored": false,
-          "addendum_html": "<strong><em>(to appear; <sup>*</sup>co-first authors)</em></strong>",
+          "addendum_html": "<strong><em>(<sup>*</sup>co-first authors)</em></strong>",
           "equal_contrib": [
             1,
             2
@@ -189,12 +189,12 @@
           ],
           "venue": "8th International Workshop on Formal Methods for Autonomous Systems (FMAS)",
           "year": 2026,
-          "doi": null,
+          "doi": "10.4204/EPTCS.457.7",
           "url": null,
-          "arxiv": null,
+          "arxiv": "2611.22403",
           "status": "published",
           "mentee_coauthored": false,
-          "addendum_html": "<strong><em>(to appear)</em></strong>",
+          "addendum_html": null,
           "equal_contrib": []
         },
         {
